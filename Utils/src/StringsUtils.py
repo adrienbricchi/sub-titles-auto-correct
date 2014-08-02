@@ -121,6 +121,88 @@ def fix_quotes(string) :
     return res
 
 
+def fix_question_marks(string) :
+    """ *? => *_?
+    
+    Args:
+        string: the string to fix. 
+    
+    Returns:
+        string
+        
+    """
+    res = string
+        
+    if "?" in string :
+        res = re.sub(r"(\w)(\?)", "\\1 \\2", res)
+    
+    return res
+
+
+def fix_exclamation_marks(string) :
+    """ *! => *_!
+    
+    Args:
+        string: the string to fix. 
+    
+    Returns:
+        string
+        
+    """
+    res = string
+        
+    if "!" in string :
+        res = re.sub(r"(\w)(\!)", "\\1 \\2", res)
+    
+    return res
+
+
+def fix_dialog_hyphen(string) :
+    """Add a space after the hyphen at the beginning of a line.
+    
+    Will fix :
+       *  -text       :   - text
+       *  -"text      :   - "text
+       *  <i>-text    :   <i>- text
+       *  -<i>text    :   - <i>text
+       *  "-text      :   "- text
+       *  "-... text  :   "- ... text
+    
+    Args:
+        string: the string to fix. 
+    
+    Returns:
+        string
+        
+    """
+    res = string
+
+    if string.startswith("\"-") :
+        if not string.startswith("\"- ") :
+            res = re.sub(r"^\"-(\w)", "\"- \\1", res)
+    
+    elif string.startswith("-\"") :
+        if not string.startswith("-\" ") :
+            res = re.sub(r"^-\"(\w)", "- \"\\1", res)
+            
+    elif string.startswith("-<i>") :
+        if not string.startswith("-<i> ") :
+            res = re.sub(r"^-<i>(\w)", "- <i>\\1", res)
+
+    elif string.startswith("<i>-") :
+        if not string.startswith("<i>- ") :
+            res = re.sub(r"^<i>-(\w)", "<i>- \\1", res)
+            
+    elif string.startswith("-...") :
+        res = re.sub(r"^-\.\.\.", "- ...", res)
+            
+    elif string.startswith("-") :
+        if not string.startswith("- ") :
+            res = re.sub(r"^-(\w)", "- \\1", res)
+        
+    return res
+
+
 def fix_letter_followed_by_space(string, letter) :
     """fix wrong space insert after OCR
     
@@ -133,7 +215,7 @@ def fix_letter_followed_by_space(string, letter) :
         
     """
     res = string
-    
+
     if (letter + " ") in res :
         if letter in letter_space_upp_plural_list :
             for word in letter_space_upp_plural_list[letter] :

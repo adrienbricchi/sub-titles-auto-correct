@@ -81,28 +81,38 @@ def translate(string) :
 
 start = datetime.datetime.now()
 #11-20
-rootpath = "C:/Users/Adrien/Desktop/Seinfeld 7/"
+rootpath = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
 files = get_files_with_type(get_all_files(rootpath, 3), "srt")
 
 print("")
 
 for file in files :
-    if file.endswith("note.srt") or file.endswith("notes.srt") :
-        lines = get_file_text(file, True)
-        print("\n" + file)
-        new_lines = []
-        for line in lines :
-            line = fix_triple_dots(line)
-            line = fix_recurent_mispells(line)
-            line = fix_letter_followed_by_space(line, "f")
-            line = fix_letter_followed_by_space(line, "W")
-            line = fix_letter_followed_by_space(line, "C")
-            line = fix_letter_followed_by_space(line, "G")
-            line = fix_letter_followed_by_space(line, "Z")
-            line = fix_letter_followed_by_space(line, "V")
-            line = fix_quotes(line)
-            new_lines.append(line)
+    
+    #backup_file(file)
+    lines = get_file_text(file, True)
+    print("\n" + file)
+    
+    new_lines = []
+    
+    for line in lines :
+        
+        line = fix_triple_dots(line)
+        line = fix_recurent_mispells(line)
+        line = fix_letter_followed_by_space(line, "f")
+        line = fix_letter_followed_by_space(line, "W")
+        line = fix_letter_followed_by_space(line, "C")
+        line = fix_letter_followed_by_space(line, "G")
+        line = fix_letter_followed_by_space(line, "Z")
+        line = fix_letter_followed_by_space(line, "V")
+        line = fix_quotes(line)
+        line = fix_question_marks(line)
+        line = fix_exclamation_marks(line)
+        line = fix_dialog_hyphen(line)
+        new_lines.append(line)
             
+    write_file(file, new_lines)
+    
+    
 end = datetime.datetime.now()
 print(end - start)
 
