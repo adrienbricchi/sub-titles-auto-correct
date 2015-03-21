@@ -6,35 +6,32 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
-import sys
-import re
-from FileUtils import *
-from StringsUtils import *
+from Utils.FileUtils import *
+from Utils.StringsUtils import *
 
 
-''' ================================================== '''
-
-
-def build_menus(root) :
+def build_menus(root):
     main_menu = Menu(root, tearoff=0)
     file_menu = Menu(main_menu, tearoff=0)
     file_menu.add_command(label=translate("Exit"), command=root.quit)
     main_menu.add_cascade(label=translate("File"), menu=file_menu)
-    root.config(menu = main_menu)
+    root.config(menu=main_menu)
     return
 
 
-def build_main_panel(root, path) :
+def build_main_panel(root, path):
     listbox = Listbox(root)
     listbox.pack()
-    for item in get_all_files(path) :
+
+    for item in get_all_files(path, -1):
         listbox.insert(END, os.path.basename(item))
+
     champ_label = Label(root, text="Loaded")
     champ_label.pack()
     return
 
 
-def build_and_launch_interface() :
+def build_and_launch_interface():
     root = Tk()
     build_menus(root)
     build_main_panel(root, "C:/")
@@ -42,7 +39,7 @@ def build_and_launch_interface() :
     return
 
 
-def open_files(root) :
+def open_files(root):
     LoadFileDialog.files_select_event(root, None)
     return
 
@@ -54,15 +51,15 @@ french = {}
 french["Exit"] = "Quitter" 
 french["File"] = "Fichier" 
 
-if (locale.getdefaultlocale('LANGUAGE')[0] == 'fr_FR') :
-    current_dictionnary = french
+if locale.getdefaultlocale('LANGUAGE')[0] == 'fr_FR':
+    current_dictionary = french
 
 
-def translate(string) :
+def translate(string):
     translation = string
-    if (current_dictionnary != None) :
-        if (string in current_dictionnary) :
-            translation = current_dictionnary[string]
+    if current_dictionary:
+        if string in current_dictionary:
+            translation = current_dictionary[string]
         else :
             print("missing translation for '" + string + "'")
     return translation
@@ -71,50 +68,53 @@ def translate(string) :
 ''' ================================================== '''
 
 
-#debug_path = "C:/Users/Adrien/Desktop/Corrector/"
-#build_and_launch_interface()
+# debug_path = "C:/Users/Adrien/Desktop/Corrector/"
+# build_and_launch_interface()
 
-#for file in get_files_with_type(get_all_files("C:/", 0), "srt") :
+# for file in get_files_with_type(get_all_files("C:/", 0), "srt") :
 
-#file = "C:/note.srt"
-#backup_file(file)
+# file = "C:/note.srt"
+# backup_file(file)
 
 start = datetime.datetime.now()
-#11-20
+# 11-20
 rootpath = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
 files = get_files_with_type(get_all_files(rootpath, 3), "srt")
 
 print("")
 
-for file in files :
+for file in files:
     
-    #backup_file(file)
+    # backup_file(file)
     lines = get_file_text(file, True)
     print("\n" + file)
     
     new_lines = []
     
-    for line in lines :
-        
-        line = fix_triple_dots(line)
-        line = fix_recurent_mispells(line)
-        line = fix_letter_followed_by_space(line, "f")
-        line = fix_letter_followed_by_space(line, "W")
-        line = fix_letter_followed_by_space(line, "C")
-        line = fix_letter_followed_by_space(line, "G")
-        line = fix_letter_followed_by_space(line, "Z")
-        line = fix_letter_followed_by_space(line, "V")
-        line = fix_quotes(line)
-        line = fix_question_marks(line)
-        line = fix_exclamation_marks(line)
-        line = fix_dialog_hyphen(line)
+    for line in lines:
+        if is_text_line(line):
+           
+            line = fix_triple_dots(line)
+            line = fix_common_misspells(line)
+            line = fix_letter_followed_by_space(line, "f")
+            line = fix_letter_followed_by_space(line, "W")
+            line = fix_letter_followed_by_space(line, "C")
+            line = fix_letter_followed_by_space(line, "G")
+            line = fix_letter_followed_by_space(line, "Z")
+            line = fix_letter_followed_by_space(line, "V")
+            line = fix_quotes(line)
+            line = fix_question_marks(line)
+            line = fix_exclamation_marks(line)
+            line = fix_dialog_hyphen(line)
+            line = fix_numbers(line)
+                 
         new_lines.append(line)
-            
+                
     write_file(file, new_lines)
     
     
 end = datetime.datetime.now()
 print(end - start)
 
-#print(new_lines)
-#write_file(file, new_lines)
+# print(new_lines)
+# write_file(file, new_lines)

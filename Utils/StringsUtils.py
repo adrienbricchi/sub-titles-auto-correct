@@ -5,82 +5,65 @@
 import re                                                   # regular expression
 
 
-''' ================================================== '''
-
-
-def print_single_letters(string) :
+def print_single_letters(string):
     """print single letters, ignoring A-a-I.
-    
-    Args:
-        string: the string to check.
-            
+
+    :param string: the string to check.
+    :return:
     """
-    if (re.match("\\b[b-zB-HJ-Z]\\b", string)) :
+    if re.match(r"\b[b-zB-HJ-Z]\b", string):
         print(string)
-        
+
     return
 
 
-def remove_space_from_word(string, word, check_uppercase, check_plural) :
+def remove_space_from_word(string, word, check_uppercase, check_plural):
     """remove space from word
     "test" with every option will be checked by the regex "\b([Tt])est(?=s?\b)"
-    
-    Args:
-        string: the word to fix.
-        boolean: check uppercase on the first letter
-        boolean: check even with an "s" at the end
-    
-    Returns:
-        string
-        
+
+    :param string: string, input sentence to fix
+    :param word: string, the word to fix.
+    :param check_uppercase: boolean, check uppercase on the first letter
+    :param check_plural: boolean, check even with an "s" at the end
+    :return:
     """
-    regex = word
-    
-    if check_uppercase :
-        regex = "\\b([" + word[:1].upper() + word[:1] + "])" + word[1:]
-    else :
-        regex = "\\b(" + word[:1] + ")" + word[1:]
-        
-    if check_plural :
-        regex += "(?=s?\\b)"
-    else :
-        regex += "\\b"
-    
-    return re.sub(r"" + regex, "\\1" + word[1:].replace(" ", ""), string)
+    if check_uppercase:
+        regex = r"\b([" + word[:1].upper() + word[:1] + "])" + word[1:]
+    else:
+        regex = r"\b(" + word[:1] + ")" + word[1:]
+
+    if check_plural:
+        regex += r"(?=s?\b)"
+    else:
+        regex += r"\b"
+
+    return re.sub(r"" + regex, r"\1" + word[1:].replace(" ", ""), string)
 
 
-def is_text_line(text) :
-    """True if not empty, not a sub number, and not a timecode
-    
-    Args:
-        string: the string to test. 
-    
-    Returns:
-        boolean
-        
+def is_text_line(text):
+    """True if not empty, not a sub number, and not a time code
+
+    :param text: string, the string to test.
+    :return: boolean
     """
     regexs = []
     regexs.append('^$')
     regexs.append('^\d{1,4}$')
     regexs.append('^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$')
-    
-    for regex in regexs : 
-        if (re.match(regex, text)) :
+
+    for regex in regexs:
+        if re.match(regex, text):
             return False
-        
+
     return True
 
 
-def fix_triple_dots(string) :
-    """ . . . => ...
+def fix_triple_dots(string):
+    """. . . => ...
     Add a space after the three dots, if there isn't, and if isn't before a linebreak
-    
-    Args:
-        string: the string to fix. 
-    
-    Returns:
-        string
-        
+
+    :param string: the string to fix.
+    :return: string
     """
     res = string.replace(". . .", "...")
     res = res.replace(".. .", "...")
@@ -90,76 +73,62 @@ def fix_triple_dots(string) :
     return res
 
 
-def fix_quotes(string) :
+def fix_quotes(string):
     """ '' => ", and fix spaces.
-    
-    Args:
-        string: the string to fix. 
-    
-    Returns:
-        string
-        
+    Add a space after the three dots, if there isn't, and if isn't before a linebreak
+
+    :param string: the string to fix.
+    :return: string
     """
     res = string
-    
+
     res = res.replace("' '", "\"")
     res = res.replace("''", "\"")
-    
-    if re.search("\s'", res) :
-        for word in quote_preceeded_by_space_list :
-            res = re.sub(r"\s'" + word + "\\b", "'" + word, res)
-    
-    #if re.search("'\s", res) :, "s", "m"
-    #    for word in quote_followed_by_space_list :
-    #        re.sub(r"'\s" + word, word + "'", string)
 
-    if re.search("'\s", res) :
+    if re.search("\s'", res):
+        for word in quote_word_list:
+            res = re.sub(r"\s'" + word + r"\b", "'" + word, res)
+
+    if re.search("'\s", res):
         print("Unknown '_ : " + res.replace("\n", ""))
-    if re.search("\s'", res) :
+    if re.search("\s'", res):
         print("Unknown _' : " + res.replace("\n", ""))
-    
+
     return res
 
 
-def fix_question_marks(string) :
+def fix_question_marks(string):
     """ *? => *_?
-    
-    Args:
-        string: the string to fix. 
-    
-    Returns:
-        string
-        
+    Add a space after the three dots, if there isn't, and if isn't before a linebreak
+
+    :param string: the string to fix.
+    :return: string
     """
     res = string
-        
-    if "?" in string :
-        res = re.sub(r"(\w)(\?)", "\\1 \\2", res)
-    
+
+    if "?" in string:
+        res = re.sub(r"(\w)(\?)", r"\1 \2", res)
+
     return res
 
 
-def fix_exclamation_marks(string) :
+def fix_exclamation_marks(string):
     """ *! => *_!
-    
-    Args:
-        string: the string to fix. 
-    
-    Returns:
-        string
-        
+
+    :param string: the string to fix.
+    :return: string
     """
     res = string
-        
-    if "!" in string :
-        res = re.sub(r"(\w)(\!)", "\\1 \\2", res)
-    
+
+    if "!" in string:
+        res = re.sub(r"(\w)(!)", r"\1 \2", res)
+
     return res
 
 
-def fix_dialog_hyphen(string) :
+def fix_dialog_hyphen(string):
     """Add a space after the hyphen at the beginning of a line.
-    
+
     Will fix :
        *  -text       :   - text
        *  -"text      :   - "text
@@ -167,98 +136,100 @@ def fix_dialog_hyphen(string) :
        *  -<i>text    :   - <i>text
        *  "-text      :   "- text
        *  "-... text  :   "- ... text
-    
-    Args:
-        string: the string to fix. 
-    
-    Returns:
-        string
-        
+
+    :param string: the string to fix.
+    :return: string
     """
     res = string
 
-    if string.startswith("\"-") :
-        if not string.startswith("\"- ") :
-            res = re.sub(r"^\"-(\w)", "\"- \\1", res)
-    
-    elif string.startswith("-\"") :
-        if not string.startswith("-\" ") :
-            res = re.sub(r"^-\"(\w)", "- \"\\1", res)
-            
-    elif string.startswith("-<i>") :
-        if not string.startswith("-<i> ") :
-            res = re.sub(r"^-<i>(\w)", "- <i>\\1", res)
+    if string.startswith("\"-"):
+        if not string.startswith("\"- "):
+            res = re.sub(r"^\"-(\w)", r"\"- \1", res)
 
-    elif string.startswith("<i>-") :
-        if not string.startswith("<i>- ") :
-            res = re.sub(r"^<i>-(\w)", "<i>- \\1", res)
-            
-    elif string.startswith("-...") :
+    elif string.startswith("-\""):
+        if not string.startswith("-\" "):
+            res = re.sub(r"^-\"(\w)", r"- \"\1", res)
+
+    elif string.startswith("-<i>"):
+        if not string.startswith("-<i> "):
+            res = re.sub(r"^-<i>(\w)", r"- <i>\1", res)
+
+    elif string.startswith("<i>-"):
+        if not string.startswith("<i>- "):
+            res = re.sub(r"^<i>-(\w)", r"<i>- \1", res)
+
+    elif string.startswith("-..."):
         res = re.sub(r"^-\.\.\.", "- ...", res)
-            
-    elif string.startswith("-") :
-        if not string.startswith("- ") :
-            res = re.sub(r"^-(\w)", "- \\1", res)
-        
+
+    elif string.startswith("-"):
+        if not string.startswith("- "):
+            res = re.sub(r"^-(\w)", r"- \1", res)
+
     return res
 
 
-def fix_letter_followed_by_space(string, letter) :
+def fix_letter_followed_by_space(string, letter):
     """fix wrong space insert after OCR
-    
-    Args:
-        string: the string to fix.
-        string: the letter to check. 
-    
-    Returns:
-        string
-        
+
+    :param string: the string to fix.
+    :param letter: string, the letter to check.
+    :return: string
     """
     res = string
 
-    if (letter + " ") in res :
-        if letter in letter_space_upp_plural_list :
-            for word in letter_space_upp_plural_list[letter] :
+    if (letter + " ") in res:
+        if letter in letter_space_upp_plural_list:
+            for word in letter_space_upp_plural_list[letter]:
                 res = remove_space_from_word(res, word, True, True)
-        
-        if letter in letter_space_upp_list :
-            for word in letter_space_upp_list[letter] :
+
+        if letter in letter_space_upp_list:
+            for word in letter_space_upp_list[letter]:
                 res = remove_space_from_word(res, word, True, False)
-        
-        if letter in letter_space_list :
-            for word in letter_space_list[letter] :
+
+        if letter in letter_space_list:
+            for word in letter_space_list[letter]:
                 res = remove_space_from_word(res, word, False, False)
 
-        if letter in letter_space_plural_list :    
-            for word in letter_space_plural_list[letter] :
-                res = remove_space_from_word(res, word, False, True)        
-    
-    #if (letter + " ") in res :
-    #    print("Unknown " + letter + "_ : " + res.replace("\n", ""))
-        
+        if letter in letter_space_plural_list:
+            for word in letter_space_plural_list[letter]:
+                res = remove_space_from_word(res, word, False, True)
+
+    # if (letter + " ") in res :
+    #     print("Unknown " + letter + "_ : " + res.replace("\n", ""))
+
     return res
 
 
-def fix_recurent_mispells(string) :
-    """hardcoded fixes of many errors
-    
-    Args:
-        string: the string to fix. 
-    
-    Returns:
-        string
-        
+def fix_common_misspells(string):
+    """Hardcoded fixes of many errors
+
+    :param string: the string to fix.
+    :return: string
     """
     res = string
- 
-    for error in recurent_mispells :
-        regex = "\\b"+ error + "\\b"
-        res = re.sub(r""+ regex, recurent_mispells[error], res)
- 
+
+    for error in recurent_mispells:
+        regex = r"\b" + error + r"\b"
+        res = re.sub(r"" + regex, recurent_mispells[error], res)
+
     return res
 
 
-''' === Recurent errors ============================ '''
+def fix_numbers(string):
+    """Fix spaces in numbers
+
+    :param string: the string to fix.
+    :return: string
+    """
+    res = string
+
+    if re.match("\d\s", string):
+        print("found number : " + re.sub(r"(?<=\d)\s(?=[\d\.:,-])", "", string))
+
+    return res
+
+
+# region Common errors
 
 
 recurent_mispells = {"Seinfelf" : "Seinfeld",                   "Everybofy" : "Everybody",
@@ -281,10 +252,16 @@ recurent_mispells = {"Seinfelf" : "Seinfeld",                   "Everybofy" : "E
                      "Islanf" : "Island",                       "Weffing" : "Wedding",
                      "Worlf" : "World",                         "Minf" : "Mind"}
 
+quote_word_list =     ["ll", "s", "m", "t", "re", "ve"]
 
-quote_preceeded_by_space_list =     ["ll", "s", "m", "t", "re", "ve"]
+number_succeeded_by_space_list =     ["h", "\.", ",", "min", "-", ":", "kg", "g", "l", "'", "th", "cd", "st"
+                                      "rd", "ème", "cd", "er", "ère"]
 
-''' === Letter followed by space ===================== '''
+
+# endregion Common errors
+
+
+# region Letter followed by space
 
 
 C_space_upp_plural_list = []
@@ -341,3 +318,5 @@ letter_space_list =             {"C" : C_space_list,
                                  "f" : f_space_list,
                                  "G" : G_space_list}
 
+
+# endregion Letter followed by space
