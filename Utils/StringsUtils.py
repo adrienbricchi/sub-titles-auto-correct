@@ -3,6 +3,12 @@
 
 
 import re                                                   # regular expression
+from Utils.FileUtils import *
+import os
+
+
+strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
+letters_maps_directory = strings_maps_directory + 'LettersMaps/'
 
 
 def print_single_letters(string):
@@ -86,7 +92,7 @@ def fix_quotes(string):
     res = res.replace("''", "\"")
 
     if re.search("\s'", res):
-        for word in quote_word_list:
+        for word in get_csv_words(strings_maps_directory + 'quote_word_trusted.csv'):
             res = re.sub(r"\s'" + word + r"\b", "'" + word, res)
 
     if re.search("'\s", res):
@@ -178,24 +184,20 @@ def fix_letter_followed_by_space(string, letter):
     res = string
 
     if (letter + " ") in res:
-        if letter in letter_space_upp_plural_list:
-            for word in letter_space_upp_plural_list[letter]:
-                res = remove_space_from_word(res, word, True, True)
+        for word in get_csv_words(letters_maps_directory + letter + '_space_upp_plural.csv'):
+            res = remove_space_from_word(res, word, True, True)
 
-        if letter in letter_space_upp_list:
-            for word in letter_space_upp_list[letter]:
-                res = remove_space_from_word(res, word, True, False)
+        for word in get_csv_words(letters_maps_directory + letter + '_space_upp.csv'):
+            res = remove_space_from_word(res, word, True, False)
 
-        if letter in letter_space_list:
-            for word in letter_space_list[letter]:
-                res = remove_space_from_word(res, word, False, False)
+        for word in get_csv_words(letters_maps_directory + letter + '_space.csv'):
+            res = remove_space_from_word(res, word, False, False)
 
-        if letter in letter_space_plural_list:
-            for word in letter_space_plural_list[letter]:
-                res = remove_space_from_word(res, word, False, True)
+        for word in get_csv_words(letters_maps_directory + letter + '_space_plural.csv'):
+            res = remove_space_from_word(res, word, False, True)
 
-    # if (letter + " ") in res :
-    #     print("Unknown " + letter + "_ : " + res.replace("\n", ""))
+    # if (letter + " ") in res:
+        # print("Unknown " + letter + "_ : " + res.replace("\n", ""))
 
     return res
 
@@ -208,9 +210,9 @@ def fix_common_misspells(string):
     """
     res = string
 
-    for error in recurent_mispells:
-        regex = r"\b" + error + r"\b"
-        res = re.sub(r"" + regex, recurent_mispells[error], res)
+    for error in get_csv_words_map(strings_maps_directory + 'common_misspells.csv'):
+        regex = r"\b" + error[0] + r"\b"
+        res = re.sub(r"" + regex, error[1], res)
 
     return res
 
@@ -228,95 +230,3 @@ def fix_numbers(string):
 
     return res
 
-
-# region Common errors
-
-
-recurent_mispells = {"Seinfelf" : "Seinfeld",                   "Everybofy" : "Everybody",
-                     "Raymonf" : "Raymond",                     "Alreafy" : "Already",
-                     "Wilf Wilf West" : "Wild Wild West",       "Richarfs" : "Richards",
-                     "Rockforf" : "Rockford",                   "Hollywoof" : "Hollywood",
-                     "J AG" : "JAG",                            "Anf" : "And",
-                     "Touchef" : "Touched",                     "Maf About You" : "Mad About You",
-                     "3rf Rock from" : "3rd Rock from",         "Deaf Again" : "Dead Again",
-                     "Provifence" : "Providence",               "The Mutef Heart" : "The Muted Heart",
-                     "Heaf of State" : "Head of State",         "anf" : "and",
-                     "Accorfing" : "According",                 "Marbleheaf Manor" : "Marblehead Manor",
-                     "Ef Woof" : "Ed Wood",                     "The Lanf Before Time" : "The Land Before Time",
-                     "The Prife of" : "The Pride of",           "Methof & Ref" : "Method & Red",
-                     "Colf Case" : "Cold Case",                 "Davif Letterman" : "David Letterman",
-                     "The Bolf and" : "The Bold and",           "Baf Boys" : "Bad Boys",
-                     "Cagef Birf" : "Caged Bird",               "Hanf That Rocks the Crafle" : "Hand That Rocks the Cradle",
-                     "War of the Worlfs" : "War of the Worlds", "Arrestef Development" : "Arrested Development",
-                     "Harolf and Maufe" : "Harold and Maude",   "Frienfs" : "Friends",
-                     "Islanf" : "Island",                       "Weffing" : "Wedding",
-                     "Worlf" : "World",                         "Minf" : "Mind"}
-
-quote_word_list =     ["ll", "s", "m", "t", "re", "ve"]
-
-number_succeeded_by_space_list =     ["h", "\.", ",", "min", "-", ":", "kg", "g", "l", "'", "th", "cd", "st"
-                                      "rd", "ème", "cd", "er", "ère"]
-
-
-# endregion Common errors
-
-
-# region Letter followed by space
-
-
-C_space_upp_plural_list = []
-
-C_space_upp_list =        []
-
-C_space_plural_list =     []
-
-C_space_list =            ["C yphers", "C ynthia"]
-
-f_space_upp_plural_list = ["inf ormation", "eff ect", "ref er", "suff er", "eff ect", "lif e", "perf orming",
-                          "perf ormer", "inf orm", "ref erence", "prof essional", "diff erent", "inf ection",
-                          "perf ormance", "off er", "coff ee", "comf ortable", "off ender", "coff eemaker",
-                          "caff eine", "def ense", "chauff eur", "inf o", "unif orm", "aff ect", "off ensive",
-                          "lif etime", "aff ection", "knif e", "perf ect", "rif e", "misf ortune", "perf orm",
-                          "aff ord"]
-
-f_space_upp_list =        ["bef ore", "ref erred", "saf e", "ref erring", "ref erenced", "perf ormed", "off ered",
-                           "pref erred", "inf ected", "def ormities", "saf ety", "unf ortunately", "def eated",
-                           "theref ore", "aff ected", "transf ormed", "saf ely", "diff ered"]
-
-f_space_plural_list =     ["f eeling", "f eature", "f eel", "f ounding", "f ootage", "f ormer", "f ermentation",
-                           "f ood", "f ollow", "f ound", "f orm", "f oreign", "f etishist", "Conf ederate", "f ence",
-                           "f emale", "f eaturing", "f oul", "f ellow", "f ounder", "f ee", "f olk", "f ormat",
-                           "f orce"]
-
-f_space_list =            ["Leif er", "f or", "f oot", "f eet", "f ollowing", "Radf ord", "Schaff er", "f our",
-                           "Seinf eld", "Calif ornia", "f ew", "f ounded", "f eatured", "wif e", "f ourth", "Bedf ord",
-                           "Phif er", "Mulf ord", "Movief one", "Jennif er", "f ocusing", "f elt", "f ormulated",
-                           "f ormed"]
-
-G_space_upp_plural_list = []
-
-G_space_upp_list =        []
-
-G_space_plural_list =     ["G irl", "G iant"]
-
-G_space_list =            ["G ilmore", "G illigan", "G igolo"]
-
-
-letter_space_upp_plural_list =  {"C" : C_space_upp_plural_list,
-                                 "f" : f_space_upp_plural_list,
-                                 "G" : G_space_upp_plural_list}
-
-letter_space_upp_list =         {"C" : C_space_upp_list,
-                                 "f" : f_space_upp_list,
-                                 "G" : G_space_upp_list}
-
-letter_space_plural_list =      {"C" : C_space_plural_list,
-                                 "f" : f_space_plural_list,
-                                 "G" : G_space_plural_list}
-
-letter_space_list =             {"C" : C_space_list,
-                                 "f" : f_space_list,
-                                 "G" : G_space_list}
-
-
-# endregion Letter followed by space

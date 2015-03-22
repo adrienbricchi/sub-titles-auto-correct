@@ -93,7 +93,7 @@ for file in files:
     
     for line in lines:
         if is_text_line(line):
-           
+
             line = fix_triple_dots(line)
             line = fix_common_misspells(line)
             line = fix_letter_followed_by_space(line, "f")
