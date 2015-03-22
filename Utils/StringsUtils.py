@@ -180,21 +180,23 @@ def fix_quotes(string):
     :param string: the string to fix.
     :return: string
     """
-    res = string
+    string = string.replace("' '", "\"")
+    string = string.replace("''", "\"")
 
-    res = res.replace("' '", "\"")
-    res = res.replace("''", "\"")
-
-    if re.search("\s'", res):
+    if re.search("\s'", string):
         for word in get_csv_words(strings_maps_directory + 'quote_word_trusted.csv'):
-            res = re.sub(r"\s'" + word + r"\b", "'" + word, res)
+            string = re.sub(r"\s'" + word + r"\b", "'" + word, string)
 
-    if re.search("'\s", res):
-        print("Unknown '_ : " + res.replace("\n", ""))
-    if re.search("\s'", res):
-        print("Unknown _' : " + res.replace("\n", ""))
+    if re.search("'\s", string):
+        for word in get_csv_words(strings_maps_directory + 'word_quote_trusted.csv'):
+            string = re.sub(r"\b" + word + r"'\s", word + "'", string)
 
-    return res
+    if re.search("'\s", string):
+        print("Unknown '_ : " + string.replace("\n", ""))
+    if re.search("\s'", string):
+        print("Unknown _' : " + string.replace("\n", ""))
+
+    return string
 
 
 def fix_question_marks(string):
@@ -327,8 +329,13 @@ def fix_numbers(string):
     :param string: the string to fix.
     :return: string
     """
-    while re.match("\d\s+\d", string):
-        string = re.sub(r"(?<=\d)\s(?=\s*[\d\.:,-])", "", string)
+    string = re.sub(r"(?<=\d)\s(?=[\s\d])", "", string)
+
+    for word in get_csv_words(strings_maps_directory + 'number_succeeded_by_space_trusted.csv'):
+        string = re.sub(r"(?<=\d)\s(?=" + word + r"\b)", "", string)
+
+    while re.match(r".*\b\d+\d\d\d\d\b.*", string):
+        string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
 
     return string
 
@@ -337,16 +344,20 @@ def fix_capital_i_to_l(string):
     """Checks for wrong capital I and switch them with l
 
     Will fix :
-       *  -aIb      :   - alb
-       *  -abI      :   - abl
-       *  -aIIIb    :   - alllb
-       *  -abIII    :   - ablII
+       *  aIb      :   alb
+       *  abI      :   abl
+       *  AIb      :   Alb
+       *  aIIIb    :   alllb
+       *  abIII    :   ablII
 
     :param string: the string to fix.
     :return: string
     """
     while re.match(r".*" + lower_case + "I.*", string):
         string = re.sub(r"(?<=" + lower_case + r")I", "l", string)
+
+    while re.match(r".*" + upper_case + "I" + lower_case + r".*", string):
+        string = re.sub(r"(?<=" + upper_case + r")I(?=" + lower_case + r")", "l", string)
 
     return string
 
