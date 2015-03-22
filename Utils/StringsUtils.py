@@ -296,19 +296,29 @@ def fix_letter_followed_by_space(string, letter):
     return res
 
 
+def fix_common_errors(string):
+    """Hardcoded fixes that can't be set in common mispells
+
+    :param string: the string to fix.
+    :return: string
+    """
+    string = re.sub(r"<i>(\s*)</i>", r"\1", string)
+    string = re.sub(r"</i>(\s*)<i>", r"\1", string)
+
+    return string
+
+
 def fix_common_misspells(string):
     """Hardcoded fixes of many errors
 
     :param string: the string to fix.
     :return: string
     """
-    res = string
-
     for error in get_csv_words_map(strings_maps_directory + 'common_misspells.csv'):
         regex = r"\b" + error[0] + r"\b"
-        res = re.sub(r"" + regex, error[1], res)
+        string = re.sub(r"" + regex, error[1], string)
 
-    return res
+    return string
 
 
 def fix_numbers(string):
@@ -318,9 +328,7 @@ def fix_numbers(string):
     :return: string
     """
     while re.match("\d\s+\d", string):
-        print("found number : " + string)
         string = re.sub(r"(?<=\d)\s(?=\s*[\d\.:,-])", "", string)
-        print("fixed number : " + string)
 
     return string
 
