@@ -6,7 +6,7 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
-from Utils.FileUtils import *
+# from Utils.FileUtils import *
 from Utils.StringsUtils import *
 
 
@@ -60,7 +60,7 @@ def translate(string):
     if current_dictionary:
         if string in current_dictionary:
             translation = current_dictionary[string]
-        else :
+        else:
             print("missing translation for '" + string + "'")
     return translation
 

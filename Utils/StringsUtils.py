@@ -52,12 +52,12 @@ def is_text_line(text):
     :param text: string, the string to test.
     :return: boolean
     """
-    regexs = []
-    regexs.append('^$')
-    regexs.append('^\d{1,4}$')
-    regexs.append('^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$')
+    regex_list = []
+    regex_list.append('^$')
+    regex_list.append('^\d{1,4}$')
+    regex_list.append('^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$')
 
-    for regex in regexs:
+    for regex in regex_list:
         if re.match(regex, text):
             return False
 
@@ -229,4 +229,3 @@ def fix_numbers(string):
         print("found number : " + re.sub(r"(?<=\d)\s(?=[\d\.:,-])", "", string))
 
     return res
-
