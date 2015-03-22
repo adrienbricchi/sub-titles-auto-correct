@@ -10,9 +10,25 @@ import subprocess
 
 strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
 letters_maps_directory = strings_maps_directory + 'LettersMaps/'
+lower_case = r"[a-zàâäçéèêëîïôöùûü]"
+upper_case = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 
 
 # region Utils
+
+
+def print_if_found_char(string, char):
+    """logs warn if the string contains given char
+
+    :param string: the string to check.
+    :param char: the char to log
+    :return:
+    """
+
+    if char in string:
+        print("Found " + char + " in : " + string)
+
+    return
 
 
 def print_single_letters(string):
@@ -102,7 +118,19 @@ def get_csv_words_map(csv_file_path):
     return result_list
 
 
-def launch_ms_word_spell_check(path, language):
+def launch_ms_word_spell_check(path):
+
+    if path.endswith("fre.srt") or path.endswith("fr.srt"):
+        launch_ms_word_spell_check_with_language(path, "fr")
+    elif path.endswith("en.srt") or path.endswith("eng.srt"):
+        launch_ms_word_spell_check_with_language(path, "eng")
+    else:
+        launch_ms_word_spell_check_with_language(path, "undefined")
+
+    return
+
+
+def launch_ms_word_spell_check_with_language(path, language):
     command_line = ""
 
     office2010_location = "C:\Program Files\Microsoft Office\Office14\Winword.exe"
@@ -289,10 +317,43 @@ def fix_numbers(string):
     :param string: the string to fix.
     :return: string
     """
-    res = string
+    while re.match("\d\s+\d", string):
+        print("found number : " + string)
+        string = re.sub(r"(?<=\d)\s(?=\s*[\d\.:,-])", "", string)
+        print("fixed number : " + string)
 
-    if re.match("\d\s", string):
-        print("found number : " + re.sub(r"(?<=\d)\s(?=[\d\.:,-])", "", string))
+    return string
 
-    return res
 
+def fix_capital_i_to_l(string):
+    """Checks for wrong capital I and switch them with l
+
+    Will fix :
+       *  -aIb      :   - alb
+       *  -abI      :   - abl
+       *  -aIIIb    :   - alllb
+       *  -abIII    :   - ablII
+
+    :param string: the string to fix.
+    :return: string
+    """
+    while re.match(r".*" + lower_case + "I.*", string):
+        string = re.sub(r"(?<=" + lower_case + r")I", "l", string)
+
+    return string
+
+
+def fix_l_to_capital_i(string):
+    """Checks for wrong capital I and switch them with l
+
+    Will fix :
+       *  -AlB      :   - AIB
+       *  -AllB     :   - AIIB
+
+    :param string: the string to fix.
+    :return: string
+    """
+    while re.match(r".*" + upper_case + "l+" + upper_case + ".*", string):
+        string = re.sub(r"(?<=" + upper_case + r")l(?=l*" + upper_case + r")", "I", string)
+
+    return string

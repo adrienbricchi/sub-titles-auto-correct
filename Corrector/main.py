@@ -84,10 +84,9 @@ files = get_files_with_type(get_all_files(rootpath, 3), "srt")
 print("")
 
 for file in files:
-    
+    # print(file)
     # backup_file(file)
     lines = get_file_text(file, True)
-    print("\n" + file)
     
     new_lines = []
     
@@ -95,6 +94,7 @@ for file in files:
         if is_text_line(line):
 
             line = fix_triple_dots(line)
+            line = fix_numbers(line)
             line = fix_common_misspells(line)
             line = fix_letter_followed_by_space(line, "f")
             line = fix_letter_followed_by_space(line, "W")
@@ -102,17 +102,20 @@ for file in files:
             line = fix_letter_followed_by_space(line, "G")
             line = fix_letter_followed_by_space(line, "Z")
             line = fix_letter_followed_by_space(line, "V")
+            line = fix_capital_i_to_l(line)
+            line = fix_l_to_capital_i(line)
             line = fix_quotes(line)
             line = fix_question_marks(line)
             line = fix_exclamation_marks(line)
             line = fix_dialog_hyphen(line)
-            line = fix_numbers(line)
-                 
+
+            print_if_found_char(line, "°")
+            print_if_found_char(line, "£")
+
         new_lines.append(line)
-                
+
     write_file(file, new_lines)
-    # launch_ms_word_spell_check(files[0], "eng")
-    
+    # launch_ms_word_spell_check(file)
     
 end = datetime.datetime.now()
 print(end - start)
