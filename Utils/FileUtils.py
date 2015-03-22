@@ -5,7 +5,6 @@ import hashlib               # get MD5 hash of a file
 import shutil                # copy backup files
 import fnmatch               # recursive research in folders
 import os                    # system calls (open directories)
-import csv                   # to open StringsMaps
 
 
 def get_file_text(path, mode_lines):
@@ -116,44 +115,3 @@ def get_md5(file):
             md5.update(chunk)
             
     return md5.digest()
-
-
-def get_csv_words(csv_file_path):
-    """Safe file word list
-
-    :param csv_file_path: source path
-    :return: list of strings, or empty list
-    """
-    result_list = []
-
-    if os.path.isfile(csv_file_path):
-        with open(csv_file_path, newline='') as csv_file:
-            csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
-            for word in csv_file_reader:
-                result_list.append(word[0])
-
-    return result_list
-
-
-def get_csv_words_map(csv_file_path):
-    """Safe file list
-
-    :param csv_file_path: source path
-    :return: list of strings arrays, or empty list
-    """
-    result_list = []
-
-    if os.path.isfile(csv_file_path):
-        with open(csv_file_path, newline='') as csv_file:
-            csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
-            for words in csv_file_reader:
-                result_list.append(words)
-
-    return result_list
-
-# region Tests
-
-# for file in get_all_srt_files(get_all_files("C:/", 0)) :
-#    print(get_md5(file))
-
-# endregion Tests

@@ -6,7 +6,7 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
-# from Utils.FileUtils import *
+from Utils.FileUtils import *
 from Utils.StringsUtils import *
 
 
@@ -111,6 +111,7 @@ for file in files:
         new_lines.append(line)
                 
     write_file(file, new_lines)
+    # launch_ms_word_spell_check(files[0], "eng")
     
     
 end = datetime.datetime.now()

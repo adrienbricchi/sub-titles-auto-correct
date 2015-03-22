@@ -3,12 +3,16 @@
 
 
 import re                                                   # regular expression
-from Utils.FileUtils import *
 import os
+import csv
+import subprocess
 
 
 strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
 letters_maps_directory = strings_maps_directory + 'LettersMaps/'
+
+
+# region Utils
 
 
 def print_single_letters(string):
@@ -62,6 +66,68 @@ def is_text_line(text):
             return False
 
     return True
+
+
+def get_csv_words(csv_file_path):
+    """Safe file word list
+
+    :param csv_file_path: source path
+    :return: list of strings, or empty list
+    """
+    result_list = []
+
+    if os.path.isfile(csv_file_path):
+        with open(csv_file_path, newline='') as csv_file:
+            csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
+            for word in csv_file_reader:
+                result_list.append(word[0])
+
+    return result_list
+
+
+def get_csv_words_map(csv_file_path):
+    """Safe file list
+
+    :param csv_file_path: source path
+    :return: list of strings arrays, or empty list
+    """
+    result_list = []
+
+    if os.path.isfile(csv_file_path):
+        with open(csv_file_path, newline='') as csv_file:
+            csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
+            for words in csv_file_reader:
+                result_list.append(words)
+
+    return result_list
+
+
+def launch_ms_word_spell_check(path, language):
+    command_line = ""
+
+    office2010_location = "C:\Program Files\Microsoft Office\Office14\Winword.exe"
+    if os.path.isfile(office2010_location):
+        command_line += office2010_location
+
+    if command_line == "":
+        print("MSOffice is missing, or no known MSOffice found")
+        return
+
+    command_line += ' /t "' + path + '"'
+
+    if language == "fr":
+        command_line += ' /mSrtFrSpellCheck'
+    elif language == "eng":
+        command_line += ' /mSrtEngSpellCheck'
+    else:
+        command_line += ' /mSrtSpellCheck'
+
+    print(command_line)
+    subprocess.call(command_line)
+    return
+
+
+# endregion Utils
 
 
 def fix_triple_dots(string):
@@ -229,3 +295,4 @@ def fix_numbers(string):
         print("found number : " + re.sub(r"(?<=\d)\s(?=[\d\.:,-])", "", string))
 
     return res
+
