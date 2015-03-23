@@ -3,9 +3,9 @@
 
 
 import re                                                   # regular expression
-import os
 import csv
 import subprocess
+from Utils.FileUtils import *
 
 
 strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
@@ -37,7 +37,7 @@ def print_single_letters(string):
     :param string: the string to check.
     :return:
     """
-    if re.match(r"\b[b-zB-HJ-Z]\b", string):
+    if re.search(r"\b[b-zB-HJ-Z]\b", string):
         print(string)
 
     return
@@ -84,6 +84,22 @@ def is_text_line(text):
     return True
 
 
+def get_csv_words_with_language(csv_file_path, language):
+    """Safe file word list, gets regular and localized csv content
+
+    :param csv_file_path: source path
+    :param language: language csv file suffix
+    :return: list of strings, or empty list
+    """
+    localized_csv_path = re.sub(r"\.csv$", "." + language + ".csv", csv_file_path)
+
+    result_list = []
+    result_list += get_csv_words(csv_file_path)
+    result_list += get_csv_words(localized_csv_path)
+
+    return result_list
+
+
 def get_csv_words(csv_file_path):
     """Safe file word list
 
@@ -119,14 +135,7 @@ def get_csv_words_map(csv_file_path):
 
 
 def launch_ms_word_spell_check(path):
-
-    if path.endswith("fre.srt") or path.endswith("fr.srt"):
-        launch_ms_word_spell_check_with_language(path, "fr")
-    elif path.endswith("en.srt") or path.endswith("eng.srt"):
-        launch_ms_word_spell_check_with_language(path, "eng")
-    else:
-        launch_ms_word_spell_check_with_language(path, "undefined")
-
+    launch_ms_word_spell_check_with_language(path, get_file_language(path))
     return
 
 
@@ -173,30 +182,30 @@ def fix_triple_dots(string):
     return res
 
 
-def fix_quotes(string):
+def fix_quotes(line, language):
     """ '' => ", and fix spaces.
     Add a space after the three dots, if there isn't, and if isn't before a linebreak
 
-    :param string: the string to fix.
+    :param line: the string to fix.
     :return: string
     """
-    string = string.replace("' '", "\"")
-    string = string.replace("''", "\"")
+    line = line.replace("' '", "\"")
+    line = line.replace("''", "\"")
 
-    if re.search("\s'", string):
-        for word in get_csv_words(strings_maps_directory + 'quote_word_trusted.csv'):
-            string = re.sub(r"\s'" + word + r"\b", "'" + word, string)
+    if re.search("\s'", line):
+        for word in get_csv_words_with_language(strings_maps_directory + 'quote_word_trusted.csv', language):
+            line = re.sub(r"\s'" + word + r"\b", "'" + word, line)
 
-    if re.search("'\s", string):
-        for word in get_csv_words(strings_maps_directory + 'word_quote_trusted.csv'):
-            string = re.sub(r"\b" + word + r"'\s", word + "'", string)
+    if re.search("'\s", line):
+        for word in get_csv_words_with_language(strings_maps_directory + 'word_quote_trusted.csv', language):
+            line = re.sub(r"\b" + word + r"'\s", word + "'", line)
 
-    if re.search("'\s", string):
-        print("Unknown '_ : " + string.replace("\n", ""))
-    if re.search("\s'", string):
-        print("Unknown _' : " + string.replace("\n", ""))
+    if re.search("'\s", line):
+        print("Unknown '_ : " + line.replace("\n", ""))
+    if re.search("\s'", line):
+        print("Unknown _' : " + line.replace("\n", ""))
 
-    return string
+    return line
 
 
 def fix_question_marks(string):
@@ -270,30 +279,41 @@ def fix_dialog_hyphen(string):
     return res
 
 
-def fix_letter_followed_by_space(string, letter):
+def fix_letter_followed_by_space(line, letter, language):
     """fix wrong space insert after OCR
 
-    :param string: the string to fix.
+    :param line: the string to fix.
     :param letter: string, the letter to check.
     :return: string
     """
-    res = string
+    res = line
 
     if (letter + " ") in res:
-        for word in get_csv_words(letters_maps_directory + letter + '_space_upp_plural.csv'):
+        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_upp_plural.csv', language):
             res = remove_space_from_word(res, word, True, True)
 
-        for word in get_csv_words(letters_maps_directory + letter + '_space_upp.csv'):
+        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_upp.csv', language):
             res = remove_space_from_word(res, word, True, False)
 
-        for word in get_csv_words(letters_maps_directory + letter + '_space.csv'):
+        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space.csv', language):
             res = remove_space_from_word(res, word, False, False)
 
-        for word in get_csv_words(letters_maps_directory + letter + '_space_plural.csv'):
+        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_plural.csv', language):
             res = remove_space_from_word(res, word, False, True)
 
-    # if (letter + " ") in res:
-        # print("Unknown " + letter + "_ : " + res.replace("\n", ""))
+    if letter + " " in line:
+        to_check = line
+        to_check = re.sub(r"\b\w+(?<!" + letter + r")\b", "", to_check)
+        to_check = re.sub(r"\W", r" ", to_check)
+
+        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_trusted.csv', language):
+            to_check = re.sub(r"\b[" + word[:1] + word[:1].upper() + r"]" + word[1:] + r"\b", "", to_check)
+
+        to_check = re.sub(r"^\s", "", to_check)
+        to_check = re.sub(r"\s\s+", r" ", to_check)
+
+        if not re.match(r"^\s*$", to_check):
+            print("Unknown " + letter + "_ : " + line.replace("\n", ""))
 
     return res
 
@@ -334,7 +354,10 @@ def fix_numbers(string):
     for word in get_csv_words(strings_maps_directory + 'number_succeeded_by_space_trusted.csv'):
         string = re.sub(r"(?<=\d)\s(?=" + word + r"\b)", "", string)
 
-    while re.match(r".*\b\d+\d\d\d\d\b.*", string):
+    if re.search(r"\d\d\d\d\d", string):
+        print("Big number : " + string.replace("\n", ""))
+
+    while re.search(r"\b\d+\d\d\d\d\b", string):
         string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
 
     return string
@@ -353,10 +376,10 @@ def fix_capital_i_to_l(string):
     :param string: the string to fix.
     :return: string
     """
-    while re.match(r".*" + lower_case + "I.*", string):
+    while re.search(r"" + lower_case + "I", string):
         string = re.sub(r"(?<=" + lower_case + r")I", "l", string)
 
-    while re.match(r".*" + upper_case + "I" + lower_case + r".*", string):
+    while re.search(r"" + upper_case + "I" + lower_case, string):
         string = re.sub(r"(?<=" + upper_case + r")I(?=" + lower_case + r")", "l", string)
 
     return string
@@ -372,7 +395,7 @@ def fix_l_to_capital_i(string):
     :param string: the string to fix.
     :return: string
     """
-    while re.match(r".*" + upper_case + "l+" + upper_case + ".*", string):
+    while re.search(r"" + upper_case + "l+" + upper_case, string):
         string = re.sub(r"(?<=" + upper_case + r")l(?=l*" + upper_case + r")", "I", string)
 
     return string

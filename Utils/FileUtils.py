@@ -115,3 +115,19 @@ def get_md5(file):
             md5.update(chunk)
             
     return md5.digest()
+
+
+def get_file_language(path):
+    """Defines subtitle language, from suffix file name.
+
+    :param path: file path
+    :return:
+    """
+    language = "undefined"
+
+    if path.endswith("fre.srt") or path.endswith("fr.srt"):
+        language = "fr"
+    elif path.endswith("en.srt") or path.endswith("eng.srt"):
+        language = "eng"
+
+    return language
