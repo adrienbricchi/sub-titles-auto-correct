@@ -5,13 +5,14 @@
 import re                                                   # regular expression
 import csv
 import subprocess
-from Utils.FileUtils import *
+import os
 
 
 strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
 letters_maps_directory = strings_maps_directory + 'LettersMaps/'
 lower_case = r"[a-zàâäçéèêëîïôöùûü]"
 upper_case = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
+file_cache = {}
 
 
 # region Utils
@@ -108,11 +109,31 @@ def get_csv_words(csv_file_path):
     """
     result_list = []
 
+    if csv_file_path in file_cache:
+        return file_cache[csv_file_path]
+
     if os.path.isfile(csv_file_path):
         with open(csv_file_path, newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for word in csv_file_reader:
                 result_list.append(word[0])
+
+    file_cache[csv_file_path] = result_list
+    return result_list
+
+
+def get_csv_words_map_with_language(csv_file_path, language):
+    """Safe file word list, gets regular and localized csv content
+
+    :param csv_file_path: source path
+    :param language: language csv file suffix
+    :return: list of strings arrays, or empty list
+    """
+    localized_csv_path = re.sub(r"\.csv$", "." + language + ".csv", csv_file_path)
+
+    result_list = []
+    result_list += get_csv_words_map(csv_file_path)
+    result_list += get_csv_words_map(localized_csv_path)
 
     return result_list
 
@@ -125,21 +146,20 @@ def get_csv_words_map(csv_file_path):
     """
     result_list = []
 
+    if csv_file_path in file_cache:
+        return file_cache[csv_file_path]
+
     if os.path.isfile(csv_file_path):
         with open(csv_file_path, newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for words in csv_file_reader:
                 result_list.append(words)
 
+    file_cache[csv_file_path] = result_list
     return result_list
 
 
-def launch_ms_word_spell_check(path):
-    launch_ms_word_spell_check_with_language(path, get_file_language(path))
-    return
-
-
-def launch_ms_word_spell_check_with_language(path, language):
+def launch_ms_word_spell_check(path, language):
     command_line = ""
 
     office2010_location = "C:\Program Files\Microsoft Office\Office14\Winword.exe"
@@ -330,13 +350,13 @@ def fix_common_errors(string):
     return string
 
 
-def fix_common_misspells(string):
+def fix_common_misspells(string, language):
     """Hardcoded fixes of many errors
 
     :param string: the string to fix.
     :return: string
     """
-    for error in get_csv_words_map(strings_maps_directory + 'common_misspells.csv'):
+    for error in get_csv_words_map_with_language(strings_maps_directory + 'common_misspells.csv', language):
         regex = r"\b" + error[0] + r"\b"
         string = re.sub(r"" + regex, error[1], string)
 
@@ -381,6 +401,12 @@ def fix_capital_i_to_l(string):
 
     while re.search(r"" + upper_case + "I" + lower_case, string):
         string = re.sub(r"(?<=" + upper_case + r")I(?=" + lower_case + r")", "l", string)
+
+    while re.search(r"" + lower_case + r"\sI" + lower_case, string):
+        string = re.sub(r"(?<=" + lower_case + r"\s)I(?=" + lower_case + r")", "l", string)
+
+    while re.search(r",\sI" + lower_case, string):
+        string = re.sub(r"(?<=,\s)I(?=" + lower_case + r")", "l", string)
 
     return string
 

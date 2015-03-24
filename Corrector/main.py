@@ -6,6 +6,7 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
+from Utils.FileUtils import *
 from Utils.StringsUtils import *
 
 
@@ -77,8 +78,8 @@ def translate(string):
 
 start = datetime.datetime.now()
 # 11-20
-rootpath = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
-files = get_files_with_type(get_all_files(rootpath, 0), "srt")
+root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
+files = get_files_with_type(get_all_files(root_path, 0), "srt")
 
 print("")
 
@@ -96,15 +97,15 @@ for file in files:
             line = fix_triple_dots(line)
             line = fix_numbers(line)
             line = fix_common_errors(line)
-            line = fix_common_misspells(line)
+            line = fix_capital_i_to_l(line)
+            line = fix_l_to_capital_i(line)
+            line = fix_common_misspells(line, file_language)
             line = fix_letter_followed_by_space(line, "f", file_language)
             line = fix_letter_followed_by_space(line, "W", file_language)
             line = fix_letter_followed_by_space(line, "C", file_language)
             line = fix_letter_followed_by_space(line, "G", file_language)
             line = fix_letter_followed_by_space(line, "Z", file_language)
             line = fix_letter_followed_by_space(line, "V", file_language)
-            line = fix_capital_i_to_l(line)
-            line = fix_l_to_capital_i(line)
             line = fix_quotes(line, file_language)
             line = fix_question_marks(line)
             line = fix_exclamation_marks(line)
@@ -116,7 +117,7 @@ for file in files:
         new_lines.append(line)
 
     write_file(file, new_lines)
-    # launch_ms_word_spell_check(file)
+    # launch_ms_word_spell_check(file, file_language)
     
 end = datetime.datetime.now()
 print(end - start)
