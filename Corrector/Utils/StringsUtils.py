@@ -18,16 +18,17 @@ file_cache = {}
 # region Utils
 
 
-def print_if_found_char(string, char):
+def print_if_found_char(tag, string, char):
     """logs warn if the string contains given char
 
+    :param tag: a prefix to the printed string.
     :param string: the string to check.
     :param char: the char to log
     :return:
     """
 
     if char in string:
-        print("Found " + char + " in : " + string)
+        print("Found : " + char + " in : " + tag + (" " if len(tag) == 0 else "") + string)
 
     return
 
@@ -67,20 +68,49 @@ def remove_space_from_word(string, word, check_uppercase, check_plural):
     return re.sub(r"" + regex, r"\1" + word[1:].replace(" ", ""), string)
 
 
-def is_text_line(text):
-    """True if not empty, not a sub number, and not a time code
+def is_time_code(text):
+    """True if not matching the "00:01:02,003 --> 00:01:05,000"
 
     :param text: string, the string to test.
     :return: boolean
     """
-    regex_list = []
-    regex_list.append('^$')
-    regex_list.append('^\d{1,4}$')
-    regex_list.append('^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$')
+    return re.match(r"^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$", text)
 
-    for regex in regex_list:
-        if re.match(regex, text):
-            return False
+
+def is_index(lines, index):
+    """True if is a simple number followed by time code
+
+    :param lines: file strings
+    :param index: the line index to test
+    :return: boolean
+    """
+    if not re.match(r"^\d+$", lines[index]):
+        return False
+
+    if index == len(lines):
+        return False
+
+    if is_time_code(lines[index + 1]):
+        return True
+
+    return False
+
+
+def is_text_line(lines, index):
+    """True if not empty, not a number, and not a time code
+
+    :param lines: file strings
+    :param index: the line index to test
+    :return: boolean
+    """
+    if lines[index] == "":
+        return False
+
+    if is_index(lines, index):
+        return False
+
+    if is_time_code(lines[index]):
+        return False
 
     return True
 
@@ -182,6 +212,18 @@ def launch_ms_word_spell_check(path, language):
     print(command_line)
     subprocess.call(command_line)
     return
+
+
+def force_string_size(string, size):
+    """Adds spaces to given string, until it matches the wanted size.
+
+    :param string: the string to transform.
+    :param size: the size to match.
+    :return: string
+    """
+    result = string.replace("\n", "")
+    result += " " * (size - len(string.replace("\n", "")))
+    return result
 
 
 # endregion Utils
