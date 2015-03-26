@@ -26,9 +26,8 @@ def print_if_found_char(tag, string, char):
     :param char: the char to log
     :return:
     """
-
     if char in string:
-        print("Found : " + char + " in : " + tag + (" " if len(tag) == 0 else "") + string)
+        print("Found " + char + " in " + (tag + " : " if len(tag) > 0 else ": ") + string)
 
     return
 
@@ -221,7 +220,7 @@ def force_string_size(string, size):
     :param size: the size to match.
     :return: string
     """
-    result = string.replace("\n", "")
+    result = string
     result += " " * (size - len(string.replace("\n", "")))
     return result
 

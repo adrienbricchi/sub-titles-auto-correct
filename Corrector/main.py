@@ -6,8 +6,10 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
-from Utils.FileUtils import *
-from Utils.StringsUtils import *
+import Corrector.Models.Subtitle
+from Corrector.Models.Subtitle import Subtitle
+from Corrector.Utils.FileUtils import *
+from Corrector.Utils.StringsUtils import *
 
 
 def build_menus(root):
@@ -51,6 +53,7 @@ french = {}
 french["Exit"] = "Quitter" 
 french["File"] = "Fichier" 
 
+
 if locale.getdefaultlocale('LANGUAGE')[0] == 'fr_FR':
     current_dictionary = french
 
@@ -84,43 +87,56 @@ files = get_files_with_type(get_all_files(root_path, 0), "srt")
 print("")
 
 for file in files:
-    print(file)
     # backup_file(file)
     lines = get_file_text(file, True)
-    file_language = get_file_language(file)
-    
-    new_lines = []
-    
-    for line in lines:
-        if is_text_line(line):
+    print(file + " (" + str(len(lines)) + " lines)")
+    current_language = get_file_language(file)
+
+    subtitles = Subtitle.subtitles_from_lines(lines)
+    for subtitle in subtitles:
+
+        corrected_lines = []
+        for line in subtitle.lines:
 
             line = fix_triple_dots(line)
             line = fix_numbers(line)
             line = fix_common_errors(line)
             line = fix_capital_i_to_l(line)
             line = fix_l_to_capital_i(line)
-            line = fix_common_misspells(line, file_language)
-            line = fix_letter_followed_by_space(line, "f", file_language)
-            line = fix_letter_followed_by_space(line, "W", file_language)
-            line = fix_letter_followed_by_space(line, "C", file_language)
-            line = fix_letter_followed_by_space(line, "G", file_language)
-            line = fix_letter_followed_by_space(line, "Z", file_language)
-            line = fix_letter_followed_by_space(line, "V", file_language)
-            line = fix_quotes(line, file_language)
+            line = fix_common_misspells(line, current_language)
+            line = fix_letter_followed_by_space(line, "f", current_language)
+            line = fix_letter_followed_by_space(line, "W", current_language)
+            line = fix_letter_followed_by_space(line, "C", current_language)
+            line = fix_letter_followed_by_space(line, "G", current_language)
+            line = fix_letter_followed_by_space(line, "Z", current_language)
+            line = fix_letter_followed_by_space(line, "V", current_language)
+            line = fix_quotes(line, current_language)
             line = fix_question_marks(line)
             line = fix_exclamation_marks(line)
             line = fix_dialog_hyphen(line)
 
-            # print_if_found_char(line, "°")
-            print_if_found_char(line, "£")
+            corrected_lines.append(line)
 
-        new_lines.append(line)
+            pretty_number = subtitle.get_number().replace("\n", "")
+            pretty_line = line.replace("\n", "")
+            print_if_found_char(pretty_number, pretty_line, "°")
+            print_if_found_char(pretty_number, pretty_line, "£")
+            print_if_found_char(pretty_number, pretty_line, "I")
+
+        subtitle.set_lines(corrected_lines)
+
+    # Save file
+
+    new_lines = []
+    
+    for subtitle in subtitles:
+        new_lines += subtitle.to_lines()
+        new_lines.append("\n")
 
     write_file(file, new_lines)
+
     # launch_ms_word_spell_check(file, file_language)
-    
+
+
 end = datetime.datetime.now()
 print(end - start)
-
-# print(new_lines)
-# write_file(file, new_lines)
