@@ -18,16 +18,29 @@ file_cache = {}
 # region Utils
 
 
-def print_if_found_char(tag, string, char):
+def print_if_found_char(tag, string, char, language):
     """logs warn if the string contains given char
 
     :param tag: a prefix to the printed string.
     :param string: the string to check.
     :param char: the char to log
+    :param char: the language to check
     :return:
     """
     if char in string:
-        print("Found " + char + " in " + (tag + " : " if len(tag) > 0 else ": ") + string)
+        to_check = string
+        to_check = re.sub(r"(\b[^" + char + r"\s]+\b)", "", to_check)
+        to_check = re.sub(r"\W", r" ", to_check)
+
+        for word in get_csv_words_with_language(letters_maps_directory + char + '_trusted.csv', language):
+            to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
+
+        if re.match(upper_case, char):
+            to_check = re.sub(r"\b(" + upper_case + r"+" + char + upper_case + r"*)\b", "", to_check)
+            to_check = re.sub(r"\b(" + upper_case + r"*" + char + upper_case + r"+)\b", "", to_check)
+
+        if char in to_check:
+            print("Found " + char + " in " + (tag + " : " if len(tag) > 0 else ": ") + string.replace("\n", ""))
 
     return
 
@@ -363,17 +376,13 @@ def fix_letter_followed_by_space(line, letter, language):
             res = remove_space_from_word(res, word, False, True)
 
     if letter + " " in line:
-        to_check = line
-        to_check = re.sub(r"\b\w+(?<!" + letter + r")\b", "", to_check)
-        to_check = re.sub(r"\W", r" ", to_check)
+        to_check = line.replace("\n", "")
+        to_check = re.sub(r"\b(\w*[^" + letter + r")\s])\b", "", to_check)
 
         for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_trusted.csv', language):
-            to_check = re.sub(r"\b[" + word[:1] + word[:1].upper() + r"]" + word[1:] + r"\b", "", to_check)
+            to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
 
-        to_check = re.sub(r"^\s", "", to_check)
-        to_check = re.sub(r"\s\s+", r" ", to_check)
-
-        if not re.match(r"^\s*$", to_check):
+        if letter + " " in to_check:
             print("Unknown " + letter + "_ : " + line.replace("\n", ""))
 
     return res

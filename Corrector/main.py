@@ -119,16 +119,16 @@ for file in files:
 
             pretty_number = subtitle.get_number().replace("\n", "")
             pretty_line = line.replace("\n", "")
-            print_if_found_char(pretty_number, pretty_line, "°")
-            print_if_found_char(pretty_number, pretty_line, "£")
-            print_if_found_char(pretty_number, pretty_line, "I")
+            print_if_found_char(pretty_number, pretty_line, "°", current_language)
+            print_if_found_char(pretty_number, pretty_line, "£", current_language)
+            print_if_found_char(pretty_number, pretty_line, "I", current_language)
 
         subtitle.set_lines(corrected_lines)
 
     # Save file
 
     new_lines = []
-    
+
     for subtitle in subtitles:
         new_lines += subtitle.to_lines()
         new_lines.append("\n")
