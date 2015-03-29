@@ -89,54 +89,60 @@ print("")
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)
-    print(file + " (" + str(len(lines)) + " lines)")
+    print(shell_color_bold + file + " (" + str(len(lines)) + " lines)" + shell_color_end)
     current_language = get_file_language(file)
 
-    subtitles = Subtitle.subtitles_from_lines(lines)
-    for subtitle in subtitles:
+    try:
+        subtitles = Subtitle.subtitles_from_lines(lines)
 
-        corrected_lines = []
-        for line in subtitle.lines:
+        for subtitle in subtitles:
 
-            line = fix_triple_dots(line)
-            line = fix_numbers(line)
-            line = fix_common_errors(line)
-            line = fix_capital_i_to_l(line)
-            line = fix_l_to_capital_i(line)
-            line = fix_acronyms(line)
-            line = fix_common_misspells(line, current_language)
-            line = fix_letter_followed_by_space(line, "f", current_language)
-            line = fix_letter_followed_by_space(line, "W", current_language)
-            line = fix_letter_followed_by_space(line, "C", current_language)
-            line = fix_letter_followed_by_space(line, "G", current_language)
-            line = fix_letter_followed_by_space(line, "Z", current_language)
-            line = fix_letter_followed_by_space(line, "V", current_language)
-            line = fix_quotes(line, current_language)
-            line = fix_question_marks(line)
-            line = fix_exclamation_marks(line)
-            line = fix_dialog_hyphen(line)
+            corrected_lines = []
+            for line in subtitle.lines:
 
-            corrected_lines.append(line)
+                line = fix_triple_dots(line)
+                line = fix_numbers(line)
+                line = fix_common_errors(line)
+                line = fix_capital_i_to_l(line)
+                line = fix_l_to_capital_i(line)
+                line = fix_acronyms(line)
+                line = fix_common_misspells(line, current_language)
+                line = fix_letter_followed_by_space(line, "f", current_language)
+                line = fix_letter_followed_by_space(line, "W", current_language)
+                line = fix_letter_followed_by_space(line, "C", current_language)
+                line = fix_letter_followed_by_space(line, "G", current_language)
+                line = fix_letter_followed_by_space(line, "Z", current_language)
+                line = fix_letter_followed_by_space(line, "V", current_language)
+                line = fix_quotes(line, current_language)
+                line = fix_question_marks(line)
+                line = fix_exclamation_marks(line)
+                line = fix_dialog_hyphen(line)
 
-            pretty_number = subtitle.get_number().replace("\n", "")
-            pretty_line = line.replace("\n", "")
-            print_if_found_char(pretty_number, pretty_line, "°", current_language)
-            print_if_found_char(pretty_number, pretty_line, "£", current_language)
-            print_if_found_char(pretty_number, pretty_line, "I", current_language)
+                corrected_lines.append(line)
 
-        subtitle.set_lines(corrected_lines)
+                pretty_number = subtitle.get_number().replace("\n", "")
+                pretty_line = line.replace("\n", "")
+                print_if_found_char(pretty_number, pretty_line, "°", current_language)
+                print_if_found_char(pretty_number, pretty_line, "£", current_language)
+                print_if_found_char(pretty_number, pretty_line, "I", current_language)
 
-    # Save file
+            subtitle.set_lines(corrected_lines)
 
-    new_lines = []
+        # Save file
 
-    for subtitle in subtitles:
-        new_lines += subtitle.to_lines()
-        new_lines.append("\n")
+        new_lines = []
 
-    write_file(file, new_lines)
+        for subtitle in subtitles:
+            new_lines += subtitle.to_lines()
+            new_lines.append("\n")
 
-    # launch_ms_word_spell_check(file, file_language)
+        write_file(file, new_lines)
+
+        # launch_ms_word_spell_check(file, file_language)
+
+    except ValueError as err:
+        print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
+
 
 end = datetime.datetime.now()
 print(end - start)

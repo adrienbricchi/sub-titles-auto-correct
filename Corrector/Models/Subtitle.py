@@ -30,6 +30,11 @@ class Subtitle:
                     index += 1
 
                 subtitles.append(Subtitle(found_number, found_time_code, found_lines))
+            else:
+                if "ÿþ" in lines[index]:
+                    raise ValueError("Unsupported encoding")
+
+                index += 1
 
         return subtitles
 

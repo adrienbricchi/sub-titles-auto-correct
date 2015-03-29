@@ -14,6 +14,15 @@ lower_case = r"[a-zàâäçéèêëîïôöùûü]"
 upper_case = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 file_cache = {}
 
+shell_color_header = '\033[95m'
+shell_color_ok_blue = '\033[94m'
+shell_color_ok_green = '\033[92m'
+shell_color_warning = '\033[93m'
+shell_color_fail = '\033[91m'
+shell_color_end = '\033[0m'
+shell_color_bold = '\033[1m'
+shell_color_underline = '\033[4m'
+
 
 # region Utils
 
