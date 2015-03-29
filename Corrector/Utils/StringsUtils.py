@@ -475,3 +475,13 @@ def fix_l_to_capital_i(string):
         string = re.sub(r"(?<=" + upper_case + r")l(?=l*" + upper_case + r")", "I", string)
 
     return string
+
+
+def fix_acronyms(string):
+    """fixes spaces after dots on acronyms.
+
+    :param string: the string to fix.
+    :return: string
+    """
+    string = re.sub(r"(?<=\b\w\.)(\s*)(?=\w\.)", "", string)
+    return string

@@ -103,6 +103,7 @@ for file in files:
             line = fix_common_errors(line)
             line = fix_capital_i_to_l(line)
             line = fix_l_to_capital_i(line)
+            line = fix_acronyms(line)
             line = fix_common_misspells(line, current_language)
             line = fix_letter_followed_by_space(line, "f", current_language)
             line = fix_letter_followed_by_space(line, "W", current_language)
@@ -136,7 +137,6 @@ for file in files:
     write_file(file, new_lines)
 
     # launch_ms_word_spell_check(file, file_language)
-
 
 end = datetime.datetime.now()
 print(end - start)
