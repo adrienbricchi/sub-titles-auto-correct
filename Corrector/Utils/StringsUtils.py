@@ -48,7 +48,10 @@ def print_if_found_char(tag, string, char, language):
             to_check = re.sub(r"\b(" + upper_case + r"+" + char + upper_case + r"*)\b", "", to_check)
             to_check = re.sub(r"\b(" + upper_case + r"*" + char + upper_case + r"+)\b", "", to_check)
 
+        # Print colored char
         if char in to_check:
+            string = string.replace("\n", "")
+            string = re.sub(r"\b(\w*" + char + r"\w*)\b", shell_color_warning + r"\1" + shell_color_end, string)
             print("Found " + char + " in " + (tag + " : " if len(tag) > 0 else ": ") + string.replace("\n", ""))
 
     return
@@ -391,8 +394,11 @@ def fix_letter_followed_by_space(line, letter, language):
         for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_trusted.csv', language):
             to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
 
+        # Print colored char
         if letter + " " in to_check:
-            print("Unknown " + letter + "_ : " + line.replace("\n", ""))
+            line = line.replace("\n", "")
+            line = re.sub(r"(\w*" + letter + r")(?=\s)", shell_color_warning + r"\1" + shell_color_end, line)
+            print("Unknown " + letter + "_ : " + line)
 
     return res
 
