@@ -6,7 +6,6 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
-import Corrector.Models.Subtitle
 from Corrector.Models.Subtitle import Subtitle
 from Corrector.Utils.FileUtils import *
 from Corrector.Utils.StringsUtils import *

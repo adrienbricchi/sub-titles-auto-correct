@@ -213,6 +213,22 @@ def get_csv_words_map(csv_file_path):
     return result_list
 
 
+def put_csv_word(csv_file_path, key, value):
+    """Concat line at the end of CSV file.
+
+    :param csv_file_path: source path
+    :param key: can't be null
+    :param value: None for single column CSV
+    """
+    with open(csv_file_path, 'a', newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter=':', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        if not value:
+            writer.writerow([key])
+        else:
+            writer.writerow([key, value])
+    return
+
+
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
