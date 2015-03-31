@@ -404,7 +404,7 @@ def fix_letter_followed_by_space(line, letter, language):
 
 
 def fix_common_errors(string):
-    """Hardcoded fixes that can't be set in common mispells
+    """Hardcoded fixes that can't be set in common misspells
 
     :param string: the string to fix.
     :return: string

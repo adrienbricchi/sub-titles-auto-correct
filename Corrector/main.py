@@ -138,7 +138,7 @@ for file in files:
 
         write_file(file, new_lines)
 
-        # launch_ms_word_spell_check(file, file_language)
+    # launch_ms_word_spell_check(file, current_language)
 
     except ValueError as err:
         print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
