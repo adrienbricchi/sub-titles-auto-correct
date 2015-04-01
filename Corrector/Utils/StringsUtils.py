@@ -27,38 +27,51 @@ shell_color_underline = '\033[4m'
 # region Utils
 
 
-def print_if_found_char(tag, string, char, language):
-    """logs warn if the string contains given char
+def find_words_with_char(string, char, language):
+    """getting words with asked char, in given string.
 
-    :param tag: a prefix to the printed string.
     :param string: the string to check.
     :param char: the char to log
     :param char: the language to check
+    :return: an array (maybe empty)
+    """
+    result = []
+
+    if char in string:
+
+        # Filtering everything but alphabetical chars
+
+        string = re.sub(r"(\b[^" + char + r"\s]+\b)", "", string)
+        string = re.sub(r"\W", " ", string)
+        result = string.split()
+
+        # Filtering non-matching words
+
+        result = [value for value in result if char in value]
+
+        csv_file = letters_maps_directory + char + '_trusted.csv'
+        for word in get_csv_words_with_language(csv_file, language):
+            result = [value for value in result if value != word]
+            result = [value for value in result if value != (word[:1] + word[:1])]
+
+    return result
+
+
+def warns_list_words(string, array):
+    """Colors the given words in the given string.
+
+    :param string: the string to check
+    :param array: words to warn
     :return:
     """
-    if char in string:
-        to_check = string
-        to_check = re.sub(r"(\b[^" + char + r"\s]+\b)", "", to_check)
-        to_check = re.sub(r"\W", r" ", to_check)
+    for word in array:
+        string = string.replace(word, shell_color_warning + word + shell_color_end)
 
-        for word in get_csv_words_with_language(letters_maps_directory + char + '_trusted.csv', language):
-            to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
-
-        if re.match(upper_case, char):
-            to_check = re.sub(r"\b(" + upper_case + r"+" + char + upper_case + r"*)\b", "", to_check)
-            to_check = re.sub(r"\b(" + upper_case + r"*" + char + upper_case + r"+)\b", "", to_check)
-
-        # Print colored char
-        if char in to_check:
-            string = string.replace("\n", "")
-            string = re.sub(r"\b(\w*" + char + r"\w*)\b", shell_color_warning + r"\1" + shell_color_end, string)
-            print("Found " + char + " in " + (tag + " : " if len(tag) > 0 else ": ") + string.replace("\n", ""))
-
-    return
+    return string
 
 
 def print_single_letters(string):
-    """print single letters, ignoring A-a-I.
+    """Print single letters, ignoring A-a-I.
 
     :param string: the string to check.
     :return:
