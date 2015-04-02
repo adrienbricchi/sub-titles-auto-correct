@@ -38,17 +38,15 @@ def find_words_with_char(string, char, language):
     result = []
 
     if char in string:
-
         # Filtering everything but alphabetical chars
-
         string = re.sub(r"(\b[^" + char + r"\s]+\b)", "", string)
         string = re.sub(r"\W", " ", string)
         result = string.split()
 
         # Filtering non-matching words
-
         result = [value for value in result if char in value]
 
+        # Filtering trusted words
         csv_file = letters_maps_directory + char + '_trusted.csv'
         for word in get_csv_words_with_language(csv_file, language):
             result = [value for value in result if value != word]
@@ -233,6 +231,8 @@ def put_csv_word(csv_file_path, key, value):
     :param key: can't be null
     :param value: None for single column CSV
     """
+    file_cache.pop(csv_file_path, None)
+
     with open(csv_file_path, 'a', newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=':', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         if not value:
@@ -240,6 +240,46 @@ def put_csv_word(csv_file_path, key, value):
         else:
             writer.writerow([key, value])
     return
+
+
+def ask_for_correction(string, array, trusted_file_path, language):
+    """Prompt for a correction.
+    :q  - Ignore current line
+    :x  - Ignore and add to language csv file
+    :x! - Ignore and add to general csv file
+
+    :param string: the string to fix
+    :param array: errors to print
+    :param char: checked char
+    :param trusted_file_path: path to trusted csv
+    :param language: current language
+    :return: fixed string
+    """
+    if len(array) > 0:
+        print(warns_list_words(string, array))
+
+    for word in array:
+        prompt = input("Found " + shell_color_warning + word + shell_color_end + " : ")
+
+        if prompt == ":x":
+            trusted_file_path = letters_maps_directory + re.sub(r"\.csv$", "." + language + ".csv", trusted_file_path)
+            put_csv_word(trusted_file_path, word, None)
+        if prompt == ":x!":
+            trusted_file_path = letters_maps_directory + trusted_file_path
+            put_csv_word(trusted_file_path, word, None)
+        elif prompt == ":q":
+            print("Skipped...")
+        else:
+            string = string.replace(word, prompt)
+            prompt_should_register = input("    Register? : ")
+            if prompt_should_register == ":x":
+                common_misspells_file_path = strings_maps_directory + "common_misspells." + language + ".csv"
+                put_csv_word(common_misspells_file_path, word, prompt)
+            if prompt_should_register == ":x!":
+                common_misspells_file_path = strings_maps_directory + "common_misspells.csv"
+                put_csv_word(common_misspells_file_path, word, prompt)
+
+    return string
 
 
 def launch_ms_word_spell_check(path, language):
