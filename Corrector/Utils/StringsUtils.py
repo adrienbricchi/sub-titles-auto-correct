@@ -264,7 +264,7 @@ def ask_for_correction(string, array, trusted_file_path, language):
         if prompt == ":x":
             trusted_file_path = letters_maps_directory + re.sub(r"\.csv$", "." + language + ".csv", trusted_file_path)
             put_csv_word(trusted_file_path, word, None)
-        if prompt == ":x!":
+        elif prompt == ":x!":
             trusted_file_path = letters_maps_directory + trusted_file_path
             put_csv_word(trusted_file_path, word, None)
         elif prompt == ":q":
@@ -272,10 +272,11 @@ def ask_for_correction(string, array, trusted_file_path, language):
         else:
             string = string.replace(word, prompt)
             prompt_should_register = input("    Register? : ")
+
             if prompt_should_register == ":x":
                 common_misspells_file_path = strings_maps_directory + "common_misspells." + language + ".csv"
                 put_csv_word(common_misspells_file_path, word, prompt)
-            if prompt_should_register == ":x!":
+            elif prompt_should_register == ":x!":
                 common_misspells_file_path = strings_maps_directory + "common_misspells.csv"
                 put_csv_word(common_misspells_file_path, word, prompt)
 
