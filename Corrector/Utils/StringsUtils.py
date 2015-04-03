@@ -256,7 +256,7 @@ def ask_for_correction(string, array, trusted_file_path, language):
     :return: fixed string
     """
     if len(array) > 0:
-        print(warns_list_words(string, array))
+        print(warns_list_words(string.replace("\n", ""), array))
 
     for word in array:
         prompt = input("Found " + shell_color_warning + word + shell_color_end + " : ")

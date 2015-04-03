@@ -6,7 +6,7 @@ from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3
 import locale                                               # get current system language
 from tkinter.filedialog import LoadFileDialog
 import datetime
-from Corrector.Models.Subtitle import Subtitle
+from Corrector.Models.Subtitle import *
 from Corrector.Utils.FileUtils import *
 from Corrector.Utils.StringsUtils import *
 
@@ -83,8 +83,6 @@ start = datetime.datetime.now()
 root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
 files = get_files_with_type(get_all_files(root_path, 0), "srt")
 
-print("")
-
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)
@@ -117,13 +115,19 @@ for file in files:
                 line = fix_exclamation_marks(line)
                 line = fix_dialog_hyphen(line)
 
-                corrected_lines.append(line)
+                array = find_words_with_char(line, "I", current_language)
+                array = [word for word in array if not re.match(r"^(" + upper_case + r"){3,}$", word)]
+                line = ask_for_correction(line, array, "I_trusted.csv", current_language)
 
                 pretty_number = subtitle.get_number().replace("\n", "")
                 pretty_line = line.replace("\n", "")
-                print_if_found_char(pretty_number, pretty_line, "°", current_language)
-                print_if_found_char(pretty_number, pretty_line, "£", current_language)
-                print_if_found_char(pretty_number, pretty_line, "I", current_language)
+
+                if "°" in line:
+                    print("Found ° at " + pretty_number + " : " + pretty_line)
+                if "£" in line:
+                    print("Found £ at " + pretty_number + " : " + pretty_line)
+
+                corrected_lines.append(line)
 
             subtitle.set_lines(corrected_lines)
 
@@ -141,7 +145,6 @@ for file in files:
 
     except ValueError as err:
         print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
-
 
 end = datetime.datetime.now()
 print(end - start)
