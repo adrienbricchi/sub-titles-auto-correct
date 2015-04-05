@@ -83,68 +83,73 @@ start = datetime.datetime.now()
 root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
 files = get_files_with_type(get_all_files(root_path, 0), "srt")
 
+prompt = input("script ou word : ")
+
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)
     print(shell_color_bold + file + " (" + str(len(lines)) + " lines)" + shell_color_end)
     current_language = get_file_language(file)
 
-    try:
-        subtitles = Subtitle.subtitles_from_lines(lines)
+    if prompt == "script":
 
-        for subtitle in subtitles:
+        try:
+            subtitles = Subtitle.subtitles_from_lines(lines)
 
-            corrected_lines = []
-            for line in subtitle.lines:
+            for subtitle in subtitles:
 
-                line = fix_triple_dots(line)
-                line = fix_numbers(line)
-                line = fix_common_errors(line)
-                line = fix_capital_i_to_l(line)
-                line = fix_l_to_capital_i(line)
-                line = fix_acronyms(line)
-                line = fix_common_misspells(line, current_language)
-                line = fix_letter_followed_by_space(line, "f", current_language)
-                line = fix_letter_followed_by_space(line, "W", current_language)
-                line = fix_letter_followed_by_space(line, "C", current_language)
-                line = fix_letter_followed_by_space(line, "G", current_language)
-                line = fix_letter_followed_by_space(line, "Z", current_language)
-                line = fix_letter_followed_by_space(line, "V", current_language)
-                line = fix_quotes(line, current_language)
-                line = fix_question_marks(line)
-                line = fix_exclamation_marks(line)
-                line = fix_dialog_hyphen(line)
+                corrected_lines = []
+                for line in subtitle.lines:
 
-                array = find_words_with_char(line, "I", current_language)
-                array = [word for word in array if not re.match(r"^(" + upper_case + r"){3,}$", word)]
-                line = ask_for_correction(line, array, "I_trusted.csv", current_language)
+                    line = fix_triple_dots(line)
+                    line = fix_numbers(line)
+                    line = fix_common_errors(line)
+                    line = fix_capital_i_to_l(line)
+                    line = fix_l_to_capital_i(line)
+                    line = fix_acronyms(line)
+                    line = fix_common_misspells(line, current_language)
+                    line = fix_letter_followed_by_space(line, "f", current_language)
+                    line = fix_letter_followed_by_space(line, "W", current_language)
+                    line = fix_letter_followed_by_space(line, "C", current_language)
+                    line = fix_letter_followed_by_space(line, "G", current_language)
+                    line = fix_letter_followed_by_space(line, "Z", current_language)
+                    line = fix_letter_followed_by_space(line, "V", current_language)
+                    line = fix_quotes(line, current_language)
+                    line = fix_question_marks(line)
+                    line = fix_exclamation_marks(line)
+                    line = fix_dialog_hyphen(line)
 
-                pretty_number = subtitle.get_number().replace("\n", "")
-                pretty_line = line.replace("\n", "")
+                    array = find_words_with_char(line, "I", current_language)
+                    array = [word for word in array if not re.match(r"^(" + upper_case + r"){3,}$", word)]
+                    line = ask_for_correction(line, array, "I_trusted.csv", current_language)
 
-                if "°" in line:
-                    print("Found ° at " + pretty_number + " : " + pretty_line)
-                if "£" in line:
-                    print("Found £ at " + pretty_number + " : " + pretty_line)
+                    pretty_number = subtitle.get_number().replace("\n", "")
+                    pretty_line = line.replace("\n", "")
 
-                corrected_lines.append(line)
+                    if "°" in line:
+                        print("Found ° at " + pretty_number + " : " + pretty_line)
+                    if "£" in line:
+                        print("Found £ at " + pretty_number + " : " + pretty_line)
 
-            subtitle.set_lines(corrected_lines)
+                    corrected_lines.append(line)
 
-        # Save file
+                subtitle.set_lines(corrected_lines)
 
-        new_lines = []
+            # Save file
 
-        for subtitle in subtitles:
-            new_lines += subtitle.to_lines()
-            new_lines.append("\n")
+            new_lines = []
 
-        write_file(file, new_lines)
+            for subtitle in subtitles:
+                new_lines += subtitle.to_lines()
+                new_lines.append("\n")
 
-    # launch_ms_word_spell_check(file, current_language)
+            write_file(file, new_lines)
 
-    except ValueError as err:
-        print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
+        except ValueError as err:
+            print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
+
+    elif prompt == "word":
+        launch_ms_word_spell_check(file, current_language)
 
 end = datetime.datetime.now()
 print(end - start)
