@@ -609,4 +609,8 @@ def fix_acronyms(string):
     :return: string
     """
     string = re.sub(r"(?<=\b\w\.)(\s*)(?=\w\.)", "", string)
+
+    if re.search(r"\w\.\w\.", string):
+        print("Found acronym : " + string)
+
     return string
