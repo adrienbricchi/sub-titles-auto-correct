@@ -101,6 +101,7 @@ for file in files:
                 corrected_lines = []
                 for line in subtitle.lines:
 
+                    line = fix_common_errors(line)
                     line = fix_triple_dots(line)
                     line = fix_numbers(line)
                     line = fix_italic_tag_errors(line)

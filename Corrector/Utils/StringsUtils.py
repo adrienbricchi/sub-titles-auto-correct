@@ -72,7 +72,7 @@ def print_single_letters(string):
     """Print single letters, ignoring A-a-I.
 
     :param string: the string to check.
-    :return:
+    :return: string
     """
     if re.search(r"\b[b-zB-HJ-Z]\b", string):
         print(string)
@@ -330,6 +330,18 @@ def remove_all_uppercase_words(array):
 
 
 # endregion Utils
+
+
+def fix_common_errors(string):
+    """Hardcoded fixes that can't be set in common misspells.
+
+    :param string: the string to check.
+    :return: string
+    """
+    string = string.replace("- \\", "- ")
+    string = string.replace("‘", "'")
+
+    return string
 
 
 def fix_triple_dots(string):
