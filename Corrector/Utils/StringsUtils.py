@@ -343,7 +343,7 @@ def fix_triple_dots(string):
     res = res.replace(".. .", "...")
     res = res.replace(". ..", "...")
 
-    res = re.sub(r"\.\.\.(?!\n| )", "... ", res)
+    res = re.sub(r"\.\.\.(\w)", "... \1", res)
     return res
 
 
@@ -482,14 +482,33 @@ def fix_letter_followed_by_space(line, letter, language):
     return res
 
 
-def fix_common_errors(string):
-    """Hardcoded fixes that can't be set in common misspells
+def fix_italic_tag_errors(string):
+    """Fixes useless tags, and wrong spaces around.
 
     :param string: the string to fix.
     :return: string
     """
     string = re.sub(r"<i>(\s*)</i>", r"\1", string)
     string = re.sub(r"</i>(\s*)<i>", r"\1", string)
+    string = string.replace("<i> ", " <i>")
+    string = string.replace(" <\i>", "<\i> ")
+    string = string.replace("<\i>-<i>", "-")
+    string = string.replace("<i>-</i>", "-")
+    string = re.sub(r"\s+</i>$", r"</i>", string)
+
+    return string
+
+
+def fix_colon(string):
+    """Fixes spaces around colon.
+
+    :param string: the string to fix.
+    :return: string
+    """
+    string = re.sub(r"(?<=\w):(?=\w)", " : ", string)
+    string = re.sub(r"(?<=\w):", " :", string)
+    string = re.sub(r":(?=\w)", ": ", string)
+    string = re.sub(r"(?<=\d)\s:\s(?=\d)", ":", string)
 
     return string
 

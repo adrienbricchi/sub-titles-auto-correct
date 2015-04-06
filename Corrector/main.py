@@ -103,7 +103,8 @@ for file in files:
 
                     line = fix_triple_dots(line)
                     line = fix_numbers(line)
-                    line = fix_common_errors(line)
+                    line = fix_italic_tag_errors(line)
+                    line = fix_colon(line)
                     line = fix_capital_i_to_l(line)
                     line = fix_l_to_capital_i(line)
                     line = fix_acronyms(line)
@@ -138,6 +139,9 @@ for file in files:
             # Save file
 
             new_lines = []
+
+            if len(subtitle.get_lines()) > 2:
+                print("Wrong subtitle size : " + subtitle.get_lines())
 
             for subtitle in subtitles:
                 new_lines += subtitle.to_lines()
