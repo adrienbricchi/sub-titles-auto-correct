@@ -320,6 +320,15 @@ def force_string_size(string, size):
     return result
 
 
+def remove_all_uppercase_words(array):
+    """Simple uppercase filter on given array.
+
+    :param array: the array to fix.
+    :return: array
+    """
+    return [word for word in array if not re.match(r"^(" + upper_case + r"){3,}$", word)]
+
+
 # endregion Utils
 
 
@@ -356,10 +365,10 @@ def fix_quotes(line, language):
         for word in get_csv_words_with_language(strings_maps_directory + 'word_quote_trusted.csv', language):
             line = re.sub(r"\b" + word + r"'\s", word + "'", line)
 
-    if re.search("'\s", line):
-        print("Unknown '_ : " + line.replace("\n", ""))
-    if re.search("\s'", line):
-        print("Unknown _' : " + line.replace("\n", ""))
+    # if re.search("'\s", line):
+    #     print("Unknown '_ : " + line.replace("\n", ""))
+    # if re.search("\s'", line):
+    #     print("Unknown _' : " + line.replace("\n", ""))
 
     return line
 

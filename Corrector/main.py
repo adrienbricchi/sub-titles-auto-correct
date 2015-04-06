@@ -120,7 +120,7 @@ for file in files:
                     line = fix_dialog_hyphen(line)
 
                     array = find_words_with_char(line, "I", current_language)
-                    array = [word for word in array if not re.match(r"^(" + upper_case + r"){3,}$", word)]
+                    array = remove_all_uppercase_words(array)
                     line = ask_for_correction(line, array, "I_trusted.csv", current_language)
 
                     pretty_number = subtitle.get_number().replace("\n", "")
