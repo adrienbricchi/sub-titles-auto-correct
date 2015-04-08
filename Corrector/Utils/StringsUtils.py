@@ -446,6 +446,9 @@ def fix_dialog_hyphen(string):
         if not string.startswith("<i>- "):
             res = re.sub(r"^<i>-(\w)", r"<i>- \1", res)
 
+    elif string.startswith("-("):
+        res = re.sub(r"^-\(", r"- (", res)
+
     elif string.startswith("-..."):
         res = re.sub(r"^-\.\.\.", "- ...", res)
 
@@ -599,6 +602,9 @@ def fix_l_to_capital_i(string):
     while re.search(r"" + upper_case + "l+" + upper_case, string):
         string = re.sub(r"(?<=" + upper_case + r")l(?=l*" + upper_case + r")", "I", string)
 
+    while re.search(r"" + "l+" + upper_case + upper_case, string):
+        string = re.sub(r"l(?=" + upper_case + r"{2})", "I", string)
+
     return string
 
 
@@ -611,6 +617,6 @@ def fix_acronyms(string):
     string = re.sub(r"(?<=\b\w\.)(\s*)(?=\w\.)", "", string)
 
     if re.search(r"\w\.\w\.", string):
-        print("Found acronym : " + string)
+        print("Found acronym : " + string.replace("\n", ""))
 
     return string
