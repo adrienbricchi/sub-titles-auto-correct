@@ -332,6 +332,26 @@ def remove_all_uppercase_words(array):
 # endregion Utils
 
 
+def fix_accentuated_capital_a(string):
+    """Prompt to switch A into À
+
+    :param string: the string to check.
+    :return: string
+    """
+    if re.search(r"\bA\b", string):
+        for matching_range in [m.span() for m in re.finditer(r"\bA\b", string)]:
+
+            colour_string = string[:matching_range[0]]
+            colour_string += shell_color_warning + "A" + shell_color_end
+            colour_string += string[matching_range[1]:]
+
+            prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
+            if prompt == ":x":
+                string = colour_string.replace(shell_color_warning + "A" + shell_color_end, "À")
+
+    return string
+
+
 def fix_common_errors(string):
     """Hardcoded fixes that can't be set in common misspells.
 

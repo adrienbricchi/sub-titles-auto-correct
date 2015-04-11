@@ -78,6 +78,7 @@ def translate(string):
 # file = "C:/note.srt"
 # backup_file(file)
 
+
 start = datetime.datetime.now()
 # 11-20
 root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
@@ -100,6 +101,9 @@ for file in files:
 
                 corrected_lines = []
                 for line in subtitle.lines:
+
+                    if current_language == "fr":
+                        line = fix_accentuated_capital_a(line)
 
                     line = fix_common_errors(line)
                     line = fix_triple_dots(line)
