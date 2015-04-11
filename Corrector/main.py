@@ -86,6 +86,8 @@ files = get_files_with_type(get_all_files(root_path, 0), "srt")
 
 prompt = input("script ou word : ")
 
+# TODO : Number_. ; 14 h00 ; 20 % ; "truc"? ; turtle-- ; met- ; vince; ; ARl/LORl ; P.A. ) ; Ibs ; l'chaim
+
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)
