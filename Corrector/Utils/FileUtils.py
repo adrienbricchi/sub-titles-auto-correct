@@ -5,6 +5,7 @@ import hashlib               # get MD5 hash of a file
 import shutil                # copy backup files
 import fnmatch               # recursive research in folders
 import os                    # system calls (open directories)
+import io                    # file encoding
 
 
 def get_file_text(path, mode_lines):
@@ -115,6 +116,19 @@ def get_md5(file):
             md5.update(chunk)
             
     return md5.digest()
+
+
+def utf8_to_ansi(source_path, destination_path):
+    """Changes data encoding.
+
+    :param: string, the source file path.
+    :param: string, the target file path.
+    """
+    with io.open(source_path, encoding='utf-8', errors='ignore') as source:
+        with io.open(destination_path, mode='w', encoding='cp1252') as target:
+            shutil.copyfileobj(source, target)
+
+    return
 
 
 def get_file_language(path):

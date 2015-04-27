@@ -361,6 +361,9 @@ def fix_common_errors(string):
     string = string.replace("- \\", "- ")
     string = string.replace("‘", "'")
 
+    if "--" in string:
+        string = re.sub(r"(?<!\s)--", " --", string)
+
     return string
 
 
@@ -415,7 +418,7 @@ def fix_question_marks(string):
     res = string
 
     if "?" in string:
-        res = re.sub(r"(\w)(\?)", r"\1 \2", res)
+        res = re.sub(r"(?<!\s)\?", " ?", res)
 
     return res
 
@@ -429,7 +432,7 @@ def fix_exclamation_marks(string):
     res = string
 
     if "!" in string:
-        res = re.sub(r"(\w)(!)", r"\1 \2", res)
+        res = re.sub(r"(?<!\s)!", " !", res)
 
     return res
 
@@ -638,5 +641,34 @@ def fix_acronyms(string):
 
     if re.search(r"\w\.\w\.", string):
         print("Found acronym : " + string.replace("\n", ""))
+
+    return string
+
+
+def fix_errors(string, current_language):
+    """Every fixes defined here.
+
+    :param string: the string to fix.
+    :return: string
+    """
+    string = fix_common_errors(string)
+    string = fix_triple_dots(string)
+    string = fix_numbers(string)
+    string = fix_italic_tag_errors(string)
+    string = fix_colon(string)
+    string = fix_capital_i_to_l(string)
+    string = fix_l_to_capital_i(string)
+    string = fix_acronyms(string)
+    string = fix_common_misspells(string, current_language)
+    string = fix_letter_followed_by_space(string, "f", current_language)
+    string = fix_letter_followed_by_space(string, "W", current_language)
+    string = fix_letter_followed_by_space(string, "C", current_language)
+    string = fix_letter_followed_by_space(string, "G", current_language)
+    string = fix_letter_followed_by_space(string, "Z", current_language)
+    string = fix_letter_followed_by_space(string, "V", current_language)
+    string = fix_quotes(string, current_language)
+    string = fix_question_marks(string)
+    string = fix_exclamation_marks(string)
+    string = fix_dialog_hyphen(string)
 
     return string

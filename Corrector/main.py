@@ -98,6 +98,12 @@ for file in files:
 
         try:
             subtitles = Subtitle.subtitles_from_lines(lines)
+        # except ValueError as err:
+        #     #vprint(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
+        #     backup_file(file)
+        #     utf8_to_ansi(get_bak_file_name(file), file)
+        #     lines = get_file_text(file, True)
+        #     subtitles = Subtitle.subtitles_from_lines(lines)
 
             for subtitle in subtitles:
 
