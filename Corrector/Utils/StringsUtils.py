@@ -378,7 +378,7 @@ def fix_triple_dots(string):
     res = res.replace(".. .", "...")
     res = res.replace(". ..", "...")
 
-    res = re.sub(r"\.\.\.(\w)", "... \1", res)
+    res = re.sub(r"\.\.\.(?=\w)", "... ", res)
     return res
 
 
