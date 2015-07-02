@@ -489,20 +489,18 @@ def fix_letter_followed_by_space(line, letter, language):
     :param letter: string, the letter to check.
     :return: string
     """
-    res = line
-
-    if (letter + " ") in res:
+    if (letter + " ") in line:
         for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_upp_plural.csv', language):
-            res = remove_space_from_word(res, word, True, True)
+            line = remove_space_from_word(line, word, True, True)
 
         for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_upp.csv', language):
-            res = remove_space_from_word(res, word, True, False)
+            line = remove_space_from_word(line, word, True, False)
 
         for word in get_csv_words_with_language(letters_maps_directory + letter + '_space.csv', language):
-            res = remove_space_from_word(res, word, False, False)
+            line = remove_space_from_word(line, word, False, False)
 
         for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_plural.csv', language):
-            res = remove_space_from_word(res, word, False, True)
+            line = remove_space_from_word(line, word, False, True)
 
     if letter + " " in line:
         to_check = line.replace("\n", "")
@@ -517,7 +515,7 @@ def fix_letter_followed_by_space(line, letter, language):
             line = re.sub(r"(\w*" + letter + r")(?=\s)", shell_color_warning + r"\1" + shell_color_end, line)
             print("Unknown " + letter + "_ : " + line)
 
-    return res
+    return line
 
 
 def fix_italic_tag_errors(string):
@@ -580,6 +578,24 @@ def fix_numbers(string):
 
     while re.search(r"\b\d+\d\d\d\d\b", string):
         string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
+
+    return string
+
+
+def fix_degree_symbol(string):
+    """Fix "°" symbol followed by space
+
+    :param string: the string to fix.
+    :return: string
+    """
+
+    if "°" in string:
+        string = re.sub(r"(?<=\d)\s*°", "°", string)
+        string = re.sub(r"(?<=\d)\s*°\s*(?=F\b)", "°", string)
+        string = re.sub(r"(?<=\b[nN])\s*°\s*(?=\d)", "°", string)
+
+    if " °" in string or "° " in string:
+        print("Found ° in : " + string.replace("\n", ""))
 
     return string
 

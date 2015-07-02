@@ -130,6 +130,7 @@ for file in files:
                     line = fix_letter_followed_by_space(line, "V", current_language)
                     line = fix_quotes(line, current_language)
                     line = fix_question_marks(line)
+                    line = fix_degree_symbol(line)
                     line = fix_exclamation_marks(line)
                     line = fix_dialog_hyphen(line)
 
@@ -140,8 +141,6 @@ for file in files:
                     pretty_number = subtitle.get_number().replace("\n", "")
                     pretty_line = line.replace("\n", "")
 
-                    if "°" in line:
-                        print("Found ° at " + pretty_number + " : " + pretty_line)
                     if "£" in line:
                         print("Found £ at " + pretty_number + " : " + pretty_line)
 
