@@ -358,28 +358,33 @@ def fix_common_errors(string):
     :param string: the string to check.
     :return: string
     """
+    string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
     string = string.replace("- \\", "- ")
-    string = string.replace("‘", "'")
-
-    if "--" in string:
-        string = re.sub(r"(?<!\s)--", " --", string)
 
     return string
 
 
-def fix_triple_dots(string):
-    """. . . => ...
-    Add a space after the three dots, if there isn't, and if isn't before a linebreak
+def fix_punctuation_errors(string, language):
+    """Add a space after the three dots, before or after a dot, etc
 
     :param string: the string to fix.
     :return: string
     """
-    res = string.replace(". . .", "...")
-    res = res.replace(".. .", "...")
-    res = res.replace(". ..", "...")
+    string = string.replace(". . .", "...")
+    string = string.replace(".. .", "...")
+    string = string.replace(". ..", "...")
+    string = re.sub(r"\.\s*\"$", ".\"", string)
 
-    res = re.sub(r"\.\.\.(?=\w)", "... ", res)
-    return res
+    if "..." in string:
+        string = re.sub(r"\.\.\.(?=\w)", "... ", string)
+        string = re.sub(r"\.\.\.\.+", "...", string)
+
+    string = string.replace("‘", "'")
+
+    if "--" in string:
+        string = re.sub(r"\s*--", " --", string)
+
+    return string
 
 
 def fix_quotes(line, language):
@@ -415,12 +420,12 @@ def fix_question_marks(string):
     :param string: the string to fix.
     :return: string
     """
-    res = string
 
     if "?" in string:
-        res = re.sub(r"(?<!\s)\?", " ?", res)
+        string = re.sub(r"(?<!\s)\?", " ?", string)
+        string = re.sub(r"(?<=[!\?])\s+(?=[!\?])", "", string)
 
-    return res
+    return string
 
 
 def fix_exclamation_marks(string):
@@ -503,6 +508,7 @@ def fix_letter_followed_by_space(line, letter, language):
             line = remove_space_from_word(line, word, False, True)
 
     if letter + " " in line:
+        line_to_print = line.replace("\n", "")
         to_check = line.replace("\n", "")
         to_check = re.sub(r"\b(\w*[^" + letter + r")\s])\b", "", to_check)
 
@@ -511,9 +517,8 @@ def fix_letter_followed_by_space(line, letter, language):
 
         # Print colored char
         if letter + " " in to_check:
-            line = line.replace("\n", "")
-            line = re.sub(r"(\w*" + letter + r")(?=\s)", shell_color_warning + r"\1" + shell_color_end, line)
-            print("Unknown " + letter + "_ : " + line)
+            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)", shell_color_warning + r"\1" + shell_color_end, line_to_print)
+            print("Unknown " + letter + "_ : " + line_to_print)
 
     return line
 
@@ -530,7 +535,8 @@ def fix_italic_tag_errors(string):
     string = string.replace(" <\i>", "<\i> ")
     string = string.replace("<\i>-<i>", "-")
     string = string.replace("<i>-</i>", "-")
-    string = re.sub(r"\s+</i>$", r"</i>", string)
+    string = re.sub(r"\s+</i>$", "</i>", string)
+    string = re.sub(r"\s*\"\s*</i>$", "\"</i>", string)
 
     return string
 
@@ -668,7 +674,7 @@ def fix_errors(string, current_language):
     :return: string
     """
     string = fix_common_errors(string)
-    string = fix_triple_dots(string)
+    string = fix_punctuation_errors(string)
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
     string = fix_colon(string)

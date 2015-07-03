@@ -86,7 +86,7 @@ files = get_files_with_type(get_all_files(root_path, 0), "srt")
 
 prompt = input("script ou word : ")
 
-# TODO : Number_. ; 14 h00 ; 20 % ; "truc"? ; turtle-- ; met- ; vince; ; ARl/LORl ; P.A. ) ; Ibs ; l'chaim ; first sub !
+# TODO : Number_. ; 14 h00 ; 20 % ; "truc"? ; met- ; vince; ; ARl/LORl ; P.A. ) ; Ibs ; l'chaim ;
 
 for file in files:
     # backup_file(file)
@@ -114,7 +114,7 @@ for file in files:
                         line = fix_accentuated_capital_a(line)
 
                     line = fix_common_errors(line)
-                    line = fix_triple_dots(line)
+                    line = fix_punctuation_errors(line, current_language)
                     line = fix_numbers(line)
                     line = fix_italic_tag_errors(line)
                     line = fix_colon(line)
