@@ -332,6 +332,9 @@ def remove_all_uppercase_words(array):
 # endregion Utils
 
 
+# region Single line
+
+
 def fix_accentuated_capital_a(string):
     """Prompt to switch A into À
 
@@ -667,6 +670,58 @@ def fix_acronyms(string):
     return string
 
 
+# endregion Single line
+
+
+# region Multi-lines
+
+
+def fix_empty_lines(strings):
+    """Remove empty lines of given array.
+
+    :param strings: an array of strings to fix.
+    :return: string
+    """
+    filtered_strings = []
+    for string in strings:
+        if not re.match(r"^\s*$", string):
+            filtered_strings.append(string)
+
+    return filtered_strings
+
+
+def fix_redundant_italic_tag(strings):
+    """Remove <i> and </i> on followed lines.
+
+    :param strings: an array of strings to fix.
+    :return: string
+    """
+    for i in range(0, len(strings) - 1):
+        if strings[i].endswith("</i>\n") and strings[i+1].startswith("<i>"):
+            strings[i] = strings[i][:-5] + "\n"
+            strings[i+1] = strings[i+1][3:]
+
+    return strings
+
+# endregion Multi-lines
+
+
+def fix_multiline_errors(lines, current_language):
+    """Every fixes defined here.
+
+    :param lines: the lines to fix.
+    :return: string
+    """
+
+    if len(lines) == 1:
+        return lines
+
+    lines = fix_empty_lines(lines)
+    lines = fix_redundant_italic_tag(lines)
+
+    return lines
+
+
 def fix_errors(string, current_language):
     """Every fixes defined here.
 
@@ -690,6 +745,7 @@ def fix_errors(string, current_language):
     string = fix_letter_followed_by_space(string, "V", current_language)
     string = fix_quotes(string, current_language)
     string = fix_question_marks(string)
+    string = fix_degree_symbol(string)
     string = fix_exclamation_marks(string)
     string = fix_dialog_hyphen(string)
 

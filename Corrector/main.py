@@ -107,35 +107,22 @@ for file in files:
 
             for subtitle in subtitles:
 
+                corrected_lines = fix_multiline_errors(subtitle.get_lines(), current_language)
+                subtitle.set_lines(corrected_lines)
+
+                if len(subtitle.get_lines()) > 2:
+                    print("Wrong subtitle size : " + str(subtitle.get_lines()))
+
                 corrected_lines = []
-                for line in subtitle.lines:
+                for line in subtitle.get_lines():
 
                     if current_language == "fr":
                         line = fix_accentuated_capital_a(line)
 
-                    line = fix_common_errors(line)
-                    line = fix_punctuation_errors(line, current_language)
-                    line = fix_numbers(line)
-                    line = fix_italic_tag_errors(line)
-                    line = fix_colon(line)
-                    line = fix_capital_i_to_l(line)
-                    line = fix_l_to_capital_i(line)
-                    line = fix_acronyms(line)
-                    line = fix_common_misspells(line, current_language)
-                    line = fix_letter_followed_by_space(line, "f", current_language)
-                    line = fix_letter_followed_by_space(line, "W", current_language)
-                    line = fix_letter_followed_by_space(line, "C", current_language)
-                    line = fix_letter_followed_by_space(line, "G", current_language)
-                    line = fix_letter_followed_by_space(line, "Z", current_language)
-                    line = fix_letter_followed_by_space(line, "V", current_language)
-                    line = fix_quotes(line, current_language)
-                    line = fix_question_marks(line)
-                    line = fix_degree_symbol(line)
-                    line = fix_exclamation_marks(line)
-                    line = fix_dialog_hyphen(line)
+                    line = fix_errors(line, current_language)
 
                     array = find_words_with_char(line, "I", current_language)
-                    array = remove_all_uppercase_words(array)
+                    # array = remove_all_uppercase_words(array)
                     line = ask_for_correction(line, array, "I_trusted.csv", current_language)
 
                     pretty_number = subtitle.get_number().replace("\n", "")
@@ -152,12 +139,10 @@ for file in files:
 
             new_lines = []
 
-            if len(subtitle.get_lines()) > 2:
-                print("Wrong subtitle size : " + subtitle.get_lines())
-
             for subtitle in subtitles:
-                new_lines += subtitle.to_lines()
-                new_lines.append("\n")
+                if len(subtitle.lines) != 0:
+                    new_lines += subtitle.to_lines()
+                    new_lines.append("\n")
 
             write_file(file, new_lines)
 
