@@ -107,7 +107,7 @@ for file in files:
 
             for subtitle in subtitles:
 
-                corrected_lines = fix_multiline_errors(subtitle.get_lines(), current_language)
+                corrected_lines = fix_multiline_errors(subtitle.lines, current_language)
                 subtitle.set_lines(corrected_lines)
 
                 if len(subtitle.get_lines()) > 2:
@@ -140,7 +140,9 @@ for file in files:
             new_lines = []
 
             for subtitle in subtitles:
-                if len(subtitle.lines) != 0:
+                if len(subtitle.lines) == 1 and re.match(r"^\s*\n*$", subtitle.lines[0]):
+                    print("Empty subtitle found")
+                elif len(subtitle.lines) > 0:
                     new_lines += subtitle.to_lines()
                     new_lines.append("\n")
 

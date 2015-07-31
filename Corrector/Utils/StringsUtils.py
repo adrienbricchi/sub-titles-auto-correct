@@ -683,6 +683,7 @@ def fix_empty_lines(strings):
     :return: string
     """
     filtered_strings = []
+
     for string in strings:
         if not re.match(r"^\s*$", string):
             filtered_strings.append(string)
@@ -729,7 +730,7 @@ def fix_errors(string, current_language):
     :return: string
     """
     string = fix_common_errors(string)
-    string = fix_punctuation_errors(string)
+    string = fix_punctuation_errors(string, current_language)
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
     string = fix_colon(string)
