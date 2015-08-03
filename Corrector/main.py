@@ -122,7 +122,7 @@ for file in files:
                     line = fix_errors(line, current_language)
 
                     array = find_words_with_char(line, "I", current_language)
-                    # array = remove_all_uppercase_words(array)
+                    array = remove_all_uppercase_words(array)
                     line = ask_for_correction(line, array, "I_trusted.csv", current_language)
 
                     pretty_number = subtitle.get_number().replace("\n", "")
