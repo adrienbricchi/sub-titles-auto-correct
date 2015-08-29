@@ -455,38 +455,12 @@ def fix_dialog_hyphen(string):
        *  -<i>text    :   - <i>text
        *  "-text      :   "- text
        *  "-... text  :   "- ... text
+       *  "--text     :   "--text
 
     :param string: the string to fix.
     :return: string
     """
-    res = string
-
-    if string.startswith("\"-"):
-        if not string.startswith("\"- "):
-            res = re.sub(r"^\"-(\w)", r"\"- \1", res)
-
-    elif string.startswith("-\""):
-        if not string.startswith("-\" "):
-            res = re.sub(r"^-\"(\w)", r"- \"\1", res)
-
-    elif string.startswith("-<i>"):
-        if not string.startswith("-<i> "):
-            res = re.sub(r"^-<i>(\w)", r"- <i>\1", res)
-
-    elif string.startswith("<i>-"):
-        if not string.startswith("<i>- "):
-            res = re.sub(r"^<i>-(\w)", r"<i>- \1", res)
-
-    elif string.startswith("-("):
-        res = re.sub(r"^-\(", r"- (", res)
-
-    elif string.startswith("-..."):
-        res = re.sub(r"^-\.\.\.", "- ...", res)
-
-    elif string.startswith("-"):
-        if not string.startswith("- "):
-            res = re.sub(r"^-(\w)", r"- \1", res)
-
+    res = re.sub(r"^(\s*|\"|<i>)-(?!\s|-)", r"\1- ", string)
     return res
 
 
@@ -704,6 +678,23 @@ def fix_redundant_italic_tag(strings):
 
     return strings
 
+
+def fix_missing_dialog_hyphen(strings):
+    """Adds a dialog hyphen on the first line, if the following has one.
+
+    :param strings: an array of strings to fix.
+    :return: string
+    """
+    start_with_hyphen_regex = r"^(<i>)?\s*-(?!-).*$"
+
+    if len(strings) == 2:
+        if re.match(start_with_hyphen_regex, strings[1]):
+            if not re.match(start_with_hyphen_regex, strings[0]):
+                strings[0] = "- " + strings[0]
+
+    return strings
+
+
 # endregion Multi-lines
 
 
@@ -719,6 +710,7 @@ def fix_multiline_errors(lines, current_language):
 
     lines = fix_empty_lines(lines)
     lines = fix_redundant_italic_tag(lines)
+    lines = fix_missing_dialog_hyphen(lines)
 
     return lines
 
