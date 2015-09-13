@@ -250,7 +250,6 @@ def ask_for_correction(string, array, trusted_file_path, language):
 
     :param string: the string to fix
     :param array: errors to print
-    :param char: checked char
     :param trusted_file_path: path to trusted csv
     :param language: current language
     :return: fixed string
@@ -654,7 +653,7 @@ def fix_empty_lines(strings):
     """Remove empty lines of given array.
 
     :param strings: an array of strings to fix.
-    :return: string
+    :return: string array
     """
     filtered_strings = []
 
@@ -669,7 +668,7 @@ def fix_redundant_italic_tag(strings):
     """Remove <i> and </i> on followed lines.
 
     :param strings: an array of strings to fix.
-    :return: string
+    :return: string array
     """
     for i in range(0, len(strings) - 1):
         if strings[i].endswith("</i>\n") and strings[i+1].startswith("<i>"):
@@ -683,7 +682,7 @@ def fix_missing_dialog_hyphen(strings):
     """Adds a dialog hyphen on the first line, if the following has one.
 
     :param strings: an array of strings to fix.
-    :return: string
+    :return: string array
     """
     start_with_hyphen_regex = r"^(<i>)?\s*-(?!-).*$"
 
@@ -691,6 +690,28 @@ def fix_missing_dialog_hyphen(strings):
         if re.match(start_with_hyphen_regex, strings[1]):
             if not re.match(start_with_hyphen_regex, strings[0]):
                 strings[0] = "- " + strings[0]
+
+    return strings
+
+
+def fix_double_quotes_errors(strings):
+    """Checks even number of double quotes.
+
+    :param strings: an array of strings to fix.
+    :return: string array
+    """
+    count = 0
+    for string in strings:
+        count += len(re.findall(r"\"", string))
+
+    if (count % 2) == 1:
+        last_string_index = len(strings) - 1
+
+        if strings[0].startswith("\""):
+            last_string_length = len(strings[last_string_index])
+            strings[last_string_index] = strings[last_string_index][:last_string_length - 1] + "\"\n"
+        elif strings[last_string_index].endswith("\"\n"):
+            strings[0] = "\"" + strings[0]
 
     return strings
 
@@ -705,6 +726,8 @@ def fix_multiline_errors(lines, current_language):
     :return: string
     """
 
+    lines = fix_double_quotes_errors(lines)
+
     if len(lines) == 1:
         return lines
 
@@ -715,7 +738,7 @@ def fix_multiline_errors(lines, current_language):
     return lines
 
 
-def fix_errors(string, current_language):
+def fix_single_line_errors(string, current_language):
     """Every fixes defined here.
 
     :param string: the string to fix.

@@ -94,7 +94,7 @@ for file in files:
     print(shell_color_bold + file + " (" + str(len(lines)) + " lines)" + shell_color_end)
     current_language = get_file_language(file)
 
-    if prompt == "script":
+    if prompt.startswith("scri"):
 
         try:
             subtitles = Subtitle.subtitles_from_lines(lines)
@@ -119,7 +119,7 @@ for file in files:
                     if current_language == "fr":
                         line = fix_accentuated_capital_a(line)
 
-                    line = fix_errors(line, current_language)
+                    line = fix_single_line_errors(line, current_language)
 
                     array = find_words_with_char(line, "I", current_language)
                     array = remove_all_uppercase_words(array)
@@ -151,7 +151,7 @@ for file in files:
         except ValueError as err:
             print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
 
-    elif prompt == "word":
+    elif prompt.startswith("wor"):
         launch_ms_word_spell_check(file, current_language)
 
 end = datetime.datetime.now()
