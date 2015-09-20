@@ -362,6 +362,10 @@ def fix_common_errors(string):
     """
     string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
     string = string.replace("- \\", "- ")
+    string = string.replace(" )", ")")
+    string = string.replace("( ", "(")
+    string = string.replace(" ]", "]")
+    string = string.replace("[ ", "[")
 
     return string
 
