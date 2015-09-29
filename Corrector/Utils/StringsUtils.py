@@ -285,7 +285,7 @@ def ask_for_correction(string, array, trusted_file_path, language):
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
-    office2010_location = "C:\Program Files\Microsoft Office\Office14\Winword.exe"
+    office2010_location = 'C:\Program Files\Microsoft Office\Office14\Winword.exe'
     if os.path.isfile(office2010_location):
         command_line += office2010_location
 
@@ -362,6 +362,7 @@ def fix_common_errors(string):
     """
     string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
     string = string.replace("- \\", "- ")
+    string = string.replace("’", "'")
     string = string.replace(" )", ")")
     string = string.replace("( ", "(")
     string = string.replace(" ]", "]")
