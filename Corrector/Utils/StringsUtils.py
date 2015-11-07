@@ -12,6 +12,8 @@ strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsM
 letters_maps_directory = strings_maps_directory + 'LettersMaps/'
 lower_case = r"[a-zàâäçéèêëîïôöùûü]"
 upper_case = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
+start_with_hyphen_regex = r"^(<i>)?(?:\s*-\s*)(?!-)(.*)$"
+ends_without_ending_sentence_regex = r".*[a-zA-Z]$"
 file_cache = {}
 
 shell_color_header = '\033[95m'
@@ -683,13 +685,31 @@ def fix_redundant_italic_tag(strings):
     return strings
 
 
+def fix_useless_dialog_hyphen(strings):
+    """Remove hyphens on single lines and single sentences.
+
+    :param strings: an array of strings to fix.
+    :return: string array
+    """
+
+    if len(strings) == 1:
+        if re.match(start_with_hyphen_regex, strings[0]):
+            strings[0] = re.sub(start_with_hyphen_regex, "\1\2", strings[0])
+
+    if len(strings) == 2:
+        if re.match(start_with_hyphen_regex, strings[0]) and not re.match(start_with_hyphen_regex, strings[1]):
+            if re.match(ends_without_ending_sentence_regex, strings[0]):
+                strings[0] = re.sub(start_with_hyphen_regex, "\1\2", strings[0])
+
+    return strings
+
+
 def fix_missing_dialog_hyphen(strings):
     """Adds a dialog hyphen on the first line, if the following has one.
 
     :param strings: an array of strings to fix.
     :return: string array
     """
-    start_with_hyphen_regex = r"^(<i>)?\s*-(?!-).*$"
 
     if len(strings) == 2:
         if re.match(start_with_hyphen_regex, strings[1]):
@@ -734,11 +754,11 @@ def fix_multiline_errors(lines, current_language):
     lines = fix_double_quotes_errors(lines)
 
     if len(lines) == 1:
-        return lines
-
-    lines = fix_empty_lines(lines)
-    lines = fix_redundant_italic_tag(lines)
-    lines = fix_missing_dialog_hyphen(lines)
+        lines = fix_useless_dialog_hyphen(lines)
+    else:
+        lines = fix_empty_lines(lines)
+        lines = fix_redundant_italic_tag(lines)
+        lines = fix_missing_dialog_hyphen(lines)
 
     return lines
 
