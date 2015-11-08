@@ -633,6 +633,8 @@ def fix_l_to_capital_i(string):
     while re.search(r"" + "l+" + upper_case + upper_case, string):
         string = re.sub(r"l(?=" + upper_case + r"{2})", "I", string)
 
+    string = re.sub(r"\bln", "In", string)
+
     return string
 
 
