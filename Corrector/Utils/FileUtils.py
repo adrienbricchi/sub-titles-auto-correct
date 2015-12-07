@@ -6,6 +6,16 @@ import shutil                # copy backup files
 import fnmatch               # recursive research in folders
 import os                    # system calls (open directories)
 import io                    # file encoding
+import re                    # regex
+
+
+def clean_space_in_filename(file_path):
+    """Rename a file replacing spaces with underscore.
+
+    :param file_path: string
+    """
+    new_path = re.sub(r"(\s)(?=[^/]*$)", r"_", file_path)
+    os.rename(file_path, new_path)
 
 
 def get_file_text(path, mode_lines):
