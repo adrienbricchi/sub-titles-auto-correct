@@ -8,22 +8,22 @@ import subprocess
 import os
 
 
-strings_maps_directory = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
-letters_maps_directory = strings_maps_directory + 'LettersMaps/'
-lower_case = r"[a-zàâäçéèêëîïôöùûü]"
-upper_case = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
-start_with_hyphen_regex = r"^(<i>)?(?:\s*-\s*)(?!-)(.*)$"
-ends_without_ending_sentence_regex = r".*[a-zA-Z]$"
-file_cache = {}
+STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
+LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
+LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
+UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
+START_WITH_HYPHEN_REGEX = r"^(<i>)?(?:\s*-\s*)(?!-)(.*)$"
+ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
+FILE_CACHE = {}
 
-shell_color_header = '\033[95m'
-shell_color_ok_blue = '\033[94m'
-shell_color_ok_green = '\033[92m'
-shell_color_warning = '\033[93m'
-shell_color_fail = '\033[91m'
-shell_color_end = '\033[0m'
-shell_color_bold = '\033[1m'
-shell_color_underline = '\033[4m'
+SHELL_COLOR_HEADER = '\033[95m'
+SHELL_COLOR_OK_BLUE = '\033[94m'
+SHELL_COLOR_OK_GREEN = '\033[92m'
+SHELL_COLOR_WARNING = '\033[93m'
+SHELL_COLOR_FAIL = '\033[91m'
+SHELL_COLOR_END = '\033[0m'
+SHELL_COLOR_BOLD = '\033[1m'
+SHELL_COLOR_UNDERLINE = '\033[4m'
 
 
 # region Utils
@@ -49,7 +49,7 @@ def find_words_with_char(string, char, language):
         result = [value for value in result if char in value]
 
         # Filtering trusted words
-        csv_file = letters_maps_directory + char + '_trusted.csv'
+        csv_file = LETTERS_MAPS_DIRECTORY + char + '_trusted.csv'
         for word in get_csv_words_with_language(csv_file, language):
             result = [value for value in result if value != word]
             result = [value for value in result if value != (word[:1] + word[:1])]
@@ -65,7 +65,7 @@ def warns_list_words(string, array):
     :return:
     """
     for word in array:
-        string = string.replace(word, shell_color_warning + word + shell_color_end)
+        string = string.replace(word, SHELL_COLOR_WARNING + word + SHELL_COLOR_END)
 
     return string
 
@@ -176,8 +176,8 @@ def get_csv_words(csv_file_path):
     """
     result_list = []
 
-    if csv_file_path in file_cache:
-        return file_cache[csv_file_path]
+    if csv_file_path in FILE_CACHE:
+        return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
         with open(csv_file_path, newline='') as csv_file:
@@ -185,7 +185,7 @@ def get_csv_words(csv_file_path):
             for word in csv_file_reader:
                 result_list.append(word[0])
 
-    file_cache[csv_file_path] = result_list
+    FILE_CACHE[csv_file_path] = result_list
     return result_list
 
 
@@ -213,8 +213,8 @@ def get_csv_words_map(csv_file_path):
     """
     result_list = []
 
-    if csv_file_path in file_cache:
-        return file_cache[csv_file_path]
+    if csv_file_path in FILE_CACHE:
+        return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
         with open(csv_file_path, newline='') as csv_file:
@@ -222,7 +222,7 @@ def get_csv_words_map(csv_file_path):
             for words in csv_file_reader:
                 result_list.append(words)
 
-    file_cache[csv_file_path] = result_list
+    FILE_CACHE[csv_file_path] = result_list
     return result_list
 
 
@@ -233,7 +233,7 @@ def put_csv_word(csv_file_path, key, value):
     :param key: can't be null
     :param value: None for single column CSV
     """
-    file_cache.pop(csv_file_path, None)
+    FILE_CACHE.pop(csv_file_path, None)
 
     with open(csv_file_path, 'a', newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=':', quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -260,13 +260,13 @@ def ask_for_correction(string, array, trusted_file_path, language):
         print(warns_list_words(string.replace("\n", ""), array))
 
     for word in array:
-        prompt = input("Found " + shell_color_warning + word + shell_color_end + " : ")
+        prompt = input("Found " + SHELL_COLOR_WARNING + word + SHELL_COLOR_END + " : ")
 
         if prompt == ":x":
-            trusted_file_path = letters_maps_directory + re.sub(r"\.csv$", "." + language + ".csv", trusted_file_path)
+            trusted_file_path = LETTERS_MAPS_DIRECTORY + re.sub(r"\.csv$", "." + language + ".csv", trusted_file_path)
             put_csv_word(trusted_file_path, word, None)
         elif prompt == ":x!":
-            trusted_file_path = letters_maps_directory + trusted_file_path
+            trusted_file_path = LETTERS_MAPS_DIRECTORY + trusted_file_path
             put_csv_word(trusted_file_path, word, None)
         elif prompt == ":q":
             print("Skipped...")
@@ -275,10 +275,10 @@ def ask_for_correction(string, array, trusted_file_path, language):
             prompt_should_register = input("    Register? : ")
 
             if prompt_should_register == ":x":
-                common_misspells_file_path = strings_maps_directory + "common_misspells." + language + ".csv"
+                common_misspells_file_path = STRINGS_MAPS_DIRECTORY + "common_misspells." + language + ".csv"
                 put_csv_word(common_misspells_file_path, word, prompt)
             elif prompt_should_register == ":x!":
-                common_misspells_file_path = strings_maps_directory + "common_misspells.csv"
+                common_misspells_file_path = STRINGS_MAPS_DIRECTORY + "common_misspells.csv"
                 put_csv_word(common_misspells_file_path, word, prompt)
 
     return string
@@ -327,7 +327,7 @@ def remove_all_uppercase_words(array):
     :param array: the array to fix.
     :return: array
     """
-    return [word for word in array if not re.match(r"^(" + upper_case + r"){3,}$", word)]
+    return [word for word in array if not re.match(r"^(" + UPPER_CASE + r"){3,}$", word)]
 
 
 # endregion Utils
@@ -346,12 +346,12 @@ def fix_accentuated_capital_a(string):
         for matching_range in [m.span() for m in re.finditer(r"\bA\b", string)]:
 
             colour_string = string[:matching_range[0]]
-            colour_string += shell_color_warning + "A" + shell_color_end
+            colour_string += SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END
             colour_string += string[matching_range[1]:]
 
             prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
             if prompt == ":x":
-                string = colour_string.replace(shell_color_warning + "A" + shell_color_end, "À")
+                string = colour_string.replace(SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END, "À")
 
     return string
 
@@ -407,11 +407,11 @@ def fix_quotes(line, language):
     line = line.replace("''", "\"")
 
     if re.search("\s'", line):
-        for word in get_csv_words_with_language(strings_maps_directory + 'quote_word_trusted.csv', language):
+        for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'quote_word_trusted.csv', language):
             line = re.sub(r"\s'" + word + r"\b", "'" + word, line)
 
     if re.search("'\s", line):
-        for word in get_csv_words_with_language(strings_maps_directory + 'word_quote_trusted.csv', language):
+        for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'word_quote_trusted.csv', language):
             line = re.sub(r"\b" + word + r"'\s", word + "'", line)
 
     # if re.search("'\s", line):
@@ -478,16 +478,16 @@ def fix_letter_followed_by_space(line, letter, language):
     :return: string
     """
     if (letter + " ") in line:
-        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_upp_plural.csv', language):
+        for word in get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + letter + '_space_upp_plural.csv', language):
             line = remove_space_from_word(line, word, True, True)
 
-        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_upp.csv', language):
+        for word in get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + letter + '_space_upp.csv', language):
             line = remove_space_from_word(line, word, True, False)
 
-        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space.csv', language):
+        for word in get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + letter + '_space.csv', language):
             line = remove_space_from_word(line, word, False, False)
 
-        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_plural.csv', language):
+        for word in get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + letter + '_space_plural.csv', language):
             line = remove_space_from_word(line, word, False, True)
 
     if letter + " " in line:
@@ -495,12 +495,12 @@ def fix_letter_followed_by_space(line, letter, language):
         to_check = line.replace("\n", "")
         to_check = re.sub(r"\b(\w*[^" + letter + r")\s])\b", "", to_check)
 
-        for word in get_csv_words_with_language(letters_maps_directory + letter + '_space_trusted.csv', language):
+        for word in get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + letter + '_space_trusted.csv', language):
             to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
 
         # Print colored char
         if letter + " " in to_check:
-            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)", shell_color_warning + r"\1" + shell_color_end, line_to_print)
+            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)", SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END, line_to_print)
             print("Unknown " + letter + "_ : " + line_to_print)
 
     return line
@@ -544,7 +544,7 @@ def fix_common_misspells(string, language):
     :param string: the string to fix.
     :return: string
     """
-    for error in get_csv_words_map_with_language(strings_maps_directory + 'common_misspells.csv', language):
+    for error in get_csv_words_map_with_language(STRINGS_MAPS_DIRECTORY + 'common_misspells.csv', language):
         regex = r"\b" + error[0] + r"\b"
         string = re.sub(r"" + regex, error[1], string)
 
@@ -559,7 +559,7 @@ def fix_numbers(string):
     """
     string = re.sub(r"(?<=\d)\s(?=[\s\d])", "", string)
 
-    for word in get_csv_words(strings_maps_directory + 'number_succeeded_by_space_trusted.csv'):
+    for word in get_csv_words(STRINGS_MAPS_DIRECTORY + 'number_succeeded_by_space_trusted.csv'):
         string = re.sub(r"(?<=\d)\s(?=" + word + r"\b)", "", string)
 
     if re.search(r"\d\d\d\d\d", string):
@@ -602,17 +602,17 @@ def fix_capital_i_to_l(string):
     :param string: the string to fix.
     :return: string
     """
-    while re.search(r"" + lower_case + "I", string):
-        string = re.sub(r"(?<=" + lower_case + r")I", "l", string)
+    while re.search(r"" + LOWER_CASE + "I", string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r")I", "l", string)
 
-    while re.search(r"" + upper_case + "I" + lower_case, string):
-        string = re.sub(r"(?<=" + upper_case + r")I(?=" + lower_case + r")", "l", string)
+    while re.search(r"" + UPPER_CASE + "I" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + UPPER_CASE + r")I(?=" + LOWER_CASE + r")", "l", string)
 
-    while re.search(r"" + lower_case + r"\sI" + lower_case, string):
-        string = re.sub(r"(?<=" + lower_case + r"\s)I(?=" + lower_case + r")", "l", string)
+    while re.search(r"" + LOWER_CASE + r"\sI" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r"\s)I(?=" + LOWER_CASE + r")", "l", string)
 
-    while re.search(r",\sI" + lower_case, string):
-        string = re.sub(r"(?<=,\s)I(?=" + lower_case + r")", "l", string)
+    while re.search(r",\sI" + LOWER_CASE, string):
+        string = re.sub(r"(?<=,\s)I(?=" + LOWER_CASE + r")", "l", string)
 
     return string
 
@@ -627,11 +627,11 @@ def fix_l_to_capital_i(string):
     :param string: the string to fix.
     :return: string
     """
-    while re.search(r"" + upper_case + "l+" + upper_case, string):
-        string = re.sub(r"(?<=" + upper_case + r")l(?=l*" + upper_case + r")", "I", string)
+    while re.search(r"" + UPPER_CASE + "l+" + UPPER_CASE, string):
+        string = re.sub(r"(?<=" + UPPER_CASE + r")l(?=l*" + UPPER_CASE + r")", "I", string)
 
-    while re.search(r"" + "l+" + upper_case + upper_case, string):
-        string = re.sub(r"l(?=" + upper_case + r"{2})", "I", string)
+    while re.search(r"" + "l+" + UPPER_CASE + UPPER_CASE, string):
+        string = re.sub(r"l(?=" + UPPER_CASE + r"{2})", "I", string)
 
     string = re.sub(r"\bln", "In", string)
     string = re.sub(r"\blm", "Im", string)
@@ -696,13 +696,13 @@ def fix_useless_dialog_hyphen(strings):
     """
 
     if len(strings) == 1:
-        if re.match(start_with_hyphen_regex, strings[0]):
-            strings[0] = re.sub(start_with_hyphen_regex, "\1\2", strings[0])
+        if re.match(START_WITH_HYPHEN_REGEX, strings[0]):
+            strings[0] = re.sub(START_WITH_HYPHEN_REGEX, "\1\2", strings[0])
 
     if len(strings) == 2:
-        if re.match(start_with_hyphen_regex, strings[0]) and not re.match(start_with_hyphen_regex, strings[1]):
-            if re.match(ends_without_ending_sentence_regex, strings[0]):
-                strings[0] = re.sub(start_with_hyphen_regex, "\1\2", strings[0])
+        if re.match(START_WITH_HYPHEN_REGEX, strings[0]) and not re.match(START_WITH_HYPHEN_REGEX, strings[1]):
+            if re.match(ENDS_WITHOUT_ENDING_SENTENCE_REGEX, strings[0]):
+                strings[0] = re.sub(START_WITH_HYPHEN_REGEX, "\1\2", strings[0])
 
     return strings
 
@@ -715,8 +715,8 @@ def fix_missing_dialog_hyphen(strings):
     """
 
     if len(strings) == 2:
-        if re.match(start_with_hyphen_regex, strings[1]):
-            if not re.match(start_with_hyphen_regex, strings[0]):
+        if re.match(START_WITH_HYPHEN_REGEX, strings[1]):
+            if not re.match(START_WITH_HYPHEN_REGEX, strings[0]):
                 strings[0] = "- " + strings[0]
 
     return strings
