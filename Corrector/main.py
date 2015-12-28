@@ -95,7 +95,7 @@ files = get_files_with_type(get_all_files(root_path, 0), "srt")
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)
-    print(shell_color_bold + file + " (" + str(len(lines)) + " lines)" + shell_color_end)
+    print(SHELL_COLOR_BOLD + file + " (" + str(len(lines)) + " lines)" + SHELL_COLOR_END)
     current_language = get_file_language(file)
 
     if prompt.startswith("scri"):
@@ -153,7 +153,7 @@ for file in files:
             write_file(file, new_lines)
 
         except ValueError as err:
-            print(shell_color_fail + "Parsing error : " + str(err) + shell_color_end)
+            print(SHELL_COLOR_FAIL + "Parsing error : " + str(err) + SHELL_COLOR_END)
 
     elif prompt.startswith("wor"):
         launch_ms_word_spell_check(file, current_language)
