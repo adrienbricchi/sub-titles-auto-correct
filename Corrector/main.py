@@ -81,7 +81,7 @@ def translate(string):
 
 start = datetime.datetime.now()
 # 11-20
-root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Tests/"
+root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Resources/"
 
 files = get_files_with_type(get_all_files(root_path, 0), "srt")
 for file in files:
