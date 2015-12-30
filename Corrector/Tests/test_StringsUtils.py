@@ -16,6 +16,10 @@ TEST_LINES["test_fix_useless_dialog_hyphen_3"] = ["-  test line\n", "test line\n
 RESULT_LINES["test_fix_useless_dialog_hyphen_3"] = ["test line\n", "test line\n"]
 TEST_LINES["test_fix_useless_dialog_hyphen_4"] = ["<i>- test line\n", "test line\n"]
 RESULT_LINES["test_fix_useless_dialog_hyphen_4"] = ["<i>test line\n", "test line\n"]
+TEST_LINES["test_fix_useless_dialog_hyphen_5"] = ["\"- test line\n", "test line\n"]
+RESULT_LINES["test_fix_useless_dialog_hyphen_5"] = ["\"test line\n", "test line\n"]
+TEST_LINES["test_fix_useless_dialog_hyphen_6"] = ["\"<i>- test line\n", "test line\n", "test line\n"]
+RESULT_LINES["test_fix_useless_dialog_hyphen_6"] = ["\"<i>test line\n", "test line\n", "test line\n"]
 
 
 class TestStringsUtils(unittest.TestCase):
