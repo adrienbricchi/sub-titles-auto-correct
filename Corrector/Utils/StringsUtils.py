@@ -12,7 +12,7 @@ STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsM
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
 UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
-START_WITH_HYPHEN_REGEX = r"^(<i>)?(?:\s*-\s*)(?!-)(.*)$"
+START_WITH_HYPHEN_REGEX = r"^((?:<i>)?)\s*-\s*(?!-)(.*)"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -696,15 +696,14 @@ def fix_useless_dialog_hyphen(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
-
     if len(strings) == 1:
         if re.match(START_WITH_HYPHEN_REGEX, strings[0]):
-            strings[0] = re.sub(START_WITH_HYPHEN_REGEX, "\1\2", strings[0])
+            strings[0] = re.sub(START_WITH_HYPHEN_REGEX, r"\1\2", strings[0])
 
     if len(strings) == 2:
         if re.match(START_WITH_HYPHEN_REGEX, strings[0]) and not re.match(START_WITH_HYPHEN_REGEX, strings[1]):
             if re.match(ENDS_WITHOUT_ENDING_SENTENCE_REGEX, strings[0]):
-                strings[0] = re.sub(START_WITH_HYPHEN_REGEX, "\1\2", strings[0])
+                strings[0] = re.sub(START_WITH_HYPHEN_REGEX, r"\1\2", strings[0])
 
     return strings
 
