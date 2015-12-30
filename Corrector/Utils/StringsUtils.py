@@ -512,8 +512,6 @@ def fix_italic_tag_errors(string):
     :param string: the string to fix.
     :return: string
     """
-    string = re.sub(r"<i>(\s*)</i>", r"\1", string)
-    string = re.sub(r"</i>(\s*)<i>", r"\1", string)
     string = string.replace("<i> ", " <i>")
     string = string.replace(" <\i>", "<\i> ")
     string = string.replace("<\i>-<i>", "-")
@@ -680,6 +678,10 @@ def fix_redundant_italic_tag(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
+    for i in range(0, len(strings)):
+        strings[i] = re.sub(r"<i>(\s*)</i>", r"\1", strings[i])
+        strings[i] = re.sub(r"</i>(\s*)<i>", r"\1", strings[i])
+
     for i in range(0, len(strings) - 1):
         if strings[i].endswith("</i>\n") and strings[i+1].startswith("<i>"):
             strings[i] = strings[i][:-5] + "\n"
