@@ -718,11 +718,16 @@ def fix_missing_dialog_hyphen(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
+    last_dialog_subtile_index = -1
+    for i in reversed(range(0, len(strings))):
+        if re.match(START_WITH_HYPHEN_REGEX, strings[i]):
+            last_dialog_subtile_index = i
+            break
 
-    if len(strings) == 2:
-        if re.match(START_WITH_HYPHEN_REGEX, strings[1]):
-            if not re.match(START_WITH_HYPHEN_REGEX, strings[0]):
-                strings[0] = "- " + strings[0]
+    for i in range(0, last_dialog_subtile_index):
+        if not re.match(START_WITH_HYPHEN_REGEX, strings[i]):
+            strings[i] = "- " + strings[i]
+            break
 
     return strings
 
