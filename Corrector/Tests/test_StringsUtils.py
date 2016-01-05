@@ -44,37 +44,35 @@ RESULT_LINES["fix_double_quotes_errors_6"] = ["- <i>\"test line 1\"</i>\n", "- t
 
 class TestStringsUtils(unittest.TestCase):
 
+    # region Utils
+
+    def assert_list_equals_test(self, corrected_lines, key, tag):
+        if tag in key:
+            self.assertListEqual(corrected_lines, RESULT_LINES[key])
+        else:
+            self.assertListEqual(corrected_lines, TEST_LINES[key])
+
+    # endregion Utils
+
     def test_fix_redundant_italic_tag(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_redundant_italic_tag(TEST_LINES[key])
-            if "fix_redundant_italic_tag" in key:
-                self.assertListEqual(corrected_lines, RESULT_LINES[key])
-            else:
-                self.assertListEqual(corrected_lines, TEST_LINES[key])
+            self.assert_list_equals_test(corrected_lines, key, "fix_redundant_italic_tag")
 
     def test_fix_useless_dialog_hyphen(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_useless_dialog_hyphen(TEST_LINES[key])
-            if "fix_useless_dialog_hyphen" in key:
-                self.assertListEqual(corrected_lines, RESULT_LINES[key])
-            else:
-                self.assertListEqual(corrected_lines, TEST_LINES[key])
+            self.assert_list_equals_test(corrected_lines, key, "fix_useless_dialog_hyphen")
 
     def test_fix_missing_dialog_hyphen(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_missing_dialog_hyphen(TEST_LINES[key])
-            if "fix_missing_dialog_hyphen" in key:
-                self.assertListEqual(corrected_lines, RESULT_LINES[key])
-            else:
-                self.assertListEqual(corrected_lines, TEST_LINES[key])
+            self.assert_list_equals_test(corrected_lines, key, "fix_missing_dialog_hyphen")
 
     def test_fix_double_quotes_errors(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
-            if "fix_double_quotes_errors" in key:
-                self.assertListEqual(corrected_lines, RESULT_LINES[key])
-            else:
-                self.assertListEqual(corrected_lines, TEST_LINES[key])
+            self.assert_list_equals_test(corrected_lines, key, "fix_double_quotes_errors")
 
 
 if __name__ == '__main__':
