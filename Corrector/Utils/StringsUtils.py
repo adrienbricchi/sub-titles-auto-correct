@@ -2,7 +2,7 @@
 # -*-coding:utf8 -*
 
 
-import re                                                   # regular expression
+import re
 import csv
 import subprocess
 import os
@@ -12,7 +12,9 @@ STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsM
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
 UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
-START_WITH_HYPHEN_REGEX = r"^((?:<i>|\"){0,2})\s*-\s*(?!-)(.*)"
+START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
+ENDS_WITH_HYPHEN_REGEX = r"^(.*)\"((?:</i>)?)$"
+SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -34,7 +36,7 @@ def find_words_with_char(string, char, language):
 
     :param string: the string to check.
     :param char: the char to log
-    :param char: the language to check
+    :param language: current language correction
     :return: an array (maybe empty)
     """
     result = []
@@ -156,7 +158,7 @@ def get_csv_words_with_language(csv_file_path, language):
     """Safe file word list, gets regular and localized csv content
 
     :param csv_file_path: source path
-    :param language: language csv file suffix
+    :param language: current language correction
     :return: list of strings, or empty list
     """
     localized_csv_path = re.sub(r"\.csv$", "." + language + ".csv", csv_file_path)
@@ -193,7 +195,7 @@ def get_csv_words_map_with_language(csv_file_path, language):
     """Safe file word list, gets regular and localized csv content
 
     :param csv_file_path: source path
-    :param language: language csv file suffix
+    :param language: current language correction
     :return: list of strings arrays, or empty list
     """
     localized_csv_path = re.sub(r"\.csv$", "." + language + ".csv", csv_file_path)
@@ -377,6 +379,7 @@ def fix_punctuation_errors(string, language):
     """Add a space after the three dots, before or after a dot, etc
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     string = string.replace(". . .", "...")
@@ -401,6 +404,7 @@ def fix_quotes(line, language):
     Add a space after the three dots, if there isn't, and if isn't before a linebreak
 
     :param line: the string to fix.
+    :param language: current language correction
     :return: string
     """
     line = line.replace("' '", "\"")
@@ -475,6 +479,7 @@ def fix_letter_followed_by_space(line, letter, language):
 
     :param line: the string to fix.
     :param letter: string, the letter to check.
+    :param language: current language correction
     :return: string
     """
     if (letter + " ") in line:
@@ -540,6 +545,7 @@ def fix_common_misspells(string, language):
     """Hardcoded fixes of many errors
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     for error in get_csv_words_map_with_language(STRINGS_MAPS_DIRECTORY + 'common_misspells.csv', language):
@@ -742,14 +748,18 @@ def fix_double_quotes_errors(strings):
     for string in strings:
         count += len(re.findall(r"\"", string))
 
-    if (count % 2) == 1:
-        last_string_index = len(strings) - 1
+    if (count % 2) == 0:
+        return strings
 
-        if strings[0].startswith("\""):
-            last_string_length = len(strings[last_string_index])
-            strings[last_string_index] = strings[last_string_index][:last_string_length - 1] + "\"\n"
-        elif strings[last_string_index].endswith("\"\n"):
-            strings[0] = "\"" + strings[0]
+    double_quote_pending = False
+    for i in reversed(range(0, len(strings))):
+
+        if re.match(ENDS_WITH_HYPHEN_REGEX, strings[i]):
+            double_quote_pending = True
+
+        if double_quote_pending and (re.match(START_WITH_HYPHEN_REGEX, strings[i]) or i == 0):
+            strings[i] = re.sub(SENTENCE_START_REGEX, r'\1"\2', strings[i])
+            double_quote_pending = False
 
     return strings
 
@@ -757,10 +767,11 @@ def fix_double_quotes_errors(strings):
 # endregion Multi-lines
 
 
-def fix_multiline_errors(lines, current_language):
+def fix_multi_line_errors(lines, language):
     """Every fixes defined here.
 
     :param lines: the lines to fix.
+    :param language: current language correction
     :return: string
     """
 
@@ -776,28 +787,29 @@ def fix_multiline_errors(lines, current_language):
     return lines
 
 
-def fix_single_line_errors(string, current_language):
+def fix_single_line_errors(string, language):
     """Every fixes defined here.
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     string = fix_common_errors(string)
-    string = fix_punctuation_errors(string, current_language)
+    string = fix_punctuation_errors(string, language)
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
     string = fix_colon(string)
     string = fix_capital_i_to_l(string)
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)
-    string = fix_common_misspells(string, current_language)
-    string = fix_letter_followed_by_space(string, "f", current_language)
-    string = fix_letter_followed_by_space(string, "W", current_language)
-    string = fix_letter_followed_by_space(string, "C", current_language)
-    string = fix_letter_followed_by_space(string, "G", current_language)
-    string = fix_letter_followed_by_space(string, "Z", current_language)
-    string = fix_letter_followed_by_space(string, "V", current_language)
-    string = fix_quotes(string, current_language)
+    string = fix_common_misspells(string, language)
+    string = fix_letter_followed_by_space(string, "f", language)
+    string = fix_letter_followed_by_space(string, "W", language)
+    string = fix_letter_followed_by_space(string, "C", language)
+    string = fix_letter_followed_by_space(string, "G", language)
+    string = fix_letter_followed_by_space(string, "Z", language)
+    string = fix_letter_followed_by_space(string, "V", language)
+    string = fix_quotes(string, language)
     string = fix_question_marks(string)
     string = fix_degree_symbol(string)
     string = fix_exclamation_marks(string)

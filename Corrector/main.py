@@ -111,7 +111,7 @@ for file in files:
 
             for subtitle in subtitles:
 
-                corrected_lines = fix_multiline_errors(subtitle.lines, current_language)
+                corrected_lines = fix_multi_line_errors(subtitle.lines, current_language)
                 subtitle.set_lines(corrected_lines)
 
                 if len(subtitle.get_lines()) > 2:
