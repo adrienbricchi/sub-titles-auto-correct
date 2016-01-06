@@ -1,9 +1,23 @@
+#!/usr/bin/python3
+# -*-coding:utf8 -*
+
 import unittest
 from Corrector.Utils import StringsUtils
+from Corrector.Utils import Consts
 
 
+Consts.is_unittest_exec = True
 TEST_LINES = {}
 RESULT_LINES = {}
+
+# region TEST_LINES Single
+
+TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "in here. I. Myself. A.T. M. \n"]
+RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "in here. I. Myself. A.T.M. \n"]
+
+# endregion TEST_LINES Single
+
+# region TEST_LINES Multi
 
 TEST_LINES["fix_redundant_italic_tag"] = ["<i>test</i> <i>line 1</i><i></i>\n", "<i>test</i><i> line 2</i>\n"]
 RESULT_LINES["fix_redundant_italic_tag"] = ["<i>test line 1\n", "test line 2</i>\n"]
@@ -41,6 +55,14 @@ RESULT_LINES["fix_double_quotes_errors_5"] = ["- test line 1\n", "- \"test line\
 TEST_LINES["fix_double_quotes_errors_6"] = ["- <i>test line 1\"</i>\n", "- test line\n"]
 RESULT_LINES["fix_double_quotes_errors_6"] = ["- <i>\"test line 1\"</i>\n", "- test line\n"]
 
+TEST_LINES["fix_empty_lines_1"] = ["test line 1\n", "\n", "test line\n"]
+RESULT_LINES["fix_empty_lines_1"] = ["test line 1\n", "test line\n"]
+TEST_LINES["fix_empty_lines_2"] = ["test line 1\n", "  \n", "test line\n"]
+RESULT_LINES["fix_empty_lines_2"] = ["test line 1\n", "test line\n"]
+
+
+# endregion TEST_LINES Multi
+
 
 class TestStringsUtils(unittest.TestCase):
 
@@ -53,6 +75,24 @@ class TestStringsUtils(unittest.TestCase):
             self.assertListEqual(corrected_lines, TEST_LINES[key])
 
     # endregion Utils
+
+    # region Single-line
+
+    def test_fix_acronyms(self):
+        for key in TEST_LINES:
+
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_acronyms(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_acronyms")
+
+    # region Multi-line
+
+    def test_fix_empty_lines(self):
+        for key in TEST_LINES:
+            corrected_lines = StringsUtils.fix_empty_lines(TEST_LINES[key])
+            self.assert_list_equals_test(corrected_lines, key, "fix_empty_lines")
 
     def test_fix_redundant_italic_tag(self):
         for key in TEST_LINES:

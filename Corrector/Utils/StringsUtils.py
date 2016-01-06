@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 # -*-coding:utf8 -*
 
-
 import re
 import csv
 import subprocess
 import os
+from Corrector.Utils import Consts
 
 
 STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
@@ -651,8 +651,9 @@ def fix_acronyms(string):
     """
     string = re.sub(r"(?<=\b\w\.)(\s*)(?=\w\.)", "", string)
 
-    if re.search(r"\w\.\w\.", string):
-        print("Found acronym : " + string.replace("\n", ""))
+    if not Consts.is_unittest_exec:
+        if re.search(r"\w\.\w\.", string):
+            print("Found acronym : " + string.replace("\n", ""))
 
     return string
 
