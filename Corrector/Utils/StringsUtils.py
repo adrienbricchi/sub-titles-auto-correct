@@ -426,33 +426,18 @@ def fix_quotes(line, language):
     return line
 
 
-def fix_question_marks(string):
-    """ *? => *_?
-    Add a space after the three dots, if there isn't, and if isn't before a linebreak
+def fix_punctuation_spaces(string):
+    """ Add needed spaces around "?" and "!"
 
     :param string: the string to fix.
     :return: string
     """
-
-    if "?" in string:
-        string = re.sub(r"(?<!\s)\?", " ?", string)
-        string = re.sub(r"(?<=[!\?])\s+(?=[!\?])", "", string)
+    if "?" in string or "!" in string:
+        string = re.sub(r"(?<![\?!\s])([\?!])", r" \1", string)     # Space before
+        string = re.sub(r"([\?!])(?=[\w\(<'-])", r"\1 ", string)    # Space after
+        string = re.sub(r"(?<=[\?!])\s+(?=[!\?])", "", string)      # Space between
 
     return string
-
-
-def fix_exclamation_marks(string):
-    """ *! => *_!
-
-    :param string: the string to fix.
-    :return: string
-    """
-    res = string
-
-    if "!" in string:
-        res = re.sub(r"(?<!\s)!", " !", res)
-
-    return res
 
 
 def fix_dialog_hyphen(string):
@@ -536,7 +521,7 @@ def fix_colon(string):
     string = re.sub(r"(?<=\w):(?=\w)", " : ", string)
     string = re.sub(r"(?<=\w):", " :", string)
     string = re.sub(r":(?=\w)", ": ", string)
-    string = re.sub(r"(?<=\d)\s:\s(?=\d)", ":", string)
+    string = re.sub(r"(?<=\d)\s*:\s*(?=\d)", ":", string)
 
     return string
 
@@ -649,7 +634,7 @@ def fix_acronyms(string):
     :param string: the string to fix.
     :return: string
     """
-    string = re.sub(r"(?<=\b\w\.)(\s*)(?=\w\.)", "", string)
+    string = re.sub(r"(?<=\b" + UPPER_CASE + r"\.)(\s*)(?=\w\.)", "", string)
 
     if not Consts.is_unittest_exec:
         if re.search(r"\w\.\w\.", string):
@@ -811,9 +796,8 @@ def fix_single_line_errors(string, language):
     string = fix_letter_followed_by_space(string, "Z", language)
     string = fix_letter_followed_by_space(string, "V", language)
     string = fix_quotes(string, language)
-    string = fix_question_marks(string)
+    string = fix_punctuation_spaces(string)
     string = fix_degree_symbol(string)
-    string = fix_exclamation_marks(string)
     string = fix_dialog_hyphen(string)
 
     return string

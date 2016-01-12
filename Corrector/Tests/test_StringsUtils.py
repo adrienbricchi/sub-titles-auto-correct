@@ -12,8 +12,11 @@ RESULT_LINES = {}
 
 # region TEST_LINES Single
 
-TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "in here. I. Myself. A.T. M. \n"]
-RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "in here. I. Myself. A.T.M. \n"]
+TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
+RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
+
+TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"\n"]
+RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\"\n"]
 
 # endregion TEST_LINES Single
 
@@ -78,9 +81,16 @@ class TestStringsUtils(unittest.TestCase):
 
     # region Single-line
 
+    def test_fix_punctuation_spaces(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
+
     def test_fix_acronyms(self):
         for key in TEST_LINES:
-
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_acronyms(TEST_LINES[key][i]))
