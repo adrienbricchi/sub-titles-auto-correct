@@ -18,8 +18,8 @@ RESULT_LINES["fix_numbers"] = ["Line 333 445,50 and 3, 4, 5\n", "4Ã¨me et 5h30 Ã
 TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
 RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
 
-TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"\n"]
-RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\"\n"]
+TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
+RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
 # endregion TEST_LINES Single
 
@@ -91,7 +91,6 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_numbers")
-
 
     def test_fix_punctuation_spaces(self):
         for key in TEST_LINES:

@@ -344,16 +344,13 @@ def fix_accentuated_capital_a(string):
     :param string: the string to check.
     :return: string
     """
-    if re.search(r"\bA\b", string):
-        for matching_range in [m.span() for m in re.finditer(r"\bA\b", string)]:
-
-            colour_string = string[:matching_range[0]]
-            colour_string += SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END
-            colour_string += string[matching_range[1]:]
-
-            prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
-            if prompt == ":x":
-                string = colour_string.replace(SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END, "À")
+    matches = list(re.finditer(r"\bA\b", string))
+    for i in range(0, len(matches)):
+        match = matches[i]
+        colour_string = string[:match.start()] + SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END + string[match.end():]
+        prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
+        if prompt == ":x":
+            string = colour_string.replace(SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END, "À")
 
     return string
 
@@ -375,11 +372,10 @@ def fix_common_errors(string):
     return string
 
 
-def fix_punctuation_errors(string, language):
+def fix_punctuation_errors(string):
     """Add a space after the three dots, before or after a dot, etc
 
     :param string: the string to fix.
-    :param language: current language correction
     :return: string
     """
     string = string.replace(". . .", "...")
@@ -573,7 +569,7 @@ def fix_numbers(string):
             # Get fixable matches
 
             if Consts.is_unittest_exec:
-                prompt_results = [True, False, False]
+                prompt_results = test_StringsUtils.FIX_NUMBERS_PROMPTS
             else:
                 for i in range(0, len(matches)):
                     result = matches[i]
@@ -741,13 +737,13 @@ def fix_missing_dialog_hyphen(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
-    last_dialog_subtile_index = -1
+    last_dialog_subtitle_index = -1
     for i in reversed(range(0, len(strings))):
         if re.match(START_WITH_HYPHEN_REGEX, strings[i]):
-            last_dialog_subtile_index = i
+            last_dialog_subtitle_index = i
             break
 
-    for i in range(0, last_dialog_subtile_index):
+    for i in range(0, last_dialog_subtitle_index):
         if not re.match(START_WITH_HYPHEN_REGEX, strings[i]):
             strings[i] = "- " + strings[i]
             break
@@ -784,11 +780,10 @@ def fix_double_quotes_errors(strings):
 # endregion Multi-lines
 
 
-def fix_multi_line_errors(lines, language):
+def fix_multi_line_errors(lines):
     """Every fixes defined here.
 
     :param lines: the lines to fix.
-    :param language: current language correction
     :return: string
     """
 
@@ -812,7 +807,7 @@ def fix_single_line_errors(string, language):
     :return: string
     """
     string = fix_common_errors(string)
-    string = fix_punctuation_errors(string, language)
+    string = fix_punctuation_errors(string)
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
     string = fix_colon(string)

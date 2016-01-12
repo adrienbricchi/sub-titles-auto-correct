@@ -89,7 +89,7 @@ for file in files:
 
 prompt = input("script ou word ? : ")
 
-# TODO : "truc"? ; met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms
+# TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms
 
 files = get_files_with_type(get_all_files(root_path, 0), "srt")
 for file in files:
@@ -111,7 +111,7 @@ for file in files:
 
             for subtitle in subtitles:
 
-                corrected_lines = fix_multi_line_errors(subtitle.lines, current_language)
+                corrected_lines = fix_multi_line_errors(subtitle.lines)
                 subtitle.set_lines(corrected_lines)
 
                 if len(subtitle.get_lines()) > 2:
