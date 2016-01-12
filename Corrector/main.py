@@ -87,9 +87,9 @@ files = get_files_with_type(get_all_files(root_path, 0), "srt")
 for file in files:
     clean_space_in_filename(file)
 
-prompt = input("script ou word : ")
+prompt = input("script ou word ? : ")
 
-# TODO : Number_. ; 14 h00 ; 20 % ; "truc"? ; met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy '
+# TODO : "truc"? ; met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms
 
 files = get_files_with_type(get_all_files(root_path, 0), "srt")
 for file in files:

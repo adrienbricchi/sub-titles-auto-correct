@@ -12,6 +12,9 @@ RESULT_LINES = {}
 
 # region TEST_LINES Single
 
+TEST_LINES["fix_numbers"] = ["Line 333 4 45, 50 and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
+RESULT_LINES["fix_numbers"] = ["Line 333 445,50 and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
+
 TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
 RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
 
@@ -80,6 +83,15 @@ class TestStringsUtils(unittest.TestCase):
     # endregion Utils
 
     # region Single-line
+
+    def test_fix_numbers(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_numbers")
+
 
     def test_fix_punctuation_spaces(self):
         for key in TEST_LINES:
