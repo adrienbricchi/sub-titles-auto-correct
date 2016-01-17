@@ -15,6 +15,7 @@ UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
 ENDS_WITH_HYPHEN_REGEX = r"^(.*)\"((?:</i>)?)$"
 SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
+SDH_CHARS = r"[A-Z0-9\s,()\.!\?\[\]-]{2,}"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -405,6 +406,8 @@ def fix_quotes(line, language):
     """
     line = line.replace("' '", "\"")
     line = line.replace("''", "\"")
+    line = line.replace("‘", "'")
+    line = line.replace("’", "'")
 
     if re.search("\s'", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'quote_word_trusted.csv', language):
@@ -430,7 +433,7 @@ def fix_punctuation_spaces(string):
     """
     if "?" in string or "!" in string:
         string = re.sub(r"(?<![\?!\s])([\?!])", r" \1", string)  # Space before
-        string = re.sub(r"([\?!])(?=[\w\(<'-])", r"\1 ", string)  # Space after
+        string = re.sub(r"([\?!])(?=[\w\('-])", r"\1 ", string)  # Space after
         string = re.sub(r"(?<=[\?!])\s+(?=[!\?])", "", string)  # Space between
 
     return string
@@ -569,13 +572,14 @@ def fix_numbers(string):
             # Get fixable matches
 
             if Consts.is_unittest_exec:
-                prompt_results = test_StringsUtils.FIX_NUMBERS_PROMPTS
+                print("todo")
+                # TODO
             else:
                 for i in range(0, len(matches)):
                     result = matches[i]
                     prompt = input("Found number space in : " + string[:result.start() - 1] +
                                    SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
-                                   string[result.end() + 1:])
+                                   string[result.end() + 1:] + " : ")
                     prompt_results.append(prompt == ":x")
 
             # Fix matches
@@ -777,6 +781,41 @@ def fix_double_quotes_errors(strings):
     return strings
 
 
+def fix_sdh_tags(strings):
+    """Removes every "MAN : " tags
+
+    :param strings: an array of strings to fix.
+    :return: string array
+    """
+    # Character dialogs
+
+    dialog_character_regex = r"^((?:-\s)?)(" + SDH_CHARS + r"\s*:\s*)"
+
+    is_dialog = len(strings) > 1
+    for i in range(0, len(strings)):
+        if not re.match(dialog_character_regex, strings[i]):
+            if not re.match(START_WITH_HYPHEN_REGEX, strings[i]):
+                is_dialog = False
+
+    for i in range(0, len(strings)):
+        if is_dialog:
+            strings[i] = re.sub(dialog_character_regex, "- ", strings[i])
+        elif ":" in strings[i]:
+            strings[i] = re.sub(dialog_character_regex, "", strings[i])
+
+    # Sound tags
+
+    test_string = ""
+    for i in range(0, len(strings)):
+        test_string += strings[i]
+
+    test_string.replace("\n", "")
+    if re.match(r"^[\[\(]" + SDH_CHARS + r"[\]\)]$", test_string):
+        strings = [""]
+
+    return strings
+
+
 # endregion Multi-lines
 
 
@@ -788,6 +827,7 @@ def fix_multi_line_errors(lines):
     """
 
     lines = fix_double_quotes_errors(lines)
+    lines = fix_sdh_tags(lines)
 
     if len(lines) == 1:
         lines = fix_useless_dialog_hyphen(lines)

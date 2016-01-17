@@ -14,6 +14,7 @@ RESULT_LINES = {}
 
 TEST_LINES["fix_numbers"] = ["Line 333 4 45, 50 and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
 RESULT_LINES["fix_numbers"] = ["Line 333 445,50 and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
+FIX_NUMBERS_PROMPTS = [True, False, False]
 
 TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
 RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]

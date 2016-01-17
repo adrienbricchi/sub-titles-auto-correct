@@ -89,7 +89,7 @@ for file in files:
 
 prompt = input("script ou word ? : ")
 
-# TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms
+# TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms ; multi line deaf
 
 files = get_files_with_type(get_all_files(root_path, 0), "srt")
 for file in files:
