@@ -579,7 +579,7 @@ def fix_numbers(string):
                     result = matches[i]
                     prompt = input("Found number space in : " + string[:result.start() - 1] +
                                    SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
-                                   string[result.end() + 1:] + " : ")
+                                   string[result.end() + 1:].replace("\n", "") + " : ")
                     prompt_results.append(prompt == ":x")
 
             # Fix matches
@@ -827,7 +827,9 @@ def fix_multi_line_errors(lines):
     """
 
     lines = fix_double_quotes_errors(lines)
-    lines = fix_sdh_tags(lines)
+
+    if Consts.fix_sdh:
+        lines = fix_sdh_tags(lines)
 
     if len(lines) == 1:
         lines = fix_useless_dialog_hyphen(lines)
