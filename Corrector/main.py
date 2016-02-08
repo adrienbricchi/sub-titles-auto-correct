@@ -48,10 +48,8 @@ def open_files(root):
 ''' ================================================== '''
 
 
-french = {}
-french["Exit"] = "Quitter" 
-french["File"] = "Fichier" 
-
+french = {"Exit": "Quitter",
+          "File": "Fichier"}
 
 if locale.getdefaultlocale('LANGUAGE')[0] == 'fr_FR':
     current_dictionary = french
@@ -81,9 +79,8 @@ def translate(string):
 
 start = datetime.datetime.now()
 # 11-20
-root_path = "C:/Users/Adrien/workspace/sub-titles-auto-correct/Resources/"
 
-files = get_files_with_type(get_all_files(root_path, 0), "srt")
+files = get_files_with_type(get_all_files(Consts.root_path, 0), "srt")
 for file in files:
     clean_space_in_filename(file)
 
@@ -91,7 +88,7 @@ prompt = input("script ou word ? : ")
 
 # TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms ; multi line deaf
 
-files = get_files_with_type(get_all_files(root_path, 0), "srt")
+files = get_files_with_type(get_all_files(Consts.root_path, 0), "srt")
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)

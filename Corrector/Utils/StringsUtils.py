@@ -828,7 +828,7 @@ def fix_multi_line_errors(lines):
 
     lines = fix_double_quotes_errors(lines)
 
-    if Consts.fix_sdh:
+    if Consts.fix_sdh_tags:
         lines = fix_sdh_tags(lines)
 
     if len(lines) == 1:

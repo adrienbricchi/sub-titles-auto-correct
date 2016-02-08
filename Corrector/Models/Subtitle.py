@@ -68,9 +68,7 @@ class Subtitle:
     # endregion Setter/getter
 
     def to_lines(self):
-        result = []
-        result.append(self.number)
-        result.append(self.time_code)
+        result = [self.number, self.time_code]
         result += self.lines
         return result
 
