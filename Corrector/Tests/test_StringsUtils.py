@@ -7,7 +7,9 @@ from Corrector.Utils import Consts
 
 
 Consts.is_unittest_exec = True
+
 TEST_LINES = {}
+# noinspection PyDictCreation
 RESULT_LINES = {}
 
 # region TEST_LINES Single
@@ -89,7 +91,7 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+                corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i], unittest_data=FIX_NUMBERS_PROMPTS))
 
             self.assert_list_equals_test(corrected_line, key, "fix_numbers")
 

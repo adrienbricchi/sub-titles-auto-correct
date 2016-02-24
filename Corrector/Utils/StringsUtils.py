@@ -10,7 +10,9 @@ from Corrector.Utils import Consts
 
 STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
+# noinspection SpellCheckingInspection
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
+# noinspection SpellCheckingInspection
 UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
 ENDS_WITH_HYPHEN_REGEX = r"^(.*)\"((?:</i>)?)$"
@@ -290,6 +292,7 @@ def ask_for_correction(string, array, trusted_file_path, language):
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
+    # noinspection SpellCheckingInspection
     office2010_location = 'C:\Program Files\Microsoft Office\Office14\Winword.exe'
     if os.path.isfile(office2010_location):
         command_line += office2010_location
@@ -540,10 +543,11 @@ def fix_common_misspells(string, language):
     return string
 
 
-def fix_numbers(string):
+def fix_numbers(string, unittest_data='prompts'):
     """Fix spaces in numbers
 
     :param string: the string to fix.
+    :param unittest_data: pre-filled prompt answers.
     :return: string
     """
     if re.search(r"\d", string):
@@ -572,8 +576,7 @@ def fix_numbers(string):
             # Get fixable matches
 
             if Consts.is_unittest_exec:
-                print("todo")
-                # TODO
+                prompt_results = unittest_data
             else:
                 for i in range(0, len(matches)):
                     result = matches[i]
@@ -610,6 +613,7 @@ def fix_degree_symbol(string):
 
 
 def fix_capital_i_to_l(string):
+    # noinspection SpellCheckingInspection
     """Checks for wrong capital I and switch them with l
 
     Will fix :
@@ -638,6 +642,7 @@ def fix_capital_i_to_l(string):
 
 
 def fix_l_to_capital_i(string):
+    # noinspection SpellCheckingInspection
     """Checks for wrong capital I and switch them with l
 
     Will fix :
