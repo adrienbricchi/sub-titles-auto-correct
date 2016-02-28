@@ -550,46 +550,48 @@ def fix_numbers(string, unittest_data='prompts'):
     :param unittest_data: pre-filled prompt answers.
     :return: string
     """
-    if re.search(r"\d", string):
-        string = re.sub(r"(?<=\d)\s(?=[\s\d])", "", string)
+    if not re.search(r"\d", string):
+        return string
 
-        for word in get_csv_words(STRINGS_MAPS_DIRECTORY + 'number_succeeded_by_space_trusted.csv'):
-            suffix = r"\b)" if re.match(r"\w+", word) else ")"
-            string = re.sub(r"(?<=\d)\s*(?=" + word + suffix, "", string)
+    string = re.sub(r"(?<=\d)\s(?=[\s\d])", "", string)
 
-        string = re.sub(r"(?<=\d)\s*h\s*(?=\d)", "h", string)
+    for word in get_csv_words(STRINGS_MAPS_DIRECTORY + 'number_succeeded_by_space_trusted.csv'):
+        suffix = r"\b)" if re.match(r"\w+", word) else ")"
+        string = re.sub(r"(?<=\d)\s*(?=" + word + suffix, "", string)
 
-        if not Consts.is_unittest_exec:
-            if re.search(r"\d\d\d\d\d", string):
-                print("Big number : " + string.replace("\n", ""))
+    string = re.sub(r"(?<=\d)\s*h\s*(?=\d)", "h", string)
 
-        while re.search(r"\b\d+\d\d\d\d\b", string):
-            string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
+    if not Consts.is_unittest_exec:
+        if re.search(r"\d\d\d\d\d", string):
+            print("Big number : " + string.replace("\n", ""))
 
-        # Prompt if comma or dot
+    while re.search(r"\b\d+\d\d\d\d\b", string):
+        string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
 
-        matches = list(re.finditer(r"(?<=\d)[\.,]\s*(?=\d)", string))
-        prompt_results = []
+    # Prompt if comma or dot
 
-        if len(matches) > 0:
+    matches = list(re.finditer(r"(?<=\d)[\.,]\s*(?=\d)", string))
+    prompt_results = []
 
-            # Get fixable matches
+    if len(matches) > 0:
 
-            if Consts.is_unittest_exec:
-                prompt_results = unittest_data
-            else:
-                for i in range(0, len(matches)):
-                    result = matches[i]
-                    prompt = input("Found number space in : " + string[:result.start() - 1] +
-                                   SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
-                                   string[result.end() + 1:].replace("\n", "") + " : ")
-                    prompt_results.append(prompt == ":x")
+        # Get fixable matches
 
-            # Fix matches
+        if Consts.is_unittest_exec:
+            prompt_results = unittest_data
+        else:
+            for i in range(0, len(matches)):
+                result = matches[i]
+                prompt = input("Found number space in : " + string[:result.start() - 1] +
+                               SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
+                               string[result.end() + 1:].replace("\n", "") + " : ")
+                prompt_results.append(prompt == ":x")
 
-            for i in reversed(range(0, len(prompt_results))):
-                if prompt_results[i]:
-                    string = string[:matches[i].start() + 1] + string[matches[i].end():]
+        # Fix matches
+
+        for i in reversed(range(0, len(prompt_results))):
+            if prompt_results[i]:
+                string = string[:matches[i].start() + 1] + string[matches[i].end():]
 
     return string
 
