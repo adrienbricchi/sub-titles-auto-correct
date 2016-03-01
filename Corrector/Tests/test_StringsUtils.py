@@ -8,6 +8,7 @@ from Corrector.Utils import Consts
 
 Consts.is_unittest_exec = True
 
+# noinspection PyDictCreation
 TEST_LINES = {}
 # noinspection PyDictCreation
 RESULT_LINES = {}
@@ -69,6 +70,14 @@ RESULT_LINES["fix_empty_lines_1"] = ["test line 1\n", "test line\n"]
 TEST_LINES["fix_empty_lines_2"] = ["test line 1\n", "  \n", "test line\n"]
 RESULT_LINES["fix_empty_lines_2"] = ["test line 1\n", "test line\n"]
 
+TEST_LINES["fix_sdh_tags_1"] = ["MAN ON RADIO : test line 1\n", "test line 2\n"]
+RESULT_LINES["fix_sdh_tags_1"] = ["test line 1\n", "test line 2\n"]
+TEST_LINES["fix_sdh_tags_2"] = ["- <i>MAN ON RADIO : test line 1\n", "test line 2</i>\n"]
+RESULT_LINES["fix_sdh_tags_2"] = ["- <i>test line 1\n", "test line 2</i>\n"]
+TEST_LINES["fix_sdh_tags_3"] = ["<i>MAN 1 : test line 1</i>\n", "- test line 2\n"]
+RESULT_LINES["fix_sdh_tags_3"] = ["- <i>test line 1</i>\n", "- test line 2\n"]
+TEST_LINES["fix_sdh_tags_4"] = ["[PLOP]\n"]
+RESULT_LINES["fix_sdh_tags_4"] = [""]
 
 # endregion TEST_LINES Multi
 
@@ -137,6 +146,11 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
             self.assert_list_equals_test(corrected_lines, key, "fix_double_quotes_errors")
+
+    def test_fix_sdh_tags(self):
+        for key in TEST_LINES:
+            corrected_lines = StringsUtils.fix_sdh_tags(TEST_LINES[key])
+            self.assert_list_equals_test(corrected_lines, key, "fix_sdh_tags")
 
 
 if __name__ == '__main__':

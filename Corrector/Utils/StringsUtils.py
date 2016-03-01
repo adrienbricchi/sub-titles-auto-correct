@@ -17,7 +17,7 @@ UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
 ENDS_WITH_HYPHEN_REGEX = r"^(.*)\"((?:</i>)?)$"
 SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
-SDH_CHARS = r"[A-Z0-9\s,()\.!\?\[\]-]{2,}"
+SDH_CHARS = r"[A-Z0-9\s,()\.!\?\[\]\/-]{2,}"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -570,7 +570,7 @@ def fix_numbers(string, unittest_data='prompts'):
 
     # Prompt if comma or dot
 
-    matches = list(re.finditer(r"(?<=\d)[\.,]\s*(?=\d)", string))
+    matches = list(re.finditer(r"(?<=\d)[\.,]\s*(?=(?!000)\d)", string))
     prompt_results = []
 
     if len(matches) > 0:
@@ -796,19 +796,15 @@ def fix_sdh_tags(strings):
     """
     # Character dialogs
 
-    dialog_character_regex = r"^((?:-\s)?)(" + SDH_CHARS + r"\s*:\s*)"
+    dialog_character_regex = r"^((?:<i>\s*|\"\s*)*)((?:-(?!\s*-)\s*)?)((?:<i>)?)(" + SDH_CHARS + r":\s*)"
 
     is_dialog = len(strings) > 1
     for i in range(0, len(strings)):
-        if not re.match(dialog_character_regex, strings[i]):
-            if not re.match(START_WITH_HYPHEN_REGEX, strings[i]):
-                is_dialog = False
+        if not re.match(START_WITH_HYPHEN_REGEX, strings[i]) and not re.match(dialog_character_regex, strings[i]):
+            is_dialog = False
 
     for i in range(0, len(strings)):
-        if is_dialog:
-            strings[i] = re.sub(dialog_character_regex, "- ", strings[i])
-        elif ":" in strings[i]:
-            strings[i] = re.sub(dialog_character_regex, "", strings[i])
+        strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog else r"\1\2\3", strings[i])
 
     # Sound tags
 
@@ -817,7 +813,7 @@ def fix_sdh_tags(strings):
         test_string += strings[i]
 
     test_string.replace("\n", "")
-    if re.match(r"^[\[\(]" + SDH_CHARS + r"[\]\)]$", test_string):
+    if re.match(r"^(?:<i>)?[\[\(]" + SDH_CHARS + r"[\]\)](?:</i>)?$", test_string):
         strings = [""]
 
     return strings
