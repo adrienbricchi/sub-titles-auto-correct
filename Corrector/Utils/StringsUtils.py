@@ -804,7 +804,7 @@ def fix_sdh_tags(strings):
             is_dialog = False
 
     for i in range(0, len(strings)):
-        strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog else r"\1\2\3", strings[i])
+        strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog or i > 0 else r"\1\2\3", strings[i])
 
     # Sound tags
 
