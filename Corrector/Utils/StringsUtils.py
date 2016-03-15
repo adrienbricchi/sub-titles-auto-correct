@@ -14,6 +14,8 @@ LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
 # noinspection SpellCheckingInspection
 UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
+# noinspection SpellCheckingInspection
+LOWER_CASE_CONSONNANT = r"[bcdfghjklmnpqrstvwxz]"
 START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
 ENDS_WITH_HYPHEN_REGEX = r"^(.*)\"((?:</i>)?)$"
 SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
@@ -623,7 +625,7 @@ def fix_capital_i_to_l(string):
        *  abI      :   abl
        *  AIb      :   Alb
        *  aIIIb    :   alllb
-       *  abIII    :   ablII
+       *  abIII    :   ablll
 
     :param string: the string to fix.
     :return: string
@@ -647,21 +649,21 @@ def fix_l_to_capital_i(string):
     # noinspection SpellCheckingInspection
     """Checks for wrong capital I and switch them with l
 
-    Will fix :
-       *  -AlB      :   - AIB
-       *  -AllB     :   - AIIB
-
     :param string: the string to fix.
     :return: string
     """
-    while re.search(r"" + UPPER_CASE + "l+" + UPPER_CASE, string):
+    while re.search(UPPER_CASE + r"l+" + UPPER_CASE, string):
         string = re.sub(r"(?<=" + UPPER_CASE + r")l(?=l*" + UPPER_CASE + r")", "I", string)
 
-    while re.search(r"" + "l+" + UPPER_CASE + UPPER_CASE, string):
-        string = re.sub(r"l(?=" + UPPER_CASE + r"{2})", "I", string)
+    regex_l_before_uppercase = r"l(?=" + UPPER_CASE + r"{2})"
+    while re.search(regex_l_before_uppercase, string):
+        string = re.sub(regex_l_before_uppercase, "I", string)
 
-    string = re.sub(r"\bln", "In", string)
-    string = re.sub(r"\blm", "Im", string)
+    regex_l_after_two_uppercase = r"(?<=" + UPPER_CASE + r"{2})l"
+    while re.search(regex_l_after_two_uppercase, string):
+        string = re.sub(regex_l_after_two_uppercase, "I", string)
+
+    string = re.sub(r"\bl(?=" + LOWER_CASE_CONSONNANT + r"{2}|n|m)", "I", string)
 
     return string
 
@@ -840,6 +842,7 @@ def fix_multi_line_errors(lines):
         lines = fix_empty_lines(lines)
         lines = fix_redundant_italic_tag(lines)
         lines = fix_missing_dialog_hyphen(lines)
+        lines = fix_useless_dialog_hyphen(lines)
 
     return lines
 

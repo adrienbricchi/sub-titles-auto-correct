@@ -19,11 +19,16 @@ TEST_LINES["fix_numbers"] = ["Line 333 4 45, 50 and 3, 4, 5\n", "4 ème et 5 h 3
 RESULT_LINES["fix_numbers"] = ["Line 333 445,50 and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
 FIX_NUMBERS_PROMPTS = [True, False, False]
 
-TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
-RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
-
 TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
 RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
+
+# noinspection SpellCheckingInspection
+TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "lou AllB ABll\n"]
+# noinspection SpellCheckingInspection
+RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "lou AIIB ABII\n"]
+
+TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
+RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
 
 # endregion TEST_LINES Single
 
@@ -111,6 +116,14 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
+
+    def test_fix_l_to_capital_i(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_l_to_capital_i(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_l_to_capital_i")
 
     def test_fix_acronyms(self):
         for key in TEST_LINES:
