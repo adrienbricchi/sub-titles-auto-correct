@@ -130,7 +130,7 @@ for file in files:
                     pretty_line = line.replace("\n", "")
 
                     if "£" in line:
-                        print("Found £ at " + pretty_number + " : " + pretty_line)
+                        print(SHELL_COLOR_FAIL + "Found £ at " + pretty_number + SHELL_COLOR_END + " : " + pretty_line)
 
                     corrected_lines.append(line)
 
