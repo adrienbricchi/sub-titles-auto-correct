@@ -23,9 +23,14 @@ TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?
 RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
 # noinspection SpellCheckingInspection
-TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "lou AllB ABll\n"]
+TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop fataI AIIIIb\n"]
 # noinspection SpellCheckingInspection
-RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "lou AIIB ABII\n"]
+RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop fatal Allllb\n"]
+
+# noinspection SpellCheckingInspection
+TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou AllB ABll Xlll lll\n"]
+# noinspection SpellCheckingInspection
+RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou AIIB ABII XIII III\n"]
 
 TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
 RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
@@ -116,6 +121,14 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
+
+    def test_fix_capital_i_to_I(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_capital_i_to_l")
 
     def test_fix_l_to_capital_i(self):
         for key in TEST_LINES:

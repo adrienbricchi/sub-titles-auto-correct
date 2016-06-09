@@ -620,13 +620,6 @@ def fix_capital_i_to_l(string):
     # noinspection SpellCheckingInspection
     """Checks for wrong capital I and switch them with l
 
-    Will fix :
-       *  aIb      :   alb
-       *  abI      :   abl
-       *  AIb      :   Alb
-       *  aIIIb    :   alllb
-       *  abIII    :   ablll
-
     :param string: the string to fix.
     :return: string
     """
@@ -664,6 +657,10 @@ def fix_l_to_capital_i(string):
         string = re.sub(regex_l_after_two_uppercase, "I", string)
 
     string = re.sub(r"\bl(?=" + LOWER_CASE_CONSONNANT + r"{2}|n|m)", "I", string)
+
+    roman_numbers_matches = [(m.start(0), m.end(0)) for m in re.finditer(r"\b(?:M|L|D|C|V|X|I|l){3,}\b", string)]
+    for match in roman_numbers_matches:
+        string = string[:match[0]] + string[match[0]:match[1]].replace("l", "I") + string[match[1]:]
 
     return string
 
