@@ -607,7 +607,7 @@ def fix_degree_symbol(string):
 
     if "°" in string:
         string = re.sub(r"(?<=\d)\s*°", "°", string)
-        string = re.sub(r"(?<=\d)\s*°\s*(?=F\b)", "°", string)
+        string = re.sub(r"(?<=\d)\s*°\s*(?=[FCK]\b)", "°", string)
         string = re.sub(r"(?<=\b[nN])\s*°\s*(?=\d)", "°", string)
 
     if " °" in string or "° " in string:

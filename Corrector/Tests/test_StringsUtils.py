@@ -22,6 +22,9 @@ FIX_NUMBERS_PROMPTS = [True, False, False]
 TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
 RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
+TEST_LINES["fix_degree_symbol"] = ["n°1 and n° 2 and N ° 3 and n °4 and 5 °F and 6° F and 7 ° C\n"]
+RESULT_LINES["fix_degree_symbol"] = ["n°1 and n°2 and N°3 and n°4 and 5°F and 6°F and 7°C\n"]
+
 # noinspection SpellCheckingInspection
 TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop fataI AIIIIb\n"]
 # noinspection SpellCheckingInspection
@@ -121,6 +124,14 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
+
+    def test_fix_degree_symbol(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_degree_symbol(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_degree_symbol")
 
     def test_fix_capital_i_to_I(self):
         for key in TEST_LINES:
