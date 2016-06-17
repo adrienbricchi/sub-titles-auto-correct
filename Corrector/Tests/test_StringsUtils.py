@@ -19,6 +19,11 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
     RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
+    TEST_LINES["fix_italic_tag_errors_1"] = ["<i>Test </i>test<i> test </i>\n", "<i>Test</i>-<i>test</i>\n"]
+    RESULT_LINES["fix_italic_tag_errors_1"] = ["<i>Test</i> test <i>test</i>\n", "<i>Test-test</i>\n"]
+    TEST_LINES["fix_italic_tag_errors_2"] = ["<i>Test </i>Test<i>-</i>test\n", "<i> \" Test \" </i>\n"]
+    RESULT_LINES["fix_italic_tag_errors_2"] = ["<i>Test</i> Test-test\n", "<i>\"Test\"</i>\n"]
+
     TEST_LINES["fix_colon"] = ["TEST: line. Other test:\n", "12: 44 or 12 : 45 or 12 :45 or 12:46 or: 7\n"]
     RESULT_LINES["fix_colon"] = ["TEST : line. Other test :\n", "12:44 or 12:45 or 12:45 or 12:46 or : 7\n"]
 
@@ -49,8 +54,8 @@ def populate_single_line_test_dict():
 # noinspection SpellCheckingInspection
 def populate_multi_line_test_dict():
 
-    TEST_LINES["fix_redundant_italic_tag"] = ["<i>test</i> <i>line 1</i><i></i>\n", "<i>test</i><i> line 2</i>\n"]
-    RESULT_LINES["fix_redundant_italic_tag"] = ["<i>test line 1\n", "test line 2</i>\n"]
+    TEST_LINES["fix_redundant_italic_tag"] = ["<i>test</i> <i>line 1</i><i></i>\n", "<i>test</i><i>line 2</i>\n"]
+    RESULT_LINES["fix_redundant_italic_tag"] = ["<i>test line 1\n", "testline 2</i>\n"]
 
     TEST_LINES["fix_useless_dialog_hyphen_1"] = ["- test line\n"]
     RESULT_LINES["fix_useless_dialog_hyphen_1"] = ["test line\n"]
@@ -123,7 +128,14 @@ class TestStringsUtils(unittest.TestCase):
 
     # TODO : test_fix_fix_dialog_hyphen
     # TODO : test_fix_letter_followed_by_space
-    # TODO : test_fix_italic_tag_errors
+
+    def test_fix_italic_tag_errors(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_italic_tag_errors(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_italic_tag_errors")
 
     def test_fix_colon(self):
         for key in TEST_LINES:

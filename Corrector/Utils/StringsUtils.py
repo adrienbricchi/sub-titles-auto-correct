@@ -507,12 +507,14 @@ def fix_italic_tag_errors(string):
     :param string: the string to fix.
     :return: string
     """
-    string = string.replace("<i> ", " <i>")
-    string = string.replace(" <\i>", "<\i> ")
-    string = string.replace("<\i>-<i>", "-")
+    string = re.sub(r"<i>\s+", " <i>", string)
+    string = re.sub(r"\s+</i>", "</i> ", string)
+    string = string.replace("</i>-<i>", "-")
     string = string.replace("<i>-</i>", "-")
-    string = re.sub(r"\s+</i>$", "</i>", string)
+    string = re.sub(r"\s*</i>\s*$", "</i>\n", string)
+    string = re.sub(r"^\s*<i>\s*", "<i>", string)
     string = re.sub(r"\s*\"\s*</i>$", "\"</i>", string)
+    string = re.sub(r"<i>\s*\"\s*", "<i>\"", string)
 
     return string
 
