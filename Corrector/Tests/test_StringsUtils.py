@@ -15,12 +15,19 @@ RESULT_LINES = {}
 
 # region TEST_LINES Single
 
+TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
+RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
+
+TEST_LINES["fix_common_misspells_fr"] = ["Seinfelf. II. Evidemment\n"]
+RESULT_LINES["fix_common_misspells_fr"] = ["Seinfeld. Il. Évidemment\n"]
+TEST_LINES["fix_common_misspells_eng"] = ["Seinfelf. II yourjob\n"]
+RESULT_LINES["fix_common_misspells_eng"] = ["Seinfeld. II your job\n"]
+TEST_LINES["fix_common_misspells"] = ["Seinfelf lran 9 mm\n"]
+RESULT_LINES["fix_common_misspells"] = ["Seinfeld Iran 9mm\n"]
+
 TEST_LINES["fix_numbers"] = ["Line 333 4 45, 50 and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
 RESULT_LINES["fix_numbers"] = ["Line 333 445,50 and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
 FIX_NUMBERS_PROMPTS = [True, False, False]
-
-TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
-RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
 TEST_LINES["fix_degree_symbol"] = ["n°1 and n° 2 and N ° 3 and n °4 and 5 °F and 6° F and 7 ° C\n"]
 RESULT_LINES["fix_degree_symbol"] = ["n°1 and n°2 and N°3 and n°4 and 5°F and 6°F and 7°C\n"]
@@ -109,13 +116,10 @@ class TestStringsUtils(unittest.TestCase):
 
     # region Single-line
 
-    def test_fix_numbers(self):
-        for key in TEST_LINES:
-            corrected_line = []
-            for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i], unittest_data=FIX_NUMBERS_PROMPTS))
-
-            self.assert_list_equals_test(corrected_line, key, "fix_numbers")
+    # TODO : test_fix_accentuated_capital_a
+    # TODO : test_fix_common_errors
+    # TODO : test_fix_punctuation_errors
+    # TODO : test_fix_quotes
 
     def test_fix_punctuation_spaces(self):
         for key in TEST_LINES:
@@ -124,6 +128,30 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
+
+    # TODO : test_fix_fix_dialog_hyphen
+    # TODO : test_fix_letter_followed_by_space
+    # TODO : test_fix_italic_tag_errors
+    # TODO : test_fix_colon
+
+    def test_fix_common_misspells(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                if "eng" in key:
+                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "eng"))
+                else:
+                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "fr"))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_common_misspells")
+
+    def test_fix_numbers(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i], unittest_data=FIX_NUMBERS_PROMPTS))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_numbers")
 
     def test_fix_degree_symbol(self):
         for key in TEST_LINES:
