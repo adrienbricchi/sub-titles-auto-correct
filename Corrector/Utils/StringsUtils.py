@@ -33,8 +33,10 @@ UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 # noinspection SpellCheckingInspection
 LOWER_CASE_CONSONNANT = r"[bcdfghjklmnpqrstvwxz]"
 START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
-ENDS_WITH_HYPHEN_REGEX = r"^(.*)\"((?:</i>)?)$"
 SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
+SENTENCE_REGEX = r"^((?:<i>|-\s*)*)(.*?)((?:</i>|\s)*)$"
+START_WITH_QUOTES = r"^((?:<i>|-\s*)*)\"(.*?)"
+ENDS_WITH_QUOTES = r"(.*?)\"((?:</i>|\s)*)$"
 SDH_CHARS = r"[A-Z0-9\s,()\.!\?\[\]\/-]{2,}"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
@@ -785,22 +787,57 @@ def fix_double_quotes_errors(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
-    count = 0
-    for string in strings:
-        count += len(re.findall(r"\"", string))
 
-    if (count % 2) == 0:
+    # Default case
+
+    quotes_count = 0
+    for i in range(0, len(strings)):
+        quotes_count += len(re.findall(r"\"", strings[i]))
+
+    if quotes_count == 0:
         return strings
 
+    # Followed fixes
+
+    current_quote_count = 0
+    double_quote_pending = False
+    for i in range(0, len(strings)):
+
+        if re.match(START_WITH_QUOTES, strings[i]):
+            double_quote_pending = True
+
+        current_quote_count += len(re.findall(r"\"", strings[i]))
+        if (current_quote_count % 2) == 0:
+            double_quote_pending = False
+
+        if double_quote_pending:
+            if (i + 1) == len(strings) or re.match(START_WITH_HYPHEN_REGEX, strings[i + 1]):
+                strings[i] = re.sub(SENTENCE_REGEX, r'\1\2"\3', strings[i])
+                double_quote_pending = False
+
+    # Preceeded fixes
+
+    current_quote_count = 0
     double_quote_pending = False
     for i in reversed(range(0, len(strings))):
 
-        if re.match(ENDS_WITH_HYPHEN_REGEX, strings[i]):
+        if re.match(ENDS_WITH_QUOTES, strings[i]):
             double_quote_pending = True
 
-        if double_quote_pending and (re.match(START_WITH_HYPHEN_REGEX, strings[i]) or i == 0):
-            strings[i] = re.sub(SENTENCE_START_REGEX, r'\1"\2', strings[i])
+        current_quote_count += len(re.findall(r"\"", strings[i]))
+        if (current_quote_count % 2) == 0:
             double_quote_pending = False
+
+        if double_quote_pending:
+            if i == 0 or re.match(START_WITH_HYPHEN_REGEX, strings[i]):
+                strings[i] = re.sub(SENTENCE_REGEX, r'\1"\2\3', strings[i])
+                double_quote_pending = False
+
+    # One-line fixes
+
+    for i in range(0, len(strings)):
+        if not (re.match(START_WITH_QUOTES, strings[i]) and re.match(ENDS_WITH_QUOTES, strings[i])):
+            strings[i] = re.sub(r'"([\w\s]+)([,.])"', r'"\1"\2', strings[i])
 
     return strings
 
@@ -858,6 +895,7 @@ def fix_multi_line_errors(lines):
         lines = fix_redundant_italic_tag(lines)
         lines = fix_missing_dialog_hyphen(lines)
         lines = fix_useless_dialog_hyphen(lines)
+        lines = fix_double_quotes_errors(lines)
 
     return lines
 
@@ -869,6 +907,10 @@ def fix_single_line_errors(string, language):
     :param language: current language correction
     :return: string
     """
+
+    if language == "fr":
+        string = fix_accentuated_capital_a(string)
+
     string = fix_common_errors(string)
     string = fix_punctuation_errors(string)
     string = fix_numbers(string)

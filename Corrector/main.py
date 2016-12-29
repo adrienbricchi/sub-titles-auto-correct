@@ -132,9 +132,6 @@ for file in files:
                 corrected_lines = []
                 for line in subtitle.get_lines():
 
-                    if current_language == "fr":
-                        line = fix_accentuated_capital_a(line)
-
                     line = fix_single_line_errors(line, current_language)
 
                     array = find_words_with_char(line, "I", current_language)
