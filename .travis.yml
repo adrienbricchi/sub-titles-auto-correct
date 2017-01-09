@@ -9,8 +9,9 @@ notifications:
 python:
     - "3.5"
 
-# command to run tests
+before_script:
+    - export PYTHONPATH=$PYTHONPATH:$(pwd)
+
 script:
-    - ls -l
     - cd ./Corrector/Tests
     - python -m unittest
