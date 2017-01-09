@@ -11,6 +11,6 @@ python:
 
 # command to run tests
 script:
-    - ll
-    - cd ./sub-titles-auto-correct/Corrector/Tests
+    - ls -l
+    - cd ./Corrector/Tests
     - python -m unittest
