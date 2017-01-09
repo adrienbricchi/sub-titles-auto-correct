@@ -1,0 +1,14 @@
+
+language: python
+sudo: false
+notifications:
+    email:
+        on_success: never
+        on_failure: never
+
+python:
+    - "3.5"
+
+# command to run tests
+script:
+    - python -m test
