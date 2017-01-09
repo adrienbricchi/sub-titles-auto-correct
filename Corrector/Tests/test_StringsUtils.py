@@ -39,6 +39,8 @@ def populate_single_line_test_dict():
     RESULT_LINES["fix_italic_tag_errors_1"] = ["<i>Test</i> test <i>test</i>\n", "<i>Test-test</i>\n"]
     TEST_LINES["fix_italic_tag_errors_2"] = ["<i>Test </i>Test<i>-</i>test\n", "<i> \" Test \" </i>\n"]
     RESULT_LINES["fix_italic_tag_errors_2"] = ["<i>Test</i> Test-test\n", "<i>\"Test\"</i>\n"]
+    TEST_LINES["fix_italic_tag_errors_3"] = ["<i>Test</i> <i>Test</i> Test\n", "<i></i><i></i>Test<i></i>\n"]
+    RESULT_LINES["fix_italic_tag_errors_3"] = ["<i>Test Test</i> Test\n", "Test\n"]
 
     TEST_LINES["fix_colon"] = ["TEST: line. Other test:\n", "12: 44 or 12 : 45 or 12 :45 or 12:46 or: 7\n"]
     RESULT_LINES["fix_colon"] = ["TEST : line. Other test :\n", "12:44 or 12:45 or 12:45 or 12:46 or : 7\n"]
@@ -70,8 +72,8 @@ def populate_single_line_test_dict():
 # noinspection SpellCheckingInspection
 def populate_multi_line_test_dict():
 
-    TEST_LINES["fix_redundant_italic_tag"] = ["<i>test</i> <i>line 1</i><i></i>\n", "<i>test</i><i>line 2</i>\n"]
-    RESULT_LINES["fix_redundant_italic_tag"] = ["<i>test line 1\n", "testline 2</i>\n"]
+    TEST_LINES["fix_redundant_italic_tag"] = ["<i>test</i> a <i>line 1</i>\n", "<i>test line 2</i>\n"]
+    RESULT_LINES["fix_redundant_italic_tag"] = ["<i>test</i> a <i>line 1\n", "test line 2</i>\n"]
 
     TEST_LINES["fix_useless_dialog_hyphen_1"] = ["- test line\n"]
     RESULT_LINES["fix_useless_dialog_hyphen_1"] = ["test line\n"]

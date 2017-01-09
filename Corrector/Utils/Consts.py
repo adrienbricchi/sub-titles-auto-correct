@@ -18,6 +18,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 root_path = "C:/Users/Adrien/Documents/sub-titles-auto-correct/Resources/"
-fix_sdh_tags = False
+fix_sdh_tags = True
 is_unittest_exec = False
 

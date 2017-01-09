@@ -388,6 +388,7 @@ def fix_common_errors(string):
     string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
     string = string.replace("- \\", "- ")
     string = string.replace("’", "'")
+    string = string.replace("–", "-")
     string = string.replace(" )", ")")
     string = string.replace("( ", "(")
     string = string.replace(" ]", "]")
@@ -533,6 +534,8 @@ def fix_italic_tag_errors(string):
     string = re.sub(r"^\s*<i>\s*", "<i>", string)
     string = re.sub(r"\s*\"\s*</i>$", "\"</i>", string)
     string = re.sub(r"<i>\s*\"\s*", "<i>\"", string)
+    string = re.sub(r"</i>(\s?)<i>", r"\1", string)
+    string = re.sub(r"<i>(\s?)</i>", r"\1", string)
 
     return string
 
