@@ -11,4 +11,4 @@ python:
 
 # command to run tests
 script:
-    - python -m test
+    - python -m unittest discover
