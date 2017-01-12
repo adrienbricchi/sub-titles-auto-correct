@@ -1,6 +1,8 @@
 sub-title-auto-correct
 ======================
 
+[![Build Status](https://travis-ci.org/adrienbricchi/sub-titles-auto-correct.svg?branch=master)](https://travis-ci.org/adrienbricchi/sub-titles-auto-correct)
+
 Python script to fix OCR errors
 
 ## Installation
