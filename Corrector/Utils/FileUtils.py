@@ -47,7 +47,7 @@ def get_file_text(path, mode_lines):
         srt_content = srt_file.readlines()
     else:
         srt_content = srt_file.read()
-        
+
     srt_file.close()
     return srt_content
 
