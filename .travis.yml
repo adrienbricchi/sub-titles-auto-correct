@@ -20,7 +20,7 @@ before_script:
 script:
     - cd ./Corrector/Tests
     - python -m unittest --verbose
-    - python -m coverage
+    - python -m coverage --include=Corrector
 
 after_success:
     - coveralls
