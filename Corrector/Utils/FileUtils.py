@@ -2,7 +2,7 @@
 # -*-coding:utf8 -*
 
 # sub-titles-auto-correct
-# Copyright (C) 2014-2016
+# Copyright (C) 2014-2017
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ def get_file_text(path, mode_lines):
         srt_content = srt_file.readlines()
     else:
         srt_content = srt_file.read()
-        
+
     srt_file.close()
     return srt_content
 
