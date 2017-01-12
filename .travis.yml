@@ -1,0 +1,19 @@
+
+language: python
+sudo: false
+notifications:
+    email:
+        on_success: never
+        on_failure: never
+
+python:
+    - "3.3"
+    - "3.4"
+    - "3.5"
+
+before_script:
+    - export PYTHONPATH=$PYTHONPATH:$(pwd)
+
+script:
+    - cd ./Corrector/Tests
+    - python -m unittest --verbose
