@@ -11,9 +11,16 @@ python:
     - "3.4"
     - "3.5"
 
+install:
+    - pip install coveralls
+
 before_script:
     - export PYTHONPATH=$PYTHONPATH:$(pwd)
 
 script:
     - cd ./Corrector/Tests
     - python -m unittest --verbose
+    - python -m coverage --verbose
+
+after_success:
+    - coveralls
