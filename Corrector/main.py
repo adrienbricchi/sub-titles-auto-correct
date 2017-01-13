@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from tkinter import Menu, Listbox, END, Label, Tk           # GUI, needs python3-tk package on Linux
 import locale                                               # get current system language
