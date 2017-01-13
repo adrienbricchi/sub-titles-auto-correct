@@ -18,9 +18,7 @@ before_script:
     - export PYTHONPATH=$PYTHONPATH:$(pwd)
 
 script:
-    - cd ./Corrector/Tests
-    - python -m unittest --verbose
-    - python -m coverage --include=Corrector
+    - coverage run --source=Corrector -m unittest discover --start-directory ./Tests/ --verbose
 
 after_success:
     - coveralls
