@@ -18,6 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
+from unittest.mock import patch
 from Corrector.Utils import StringsUtils
 from Corrector.Utils import Consts
 
@@ -34,6 +35,11 @@ def populate_single_line_test_dict():
 
     TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
     RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
+
+    TEST_LINES["fix_dialog_hyphen_1"] = ["-Plop\n", "--Plop\n", "-\"Plop\n"]
+    RESULT_LINES["fix_dialog_hyphen_1"] = ["- Plop\n", "--Plop\n", "- \"Plop\n"]
+    TEST_LINES["fix_dialog_hyphen_2"] = ["<i>-Plop\n", "\"-Plop\n", "\"-... Plop\n"]
+    RESULT_LINES["fix_dialog_hyphen_2"] = ["<i>- Plop\n", "\"- Plop\n", "\"- ... Plop\n"]
 
     TEST_LINES["fix_italic_tag_errors_1"] = ["<i>Test </i>test<i> test </i>\n", "<i>Test</i>-<i>test</i>\n"]
     RESULT_LINES["fix_italic_tag_errors_1"] = ["<i>Test</i> test <i>test</i>\n", "<i>Test-test</i>\n"]
@@ -52,9 +58,10 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_common_misspells"] = ["Seinfelf lran 9 mm\n"]
     RESULT_LINES["fix_common_misspells"] = ["Seinfeld Iran 9mm\n"]
 
-    TEST_LINES["fix_numbers"] = ["Line 333 4 45, 50 and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
-    RESULT_LINES["fix_numbers"] = ["Line 333 445,50 and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
-    RESULT_PROMPT["fix_numbers"] = [True, False, False]
+    TEST_LINES["fix_numbers_1"] = ["Line 333 4 45, 50\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
+    RESULT_LINES["fix_numbers_1"] = ["Line 333 445,50\n", "4ème et 5h30 à 20% et 5.\n"]
+    TEST_LINES["fix_numbers_2"] = ["and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
+    RESULT_LINES["fix_numbers_2"] = ["and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
 
     TEST_LINES["fix_degree_symbol"] = ["n°1 and n° 2 and N ° 3 and n °4 and 5 °F and 6° F and 7 ° C\n"]
     RESULT_LINES["fix_degree_symbol"] = ["n°1 and n°2 and N°3 and n°4 and 5°F and 6°F and 7°C\n"]
@@ -144,7 +151,14 @@ class TestStringsUtils(unittest.TestCase):
 
             self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
 
-    # TODO : test_fix_fix_dialog_hyphen
+    def test_fix_dialog_hyphen(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_dialog_hyphen(TEST_LINES[key][i]))
+
+            self.assert_list_equals_test(corrected_line, key, "fix_dialog_hyphen")
+
     # TODO : test_fix_letter_followed_by_space
 
     def test_fix_italic_tag_errors(self):
@@ -178,7 +192,14 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i], unittest_data=RESULT_PROMPT["fix_numbers"]))
+                if "fix_numbers_1" in key:
+                    with unittest.mock.patch('builtins.input', return_value=':x'):
+                        corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+                elif "fix_numbers_2" in key:
+                    with unittest.mock.patch('builtins.input', return_value=':q'):
+                        corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+                else:
+                    corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_numbers")
 
