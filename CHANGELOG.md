@@ -7,13 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Changelog
+- More tests and coverage
+
+### Changed
+- Resources location.
+- Workspace name.
 
 ## [0.1.1] - 2017-01-13
 ### Added
 - Code coverage, through Travis CI and Coveralls.
-
-### Changed
-- Tests location.
 
 ## [0.1.0] - 2017-01-12
 ### Added

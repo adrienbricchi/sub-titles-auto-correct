@@ -24,7 +24,7 @@ import os
 from Corrector.Utils import Consts
 
 
-STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
+STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '../Resources/StringsMaps/'
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
 # noinspection SpellCheckingInspection
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
