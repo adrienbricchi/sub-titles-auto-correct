@@ -24,7 +24,7 @@ import os
 from Corrector.Utils import Consts
 
 
-STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/StringsMaps/'
+STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/../../Resources/StringsMaps/'
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
 # noinspection SpellCheckingInspection
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
@@ -456,9 +456,9 @@ def fix_punctuation_spaces(string):
     :return: string
     """
     if "?" in string or "!" in string:
-        string = re.sub(r"(?<![\?!\s])([\?!])", r" \1", string)  # Space before
-        string = re.sub(r"([\?!])(?=[\w\('-])", r"\1 ", string)  # Space after
-        string = re.sub(r"(?<=[\?!])\s+(?=[!\?])", "", string)  # Space between
+        string = re.sub(r"(?<![?!\s])([?!])", r" \1", string)  # Space before
+        string = re.sub(r"([?!])(?=[\w('-])", r"\1 ", string)  # Space after
+        string = re.sub(r"(?<=[?!])\s+(?=[!?])", "", string)  # Space between
 
     return string
 
@@ -513,7 +513,8 @@ def fix_letter_followed_by_space(line, letter, language):
 
         # Print colored char
         if letter + " " in to_check:
-            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)", SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
+            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)",
+                                   SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
                                    line_to_print)
             print("Unknown " + letter + "_ : " + line_to_print)
 
@@ -568,11 +569,10 @@ def fix_common_misspells(string, language):
     return string
 
 
-def fix_numbers(string, unittest_data='prompts'):
+def fix_numbers(string):
     """Fix spaces in numbers
 
     :param string: the string to fix.
-    :param unittest_data: pre-filled prompt answers.
     :return: string
     """
     if not re.search(r"\d", string):
@@ -586,31 +586,27 @@ def fix_numbers(string, unittest_data='prompts'):
 
     string = re.sub(r"(?<=\d)\s*h\s*(?=\d)", "h", string)
 
-    if not Consts.is_unittest_exec:
-        if re.search(r"\d\d\d\d\d", string):
-            print("Big number : " + string.replace("\n", ""))
+    if re.search(r"\d\d\d\d\d", string):
+        print("Big number : " + string.replace("\n", ""))
 
     while re.search(r"\b\d+\d\d\d\d\b", string):
         string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
 
     # Prompt if comma or dot
 
-    matches = list(re.finditer(r"(?<=\d)[\.,]\s*(?=(?!000)\d)", string))
+    matches = list(re.finditer(r"(?<=\d)[.,]\s*(?=(?!000)\d)", string))
     prompt_results = []
 
     if len(matches) > 0:
 
         # Get fixable matches
 
-        if Consts.is_unittest_exec:
-            prompt_results = unittest_data
-        else:
-            for i in range(0, len(matches)):
-                result = matches[i]
-                prompt = input("Found number space in : " + string[:result.start() - 1] +
-                               SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
-                               string[result.end() + 1:].replace("\n", "") + " : ")
-                prompt_results.append(prompt == ":x")
+        for i in range(0, len(matches)):
+            result = matches[i]
+            prompt = input("Found number space in : " + string[:result.start() - 1] +
+                           SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
+                           string[result.end() + 1:].replace("\n", "") + " : ")
+            prompt_results.append(prompt == ":x")
 
         # Fix matches
 
@@ -632,9 +628,6 @@ def fix_degree_symbol(string):
         string = re.sub(r"(?<=\d)\s*°", "°", string)
         string = re.sub(r"(?<=\d)\s*°\s*(?=[FCK]\b)", "°", string)
         string = re.sub(r"(?<=\b[nN])\s*°\s*(?=\d)", "°", string)
-
-    if " °" in string or "° " in string:
-        print("Found ° in : " + string.replace("\n", ""))
 
     return string
 
@@ -696,9 +689,8 @@ def fix_acronyms(string):
     """
     string = re.sub(r"(?<=\b" + UPPER_CASE + r"\.)(\s*)(?=\w\.)", "", string)
 
-    if not Consts.is_unittest_exec:
-        if re.search(r"\w\.\w\.", string):
-            print("Found acronym : " + string.replace("\n", ""))
+    if re.search(r"\w\.\w\.", string):
+        print("Found acronym : " + string.replace("\n", ""))
 
     return string
 
@@ -870,7 +862,7 @@ def fix_sdh_tags(strings):
         test_string += strings[i]
 
     test_string.replace("\n", "")
-    if re.match(r"^(?:<i>)?[\[\(]" + SDH_CHARS + r"[\]\)](?:</i>)?$", test_string):
+    if re.match(r"^(?:<i>)?[\[(]" + SDH_CHARS + r"[\])](?:</i>)?$", test_string):
         strings = [""]
 
     return strings

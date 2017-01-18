@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-root_path = "C:/Users/Adrien/Documents/sub-titles-auto-correct/Resources/"
+root_path = "C:/Users/Adrien/Documents/sub-titles-auto-correct/Workspace/"
 fix_sdh_tags = True
 is_unittest_exec = False
 
