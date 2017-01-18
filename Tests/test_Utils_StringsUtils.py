@@ -154,7 +154,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_punctuation_spaces")
+            self.assert_list_equals(corrected_line, key, "fix_punctuation_spaces")
 
     def test_fix_dialog_hyphen(self):
         for key in TEST_LINES:
@@ -162,7 +162,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_dialog_hyphen(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_dialog_hyphen")
+            self.assert_list_equals(corrected_line, key, "fix_dialog_hyphen")
 
     def test_fix_letter_followed_by_space(self):
         for key in TEST_LINES:
@@ -172,7 +172,7 @@ class TestStringsUtils(unittest.TestCase):
                 temp_lines = StringsUtils.fix_letter_followed_by_space(temp_lines, "C", "eng")
                 corrected_line.append(temp_lines)
 
-            self.assert_list_equals_test(corrected_line, key, "fix_letter_followed_by_space")
+            self.assert_list_equals(corrected_line, key, "fix_letter_followed_by_space")
 
     def test_fix_italic_tag_errors(self):
         for key in TEST_LINES:
@@ -180,7 +180,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_italic_tag_errors(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_italic_tag_errors")
+            self.assert_list_equals(corrected_line, key, "fix_italic_tag_errors")
 
     def test_fix_colon(self):
         for key in TEST_LINES:
@@ -188,7 +188,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_colon")
+            self.assert_list_equals(corrected_line, key, "fix_colon")
 
     def test_fix_common_misspells(self):
         for key in TEST_LINES:
@@ -199,7 +199,7 @@ class TestStringsUtils(unittest.TestCase):
                 else:
                     corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "fr"))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_common_misspells")
+            self.assert_list_equals(corrected_line, key, "fix_common_misspells")
 
     def test_fix_numbers(self):
         for key in TEST_LINES:
@@ -212,7 +212,7 @@ class TestStringsUtils(unittest.TestCase):
                     with unittest.mock.patch('builtins.input', return_value=':q'):
                         corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_numbers")
+            self.assert_list_equals(corrected_line, key, "fix_numbers")
 
     def test_fix_degree_symbol(self):
         for key in TEST_LINES:
@@ -220,7 +220,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_degree_symbol(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_degree_symbol")
+            self.assert_list_equals(corrected_line, key, "fix_degree_symbol")
 
     def test_fix_capital_i_to_I(self):
         for key in TEST_LINES:
@@ -228,7 +228,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_capital_i_to_l")
+            self.assert_list_equals(corrected_line, key, "fix_capital_i_to_l")
 
     def test_fix_l_to_capital_i(self):
         for key in TEST_LINES:
@@ -236,7 +236,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_l_to_capital_i(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_l_to_capital_i")
+            self.assert_list_equals(corrected_line, key, "fix_l_to_capital_i")
 
     def test_fix_acronyms(self):
         for key in TEST_LINES:
@@ -244,7 +244,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 corrected_line.append(StringsUtils.fix_acronyms(TEST_LINES[key][i]))
 
-            self.assert_list_equals_test(corrected_line, key, "fix_acronyms")
+            self.assert_list_equals(corrected_line, key, "fix_acronyms")
 
     # endregion Single-line
 
@@ -253,36 +253,36 @@ class TestStringsUtils(unittest.TestCase):
     def test_fix_empty_lines(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_empty_lines(TEST_LINES[key])
-            self.assert_list_equals_test(corrected_lines, key, "fix_empty_lines")
+            self.assert_list_equals(corrected_lines, key, "fix_empty_lines")
 
     def test_fix_redundant_italic_tag(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_redundant_italic_tag(TEST_LINES[key])
-            self.assert_list_equals_test(corrected_lines, key, "fix_redundant_italic_tag")
+            self.assert_list_equals(corrected_lines, key, "fix_redundant_italic_tag")
 
     def test_fix_useless_dialog_hyphen(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_useless_dialog_hyphen(TEST_LINES[key])
-            self.assert_list_equals_test(corrected_lines, key, "fix_useless_dialog_hyphen")
+            self.assert_list_equals(corrected_lines, key, "fix_useless_dialog_hyphen")
 
     def test_fix_missing_dialog_hyphen(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_missing_dialog_hyphen(TEST_LINES[key])
-            self.assert_list_equals_test(corrected_lines, key, "fix_missing_dialog_hyphen")
+            self.assert_list_equals(corrected_lines, key, "fix_missing_dialog_hyphen")
 
     def test_fix_double_quotes_errors(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
-            self.assert_list_equals_test(corrected_lines, key, "fix_double_quotes_errors")
+            self.assert_list_equals(corrected_lines, key, "fix_double_quotes_errors")
 
     def test_fix_sdh_tags(self):
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_sdh_tags(TEST_LINES[key])
-            self.assert_list_equals_test(corrected_lines, key, "fix_sdh_tags")
+            self.assert_list_equals(corrected_lines, key, "fix_sdh_tags")
 
     # endregion Multi-line
 
-    def assert_list_equals_test(self, corrected_lines, key, tag):
+    def assert_list_equals(self, corrected_lines, key, tag):
         if tag in key:
             self.assertListEqual(corrected_lines, RESULT_LINES[key])
         else:
