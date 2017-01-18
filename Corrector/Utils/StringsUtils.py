@@ -513,7 +513,8 @@ def fix_letter_followed_by_space(line, letter, language):
 
         # Print colored char
         if letter + " " in to_check:
-            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)", SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
+            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)",
+                                   SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
                                    line_to_print)
             print("Unknown " + letter + "_ : " + line_to_print)
 

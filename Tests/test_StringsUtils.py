@@ -41,6 +41,11 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_dialog_hyphen_2"] = ["<i>-Plop\n", "\"-Plop\n", "\"-... Plop\n"]
     RESULT_LINES["fix_dialog_hyphen_2"] = ["<i>- Plop\n", "\"- Plop\n", "\"- ... Plop\n"]
 
+    TEST_LINES["fix_letter_followed_by_space_f"] = ["chef f oreign f ollow\n"]
+    RESULT_LINES["fix_letter_followed_by_space_f"] = ["chef foreign follow\n"]
+    TEST_LINES["fix_letter_followed_by_space_C"] = ["TEST C ynthia MUSIC TEST\n"]
+    RESULT_LINES["fix_letter_followed_by_space_C"] = ["TEST Cynthia MUSIC TEST\n"]
+
     TEST_LINES["fix_italic_tag_errors_1"] = ["<i>Test </i>test<i> test </i>\n", "<i>Test</i>-<i>test</i>\n"]
     RESULT_LINES["fix_italic_tag_errors_1"] = ["<i>Test</i> test <i>test</i>\n", "<i>Test-test</i>\n"]
     TEST_LINES["fix_italic_tag_errors_2"] = ["<i>Test </i>Test<i>-</i>test\n", "<i> \" Test \" </i>\n"]
@@ -159,7 +164,15 @@ class TestStringsUtils(unittest.TestCase):
 
             self.assert_list_equals_test(corrected_line, key, "fix_dialog_hyphen")
 
-    # TODO : test_fix_letter_followed_by_space
+    def test_fix_letter_followed_by_space(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                temp_lines = StringsUtils.fix_letter_followed_by_space(TEST_LINES[key][i], "f", "fr")
+                temp_lines = StringsUtils.fix_letter_followed_by_space(temp_lines, "C", "eng")
+                corrected_line.append(temp_lines)
+
+            self.assert_list_equals_test(corrected_line, key, "fix_letter_followed_by_space")
 
     def test_fix_italic_tag_errors(self):
         for key in TEST_LINES:
@@ -195,11 +208,9 @@ class TestStringsUtils(unittest.TestCase):
                 if "fix_numbers_1" in key:
                     with unittest.mock.patch('builtins.input', return_value=':x'):
                         corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
-                elif "fix_numbers_2" in key:
+                else:
                     with unittest.mock.patch('builtins.input', return_value=':q'):
                         corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
-                else:
-                    corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
 
             self.assert_list_equals_test(corrected_line, key, "fix_numbers")
 
