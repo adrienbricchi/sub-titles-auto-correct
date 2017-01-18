@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Changelog
+- AppVeyor Windows CI
+- This changelog
 - More tests and coverage
 
 ### Changed
