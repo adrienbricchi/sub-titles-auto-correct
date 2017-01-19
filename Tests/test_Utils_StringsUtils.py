@@ -33,8 +33,11 @@ RESULT_PROMPT = {}
 # noinspection SpellCheckingInspection
 def populate_single_line_test_dict():
 
-    TEST_LINES["fix_fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
-    RESULT_LINES["fix_fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
+    TEST_LINES["fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
+    RESULT_LINES["fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
+
+    TEST_LINES["fix_punctuation_errors"] = ["Test. . .Test.. .\n", "Plop--\n"]
+    RESULT_LINES["fix_punctuation_errors"] = ["Test... Test...\n", "Plop --\n"]
 
     TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
     RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
@@ -74,8 +77,8 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_degree_symbol"] = ["n°1 and n° 2 and N ° 3 and n °4 and 5 °F and 6° F and 7 ° C\n"]
     RESULT_LINES["fix_degree_symbol"] = ["n°1 and n°2 and N°3 and n°4 and 5°F and 6°F and 7°C\n"]
 
-    TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop fataI AIIIIb\n"]
-    RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop fatal Allllb\n"]
+    TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop, Iame Iame fataI AIIIIb\n"]
+    RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop, lame lame fatal Allllb\n"]
 
     TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou lAB AllB ABll Xlll lll\n"]
     RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou IAB AIIB ABII XIII III\n"]
@@ -156,7 +159,14 @@ class TestStringsUtils(unittest.TestCase):
 
             self.assert_list_equals(corrected_line, key, "fix_common_errors")
 
-    # TODO : test_fix_punctuation_errors
+    def test_fix_punctuation_errors(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_punctuation_errors(TEST_LINES[key][i]))
+
+            self.assert_list_equals(corrected_line, key, "fix_punctuation_errors")
+
     # TODO : test_fix_quotes
 
     def test_fix_punctuation_spaces(self):
@@ -262,31 +272,37 @@ class TestStringsUtils(unittest.TestCase):
     # region Multi-line
 
     def test_fix_empty_lines(self):
+        self.assertEquals(StringsUtils.fix_empty_lines([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_empty_lines(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_empty_lines")
 
     def test_fix_redundant_italic_tag(self):
+        self.assertEquals(StringsUtils.fix_redundant_italic_tag([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_redundant_italic_tag(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_redundant_italic_tag")
 
     def test_fix_useless_dialog_hyphen(self):
+        self.assertEquals(StringsUtils.fix_useless_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_useless_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_useless_dialog_hyphen")
 
     def test_fix_missing_dialog_hyphen(self):
+        self.assertEquals(StringsUtils.fix_missing_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_missing_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_missing_dialog_hyphen")
 
     def test_fix_double_quotes_errors(self):
+        self.assertEquals(StringsUtils.fix_double_quotes_errors([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_double_quotes_errors")
 
     def test_fix_sdh_tags(self):
+        self.assertEquals(StringsUtils.fix_sdh_tags([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_sdh_tags(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_sdh_tags")

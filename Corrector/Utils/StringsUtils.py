@@ -411,8 +411,6 @@ def fix_punctuation_errors(string):
         string = re.sub(r"\.\.\.(?=\w)", "... ", string)
         string = re.sub(r"\.\.\.\.+", "...", string)
 
-    string = string.replace("‘", "'")
-
     if "--" in string:
         string = re.sub(r"\s*--", " --", string)
 
@@ -431,6 +429,7 @@ def fix_quotes(line, language):
     line = line.replace("''", "\"")
     line = line.replace("‘", "'")
     line = line.replace("’", "'")
+    line = line.replace("‘", "'")
 
     if re.search("\s'", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'quote_word_trusted.csv', language):
