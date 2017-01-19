@@ -385,7 +385,6 @@ def fix_common_errors(string):
     :param string: the string to check.
     :return: string
     """
-    string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
     string = string.replace("- \\", "- ")
     string = string.replace("’", "'")
     string = string.replace("–", "-")
@@ -584,7 +583,7 @@ def fix_numbers(string):
         suffix = r"\b)" if re.match(r"\w+", word) else ")"
         string = re.sub(r"(?<=\d)\s*(?=" + word + suffix, "", string)
 
-    string = re.sub(r"(?<=\d)\s*h\s*(?=\d)", "h", string)
+    string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
 
     if re.search(r"\d\d\d\d\d", string):
         print("Big number : " + string.replace("\n", ""))

@@ -33,6 +33,9 @@ RESULT_PROMPT = {}
 # noinspection SpellCheckingInspection
 def populate_single_line_test_dict():
 
+    TEST_LINES["fix_fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
+    RESULT_LINES["fix_fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
+
     TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
     RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
@@ -63,8 +66,8 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_common_misspells"] = ["Seinfelf lran 9 mm\n"]
     RESULT_LINES["fix_common_misspells"] = ["Seinfeld Iran 9mm\n"]
 
-    TEST_LINES["fix_numbers_1"] = ["Line 333 4 45, 50\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
-    RESULT_LINES["fix_numbers_1"] = ["Line 333 445,50\n", "4ème et 5h30 à 20% et 5.\n"]
+    TEST_LINES["fix_numbers_:x"] = ["Line 333 4 45, 50\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
+    RESULT_LINES["fix_numbers_:x"] = ["Line 333 445,50\n", "4ème et 5h30 à 20% et 5.\n"]
     TEST_LINES["fix_numbers_2"] = ["and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
     RESULT_LINES["fix_numbers_2"] = ["and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
 
@@ -74,8 +77,8 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop fataI AIIIIb\n"]
     RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop fatal Allllb\n"]
 
-    TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou AllB ABll Xlll lll\n"]
-    RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou AIIB ABII XIII III\n"]
+    TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou lAB AllB ABll Xlll lll\n"]
+    RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou IAB AIIB ABII XIII III\n"]
 
     TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
     RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
@@ -144,7 +147,15 @@ class TestStringsUtils(unittest.TestCase):
     # region Single-line
 
     # TODO : test_fix_accentuated_capital_a
-    # TODO : test_fix_common_errors
+
+    def test_fix_common_errors(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_common_errors(TEST_LINES[key][i]))
+
+            self.assert_list_equals(corrected_line, key, "fix_common_errors")
+
     # TODO : test_fix_punctuation_errors
     # TODO : test_fix_quotes
 
@@ -205,7 +216,7 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                if "fix_numbers_1" in key:
+                if ":x" in key:
                     with unittest.mock.patch('builtins.input', return_value=':x'):
                         corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
                 else:
