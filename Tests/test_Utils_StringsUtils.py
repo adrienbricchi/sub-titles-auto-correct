@@ -155,6 +155,10 @@ populate_multi_line_test_dict()
 
 class TestStringsUtils(unittest.TestCase):
 
+    # region Utils
+
+    # endregion Utils
+
     # region Single-line
 
     def test_fix_accentuated_capital_a(self):

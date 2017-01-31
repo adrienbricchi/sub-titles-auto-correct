@@ -33,13 +33,13 @@ SRT_SUBTITLES = ["1\n",
                  "2\n",
                  "00:02:23,741 --> 00:02:25,651\n",
                  "Test 3 line 1.\n",
-                 "Test 3 line 2.\n",
+                 "2.\n",
                  "Test 3 line 3.\n",
                  "\n"]
 
 SRT_SUBTITLES_PRETTY_PRINT = ["1    1 : 00:02:17,440 --> 00:02:20,375 ['Test 1 line 1.', 'Test 1 line 2.']",
                               "2    2 : 00:02:20,476 --> 00:02:22,501 ['Test 2 line 1.']",
-                              "2    2 : 00:02:23,741 --> 00:02:25,651 ['Test 3 line 1.', 'Test 3 line 2.', 'Test 3 line 3.']"]
+                              "2    2 : 00:02:23,741 --> 00:02:25,651 ['Test 3 line 1.', '2.', 'Test 3 line 3.']"]
 
 NOT_SRT_SUBTITLE = ["[Events]\n"
                     "Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text,\n",
@@ -50,6 +50,62 @@ BAD_ENCODING_SUBTITLE = ["ÿþ\n"]
 
 
 class TestSubtitle(unittest.TestCase):
+
+    def test_is_index(self):
+        self.assertTrue(Subtitle.is_index(SRT_SUBTITLES, 0))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 1))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 2))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 3))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 4))
+        self.assertTrue(Subtitle.is_index(SRT_SUBTITLES, 5))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 6))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 7))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 8))
+        self.assertTrue(Subtitle.is_index(SRT_SUBTITLES, 9))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 10))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 11))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 12))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 13))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 14))
+        self.assertFalse(Subtitle.is_index(None, 100))
+        self.assertFalse(Subtitle.is_index(SRT_SUBTITLES, 100))
+
+    def test_is_time_code(self):
+        self.assertFalse(None)
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[0]))
+        self.assertTrue(Subtitle.is_time_code(SRT_SUBTITLES[1]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[2]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[3]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[4]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[5]))
+        self.assertTrue(Subtitle.is_time_code(SRT_SUBTITLES[6]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[7]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[8]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[9]))
+        self.assertTrue(Subtitle.is_time_code(SRT_SUBTITLES[10]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[11]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[12]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[13]))
+        self.assertFalse(Subtitle.is_time_code(SRT_SUBTITLES[14]))
+
+    def test_is_text_line(self):
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 0))
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 1))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 2))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 3))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 4))
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 5))
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 6))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 7))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 8))
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 9))
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 10))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 11))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 12))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 13))
+        self.assertTrue(Subtitle.is_text_line(SRT_SUBTITLES, 14))
+        self.assertFalse(Subtitle.is_text_line(None, 100))
+        self.assertFalse(Subtitle.is_text_line(SRT_SUBTITLES, 100))
 
     def test_subtitles_from_lines(self):
         srt_parsed = Subtitle.subtitles_from_lines(SRT_SUBTITLES)

@@ -28,12 +28,56 @@ class Subtitle:
     # region Static methods
 
     @staticmethod
+    def is_index(lines, index):
+        """True if is a simple number followed by time code
+
+        :param lines: file strings
+        :param index: the line index to test
+        :return: boolean
+        """
+        if not lines or index >= len(lines):
+            return False
+
+        if not re.match(r"^\d+$", lines[index]):
+            return False
+
+        return Subtitle.is_time_code(lines[index + 1])
+
+    @staticmethod
+    def is_time_code(text):
+        """True if not matching the "00:01:02,003 --> 00:01:05,000"
+
+        :param text: string, the string to test.
+        :return: boolean
+        """
+        return re.match(r"^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$", text)
+
+    @staticmethod
+    def is_text_line(lines, index):
+        """True if not empty, not a number, and not a time code
+
+        :param lines: file strings
+        :param index: the line index to test
+        :return: boolean
+        """
+        if not lines or index >= len(lines) or lines[index] == "":
+            return False
+
+        if Subtitle.is_index(lines, index):
+            return False
+
+        if Subtitle.is_time_code(lines[index]):
+            return False
+
+        return True
+
+    @staticmethod
     def subtitles_from_lines(lines):
         subtitles = []
         index = 0
 
         while index < len(lines):
-            if is_index(lines, index):
+            if Subtitle.is_index(lines, index):
 
                 found_number = lines[index]
                 index += 1
@@ -42,7 +86,7 @@ class Subtitle:
                 index += 1
 
                 found_lines = []
-                while index < len(lines) and not is_index(lines, index):
+                while index < len(lines) and not Subtitle.is_index(lines, index):
                     if not re.match(r"^$", lines[index]):
                         found_lines.append(lines[index])
                     index += 1
