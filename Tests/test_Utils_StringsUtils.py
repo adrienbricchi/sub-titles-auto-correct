@@ -33,6 +33,11 @@ RESULT_PROMPT = {}
 # noinspection SpellCheckingInspection
 def populate_single_line_test_dict():
 
+    TEST_LINES["fix_accentuated_capital_a_:x"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+    RESULT_LINES["fix_accentuated_capital_a_:x"] = ["À toi a\n", "Plop Abcdc. À.\n"]
+    TEST_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+    RESULT_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+
     TEST_LINES["fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
     RESULT_LINES["fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
 
@@ -149,7 +154,18 @@ class TestStringsUtils(unittest.TestCase):
 
     # region Single-line
 
-    # TODO : test_fix_accentuated_capital_a
+    def test_fix_accentuated_capital_a(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                if ":x" in key:
+                    with unittest.mock.patch('builtins.input', return_value=':x'):
+                        corrected_line.append(StringsUtils.fix_accentuated_capital_a(TEST_LINES[key][i]))
+                else:
+                    with unittest.mock.patch('builtins.input', return_value=':q'):
+                        corrected_line.append(StringsUtils.fix_accentuated_capital_a(TEST_LINES[key][i]))
+
+            self.assert_list_equals(corrected_line, key, "fix_accentuated_capital_a")
 
     def test_fix_common_errors(self):
         for key in TEST_LINES:
