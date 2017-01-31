@@ -425,11 +425,9 @@ def fix_quotes(line, language):
     :param language: current language correction
     :return: string
     """
-    line = line.replace("' '", "\"")
     line = line.replace("''", "\"")
     line = line.replace("‘", "'")
     line = line.replace("’", "'")
-    line = line.replace("‘", "'")
 
     if re.search("\s'", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'quote_word_trusted.csv', language):
@@ -438,11 +436,6 @@ def fix_quotes(line, language):
     if re.search("'\s", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'word_quote_trusted.csv', language):
             line = re.sub(r"\b" + word + r"'\s", word + "'", line)
-
-    # if re.search("'\s", line):
-    #     print("Unknown '_ : " + line.replace("\n", ""))
-    # if re.search("\s'", line):
-    #     print("Unknown _' : " + line.replace("\n", ""))
 
     return line
 

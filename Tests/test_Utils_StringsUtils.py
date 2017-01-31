@@ -41,6 +41,9 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
     RESULT_LINES["fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
 
+    TEST_LINES["fix_quotes"] = ["''Plop''\n", "Plop 'm O' Connor\n"]
+    RESULT_LINES["fix_quotes"] = ["\"Plop\"\n", "Plop'm O'Connor\n"]
+
     TEST_LINES["fix_punctuation_errors"] = ["Test. . .Test.. .\n", "Plop--\n"]
     RESULT_LINES["fix_punctuation_errors"] = ["Test... Test...\n", "Plop --\n"]
 
@@ -183,7 +186,13 @@ class TestStringsUtils(unittest.TestCase):
 
             self.assert_list_equals(corrected_line, key, "fix_punctuation_errors")
 
-    # TODO : test_fix_quotes
+    def test_test_fix_quotes(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_quotes(TEST_LINES[key][i], "eng"))
+
+            self.assert_list_equals(corrected_line, key, "fix_quotes")
 
     def test_fix_punctuation_spaces(self):
         for key in TEST_LINES:
