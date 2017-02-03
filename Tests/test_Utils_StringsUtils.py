@@ -157,6 +157,13 @@ class TestStringsUtils(unittest.TestCase):
 
     # region Utils
 
+    def test_remove_all_uppercase_words(self):
+
+        line = ["TEST", "II", "Hey", "PLOP", "Moarf"]
+        result = StringsUtils.remove_all_uppercase_words(line)
+
+        self.assertEquals(result, ["II", "Hey", "Moarf"])
+
     # endregion Utils
 
     # region Single-line
