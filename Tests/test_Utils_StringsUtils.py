@@ -141,9 +141,9 @@ def populate_multi_line_test_dict():
 
     TEST_LINES["fix_sdh_tags_1"] = ["MAN ON RADIO : test line 1\n", "test line 2\n"]
     RESULT_LINES["fix_sdh_tags_1"] = ["test line 1\n", "test line 2\n"]
-    TEST_LINES["fix_sdh_tags_2"] = ["- <i>MAN ON RADIO : test line 1\n", "test line 2</i>\n"]
-    RESULT_LINES["fix_sdh_tags_2"] = ["- <i>test line 1\n", "test line 2</i>\n"]
-    TEST_LINES["fix_sdh_tags_3"] = ["<i>MAN 1 : test line 1</i>\n", "- test line 2\n"]
+    TEST_LINES["fix_sdh_tags_2"] = ["- <i>MAN ON RADIO : test line 1\n", "- test line 2</i>\n"]
+    RESULT_LINES["fix_sdh_tags_2"] = ["- <i>test line 1\n", "- test line 2</i>\n"]
+    TEST_LINES["fix_sdh_tags_3"] = ["- <i>MAN 1 : test line 1</i>\n", "- test line 2\n"]
     RESULT_LINES["fix_sdh_tags_3"] = ["- <i>test line 1</i>\n", "- test line 2\n"]
     TEST_LINES["fix_sdh_tags_4"] = ["[PLOP]\n"]
     RESULT_LINES["fix_sdh_tags_4"] = [""]
@@ -340,8 +340,33 @@ class TestStringsUtils(unittest.TestCase):
 
     # endregion Multi-line
 
+    def test_multi_line_errors(self):
+
+        # We have to cleanup dictionary tests cases, to check only relevant lines.
+        # Those dictionaries will be restored at the end of this test.
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_multi_line_test_dict()
+        corrected_lines = {}
+
+        for key in TEST_LINES:
+            fake_input = ":x" if ":x" in key else ":q"
+
+            with unittest.mock.patch('builtins.input', return_value=fake_input):
+                corrected_lines[key] = StringsUtils.fix_multi_line_errors(TEST_LINES[key])
+
+        for key in corrected_lines:
+            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_single_line_test_dict()
+        populate_multi_line_test_dict()
+
     def test_fix_single_line_errors(self):
 
+        # We have to cleanup dictionary tests cases, to check only relevant lines.
+        # Those dictionaries will be restored at the end of this test.
         TEST_LINES.clear()
         RESULT_LINES.clear()
         populate_single_line_test_dict()
