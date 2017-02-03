@@ -70,10 +70,10 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_colon"] = ["TEST: line. Other test:\n", "12: 44 or 12 : 45 or 12 :45 or 12:46 or: 7\n"]
     RESULT_LINES["fix_colon"] = ["TEST : line. Other test :\n", "12:44 or 12:45 or 12:45 or 12:46 or : 7\n"]
 
-    TEST_LINES["fix_common_misspells_fr"] = ["Seinfelf. II. Evidemment\n"]
-    RESULT_LINES["fix_common_misspells_fr"] = ["Seinfeld. Il. Évidemment\n"]
-    TEST_LINES["fix_common_misspells_eng"] = ["Seinfelf. II yourjob\n"]
-    RESULT_LINES["fix_common_misspells_eng"] = ["Seinfeld. II your job\n"]
+    TEST_LINES["fix_common_misspells_:fr"] = ["Seinfelf. II. Evidemment\n"]
+    RESULT_LINES["fix_common_misspells_:fr"] = ["Seinfeld. Il. Évidemment\n"]
+    TEST_LINES["fix_common_misspells_:eng"] = ["Seinfelf. II yourjob\n"]
+    RESULT_LINES["fix_common_misspells_:eng"] = ["Seinfeld. II your job\n"]
     TEST_LINES["fix_common_misspells"] = ["Seinfelf lran 9 mm\n"]
     RESULT_LINES["fix_common_misspells"] = ["Seinfeld Iran 9mm\n"]
 
@@ -171,13 +171,11 @@ class TestStringsUtils(unittest.TestCase):
     def test_fix_accentuated_capital_a(self):
         for key in TEST_LINES:
             corrected_line = []
+
             for i in range(0, len(TEST_LINES[key])):
-                if ":x" in key:
-                    with unittest.mock.patch('builtins.input', return_value=':x'):
-                        corrected_line.append(StringsUtils.fix_accentuated_capital_a(TEST_LINES[key][i]))
-                else:
-                    with unittest.mock.patch('builtins.input', return_value=':q'):
-                        corrected_line.append(StringsUtils.fix_accentuated_capital_a(TEST_LINES[key][i]))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_accentuated_capital_a(TEST_LINES[key][i]))
 
             self.assert_list_equals(corrected_line, key, "fix_accentuated_capital_a")
 
@@ -250,24 +248,21 @@ class TestStringsUtils(unittest.TestCase):
     def test_fix_common_misspells(self):
         for key in TEST_LINES:
             corrected_line = []
+
             for i in range(0, len(TEST_LINES[key])):
-                if "eng" in key:
-                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "eng"))
-                else:
-                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "fr"))
+                language = "eng" if ":eng" in key else "fr"
+                corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], language))
 
             self.assert_list_equals(corrected_line, key, "fix_common_misspells")
 
     def test_fix_numbers(self):
         for key in TEST_LINES:
             corrected_line = []
+
             for i in range(0, len(TEST_LINES[key])):
-                if ":x" in key:
-                    with unittest.mock.patch('builtins.input', return_value=':x'):
-                        corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
-                else:
-                    with unittest.mock.patch('builtins.input', return_value=':q'):
-                        corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
 
             self.assert_list_equals(corrected_line, key, "fix_numbers")
 
@@ -344,6 +339,32 @@ class TestStringsUtils(unittest.TestCase):
             self.assert_list_equals(corrected_lines, key, "fix_sdh_tags")
 
     # endregion Multi-line
+
+    def test_fix_single_line_errors(self):
+
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_single_line_test_dict()
+        corrected_lines = {}
+
+        for key in TEST_LINES:
+            corrected_lines[key] = []
+
+            for line_index in range(0, len(TEST_LINES[key])):
+
+                language = "eng" if ":eng" in key else "fr"
+                fake_input = ":x" if ":x" in key else ":q"
+
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_lines[key].append(StringsUtils.fix_single_line_errors(TEST_LINES[key][line_index], language))
+
+        for key in corrected_lines:
+            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_single_line_test_dict()
+        populate_multi_line_test_dict()
 
     def assert_list_equals(self, corrected_lines, key, tag):
         if tag in key:

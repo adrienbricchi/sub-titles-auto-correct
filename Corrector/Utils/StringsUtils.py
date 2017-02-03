@@ -365,7 +365,7 @@ def fix_punctuation_errors(string):
         string = re.sub(r"\.\.\.\.+", "...", string)
 
     if "--" in string:
-        string = re.sub(r"\s*--", " --", string)
+        string = re.sub(r"(?<!^)\s*--", " --", string)
 
     return string
 
