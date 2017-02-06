@@ -33,6 +33,20 @@ RESULT_PROMPT = {}
 # noinspection SpellCheckingInspection
 def populate_single_line_test_dict():
 
+    TEST_LINES["fix_accentuated_capital_a_:x"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+    RESULT_LINES["fix_accentuated_capital_a_:x"] = ["À toi a\n", "Plop Abcdc. À.\n"]
+    TEST_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+    RESULT_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+
+    TEST_LINES["fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
+    RESULT_LINES["fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
+
+    TEST_LINES["fix_quotes"] = ["''Plop''\n", "Plop 'm O' Connor\n"]
+    RESULT_LINES["fix_quotes"] = ["\"Plop\"\n", "Plop'm O'Connor\n"]
+
+    TEST_LINES["fix_punctuation_errors"] = ["Test. . .Test.. .\n", "Plop--\n"]
+    RESULT_LINES["fix_punctuation_errors"] = ["Test... Test...\n", "Plop --\n"]
+
     TEST_LINES["fix_punctuation_spaces"] = ["Hey! ?What ? ! ? !!\n", "Ok ! \"Line 2?\"?\n"]
     RESULT_LINES["fix_punctuation_spaces"] = ["Hey !? What ?!?!!\n", "Ok ! \"Line 2 ?\" ?\n"]
 
@@ -56,26 +70,26 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_colon"] = ["TEST: line. Other test:\n", "12: 44 or 12 : 45 or 12 :45 or 12:46 or: 7\n"]
     RESULT_LINES["fix_colon"] = ["TEST : line. Other test :\n", "12:44 or 12:45 or 12:45 or 12:46 or : 7\n"]
 
-    TEST_LINES["fix_common_misspells_fr"] = ["Seinfelf. II. Evidemment\n"]
-    RESULT_LINES["fix_common_misspells_fr"] = ["Seinfeld. Il. Évidemment\n"]
-    TEST_LINES["fix_common_misspells_eng"] = ["Seinfelf. II yourjob\n"]
-    RESULT_LINES["fix_common_misspells_eng"] = ["Seinfeld. II your job\n"]
+    TEST_LINES["fix_common_misspells_:fr"] = ["Seinfelf. II. Evidemment\n"]
+    RESULT_LINES["fix_common_misspells_:fr"] = ["Seinfeld. Il. Évidemment\n"]
+    TEST_LINES["fix_common_misspells_:eng"] = ["Seinfelf. II yourjob\n"]
+    RESULT_LINES["fix_common_misspells_:eng"] = ["Seinfeld. II your job\n"]
     TEST_LINES["fix_common_misspells"] = ["Seinfelf lran 9 mm\n"]
     RESULT_LINES["fix_common_misspells"] = ["Seinfeld Iran 9mm\n"]
 
-    TEST_LINES["fix_numbers_1"] = ["Line 333 4 45, 50\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
-    RESULT_LINES["fix_numbers_1"] = ["Line 333 445,50\n", "4ème et 5h30 à 20% et 5.\n"]
+    TEST_LINES["fix_numbers_:x"] = ["Line 333 4 45, 50\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
+    RESULT_LINES["fix_numbers_:x"] = ["Line 333 445,50\n", "4ème et 5h30 à 20% et 5.\n"]
     TEST_LINES["fix_numbers_2"] = ["and 3, 4, 5\n", "4 ème et 5 h 30 à 20 % et 5 .\n"]
     RESULT_LINES["fix_numbers_2"] = ["and 3, 4, 5\n", "4ème et 5h30 à 20% et 5.\n"]
 
     TEST_LINES["fix_degree_symbol"] = ["n°1 and n° 2 and N ° 3 and n °4 and 5 °F and 6° F and 7 ° C\n"]
     RESULT_LINES["fix_degree_symbol"] = ["n°1 and n°2 and N°3 and n°4 and 5°F and 6°F and 7°C\n"]
 
-    TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop fataI AIIIIb\n"]
-    RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop fatal Allllb\n"]
+    TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop, Iame Iame fataI AIIIIb\n"]
+    RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop, lame lame fatal Allllb\n"]
 
-    TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou AllB ABll Xlll lll\n"]
-    RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou AIIB ABII XIII III\n"]
+    TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou lAB AllB ABll Xlll lll\n"]
+    RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou IAB AIIB ABII XIII III\n"]
 
     TEST_LINES["fix_acronyms"] = ["I. I was here. S. N. C. F. I was\n", "Line 2. I. Line 2. A.T. M. \n"]
     RESULT_LINES["fix_acronyms"] = ["I. I was here. S.N.C.F. I was\n", "Line 2. I. Line 2. A.T.M. \n"]
@@ -127,9 +141,9 @@ def populate_multi_line_test_dict():
 
     TEST_LINES["fix_sdh_tags_1"] = ["MAN ON RADIO : test line 1\n", "test line 2\n"]
     RESULT_LINES["fix_sdh_tags_1"] = ["test line 1\n", "test line 2\n"]
-    TEST_LINES["fix_sdh_tags_2"] = ["- <i>MAN ON RADIO : test line 1\n", "test line 2</i>\n"]
-    RESULT_LINES["fix_sdh_tags_2"] = ["- <i>test line 1\n", "test line 2</i>\n"]
-    TEST_LINES["fix_sdh_tags_3"] = ["<i>MAN 1 : test line 1</i>\n", "- test line 2\n"]
+    TEST_LINES["fix_sdh_tags_2"] = ["- <i>MAN ON RADIO : test line 1\n", "- test line 2</i>\n"]
+    RESULT_LINES["fix_sdh_tags_2"] = ["- <i>test line 1\n", "- test line 2</i>\n"]
+    TEST_LINES["fix_sdh_tags_3"] = ["- <i>MAN 1 : test line 1</i>\n", "- test line 2\n"]
     RESULT_LINES["fix_sdh_tags_3"] = ["- <i>test line 1</i>\n", "- test line 2\n"]
     TEST_LINES["fix_sdh_tags_4"] = ["[PLOP]\n"]
     RESULT_LINES["fix_sdh_tags_4"] = [""]
@@ -141,12 +155,53 @@ populate_multi_line_test_dict()
 
 class TestStringsUtils(unittest.TestCase):
 
+    # region Utils
+
+    def test_remove_all_uppercase_words(self):
+
+        line = ["TEST", "II", "Hey", "PLOP", "Moarf"]
+        result = StringsUtils.remove_all_uppercase_words(line)
+
+        self.assertEquals(result, ["II", "Hey", "Moarf"])
+
+    # endregion Utils
+
     # region Single-line
 
-    # TODO : test_fix_accentuated_capital_a
-    # TODO : test_fix_common_errors
-    # TODO : test_fix_punctuation_errors
-    # TODO : test_fix_quotes
+    def test_fix_accentuated_capital_a(self):
+        for key in TEST_LINES:
+            corrected_line = []
+
+            for i in range(0, len(TEST_LINES[key])):
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_accentuated_capital_a(TEST_LINES[key][i]))
+
+            self.assert_list_equals(corrected_line, key, "fix_accentuated_capital_a")
+
+    def test_fix_common_errors(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_common_errors(TEST_LINES[key][i]))
+
+            self.assert_list_equals(corrected_line, key, "fix_common_errors")
+
+    def test_fix_punctuation_errors(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_punctuation_errors(TEST_LINES[key][i]))
+
+            self.assert_list_equals(corrected_line, key, "fix_punctuation_errors")
+
+    def test_test_fix_quotes(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_quotes(TEST_LINES[key][i], "eng"))
+
+            self.assert_list_equals(corrected_line, key, "fix_quotes")
 
     def test_fix_punctuation_spaces(self):
         for key in TEST_LINES:
@@ -193,24 +248,21 @@ class TestStringsUtils(unittest.TestCase):
     def test_fix_common_misspells(self):
         for key in TEST_LINES:
             corrected_line = []
+
             for i in range(0, len(TEST_LINES[key])):
-                if "eng" in key:
-                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "eng"))
-                else:
-                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], "fr"))
+                language = "eng" if ":eng" in key else "fr"
+                corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], language))
 
             self.assert_list_equals(corrected_line, key, "fix_common_misspells")
 
     def test_fix_numbers(self):
         for key in TEST_LINES:
             corrected_line = []
+
             for i in range(0, len(TEST_LINES[key])):
-                if "fix_numbers_1" in key:
-                    with unittest.mock.patch('builtins.input', return_value=':x'):
-                        corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
-                else:
-                    with unittest.mock.patch('builtins.input', return_value=':q'):
-                        corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
 
             self.assert_list_equals(corrected_line, key, "fix_numbers")
 
@@ -251,36 +303,93 @@ class TestStringsUtils(unittest.TestCase):
     # region Multi-line
 
     def test_fix_empty_lines(self):
+        self.assertEquals(StringsUtils.fix_empty_lines([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_empty_lines(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_empty_lines")
 
     def test_fix_redundant_italic_tag(self):
+        self.assertEquals(StringsUtils.fix_redundant_italic_tag([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_redundant_italic_tag(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_redundant_italic_tag")
 
     def test_fix_useless_dialog_hyphen(self):
+        self.assertEquals(StringsUtils.fix_useless_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_useless_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_useless_dialog_hyphen")
 
     def test_fix_missing_dialog_hyphen(self):
+        self.assertEquals(StringsUtils.fix_missing_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_missing_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_missing_dialog_hyphen")
 
     def test_fix_double_quotes_errors(self):
+        self.assertEquals(StringsUtils.fix_double_quotes_errors([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_double_quotes_errors")
 
     def test_fix_sdh_tags(self):
+        self.assertEquals(StringsUtils.fix_sdh_tags([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_sdh_tags(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_sdh_tags")
 
     # endregion Multi-line
+
+    def test_multi_line_errors(self):
+
+        # We have to cleanup dictionary tests cases, to check only relevant lines.
+        # Those dictionaries will be restored at the end of this test.
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_multi_line_test_dict()
+        corrected_lines = {}
+
+        for key in TEST_LINES:
+            fake_input = ":x" if ":x" in key else ":q"
+
+            with unittest.mock.patch('builtins.input', return_value=fake_input):
+                corrected_lines[key] = StringsUtils.fix_multi_line_errors(TEST_LINES[key])
+
+        for key in corrected_lines:
+            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_single_line_test_dict()
+        populate_multi_line_test_dict()
+
+    def test_fix_single_line_errors(self):
+
+        # We have to cleanup dictionary tests cases, to check only relevant lines.
+        # Those dictionaries will be restored at the end of this test.
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_single_line_test_dict()
+        corrected_lines = {}
+
+        for key in TEST_LINES:
+            corrected_lines[key] = []
+
+            for line_index in range(0, len(TEST_LINES[key])):
+
+                language = "eng" if ":eng" in key else "fr"
+                fake_input = ":x" if ":x" in key else ":q"
+
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_lines[key].append(StringsUtils.fix_single_line_errors(TEST_LINES[key][line_index], language))
+
+        for key in corrected_lines:
+            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+
+        TEST_LINES.clear()
+        RESULT_LINES.clear()
+        populate_single_line_test_dict()
+        populate_multi_line_test_dict()
 
     def assert_list_equals(self, corrected_lines, key, tag):
         if tag in key:

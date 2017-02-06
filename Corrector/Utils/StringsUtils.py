@@ -130,53 +130,6 @@ def remove_space_from_word(string, word, check_uppercase, check_plural):
     return re.sub(r"" + regex, r"\1" + word[1:].replace(" ", ""), string)
 
 
-def is_time_code(text):
-    """True if not matching the "00:01:02,003 --> 00:01:05,000"
-
-    :param text: string, the string to test.
-    :return: boolean
-    """
-    return re.match(r"^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$", text)
-
-
-def is_index(lines, index):
-    """True if is a simple number followed by time code
-
-    :param lines: file strings
-    :param index: the line index to test
-    :return: boolean
-    """
-    if not re.match(r"^\d+$", lines[index]):
-        return False
-
-    if index == len(lines):
-        return False
-
-    if is_time_code(lines[index + 1]):
-        return True
-
-    return False
-
-
-def is_text_line(lines, index):
-    """True if not empty, not a number, and not a time code
-
-    :param lines: file strings
-    :param index: the line index to test
-    :return: boolean
-    """
-    if lines[index] == "":
-        return False
-
-    if is_index(lines, index):
-        return False
-
-    if is_time_code(lines[index]):
-        return False
-
-    return True
-
-
 def get_csv_words_with_language(csv_file_path, language):
     """Safe file word list, gets regular and localized csv content
 
@@ -385,7 +338,6 @@ def fix_common_errors(string):
     :param string: the string to check.
     :return: string
     """
-    string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
     string = string.replace("- \\", "- ")
     string = string.replace("’", "'")
     string = string.replace("–", "-")
@@ -412,10 +364,8 @@ def fix_punctuation_errors(string):
         string = re.sub(r"\.\.\.(?=\w)", "... ", string)
         string = re.sub(r"\.\.\.\.+", "...", string)
 
-    string = string.replace("‘", "'")
-
     if "--" in string:
-        string = re.sub(r"\s*--", " --", string)
+        string = re.sub(r"(?<!^)\s*--", " --", string)
 
     return string
 
@@ -428,7 +378,6 @@ def fix_quotes(line, language):
     :param language: current language correction
     :return: string
     """
-    line = line.replace("' '", "\"")
     line = line.replace("''", "\"")
     line = line.replace("‘", "'")
     line = line.replace("’", "'")
@@ -440,11 +389,6 @@ def fix_quotes(line, language):
     if re.search("'\s", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'word_quote_trusted.csv', language):
             line = re.sub(r"\b" + word + r"'\s", word + "'", line)
-
-    # if re.search("'\s", line):
-    #     print("Unknown '_ : " + line.replace("\n", ""))
-    # if re.search("\s'", line):
-    #     print("Unknown _' : " + line.replace("\n", ""))
 
     return line
 
@@ -584,7 +528,7 @@ def fix_numbers(string):
         suffix = r"\b)" if re.match(r"\w+", word) else ")"
         string = re.sub(r"(?<=\d)\s*(?=" + word + suffix, "", string)
 
-    string = re.sub(r"(?<=\d)\s*h\s*(?=\d)", "h", string)
+    string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
 
     if re.search(r"\d\d\d\d\d", string):
         print("Big number : " + string.replace("\n", ""))
