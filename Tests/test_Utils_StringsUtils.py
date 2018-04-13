@@ -182,7 +182,6 @@ class TestStringsUtils(unittest.TestCase):
         print("results : " + str(results))
         self.assertEquals(lines, results)
 
-
     # endregion Utils
 
     # region Single-line
@@ -322,37 +321,37 @@ class TestStringsUtils(unittest.TestCase):
     # region Multi-line
 
     def test_fix_empty_lines(self):
-        self.assertEquals(StringsUtils.fix_empty_lines([]), [])
+        self.assertEqual(StringsUtils.fix_empty_lines([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_empty_lines(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_empty_lines")
 
     def test_fix_redundant_italic_tag(self):
-        self.assertEquals(StringsUtils.fix_redundant_italic_tag([]), [])
+        self.assertEqual(StringsUtils.fix_redundant_italic_tag([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_redundant_italic_tag(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_redundant_italic_tag")
 
     def test_fix_useless_dialog_hyphen(self):
-        self.assertEquals(StringsUtils.fix_useless_dialog_hyphen([]), [])
+        self.assertEqual(StringsUtils.fix_useless_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_useless_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_useless_dialog_hyphen")
 
     def test_fix_missing_dialog_hyphen(self):
-        self.assertEquals(StringsUtils.fix_missing_dialog_hyphen([]), [])
+        self.assertEqual(StringsUtils.fix_missing_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_missing_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_missing_dialog_hyphen")
 
     def test_fix_double_quotes_errors(self):
-        self.assertEquals(StringsUtils.fix_double_quotes_errors([]), [])
+        self.assertEqual(StringsUtils.fix_double_quotes_errors([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_double_quotes_errors")
 
     def test_fix_sdh_tags(self):
-        self.assertEquals(StringsUtils.fix_sdh_tags([]), [])
+        self.assertEqual(StringsUtils.fix_sdh_tags([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_sdh_tags(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_sdh_tags")

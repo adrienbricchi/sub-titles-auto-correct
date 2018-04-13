@@ -110,8 +110,8 @@ class TestSubtitle(unittest.TestCase):
     def test_subtitles_from_lines(self):
         srt_parsed = Subtitle.subtitles_from_lines(SRT_SUBTITLES)
         not_srt_parsed = Subtitle.subtitles_from_lines(NOT_SRT_SUBTITLE)
-        self.assertEquals(len(srt_parsed), 3)
-        self.assertEquals(len(not_srt_parsed), 0)
+        self.assertEqual(len(srt_parsed), 3)
+        self.assertEqual(len(not_srt_parsed), 0)
         with self.assertRaises(ValueError):
             Subtitle.subtitles_from_lines(BAD_ENCODING_SUBTITLE)
 
@@ -121,9 +121,9 @@ class TestSubtitle(unittest.TestCase):
         srt_subtitle_0.set_number("1\n")
         srt_subtitle_0.set_time_code("00:02:17,440 --> 00:02:20,375\n")
         srt_subtitle_0.set_lines(["Test 1 line 1.\n", "Test 1 line 2.\n"])
-        self.assertEquals(srt_parsed[0].get_number(), srt_subtitle_0.get_number())
-        self.assertEquals(srt_parsed[0].get_time_code(), srt_subtitle_0.get_time_code())
-        self.assertEquals(srt_parsed[0].get_lines(), srt_subtitle_0.get_lines())
+        self.assertEqual(srt_parsed[0].get_number(), srt_subtitle_0.get_number())
+        self.assertEqual(srt_parsed[0].get_time_code(), srt_subtitle_0.get_time_code())
+        self.assertEqual(srt_parsed[0].get_lines(), srt_subtitle_0.get_lines())
 
     def test_to_lines(self):
         srt_parsed = Subtitle.subtitles_from_lines(SRT_SUBTITLES)
@@ -131,12 +131,12 @@ class TestSubtitle(unittest.TestCase):
         for i in range(0, len(srt_parsed)):
             printed_lines += (srt_parsed[i].to_lines())
             printed_lines += "\n"
-        self.assertEquals(printed_lines, SRT_SUBTITLES)
+        self.assertEqual(printed_lines, SRT_SUBTITLES)
 
     def test_pretty_print(self):
         srt_parsed = Subtitle.subtitles_from_lines(SRT_SUBTITLES)
         for i in range(0, len(srt_parsed)):
-            self.assertEquals(srt_parsed[i].pretty_print(), SRT_SUBTITLES_PRETTY_PRINT[i])
+            self.assertEqual(srt_parsed[i].pretty_print(), SRT_SUBTITLES_PRETTY_PRINT[i])
 
 
 if __name__ == '__main__':
