@@ -19,6 +19,9 @@
 
 import unittest
 from unittest.mock import patch
+from io import StringIO
+import sys
+
 from Corrector.Utils import StringsUtils
 from Corrector.Utils import Consts
 
@@ -163,6 +166,22 @@ class TestStringsUtils(unittest.TestCase):
         result = StringsUtils.remove_all_uppercase_words(line)
 
         self.assertEquals(result, ["II", "Hey", "Moarf"])
+
+    def test_print_single_letters(self):
+
+        lines = ["TEST\n", "II\n", "H", "J\nPLOP\n", "Test B.\n", "test n test\n"]
+        results = [False, False, True, True, True, True]
+
+        for i in range(0, len(lines)):
+            StringsUtils.print_single_letters(lines[i])
+            output = sys.stdout.getvalue().strip()
+            lines[i] = len(output) > 0
+            print("== " + str(output))
+
+        print("lines   : " + str(lines))
+        print("results : " + str(results))
+        self.assertEquals(lines, results)
+
 
     # endregion Utils
 
