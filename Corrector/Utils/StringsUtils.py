@@ -341,6 +341,8 @@ def fix_common_errors(string):
     string = string.replace("- \\", "- ")
     string = string.replace("’", "'")
     string = string.replace("”", "\"")
+    string = string.replace("”", "\"")
+    string = string.replace("“", "\"")
     string = string.replace("–", "-")
     string = string.replace(" )", ")")
     string = string.replace("( ", "(")
