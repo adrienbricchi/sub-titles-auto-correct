@@ -265,10 +265,8 @@ def ask_for_correction(string, array, trusted_file_path, language):
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
-    # noinspection SpellCheckingInspection
-    office2010_location = 'C:\Program Files\Microsoft Office\Office14\Winword.exe'
-    if os.path.isfile(office2010_location):
-        command_line += office2010_location
+    if os.path.isfile(Consts.ms_word_2010_location):
+        command_line += Consts.ms_word_2010_location
 
     if command_line == "":
         print("MSOffice is missing, or no known MSOffice found")
@@ -282,6 +280,23 @@ def launch_ms_word_spell_check(path, language):
         command_line += ' /mSrtEngSpellCheck'
     else:
         command_line += ' /mSrtSpellCheck'
+
+    print(command_line)
+    subprocess.call(command_line)
+    return
+
+
+def launch_libreoffice_6_writer_spell_check(path, language):
+    command_line = ""
+
+    if os.path.isfile(Consts.libreoffice6_writer_location):
+        command_line += Consts.libreoffice6_writer_location
+
+    if command_line == "":
+        print("LibreOffice is missing, or no known LibreOffice found")
+        return
+
+    command_line += ' "' + path + '"'
 
     print(command_line)
     subprocess.call(command_line)

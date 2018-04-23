@@ -20,4 +20,5 @@
 root_path = "C:/Users/Adrien/Workspace/sub-titles-auto-correct/Workspace/"
 fix_sdh_tags = False
 is_unittest_exec = False
-
+ms_word_2010_location = 'C:\Program Files\Microsoft Office\Office14\Winword.exe'
+libreoffice6_writer_location = 'C:\Program Files\LibreOffice\program\swriter.exe'

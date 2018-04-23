@@ -93,13 +93,12 @@ def translate(string):
 
 
 start = datetime.datetime.now()
-# 11-20
 
 files = get_files_with_type(get_all_files(Consts.root_path, 0), "srt")
 for file in files:
     clean_space_in_filename(file)
 
-prompt = input("script ou word ? : ")
+prompt = input("script ou libre ? ")
 
 # TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms ; multi line deaf
 
@@ -166,6 +165,8 @@ for file in files:
 
     elif prompt.startswith("wor"):
         launch_ms_word_spell_check(file, current_language)
+    elif prompt.startswith("lib"):
+        launch_libreoffice_6_writer_spell_check(file, current_language)
 
 end = datetime.datetime.now()
 print(end - start)
