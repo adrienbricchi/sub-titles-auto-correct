@@ -1,0 +1,9526 @@
+1
+00:00:16,351 --> 00:00:21,314
+LA VIE EST BELLE
+
+2
+00:01:17,495 --> 00:01:20,707
+BIENVENUE A BEDFORD FALLS
+
+3
+00:01:25,211 --> 00:01:28,006
+<i>Je dois tout à George Bailey.</i>
+
+4
+00:01:28,423 --> 00:01:30,300
+<i>Aidez-le, Père tout puissant.</i>
+
+5
+00:01:30,675 --> 00:01:33,720
+<i>Joseph, Jésus et Marie,</i>
+
+6
+00:01:33,803 --> 00:01:36,431
+<i>aidez mon ami monsieur Bailey.</i>
+
+7
+00:01:36,890 --> 00:01:39,517
+<i>Aidez mon fils George ce soir.</i>
+
+8
+00:01:40,351 --> 00:01:42,228
+<i>Il ne pense jamais à lui.</i>
+
+9
+00:01:42,312 --> 00:01:44,063
+<i>C'est pour ça qu'il a des ennuis.</i>
+
+10
+00:01:44,147 --> 00:01:45,315
+<i>George est un chic type.</i>
+
+11
+00:01:46,483 --> 00:01:47,734
+<i>Laissez-le tranquille, mon Dieu.</i>
+
+12
+00:01:47,817 --> 00:01:49,944
+<i>Je l'aime, Seigneur.</i>
+
+13
+00:01:50,028 --> 00:01:51,905
+<i>Veillez sur lui ce soir.</i>
+
+14
+00:01:52,363 --> 00:01:53,698
+<i>S'il vous plaît, Seigneur,</i>
+
+15
+00:01:53,782 --> 00:01:56,075
+<i>qu'est-ce qu'il a, mon papa ?</i>
+
+16
+00:01:56,159 --> 00:01:58,453
+<i>Ramenez-moi mon papa.</i>
+
+17
+00:02:09,422 --> 00:02:11,466
+<i>Bonsoir, Joseph, des ennuis ?</i>
+
+18
+00:02:11,549 --> 00:02:14,135
+<i>On dirait qu'on devrait</i>
+<i>envoyer quelqu'un en bas.</i>
+
+19
+00:02:14,219 --> 00:02:17,305
+<i>Beaucoup de gens demandent</i>
+<i>de l'aide pour un certain George Bailey.</i>
+
+20
+00:02:17,388 --> 00:02:18,932
+<i>George Bailey.</i>
+
+21
+00:02:19,015 --> 00:02:21,476
+<i>Cette nuit est cruciale pour lui.</i>
+<i>Vous avez raison.</i>
+
+22
+00:02:21,559 --> 00:02:24,437
+<i>Nous enverrons quelqu'un en bas.</i>
+<i>C'est au tour de qui ?</i>
+
+23
+00:02:24,521 --> 00:02:26,981
+<i>C'est pour ça que je suis venu</i>
+<i>vous voir, monsieur.</i>
+
+24
+00:02:27,065 --> 00:02:29,526
+<i>C'est encore au tour de l'horloger.</i>
+
+25
+00:02:29,609 --> 00:02:32,862
+<i>Clarence n'a pas encore</i>
+<i>ses ailes, n'est-ce pas ?</i>
+
+26
+00:02:32,946 --> 00:02:34,823
+<i>Nous les lui avons refusées</i>
+
+27
+00:02:34,906 --> 00:02:38,368
+<i>parce qu'il a le QI d'un lapin.</i>
+
+28
+00:02:38,451 --> 00:02:41,913
+<i>Oui, mais il a la foi</i>
+<i>d'un petit enfant. Simple.</i>
+
+29
+00:02:41,996 --> 00:02:44,040
+<i>Joseph, faites venir Clarence.</i>
+
+30
+00:02:47,335 --> 00:02:48,711
+<i>Vous m'avez demandé, monsieur ?</i>
+
+31
+00:02:48,795 --> 00:02:51,840
+<i>Oui. Un homme sur terre</i>
+<i>a besoin de notre aide.</i>
+
+32
+00:02:51,923 --> 00:02:53,508
+<i>Fabuleux. Est-il malade ?</i>
+
+33
+00:02:53,591 --> 00:02:55,802
+<i>Non, pire encore, il est découragé.</i>
+
+34
+00:02:55,885 --> 00:02:58,471
+<i>Ce soir, à 22h45 précises,</i>
+<i>heure terrestre,</i>
+
+35
+00:02:58,555 --> 00:03:00,598
+<i>cet homme pensera</i>
+
+36
+00:03:00,682 --> 00:03:02,642
+<i>à renoncer au plus beau cadeau</i>
+<i>de Dieu.</i>
+
+37
+00:03:02,725 --> 00:03:06,396
+<i>Oh là là ! La vie.</i>
+<i>Je n'ai qu'une heure pour m'habiller.</i>
+
+38
+00:03:07,730 --> 00:03:10,859
+<i>Vous passerez cette heure</i>
+<i>à apprendre à connaître George Bailey.</i>
+
+39
+00:03:10,942 --> 00:03:13,945
+<i>Monsieur, si j'accomplis cette mission,</i>
+
+40
+00:03:14,028 --> 00:03:17,490
+<i>gagnerai-je mes ailes ?</i>
+
+41
+00:03:17,574 --> 00:03:20,034
+<i>J'attends depuis plus de 200 ans,</i>
+
+42
+00:03:20,118 --> 00:03:21,661
+<i>on commence à ricaner dans mon dos.</i>
+
+43
+00:03:21,744 --> 00:03:23,204
+<i>Quel est ce livre que vous lisez ?</i>
+
+44
+00:03:23,288 --> 00:03:25,456
+Les Aventures de Tom Sawyer.
+
+45
+00:03:25,540 --> 00:03:27,917
+<i>Faites du bon</i>
+<i>travail avec George Bailey</i>
+
+46
+00:03:28,001 --> 00:03:29,335
+<i>et vous aurez vos ailes.</i>
+
+47
+00:03:29,419 --> 00:03:31,170
+<i>Merci, monsieur.</i>
+
+48
+00:03:31,254 --> 00:03:34,007
+<i>Pauvre George. Asseyez-vous.</i>
+
+49
+00:03:34,090 --> 00:03:35,216
+<i>M'asseoir ? Pourquoi... ?</i>
+
+50
+00:03:35,300 --> 00:03:37,010
+<i>Si vous devez l'aider,</i>
+
+51
+00:03:37,093 --> 00:03:39,429
+<i>vous devez savoir certaines choses</i>
+<i>à son sujet.</i>
+
+52
+00:03:39,512 --> 00:03:41,014
+<i>Naturellement...</i>
+
+53
+00:03:41,097 --> 00:03:42,640
+<i>Alors, gardez les yeux grand ouverts.</i>
+
+54
+00:03:43,266 --> 00:03:44,392
+<i>Vous voyez la ville ?</i>
+
+55
+00:03:44,475 --> 00:03:47,145
+<i>Où donc ? Je ne vois rien.</i>
+
+56
+00:03:47,228 --> 00:03:50,064
+<i>J'oubliais. Vous n'avez pas</i>
+<i>encore vos ailes.</i>
+
+57
+00:03:50,148 --> 00:03:53,109
+<i>Bon, écoutez, je vais vous aider.</i>
+<i>Concentrez-vous.</i>
+
+58
+00:03:53,818 --> 00:03:55,570
+<i>Vous apercevez quelque chose ?</i>
+
+59
+00:03:55,653 --> 00:03:58,364
+<i>Oui. C'est étonnant.</i>
+
+60
+00:03:58,489 --> 00:04:01,034
+<i>Quand vous aurez vos ailes,</i>
+<i>vous pourrez voir tout seul.</i>
+
+61
+00:04:01,117 --> 00:04:02,869
+<i>Magnifique.</i>
+
+62
+00:04:05,747 --> 00:04:07,749
+Allons-y !
+
+63
+00:04:07,832 --> 00:04:09,500
+<i>hé, qui est-ce ?</i>
+
+64
+00:04:09,584 --> 00:04:11,419
+<i>C'est George Bailey.</i>
+
+65
+00:04:11,502 --> 00:04:12,587
+<i>Un petit garçon ?</i>
+
+66
+00:04:12,670 --> 00:04:15,715
+<i>Il avait 12 ans, en 1919.</i>
+
+67
+00:04:15,798 --> 00:04:19,177
+<i>Il se produit quelque chose</i>
+<i>dont vous devrez vous souvenir.</i>
+
+68
+00:04:19,844 --> 00:04:21,596
+Allez, Marty !
+
+69
+00:04:21,679 --> 00:04:23,514
+Allez, Marty !
+
+70
+00:04:31,147 --> 00:04:35,610
+Et voici le bébé trouillard,
+mon petit frère Harry Bailey !
+
+71
+00:04:35,693 --> 00:04:37,403
+Je n'ai pas la trouille !
+
+72
+00:04:38,529 --> 00:04:39,906
+Allez, Harry !
+
+73
+00:04:47,372 --> 00:04:49,040
+Au secours, George !
+
+74
+00:04:51,084 --> 00:04:53,586
+Accroche-toi, Harry ! J'arrive !
+
+75
+00:04:53,711 --> 00:04:55,964
+- A l'aide !
+- Accroche-toi, Harry !
+
+76
+00:04:58,591 --> 00:05:01,219
+<i>George a sauvé</i>
+<i>la vie de son frère ce jour-là,</i>
+
+77
+00:05:01,511 --> 00:05:05,223
+<i>mais il a attrapé un mauvais rhume</i>
+<i>qui a infecté son oreille gauche.</i>
+
+78
+00:05:05,348 --> 00:05:07,517
+<i>Il a perdu l'audition de cette oreille.</i>
+
+79
+00:05:07,600 --> 00:05:09,894
+<i>Des semaines se sont écoulées</i>
+<i>avant qu'il ne puisse</i>
+
+80
+00:05:09,978 --> 00:05:13,356
+<i>retravailler après l'école</i>
+<i>au drugstore du père Gower.</i>
+
+81
+00:05:14,107 --> 00:05:15,233
+Monsieur Potter !
+
+82
+00:05:15,316 --> 00:05:17,610
+<i>Qui c'est, un roi ?</i>
+
+83
+00:05:17,694 --> 00:05:19,612
+<i>C'est henry F. Potter,</i>
+
+84
+00:05:19,696 --> 00:05:23,074
+<i>l'homme le plus riche</i>
+<i>et le plus méchant du comté.</i>
+
+85
+00:05:36,629 --> 00:05:39,007
+J'aimerais avoir un million de dollars.
+
+86
+00:05:39,257 --> 00:05:40,508
+Hourra !
+
+87
+00:05:44,387 --> 00:05:46,305
+C'est moi, monsieur Gower !
+George Bailey.
+
+88
+00:05:46,389 --> 00:05:47,348
+Tu es en retard.
+
+89
+00:05:47,432 --> 00:05:48,766
+Oui, monsieur.
+
+90
+00:05:56,983 --> 00:05:58,401
+Bonjour, George.
+
+91
+00:05:58,735 --> 00:06:00,028
+Bonjour, Mary.
+
+92
+00:06:00,570 --> 00:06:01,696
+Bonjour, Violet.
+
+93
+00:06:01,779 --> 00:06:03,364
+Des lacets pour deux cents ?
+
+94
+00:06:03,448 --> 00:06:04,782
+Elle était là avant moi.
+
+95
+00:06:04,866 --> 00:06:06,701
+Je ne suis pas décidée.
+
+96
+00:06:06,784 --> 00:06:07,869
+Des lacets ?
+
+97
+00:06:07,952 --> 00:06:09,537
+S'il te plaît, Georgie.
+
+98
+00:06:10,038 --> 00:06:11,205
+Je l'aime bien.
+
+99
+00:06:11,289 --> 00:06:13,041
+Tu aimes bien tous les garçons.
+
+100
+00:06:13,124 --> 00:06:14,751
+Où est le mal ?
+
+101
+00:06:14,834 --> 00:06:16,335
+Tiens, voilà.
+
+102
+00:06:17,295 --> 00:06:18,379
+Aide-moi à descendre.
+
+103
+00:06:18,463 --> 00:06:20,339
+T'aider à descendre !
+
+104
+00:06:27,055 --> 00:06:28,890
+Tu t'es décidée ?
+
+105
+00:06:28,973 --> 00:06:30,725
+J'ai choisi le chocolat.
+
+106
+00:06:30,850 --> 00:06:33,770
+- Avec de la noix de coco ?
+- Je n'aime pas la noix de coco.
+
+107
+00:06:33,853 --> 00:06:35,772
+Tu n'aimes pas la noix de coco ?
+
+108
+00:06:35,855 --> 00:06:39,233
+Dis donc, écervelée, tu sais
+d'où viennent les noix de coco ?
+
+109
+00:06:39,692 --> 00:06:41,069
+Regarde.
+
+110
+00:06:41,152 --> 00:06:44,363
+Ça vient de Tahiti, les îles Fidji,
+la mer de Corail.
+
+111
+00:06:44,655 --> 00:06:47,909
+Un nouveau magazine !
+Je ne l'ai jamais vu auparavant.
+
+112
+00:06:47,992 --> 00:06:50,661
+Evidemment. Seuls nous,
+les explorateurs, pouvons l'avoir.
+
+113
+00:06:51,204 --> 00:06:54,999
+J'ai été nominé pour être membre
+de la National Geographic Society.
+
+114
+00:06:56,501 --> 00:06:58,419
+C'est l'oreille qui n'entend pas ?
+
+115
+00:06:58,503 --> 00:07:02,256
+George Bailey,
+je t'aimerai jusqu'à ma mort.
+
+116
+00:07:02,340 --> 00:07:05,259
+Je vais partir explorer le monde un jour.
+
+117
+00:07:05,343 --> 00:07:08,596
+J'aurai des harems et peut-être
+trois ou quatre femmes.
+
+118
+00:07:08,679 --> 00:07:10,056
+Attends de voir.
+
+119
+00:07:12,850 --> 00:07:16,312
+- George !
+- Oui, monsieur.
+
+120
+00:07:16,395 --> 00:07:18,856
+Tu n'es pas payé pour bavarder.
+
+121
+00:07:19,190 --> 00:07:20,483
+Non, monsieur.
+
+122
+00:07:30,034 --> 00:07:33,079
+NOUS AVONS LE REGRET
+DE VOUS INFORMER DU DÉCÈS
+
+123
+00:07:33,162 --> 00:07:37,125
+DE VOTRE FILS ROBERT
+MORT CE MATIN DE LA GRIPPE
+
+124
+00:07:47,844 --> 00:07:50,930
+M. Gower, avez-vous besoin de
+quelque chose... n'importe quoi ?
+
+125
+00:07:51,013 --> 00:07:52,056
+Non.
+
+126
+00:07:52,723 --> 00:07:55,393
+- Est-ce que je peux vous aider ?
+- Non.
+
+127
+00:07:55,893 --> 00:07:57,311
+Je vais les ramasser, monsieur.
+
+128
+00:07:57,395 --> 00:08:00,189
+Apporte ces cachets chez Mme Blaine.
+
+129
+00:08:01,315 --> 00:08:02,608
+Elle les attend.
+
+130
+00:08:02,692 --> 00:08:04,026
+Bien, monsieur.
+
+131
+00:08:26,632 --> 00:08:28,759
+Ils ont la diphtérie, n'est-ce pas ?
+
+132
+00:08:30,261 --> 00:08:31,929
+C'est à crédit, monsieur ?
+
+133
+00:08:32,013 --> 00:08:33,431
+Oui, à crédit.
+
+134
+00:08:33,973 --> 00:08:35,099
+Monsieur Gower, je crois...
+
+135
+00:08:35,183 --> 00:08:36,642
+Mets-toi en route.
+
+136
+00:08:44,233 --> 00:08:46,319
+DEMANDE A PAPA, IL SAIT
+
+137
+00:08:56,662 --> 00:08:59,874
+FRÈRES BAILEY, ASSOCIATION
+CONSTRUCTION & PRETS
+
+138
+00:09:04,086 --> 00:09:06,297
+Capitaine Cook, où vas-tu de ce pas ?
+
+139
+00:09:06,380 --> 00:09:08,841
+- Je dois voir papa.
+- Plus tard.
+
+140
+00:09:08,925 --> 00:09:12,303
+- C'est important.
+- Il y a un requin là-dedans.
+
+141
+00:09:12,386 --> 00:09:14,513
+- Oncle Billy, téléphone.
+- Qui c'est ?
+
+142
+00:09:14,597 --> 00:09:16,307
+L'inspecteur des comptes.
+
+143
+00:09:17,475 --> 00:09:19,143
+J'aurais dû l'appeler hier.
+
+144
+00:09:19,227 --> 00:09:21,145
+Passe-le-moi dans mon bureau.
+
+145
+00:09:23,147 --> 00:09:24,565
+Je ne pleure pas.
+
+146
+00:09:24,649 --> 00:09:26,484
+Vous suppliez. C'est pire.
+
+147
+00:09:26,567 --> 00:09:28,402
+Je ne demande que 30 jours
+supplémentaires.
+
+148
+00:09:28,486 --> 00:09:29,737
+Une seconde, fiston.
+
+149
+00:09:29,820 --> 00:09:32,490
+30 jours. Je trouverai ces 5 000 $.
+
+150
+00:09:32,657 --> 00:09:33,824
+Relève-moi.
+
+151
+00:09:34,075 --> 00:09:35,910
+Avez-vous insisté auprès d'eux
+
+152
+00:09:35,993 --> 00:09:38,412
+pour qu'ils paient leur hypothèque ?
+
+153
+00:09:38,496 --> 00:09:40,831
+Les temps sont durs.
+Beaucoup sont sans emploi.
+
+154
+00:09:40,915 --> 00:09:41,999
+Saisissez le bien.
+
+155
+00:09:42,083 --> 00:09:43,751
+Je ne peux pas. Ils ont des enfants.
+
+156
+00:09:43,834 --> 00:09:45,378
+Ce ne sont pas mes enfants.
+
+157
+00:09:45,461 --> 00:09:47,380
+Ce sont les enfants de quelqu'un.
+
+158
+00:09:47,463 --> 00:09:50,091
+Gérez-vous des affaires
+ou des bonnes œuvres ?
+
+159
+00:09:50,466 --> 00:09:52,218
+Pas avec mon argent.
+
+160
+00:09:52,301 --> 00:09:54,887
+Pourquoi êtes-vous aussi têtu ?
+
+161
+00:09:54,971 --> 00:09:56,806
+Vous n'avez pas de famille.
+
+162
+00:09:56,889 --> 00:09:58,766
+Vous ne pourrez pas dépenser
+tout votre argent.
+
+163
+00:09:58,849 --> 00:10:02,103
+Je devrais le donner à des ratés
+
+164
+00:10:02,186 --> 00:10:05,398
+comme vous et votre idiot de frère ?
+
+165
+00:10:05,481 --> 00:10:06,691
+Il n'est pas un raté.
+
+166
+00:10:06,774 --> 00:10:09,610
+Vous ne pouvez pas parler comme ça
+de mon père.
+
+167
+00:10:09,694 --> 00:10:11,028
+Tu es l'homme le plus puissant
+de la ville.
+
+168
+00:10:11,195 --> 00:10:14,490
+- Plus puissant que lui et que tous.
+- Allez, file.
+
+169
+00:10:14,782 --> 00:10:16,701
+Ne le laisse pas parler de toi ainsi.
+
+170
+00:10:16,784 --> 00:10:18,452
+D'accord, fiston, merci.
+
+171
+00:10:18,536 --> 00:10:20,288
+Nous en reparlerons ce soir.
+
+172
+00:10:20,371 --> 00:10:23,416
+PETER BAILEY
+PRIVÉ
+
+173
+00:10:27,253 --> 00:10:28,629
+Comment ?
+
+174
+00:10:28,713 --> 00:10:32,049
+Le médicament aurait dû
+vous être livré il y a une heure.
+
+175
+00:10:32,550 --> 00:10:35,094
+Il sera là dans cinq minutes.
+
+176
+00:10:39,056 --> 00:10:41,309
+Où est la boîte de cachets
+de Mme Blaine ?
+
+177
+00:10:43,811 --> 00:10:45,187
+Tu n'as pas entendu ce que j'ai dit ?
+
+178
+00:10:45,271 --> 00:10:46,355
+Oui, monsieur.
+
+179
+00:10:46,439 --> 00:10:49,317
+Quel genre de petit jeu
+est-ce que tu crois jouer ?
+
+180
+00:10:51,027 --> 00:10:53,696
+Pourquoi ne les as-tu pas
+livrés immédiatement ?
+
+181
+00:10:53,779 --> 00:10:55,323
+Tu ne sais pas que ce garçon
+est très malade ?
+
+182
+00:10:56,949 --> 00:10:58,534
+Feignant...
+
+183
+00:10:58,617 --> 00:11:00,536
+Vous ne savez plus ce que vous faites.
+
+184
+00:11:00,619 --> 00:11:02,538
+Vous avez mis le mauvais produit
+dans ces cachets.
+
+185
+00:11:03,914 --> 00:11:05,624
+Le télégramme. Vous êtes bouleversé.
+
+186
+00:11:05,708 --> 00:11:07,543
+Vous avez mis le mauvais produit.
+
+187
+00:11:07,626 --> 00:11:10,046
+Ce n'était pas de votre faute, M. Gower.
+
+188
+00:11:10,546 --> 00:11:12,423
+Regardez ce que vous avez fait.
+
+189
+00:11:12,506 --> 00:11:15,092
+Regardez la bouteille de laquelle
+vous avez pris la poudre.
+
+190
+00:11:15,176 --> 00:11:16,886
+C'est du poison.
+
+191
+00:11:17,094 --> 00:11:19,472
+Je sais que vous ne vous
+sentez pas bien.
+
+192
+00:11:23,851 --> 00:11:25,895
+Ne me tapez plus à l'oreille !
+
+193
+00:11:25,978 --> 00:11:30,024
+Non. Oh, mon Dieu. George.
+
+194
+00:11:30,107 --> 00:11:32,943
+Oh, monsieur Gower.
+
+195
+00:11:33,027 --> 00:11:34,403
+Je sais ce que vous ressentez.
+
+196
+00:11:34,487 --> 00:11:37,448
+Je ne dirai jamais rien à personne.
+J'en mourrai, promis.
+
+197
+00:11:39,450 --> 00:11:42,036
+Une petite mallette.
+Du cuir véritable d'Angleterre.
+
+198
+00:11:42,119 --> 00:11:43,287
+Des cadenas à chiffres,
+
+199
+00:11:43,371 --> 00:11:46,707
+- un jeu de brosses inclus.
+- Non.
+
+200
+00:11:46,791 --> 00:11:48,793
+Ecoute, Joe.
+
+201
+00:11:49,293 --> 00:11:51,420
+Ecoute-moi. J'en veux une grande !
+
+202
+00:11:52,004 --> 00:11:53,255
+<i>Pourquoi vous arrêtez là ?</i>
+
+203
+00:11:53,339 --> 00:11:56,592
+<i>Regardez bien ce visage.</i>
+
+204
+00:11:56,675 --> 00:11:57,718
+<i>Qui est-ce ?</i>
+
+205
+00:11:57,802 --> 00:11:58,886
+<i>George Bailey.</i>
+
+206
+00:11:58,969 --> 00:12:01,931
+<i>Le petit qui a reçu une gifle</i>
+<i>de l'apothicaire.</i>
+
+207
+00:12:02,014 --> 00:12:03,307
+<i>Celui-là même.</i>
+
+208
+00:12:05,476 --> 00:12:07,395
+<i>Il a un visage sympathique.</i>
+
+209
+00:12:07,478 --> 00:12:09,605
+<i>Je l'aime bien, ce George Bailey.</i>
+
+210
+00:12:09,814 --> 00:12:12,400
+<i>A-t-il parlé à quiconque</i>
+<i>de ces cachets ?</i>
+
+211
+00:12:12,483 --> 00:12:13,651
+<i>A personne.</i>
+
+212
+00:12:13,943 --> 00:12:16,737
+<i>A-t-il fini par épouser la fille ?</i>
+<i>Est-ce qu'il est parti en exploration ?</i>
+
+213
+00:12:16,821 --> 00:12:18,656
+<i>Eh bien, attendez la suite.</i>
+
+214
+00:12:19,240 --> 00:12:21,409
+Une grande. Pas pour une nuit.
+
+215
+00:12:21,492 --> 00:12:23,494
+J'en veux une pour 1001 nuits.
+
+216
+00:12:23,577 --> 00:12:28,082
+Avec de la place pour les étiquettes.
+L'ltalie, Bagdad, Samarkand.
+
+217
+00:12:28,165 --> 00:12:29,291
+Un grand...
+
+218
+00:12:29,375 --> 00:12:31,419
+Je vois, un tapis volant, hein ?
+
+219
+00:12:31,627 --> 00:12:34,046
+Je ne pense pas
+que cette valise d'occasion t'intéresse.
+
+220
+00:12:34,130 --> 00:12:35,339
+Voilà du sérieux.
+
+221
+00:12:35,423 --> 00:12:38,300
+Ça pourrait me servir de radeau
+si le bateau coulait.
+
+222
+00:12:38,384 --> 00:12:40,970
+- Combien coûte-t-elle ?
+- Elle est gratuite.
+
+223
+00:12:41,303 --> 00:12:43,431
+C'est ma mauvaise oreille.
+Tu as bien dit "gratuite" ?
+
+224
+00:12:43,514 --> 00:12:44,515
+Tout à fait.
+
+225
+00:12:45,850 --> 00:12:47,393
+Que fait mon nom dessus ?
+
+226
+00:12:47,476 --> 00:12:50,521
+Un cadeau de Gower.
+Il est venu la choisir lui-même.
+
+227
+00:12:50,604 --> 00:12:53,983
+Vraiment ? Mon ancien patron.
+
+228
+00:12:54,066 --> 00:12:55,317
+Sur quel bateau pars-tu ?
+
+229
+00:12:55,401 --> 00:12:57,528
+Un navire transportant du bétail.
+
+230
+00:12:57,653 --> 00:12:59,196
+Mais oui, j'aime bien les vaches.
+
+231
+00:13:01,449 --> 00:13:03,409
+Bonjour, M. Gower.
+
+232
+00:13:03,492 --> 00:13:05,953
+Merci beaucoup pour la valise.
+C'est exactement ce que je voulais.
+
+233
+00:13:06,036 --> 00:13:07,079
+Oublie ça.
+
+234
+00:13:09,832 --> 00:13:11,625
+J'aimerais avoir un million de dollars...
+
+235
+00:13:11,709 --> 00:13:12,960
+Hourra !
+
+236
+00:13:13,669 --> 00:13:15,379
+Tiens bon, capitaine Cook !
+
+237
+00:13:16,255 --> 00:13:17,631
+Parlez-vous français, monsieur ?
+
+238
+00:13:17,715 --> 00:13:20,217
+Envoie-nous
+des cartes postales, George !
+
+239
+00:13:21,886 --> 00:13:23,554
+Sa valise est percée.
+
+240
+00:13:23,637 --> 00:13:24,847
+Hé, Ernie.
+
+241
+00:13:25,473 --> 00:13:27,475
+- Salut, Ernie.
+- Salut, George.
+
+242
+00:13:27,766 --> 00:13:29,268
+Je suis un touriste aisé.
+
+243
+00:13:29,351 --> 00:13:30,811
+Conduis-moi chez moi
+en grande pompe.
+
+244
+00:13:30,895 --> 00:13:32,563
+Montez, Votre Majesté.
+
+245
+00:13:32,646 --> 00:13:35,566
+Et pour marquer l'occasion,
+je mets ma casquette.
+
+246
+00:13:37,735 --> 00:13:39,361
+Bonjour, monsieur Bailey.
+
+247
+00:13:39,445 --> 00:13:40,654
+Bonjour, Violet.
+
+248
+00:13:40,738 --> 00:13:43,032
+Tu as l'air ravissante. Quelle jolie robe.
+
+249
+00:13:43,115 --> 00:13:44,617
+Cette vieille chose ?
+
+250
+00:13:44,700 --> 00:13:47,745
+Je la porte quand je ne me soucie pas
+de mon apparence.
+
+251
+00:14:02,760 --> 00:14:05,137
+- Qu'est-ce que tu dirais de... ?
+- Oui.
+
+252
+00:14:06,555 --> 00:14:08,224
+Tu veux venir, Bert ?
+
+253
+00:14:08,307 --> 00:14:09,391
+Non, merci.
+
+254
+00:14:09,475 --> 00:14:12,770
+Je dois rentrer,
+voir ce que ma femme fabrique.
+
+255
+00:14:14,605 --> 00:14:16,232
+Un bon père de famille.
+
+256
+00:14:17,441 --> 00:14:20,194
+George ! Harry ! Vous ébranlez
+toute la maison.
+
+257
+00:14:20,277 --> 00:14:21,362
+Arrêtez !
+
+258
+00:14:21,445 --> 00:14:24,073
+Laissez-les tranquilles.
+J'aimerais être avec eux.
+
+259
+00:14:24,156 --> 00:14:27,117
+Harry va déchirer son habit. George !
+
+260
+00:14:27,201 --> 00:14:29,119
+Seules les filles devraient naître.
+
+261
+00:14:29,203 --> 00:14:32,873
+S'il n'y avait que des filles,
+il n'y aurait pas... Peu importe.
+
+262
+00:14:33,123 --> 00:14:35,543
+George, Harry, venez dîner.
+
+263
+00:14:35,626 --> 00:14:38,629
+Ça refroidit. Nous vous attendons.
+
+264
+00:14:38,712 --> 00:14:40,089
+D'accord, maman.
+
+265
+00:14:46,178 --> 00:14:48,847
+Vous voilà.
+
+266
+00:14:51,183 --> 00:14:52,810
+Quels jeunes imbéciles.
+
+267
+00:14:53,561 --> 00:14:54,812
+Asseyez-vous et mangez.
+
+268
+00:14:54,895 --> 00:14:55,896
+J'ai déjà mangé.
+
+269
+00:14:55,980 --> 00:14:58,732
+Tu n'es pas encore habillé
+pour la fête de fin d'année ?
+
+270
+00:14:58,816 --> 00:15:00,234
+C'est le smoking de George.
+
+271
+00:15:00,317 --> 00:15:02,111
+Tu as préparé ces fameuses tartes ?
+
+272
+00:15:02,194 --> 00:15:04,405
+Pose tes pattes sur moi
+et je te frapperai avec mon balai !
+
+273
+00:15:04,488 --> 00:15:07,700
+Je suis amoureux de toi.
+C'est la pleine lune ce soir.
+
+274
+00:15:07,783 --> 00:15:11,745
+Mon dernier repas
+à la bonne vieille pension Bailey.
+
+275
+00:15:11,829 --> 00:15:13,747
+Ma pression artérielle !
+
+276
+00:15:13,831 --> 00:15:16,208
+Puis-je prendre la voiture ?
+J'ai des assiettes à emporter.
+
+277
+00:15:16,292 --> 00:15:17,293
+Quelles assiettes ?
+
+278
+00:15:18,669 --> 00:15:19,962
+Il nous en faut qu'une douzaine.
+
+279
+00:15:20,045 --> 00:15:23,424
+Non, Harry, pas mon joli service.
+
+280
+00:15:23,507 --> 00:15:25,509
+Laisse-le prendre les assiettes, maman.
+
+281
+00:15:25,593 --> 00:15:28,596
+J'espère que tu feras bon voyage.
+Tu vas nous manquer.
+
+282
+00:15:28,679 --> 00:15:30,264
+Vous allez me manquer.
+
+283
+00:15:30,389 --> 00:15:31,599
+Que se passe-t-il ? Tu as l'air fatigué.
+
+284
+00:15:31,682 --> 00:15:33,976
+Je me suis encore disputé avec Potter.
+
+285
+00:15:34,184 --> 00:15:35,978
+Je pensais qu'une fois membre
+du conseil,
+
+286
+00:15:36,061 --> 00:15:37,646
+il se calmerait un peu.
+
+287
+00:15:37,730 --> 00:15:40,357
+Qu'est-ce qui tracasse ce pingre ?
+
+288
+00:15:40,441 --> 00:15:43,360
+C'est un homme malade.
+Sa tête est malade.
+
+289
+00:15:43,444 --> 00:15:45,279
+Son esprit est malade, s'il en a un.
+
+290
+00:15:45,362 --> 00:15:48,115
+Il déteste tous ceux qui possèdent
+ce qu'il ne peut avoir.
+
+291
+00:15:48,198 --> 00:15:49,867
+Surtout nous.
+
+292
+00:15:49,950 --> 00:15:51,285
+Cédez le passage.
+
+293
+00:15:51,368 --> 00:15:52,828
+- A plus tard, papa.
+- A plus tard.
+
+294
+00:15:52,911 --> 00:15:54,913
+- T'as une allumette ?
+- Très drôle.
+
+295
+00:15:54,997 --> 00:15:55,956
+Va tout poser dans la voiture
+
+296
+00:15:56,040 --> 00:15:58,292
+et je vais aller chercher ta cravate.
+
+297
+00:15:59,710 --> 00:16:00,919
+Tu passeras plus tard, George ?
+
+298
+00:16:01,003 --> 00:16:02,296
+Pour m'ennuyer à mourir ?
+
+299
+00:16:02,379 --> 00:16:05,341
+Tu ne souhaiterais pas plus belle mort.
+Il y aura de jolies filles.
+
+300
+00:16:06,091 --> 00:16:07,217
+Pas de gin ce soir, fiston.
+
+301
+00:16:07,301 --> 00:16:08,510
+Rien qu'un peu ?
+
+302
+00:16:08,594 --> 00:16:10,429
+Non, fiston, pas une goutte.
+
+303
+00:16:10,888 --> 00:16:13,140
+Des garçons, des filles, de la musique,
+
+304
+00:16:13,223 --> 00:16:15,100
+pourquoi du gin en plus ?
+
+305
+00:16:15,184 --> 00:16:18,228
+Je me suis conduit de la sorte
+le jour où j'ai été bachelier ?
+
+306
+00:16:18,312 --> 00:16:19,730
+A peu près pareil.
+
+307
+00:16:20,147 --> 00:16:22,650
+J'aimerais pouvoir envoyer Harry
+à l'université avec toi.
+
+308
+00:16:22,733 --> 00:16:25,319
+Ta mère et moi en avons discuté.
+
+309
+00:16:25,402 --> 00:16:27,279
+On a tout prévu.
+
+310
+00:16:27,363 --> 00:16:29,490
+Harry prendra ma place au travail.
+
+311
+00:16:29,573 --> 00:16:32,660
+Il y restera trois ou quatre ans,
+puis il ira à la fac.
+
+312
+00:16:32,743 --> 00:16:34,078
+Il est jeune pour ce métier.
+
+313
+00:16:34,161 --> 00:16:35,871
+Je l'étais également.
+
+314
+00:16:35,954 --> 00:16:38,290
+Tu as toujours été plus mature, George.
+
+315
+00:16:39,333 --> 00:16:40,834
+Comment ça ?
+
+316
+00:16:40,918 --> 00:16:42,628
+Tu as toujours été plus mature.
+
+317
+00:16:42,711 --> 00:16:44,088
+Tu as décidé de ce que tu voulais faire
+
+318
+00:16:44,171 --> 00:16:45,589
+après tes études ?
+
+319
+00:16:45,756 --> 00:16:47,508
+Tu le sais.
+
+320
+00:16:47,591 --> 00:16:51,053
+Construire des choses.
+Dessiner des villes modernes.
+
+321
+00:16:52,096 --> 00:16:54,306
+Tu veux avoir un million avant 30 ans.
+
+322
+00:16:54,390 --> 00:16:56,850
+La moitié en liquide me conviendrait.
+
+323
+00:17:00,562 --> 00:17:01,855
+Est-ce que tu envisagerais de revenir
+
+324
+00:17:01,939 --> 00:17:04,149
+travailler à Construction & Prêts ?
+
+325
+00:17:05,734 --> 00:17:07,403
+Eh bien, je...
+
+326
+00:17:10,072 --> 00:17:12,866
+Pourquoi ne viens-tu pas
+t'asseoir avec nous,
+
+327
+00:17:12,950 --> 00:17:14,785
+pour pouvoir entendre
+toute notre conversation ?
+
+328
+00:17:14,868 --> 00:17:17,329
+Je le ferais si je pensais entendre
+quelque chose d'intéressant.
+
+329
+00:17:19,039 --> 00:17:21,250
+Je sais qu'il est encore trop tôt.
+
+330
+00:17:21,333 --> 00:17:23,919
+Non, papa.
+
+331
+00:17:24,461 --> 00:17:26,922
+Je ne supporterais pas
+d'être coincé toute ma vie
+
+332
+00:17:27,005 --> 00:17:28,799
+dans un sale petit bureau.
+
+333
+00:17:30,426 --> 00:17:33,262
+Désolé, papa. Ce n'est pas
+ce que je voulais dire.
+
+334
+00:17:33,637 --> 00:17:35,973
+C'est toute cette affaire
+de pièces jaunes
+
+335
+00:17:36,056 --> 00:17:38,225
+et de trouver un moyen
+
+336
+00:17:38,308 --> 00:17:40,227
+d'économiser trois sous.
+
+337
+00:17:40,310 --> 00:17:43,397
+Je deviendrais fou. Je veux faire
+quelque chose de grand.
+
+338
+00:17:43,480 --> 00:17:46,400
+J'ai l'impression de faire
+quelque chose de grand
+
+339
+00:17:46,483 --> 00:17:48,402
+à mon échelle.
+
+340
+00:17:48,485 --> 00:17:50,738
+Satisfaire un désir fondamental.
+
+341
+00:17:50,821 --> 00:17:55,075
+Tout homme rêve d'avoir un toit,
+des murs et une cheminée
+
+342
+00:17:55,159 --> 00:17:57,119
+et nous l'aidons à les posséder
+
+343
+00:17:57,202 --> 00:17:58,871
+dans notre sale petit bureau.
+
+344
+00:17:58,954 --> 00:18:02,624
+Je sais, papa. Je le sais bien.
+
+345
+00:18:03,000 --> 00:18:04,752
+J'aurais aimé ressentir...
+
+346
+00:18:05,878 --> 00:18:09,256
+J'ai économisé mes sous
+comme un misérable afin de...
+
+347
+00:18:09,673 --> 00:18:12,634
+La plupart de mes amis ont déjà
+terminé leurs études.
+
+348
+00:18:12,843 --> 00:18:15,971
+J'ai le sentiment, si je ne pars pas,
+que j'exploserai.
+
+349
+00:18:17,514 --> 00:18:20,684
+Oui, tu as raison, mon fils.
+
+350
+00:18:20,768 --> 00:18:22,478
+Tu vois ce que je veux dire, papa ?
+
+351
+00:18:22,561 --> 00:18:24,104
+Ce n'est pas la place d'un homme
+
+352
+00:18:24,188 --> 00:18:26,482
+à moins de vouloir ramper
+devant Potter.
+
+353
+00:18:26,565 --> 00:18:29,109
+Tu as du talent, mon fils.
+Je l'ai constaté.
+
+354
+00:18:29,860 --> 00:18:33,071
+Fais des études puis pars d'ici.
+
+355
+00:18:35,574 --> 00:18:37,451
+Papa, tu veux avoir un choc ?
+
+356
+00:18:38,994 --> 00:18:41,079
+Je pense que tu es un chic type.
+
+357
+00:18:44,541 --> 00:18:46,919
+- Tu as entendu, Annie ?
+- J'ai bien entendu.
+
+358
+00:18:47,002 --> 00:18:49,922
+Il était temps que tu le dises.
+
+359
+00:18:51,340 --> 00:18:53,717
+Cette bonne vieille Annie
+va me manquer.
+
+360
+00:18:56,637 --> 00:18:59,807
+Je vais aller m'habiller
+et passer à la soirée de Harry.
+
+361
+00:18:59,890 --> 00:19:01,642
+Amuse-toi bien, mon fils.
+
+362
+00:19:02,810 --> 00:19:05,395
+LYCEE DE BEDFORD FALLS
+PROMOTION DE 1928
+
+363
+00:19:08,273 --> 00:19:09,316
+Te voilà.
+
+364
+00:19:09,399 --> 00:19:10,484
+George, bonjour.
+
+365
+00:19:10,567 --> 00:19:11,777
+Tu connais mon petit frère.
+
+366
+00:19:11,860 --> 00:19:13,737
+Je vais lui payer ses études.
+
+367
+00:19:15,280 --> 00:19:16,657
+C'est Sam Wainwright.
+
+368
+00:19:16,740 --> 00:19:18,325
+Quand es-tu rentré ?
+
+369
+00:19:18,408 --> 00:19:20,494
+Cet après-midi.
+Je fais une fleur à ces jeunes.
+
+370
+00:19:20,577 --> 00:19:21,954
+Diplômé d'université.
+
+371
+00:19:22,037 --> 00:19:24,122
+"Joe-l'érudit" Wainwright.
+
+372
+00:19:24,206 --> 00:19:27,000
+On dirait que tu vas réussir après tout.
+
+373
+00:19:27,084 --> 00:19:29,503
+Harry, tu es celui que je voulais voir.
+
+374
+00:19:29,586 --> 00:19:31,672
+L'entraîneur a entendu parler de toi.
+
+375
+00:19:31,755 --> 00:19:33,549
+Il a suivi tous les matchs.
+
+376
+00:19:33,632 --> 00:19:35,801
+Il m'a demandé
+si tu venais dans notre club.
+
+377
+00:19:35,884 --> 00:19:37,427
+Je dois gagner de l'argent avant.
+
+378
+00:19:37,511 --> 00:19:40,055
+Dépêche-toi. On a besoin de toi.
+
+379
+00:19:40,138 --> 00:19:41,807
+Pas de vieux schnocks comme lui.
+
+380
+00:19:43,433 --> 00:19:45,477
+George, bienvenue.
+
+381
+00:19:45,561 --> 00:19:47,187
+Comment allez-vous ?
+
+382
+00:19:47,271 --> 00:19:49,481
+Enterrer la piscine nous a évité
+
+383
+00:19:49,565 --> 00:19:50,858
+de construire un bâtiment.
+
+384
+00:19:50,941 --> 00:19:52,818
+Harry, Sam, amusez-vous bien.
+
+385
+00:19:52,901 --> 00:19:55,696
+Beaucoup de jolies filles...
+
+386
+00:19:56,280 --> 00:19:57,656
+Ne vous inquiétez pas.
+Je m'occuperai des filles.
+
+387
+00:19:57,739 --> 00:20:00,868
+- Bonjour, Violet.
+- Combien est-ce que je vaux ?
+
+388
+00:20:00,951 --> 00:20:02,119
+George.
+
+389
+00:20:02,202 --> 00:20:04,079
+Marty. On est tous de retour.
+
+390
+00:20:04,371 --> 00:20:06,206
+Sam, Harry. Quel plaisir de te revoir.
+
+391
+00:20:06,290 --> 00:20:08,166
+Rends-moi un service, George.
+
+392
+00:20:08,250 --> 00:20:09,543
+Tu te souviens
+de ma petite sœur Mary ?
+
+393
+00:20:09,626 --> 00:20:10,669
+Oui.
+
+394
+00:20:10,752 --> 00:20:13,046
+"Maman t'appelle, Marty."
+
+395
+00:20:13,130 --> 00:20:14,464
+Danse avec elle.
+
+396
+00:20:14,548 --> 00:20:17,676
+Oh... moi ? Je me sens déjà bizarre
+parmi tous ces jeunes.
+
+397
+00:20:17,759 --> 00:20:18,802
+Danse avec elle une fois
+
+398
+00:20:18,886 --> 00:20:22,222
+et donne-lui la sensation de sa vie.
+
+399
+00:20:22,306 --> 00:20:23,807
+Attends un peu, Marty.
+
+400
+00:20:23,891 --> 00:20:25,601
+Je ne veux pas jouer aux nounous...
+
+401
+00:20:25,684 --> 00:20:27,686
+Et après, un type m'a fait trébucher.
+
+402
+00:20:27,769 --> 00:20:29,688
+C'est pour ça que je ne suis arrivé
+que quatrième.
+
+403
+00:20:29,771 --> 00:20:32,482
+J'aurais dû gagner la course.
+
+404
+00:20:32,566 --> 00:20:35,527
+J'ai essayé de savoir qui c'était,
+mais je n'ai pas pu.
+
+405
+00:20:35,611 --> 00:20:39,281
+Personne ne dira jamais qui,
+sans doute par crainte.
+
+406
+00:20:40,324 --> 00:20:43,035
+- Tu te souviens de George ?
+- Voici Mary.
+
+407
+00:20:43,118 --> 00:20:44,745
+On se reverra plus tard.
+
+408
+00:20:44,828 --> 00:20:45,913
+Eh bien, eh bien.
+
+409
+00:20:45,996 --> 00:20:48,707
+Pour en revenir à mon histoire...
+
+410
+00:20:51,460 --> 00:20:53,170
+C'est ma danse !
+
+411
+00:20:53,253 --> 00:20:54,838
+Arrête d'ennuyer les gens !
+
+412
+00:20:54,922 --> 00:20:57,049
+Je suis désolé... Hé !
+
+413
+00:21:00,302 --> 00:21:02,888
+- Eh bien, bonjour.
+- Bonjour.
+
+414
+00:21:03,388 --> 00:21:05,557
+Tu me regardes comme si
+tu ne me connaissais pas.
+
+415
+00:21:05,641 --> 00:21:06,850
+Je ne te connais pas.
+
+416
+00:21:06,934 --> 00:21:09,269
+Tu me croisais dans la rue
+tous les jours.
+
+417
+00:21:09,353 --> 00:21:10,437
+Moi ?
+
+418
+00:21:10,520 --> 00:21:13,690
+Non, c'était une petite fille appelée
+Mary Hatch. Ce n'était pas toi.
+
+419
+00:21:14,191 --> 00:21:17,527
+Oyez ! Le grand concours de charleston.
+
+420
+00:21:19,738 --> 00:21:22,574
+Le prix, une véritable coupe de l'amitié.
+
+421
+00:21:22,658 --> 00:21:25,452
+Ceux que le jury n'élimine pas
+resteront sur la piste.
+
+422
+00:21:25,535 --> 00:21:26,662
+Allons-y.
+
+423
+00:21:37,172 --> 00:21:38,423
+Je ne sais pas très bien danser ça.
+
+424
+00:21:38,507 --> 00:21:40,092
+Moi non plus.
+
+425
+00:21:40,175 --> 00:21:42,177
+Alors, qu'avons-nous à perdre ?
+
+426
+00:21:53,522 --> 00:21:55,399
+Tu es merveilleuse.
+
+427
+00:22:22,634 --> 00:22:25,137
+Que se passe-t-il, Othello ?
+Tu es jaloux ?
+
+428
+00:22:26,930 --> 00:22:30,017
+Tu sais qu'il y a une piscine
+sous la piste de danse ?
+
+429
+00:22:30,100 --> 00:22:34,271
+Sais-tu que le bouton derrière toi
+permet d'ouvrir le plancher ?
+
+430
+00:22:35,397 --> 00:22:38,692
+Sais-tu que George Bailey
+
+431
+00:22:38,775 --> 00:22:41,111
+danse juste au-dessus de l'ouverture ?
+
+432
+00:22:42,654 --> 00:22:44,281
+Et j'ai la clé.
+
+433
+00:23:13,894 --> 00:23:16,438
+Mary, nous devons bien danser.
+
+434
+00:23:54,351 --> 00:23:55,811
+Sortez de là !
+
+435
+00:23:55,894 --> 00:23:57,437
+Oh, bon.
+
+436
+00:24:05,153 --> 00:24:07,197
+<i>Filles de Buffalo</i>
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+437
+00:24:07,280 --> 00:24:08,615
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+438
+00:24:08,698 --> 00:24:10,075
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+439
+00:24:10,158 --> 00:24:12,786
+<i>Filles de Buffalo</i>
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+440
+00:24:12,869 --> 00:24:16,540
+<i>Et danser</i>
+
+441
+00:24:16,915 --> 00:24:19,626
+<i>A la lueur</i>
+
+442
+00:24:19,709 --> 00:24:24,256
+<i>De la lune</i>
+
+443
+00:24:24,756 --> 00:24:27,634
+- Hourra ! Comme un orgue.
+- Magnifique.
+
+444
+00:24:27,717 --> 00:24:29,886
+J'avais dit à Harry
+que j'allais m'ennuyer.
+
+445
+00:24:29,970 --> 00:24:32,222
+Toute cette agitation dans le vestiaire.
+
+446
+00:24:32,305 --> 00:24:35,058
+J'ai dû mettre trois types K.O.
+pour obtenir ces vêtements.
+
+447
+00:24:35,142 --> 00:24:37,018
+Laisse-moi porter cette robe mouillée.
+
+448
+00:24:37,102 --> 00:24:38,770
+Ai-je l'air aussi étrange que toi ?
+
+449
+00:24:38,854 --> 00:24:40,689
+Je ne suis pas footballeur.
+
+450
+00:24:40,772 --> 00:24:42,524
+Tu as l'air merveilleuse.
+
+451
+00:24:42,941 --> 00:24:44,276
+Si ça ne sortait pas de ma bouche,
+
+452
+00:24:44,359 --> 00:24:46,945
+je dirais que t'es la plus jolie des filles.
+
+453
+00:24:47,529 --> 00:24:49,990
+Alors, pourquoi ne le dis-tu pas ?
+
+454
+00:24:50,073 --> 00:24:53,410
+Je ne sais pas. Peut-être que je le dirai.
+Quel âge as-tu ?
+
+455
+00:24:54,369 --> 00:24:55,537
+18 ans.
+
+456
+00:24:55,620 --> 00:24:59,124
+Tu en avais 17 l'année dernière.
+
+457
+00:24:59,749 --> 00:25:01,168
+Trop jeune ou trop vieille ?
+
+458
+00:25:01,251 --> 00:25:03,962
+Non. C'est parfait. Ton âge te va bien.
+
+459
+00:25:04,796 --> 00:25:07,507
+Oui, monsieur. Tu as l'air plus âgée
+sans tes vêtements.
+
+460
+00:25:07,591 --> 00:25:10,969
+Je veux dire, sans robe,
+tu as l'air plus âgée.
+
+461
+00:25:11,052 --> 00:25:13,972
+Je veux dire plus jeune. Tu as l'air...
+
+462
+00:25:15,432 --> 00:25:17,017
+Je marche dessus.
+
+463
+00:25:17,100 --> 00:25:19,019
+Monsieur, ma traîne, s'il vous plaît.
+
+464
+00:25:19,102 --> 00:25:21,813
+Maudite soit ma maladresse.
+
+465
+00:25:21,938 --> 00:25:25,150
+Votre... fourgon de queue, madame.
+
+466
+00:25:26,067 --> 00:25:28,153
+Vous pouvez me baiser la main.
+
+467
+00:25:30,614 --> 00:25:32,073
+Hé.
+
+468
+00:25:34,117 --> 00:25:35,452
+Hé, Mary.
+
+469
+00:25:42,292 --> 00:25:44,711
+Je vais jeter un caillou
+sur la vieille maison des Granville.
+
+470
+00:25:44,794 --> 00:25:47,088
+Non. J'adore cette vieille maison.
+
+471
+00:25:47,172 --> 00:25:48,965
+Il faut faire un vœu et briser une fenêtre,
+
+472
+00:25:49,049 --> 00:25:50,675
+mais il faut bien viser.
+
+473
+00:25:50,759 --> 00:25:53,929
+Non, ne le fais pas. Elle est
+si romantique, cette vieille demeure.
+
+474
+00:25:54,012 --> 00:25:55,931
+J'aimerais y vivre.
+
+475
+00:25:56,139 --> 00:25:57,140
+Dans cette maison ?
+
+476
+00:25:57,224 --> 00:25:59,559
+Même si j'étais un fantôme,
+je ne voudrais pas y habiter.
+
+477
+00:25:59,643 --> 00:26:02,270
+Je vise l'étage.
+
+478
+00:26:06,983 --> 00:26:08,151
+Quel était ton vœu, George ?
+
+479
+00:26:08,235 --> 00:26:10,654
+J'ai fait beaucoup de vœux.
+
+480
+00:26:10,820 --> 00:26:12,822
+Je sais ce que je vais faire demain,
+
+481
+00:26:12,906 --> 00:26:15,533
+après-demain et l'année prochaine.
+
+482
+00:26:15,617 --> 00:26:18,453
+Je vais me débarrasser
+de la poussière de cette pauvre ville
+
+483
+00:26:18,536 --> 00:26:20,288
+et voir le monde.
+
+484
+00:26:20,372 --> 00:26:23,458
+L'ltalie, la Grèce, le Parthénon,
+le Colisée.
+
+485
+00:26:23,541 --> 00:26:26,211
+Puis j'irai à la fac
+
+486
+00:26:26,294 --> 00:26:27,921
+et après je construirai des choses.
+
+487
+00:26:28,004 --> 00:26:29,422
+Je construirai des aéroports,
+
+488
+00:26:29,506 --> 00:26:31,883
+des gratte-ciel de 100 étages.
+
+489
+00:26:31,967 --> 00:26:34,344
+Des ponts de 1 km de long...
+
+490
+00:26:34,719 --> 00:26:36,846
+Tu vas jeter une pierre aussi ?
+
+491
+00:26:40,934 --> 00:26:42,769
+Hé, c'était pas mal du tout.
+
+492
+00:26:43,353 --> 00:26:45,313
+Quel était ton vœu, Mary ?
+
+493
+00:27:03,665 --> 00:27:05,625
+<i>Qu'as-tu souhaité en lançant</i>
+<i>ton caillou ?</i>
+
+494
+00:27:06,042 --> 00:27:07,127
+Allez, dis-le-moi.
+
+495
+00:27:07,210 --> 00:27:08,795
+Si je le dis, ça ne se réalisera pas.
+
+496
+00:27:08,878 --> 00:27:10,630
+Qu'est-ce que tu veux ?
+
+497
+00:27:11,006 --> 00:27:13,800
+Qu'est-ce que tu voudrais ?
+Tu voudrais la lune ?
+
+498
+00:27:13,883 --> 00:27:17,137
+Dis-le et je l'attraperai au lasso.
+
+499
+00:27:17,220 --> 00:27:21,016
+En voilà une bonne idée.
+Je t'offrirai la lune, Mary.
+
+500
+00:27:21,182 --> 00:27:22,600
+Je suis d'accord.
+
+501
+00:27:23,059 --> 00:27:24,394
+Et quoi ensuite ?
+
+502
+00:27:24,561 --> 00:27:28,231
+Après, tu pourras l'avaler.
+Elle fondrait dans ta bouche, tu vois ?
+
+503
+00:27:28,523 --> 00:27:31,943
+Des rayons de lune jailliraient
+de tes mains et de tes pieds
+
+504
+00:27:32,027 --> 00:27:34,070
+et des pointes de tes cheveux.
+
+505
+00:27:35,405 --> 00:27:38,116
+- Est-ce que je suis trop bavard ?
+- Oui.
+
+506
+00:27:39,075 --> 00:27:41,411
+Embrasse-la au lieu de la baratiner.
+
+507
+00:27:41,494 --> 00:27:42,537
+Comment ?
+
+508
+00:27:42,620 --> 00:27:46,082
+Pourquoi tu ne l'embrasses pas
+au lieu de la baratiner ?
+
+509
+00:27:47,751 --> 00:27:49,336
+Vous voulez que je l'embrasse, hein ?
+
+510
+00:27:49,419 --> 00:27:52,797
+Certaines personnes
+ne méritent pas leur jeunesse.
+
+511
+00:27:53,840 --> 00:27:57,218
+Hé, attendez. Hé, monsieur.
+Revenez ici.
+
+512
+00:27:57,302 --> 00:28:01,556
+Je vais vous montrer comment
+un homme embrasse une fille.
+
+513
+00:28:08,897 --> 00:28:09,981
+Mary ?
+
+514
+00:28:21,117 --> 00:28:23,244
+D'accord, j'abandonne. Où es-tu ?
+
+515
+00:28:23,370 --> 00:28:26,331
+Ici. Dans le buisson d'hortensias.
+
+516
+00:28:26,581 --> 00:28:28,917
+Tiens. Attrape.
+
+517
+00:28:30,085 --> 00:28:32,587
+Attends une minute.
+Qu'est-ce que je fais ?
+
+518
+00:28:36,633 --> 00:28:39,135
+C'est une situation intéressante.
+
+519
+00:28:39,219 --> 00:28:41,513
+S'il te plaît, rends-moi mon peignoir.
+
+520
+00:28:42,931 --> 00:28:45,642
+On se retrouve pas tous les jours
+dans une telle situation.
+
+521
+00:28:45,725 --> 00:28:47,727
+J'aimerais avoir mon peignoir.
+
+522
+00:28:47,811 --> 00:28:49,938
+Pas à Bedford Falls, en tous cas.
+
+523
+00:28:50,480 --> 00:28:51,648
+<i>Gesundheit.</i>
+
+524
+00:28:52,607 --> 00:28:53,858
+George Bailey,
+
+525
+00:28:54,484 --> 00:28:56,152
+rends-le-moi.
+
+526
+00:28:56,236 --> 00:28:58,655
+J'avais lu des récits de ce genre,
+mais je n'avais...
+
+527
+00:28:58,738 --> 00:29:01,908
+Honte à toi. Je le dirai à ta mère.
+
+528
+00:29:01,991 --> 00:29:04,577
+Ma mère est loin d'ici.
+
+529
+00:29:04,661 --> 00:29:06,621
+J'appellerai la police.
+
+530
+00:29:06,704 --> 00:29:09,499
+Ils sont au centre-ville.
+Et ils seraient de mon côté.
+
+531
+00:29:09,582 --> 00:29:11,459
+Alors je vais crier.
+
+532
+00:29:12,168 --> 00:29:14,671
+Je pourrais vendre des billets
+pour voir ça.
+
+533
+00:29:14,754 --> 00:29:18,174
+Non. Voyons voir.
+
+534
+00:29:18,258 --> 00:29:20,969
+Afin de récupérer ce peignoir... Je sais.
+
+535
+00:29:21,261 --> 00:29:22,929
+Je te propose un marché, Mary.
+
+536
+00:29:23,012 --> 00:29:25,348
+George ! George !
+
+537
+00:29:27,809 --> 00:29:30,103
+Rentre à la maison.
+
+538
+00:29:30,186 --> 00:29:32,605
+- Ton père a eu une attaque.
+- Quoi ?
+
+539
+00:29:33,022 --> 00:29:35,859
+- Mary, je suis désolé. Je dois y aller.
+- Pressons.
+
+540
+00:29:35,942 --> 00:29:37,026
+Vous avez appelé un médecin ?
+
+541
+00:29:37,110 --> 00:29:38,945
+Campbell est sur place.
+
+542
+00:29:49,539 --> 00:29:51,166
+Ça sera tout.
+
+543
+00:29:51,249 --> 00:29:52,459
+Je sais que vous êtes pressé
+de prendre le train.
+
+544
+00:29:52,542 --> 00:29:54,127
+Un taxi m'attend.
+
+545
+00:29:54,210 --> 00:29:57,005
+George a renoncé
+à son voyage en Europe
+
+546
+00:29:57,088 --> 00:29:59,841
+pour nous aider.
+
+547
+00:29:59,924 --> 00:30:01,843
+Bonne chance à l'université, George.
+
+548
+00:30:03,928 --> 00:30:06,556
+Venons-en au véritable objectif
+de cette réunion.
+
+549
+00:30:06,639 --> 00:30:09,309
+Nommer le successeur de Peter Bailey.
+
+550
+00:30:09,392 --> 00:30:11,561
+J'aimerais qu'on en vienne
+à mon véritable objectif.
+
+551
+00:30:11,644 --> 00:30:13,855
+- Attendez.
+- Attendre quoi ?
+
+552
+00:30:13,938 --> 00:30:17,317
+Je déclare que cette institution
+n'est pas utile à cette ville.
+
+553
+00:30:17,400 --> 00:30:21,237
+Je propose donc une motion
+pour dissoudre cette institution
+
+554
+00:30:21,321 --> 00:30:24,616
+et remettre ses actifs au mandataire.
+
+555
+00:30:24,699 --> 00:30:26,659
+Sale vieux... Je vais lui tordre le cou.
+
+556
+00:30:26,743 --> 00:30:28,077
+George, tu as entendu... ?
+
+557
+00:30:28,953 --> 00:30:30,747
+C'est trop tôt après la mort
+de Peter Bailey
+
+558
+00:30:30,830 --> 00:30:33,166
+pour en parler.
+
+559
+00:30:33,249 --> 00:30:35,668
+Peter Bailey est mort il y a trois mois.
+
+560
+00:30:35,752 --> 00:30:37,545
+Je soutiens la motion de M. Potter.
+
+561
+00:30:37,629 --> 00:30:39,047
+Très bien. Dans ce cas,
+
+562
+00:30:39,130 --> 00:30:43,009
+je demande aux directeurs exécutifs
+de se retirer.
+
+563
+00:30:43,092 --> 00:30:46,221
+Je suis sûr que le conseil voudrait
+exprimer ses condoléances
+
+564
+00:30:46,304 --> 00:30:48,223
+pour la mort de Peter Bailey.
+
+565
+00:30:48,598 --> 00:30:50,517
+Sa foi et son dévouement
+
+566
+00:30:50,600 --> 00:30:52,185
+ont permis de créer cette organisation.
+
+567
+00:30:52,268 --> 00:30:54,187
+J'irai même plus loin.
+
+568
+00:30:54,270 --> 00:30:58,691
+Je dirai que pour le public, Peter Bailey
+était Construction & Prêts.
+
+569
+00:30:58,775 --> 00:31:00,985
+Ça vous va bien de dire ça.
+
+570
+00:31:01,069 --> 00:31:03,029
+Vous l'avez poussé dans sa tombe.
+
+571
+00:31:03,112 --> 00:31:05,949
+Peter Bailey n'était pas
+un homme d'affaires.
+
+572
+00:31:06,032 --> 00:31:07,492
+C'est ce qui l'a tué.
+
+573
+00:31:07,575 --> 00:31:10,286
+Je n'entends pas
+lui manquer de respect.
+
+574
+00:31:10,370 --> 00:31:13,831
+C'était un homme
+plein de grands idéaux, si on peut dire.
+
+575
+00:31:14,290 --> 00:31:18,169
+Mais des idéaux sans bon sens
+peuvent mener cette ville à la ruine.
+
+576
+00:31:18,962 --> 00:31:21,756
+Regardez, prenez par exemple
+le prêt accordé à Ernie Bishop.
+
+577
+00:31:21,839 --> 00:31:25,176
+Vous savez, ce type qui reste
+assis toute la journée
+
+578
+00:31:25,260 --> 00:31:28,054
+dans son taxi.
+
+579
+00:31:28,137 --> 00:31:31,933
+Je crois savoir que la banque
+avait refusé son emprunt,
+
+580
+00:31:32,016 --> 00:31:33,726
+mais il est venu ici
+
+581
+00:31:33,810 --> 00:31:38,565
+et nous lui construisons une maison
+qui vaut 5 000 $.
+
+582
+00:31:39,315 --> 00:31:41,734
+- Pourquoi ?
+- Je m'en suis occupé, M. Potter.
+
+583
+00:31:41,818 --> 00:31:44,696
+Vous avez les papiers, son salaire.
+
+584
+00:31:44,779 --> 00:31:46,114
+Je me porte garant de sa personne.
+
+585
+00:31:46,197 --> 00:31:48,324
+- Un de vos amis ?
+- Oui, monsieur.
+
+586
+00:31:48,658 --> 00:31:52,453
+En jouant au billard avec un employé,
+
+587
+00:31:52,537 --> 00:31:54,789
+vous pouvez emprunter de l'argent.
+
+588
+00:31:55,039 --> 00:31:56,958
+Le résultat ?
+
+589
+00:31:57,041 --> 00:31:59,919
+Une populace mécontente
+
+590
+00:32:00,003 --> 00:32:01,921
+au lieu d'une classe ouvrière économe.
+
+591
+00:32:02,005 --> 00:32:05,800
+Tout ça parce que
+quelques doux rêveurs
+
+592
+00:32:05,883 --> 00:32:09,095
+comme Peter Bailey
+leur ont rempli la tête
+
+593
+00:32:09,178 --> 00:32:11,431
+d'idées impossibles.
+
+594
+00:32:11,514 --> 00:32:13,308
+Mais maintenant, je dis...
+
+595
+00:32:13,391 --> 00:32:16,269
+Une minute. Attendez, M. Potter.
+
+596
+00:32:16,352 --> 00:32:19,606
+Vous avez raison de dire que mon père
+n'était pas un homme d'affaires.
+
+597
+00:32:19,689 --> 00:32:22,317
+Pourquoi a-t-il fondé
+Construction & Prêts,
+
+598
+00:32:22,400 --> 00:32:23,484
+je ne le sais pas.
+
+599
+00:32:23,568 --> 00:32:26,446
+Mais vous ne pouvez pas
+dénigrer sa personnalité,
+
+600
+00:32:26,529 --> 00:32:28,239
+car toute sa vie...
+
+601
+00:32:28,323 --> 00:32:30,950
+Depuis que lui et oncle Billy
+ont monté l'affaire,
+
+602
+00:32:31,034 --> 00:32:33,328
+il n'a jamais pensé à lui.
+
+603
+00:32:33,411 --> 00:32:36,289
+Il n'a pas assez économisé
+pour les études de Harry,
+
+604
+00:32:36,372 --> 00:32:39,125
+mais il a aidé les gens
+à sortir de vos taudis.
+
+605
+00:32:39,208 --> 00:32:43,296
+Quel mal y a-t-il à cela ?
+Vous êtes dans les affaires.
+
+606
+00:32:43,379 --> 00:32:46,633
+Ne sont-ils pas bons citoyens
+et consommateurs ?
+
+607
+00:32:46,716 --> 00:32:48,926
+Qu'avez-vous dit ?
+
+608
+00:32:49,010 --> 00:32:50,803
+Qu'ils devaient attendre et économiser
+
+609
+00:32:50,887 --> 00:32:52,347
+avant de pouvoir penser
+à un logement décent ?
+
+610
+00:32:52,430 --> 00:32:54,140
+Pourquoi attendre ?
+
+611
+00:32:54,223 --> 00:32:55,892
+Attendre que leurs enfants
+soient grands
+
+612
+00:32:55,975 --> 00:32:58,144
+ou qu'ils soient vieux ?
+
+613
+00:32:58,227 --> 00:33:00,855
+Vous savez combien de temps
+il faut pour économiser 5 000 $ ?
+
+614
+00:33:00,938 --> 00:33:04,317
+Rappelez-vous de ceci.
+Cette populace dont vous parlez,
+
+615
+00:33:04,400 --> 00:33:08,321
+ils font la plupart du travail
+et du financement de la communauté.
+
+616
+00:33:08,404 --> 00:33:10,865
+Ne méritent-ils pas
+de travailler, payer, vivre, mourir
+
+617
+00:33:10,948 --> 00:33:12,742
+dans un logement décent ?
+
+618
+00:33:12,825 --> 00:33:15,244
+Quoi qu'il en soit, mon père le pensait.
+
+619
+00:33:15,578 --> 00:33:17,872
+Les gens étaient des êtres humains
+à ses yeux. Pour vous,
+
+620
+00:33:17,955 --> 00:33:20,917
+c'est du bétail.
+
+621
+00:33:21,042 --> 00:33:23,503
+A mon avis, il est mort bien plus riche
+que vous ne le serez jamais.
+
+622
+00:33:23,586 --> 00:33:25,505
+Votre avis ne m'intéresse pas.
+
+623
+00:33:25,588 --> 00:33:28,341
+Je parle de Construction & Prêts.
+
+624
+00:33:28,424 --> 00:33:30,134
+Vous parlez de quelque chose
+
+625
+00:33:30,218 --> 00:33:32,512
+que vous n'aurez jamais.
+
+626
+00:33:32,595 --> 00:33:35,431
+Et ça vous irrite.
+C'est de ça dont vous parlez.
+
+627
+00:33:35,515 --> 00:33:37,809
+Bon, j'en ai trop dit.
+
+628
+00:33:38,267 --> 00:33:41,187
+Vous êtes le conseil.
+Faites ce que vous voulez.
+
+629
+00:33:41,270 --> 00:33:42,855
+Encore une chose.
+
+630
+00:33:42,939 --> 00:33:45,566
+Cette ville a besoin de cette institution,
+
+631
+00:33:45,650 --> 00:33:49,278
+ne serait-ce que pour que les gens
+n'aient pas à ramper devant Potter.
+
+632
+00:33:56,494 --> 00:33:59,831
+Foutaises sentimentales.
+Je veux que ma motion soit exécutée.
+
+633
+00:34:01,958 --> 00:34:04,544
+Quelle leçon.
+
+634
+00:34:04,627 --> 00:34:06,421
+Tu lui as rabattu le caquet.
+Vous auriez dû l'entendre !
+
+635
+00:34:06,504 --> 00:34:08,214
+Que s'est-il passé ?
+
+636
+00:34:08,297 --> 00:34:10,925
+On met la clé sous la porte.
+
+637
+00:34:11,008 --> 00:34:14,512
+- Ça vient et ça repart.
+- Tenez. "Emploi pour dame."
+
+638
+00:34:14,595 --> 00:34:16,556
+Tu veux que je t'attende, George ?
+
+639
+00:34:16,639 --> 00:34:19,183
+- J'arrive.
+- Tu vas rater ton train.
+
+640
+00:34:19,267 --> 00:34:21,060
+Tu as une semaine de retard.
+
+641
+00:34:21,144 --> 00:34:23,938
+- Que se passe-t-il à l'intérieur ?
+- Peu importe.
+
+642
+00:34:24,021 --> 00:34:27,066
+Ils nous mettent en faillite.
+Je n'ai que 55 ans.
+
+643
+00:34:27,150 --> 00:34:28,901
+- Je trouverai un autre emploi.
+- 56.
+
+644
+00:34:28,985 --> 00:34:31,320
+Tu as déjà renoncé à ta croisière.
+
+645
+00:34:31,404 --> 00:34:32,989
+Tu ne vas pas renoncer à la fac aussi.
+
+646
+00:34:33,072 --> 00:34:35,533
+George, ils ont voté contre Potter.
+
+647
+00:34:35,616 --> 00:34:37,827
+Ils veulent que l'affaire continue !
+
+648
+00:34:38,411 --> 00:34:39,954
+Tu as réussi, George.
+
+649
+00:34:40,037 --> 00:34:42,248
+Mais il y a une condition.
+
+650
+00:34:42,331 --> 00:34:43,916
+- Laquelle ?
+- C'est la meilleure.
+
+651
+00:34:44,000 --> 00:34:47,378
+Ils ont nommé George
+en tant que secrétaire exécutif.
+
+652
+00:34:47,462 --> 00:34:50,298
+- Mais oncle Billy...
+- Vous pouvez le garder à son poste.
+
+653
+00:34:50,381 --> 00:34:52,300
+Vous pouvez engager qui vous voulez.
+
+654
+00:34:52,383 --> 00:34:55,011
+Je vais être clair.
+
+655
+00:34:55,094 --> 00:34:56,721
+Je pars pour la fac.
+
+656
+00:34:56,804 --> 00:34:59,265
+C'est ma dernière chance.
+Oncle Billy est votre homme.
+
+657
+00:34:59,348 --> 00:35:02,185
+Mais George, autrement,
+ils vont voter pour Potter.
+
+658
+00:35:04,020 --> 00:35:07,023
+<i>- Je sais. Il n'y est pas allé.</i>
+<i>- Exact,</i>
+
+659
+00:35:07,356 --> 00:35:10,443
+<i>et il a donné l'argent</i>
+<i>de ses études à son frère harry</i>
+
+660
+00:35:10,526 --> 00:35:12,028
+<i>et l'a envoyé à l'université.</i>
+
+661
+00:35:12,111 --> 00:35:14,238
+<i>harry est devenu une star du football.</i>
+
+662
+00:35:15,782 --> 00:35:18,075
+<i>Oui, mais qu'est-il arrivé à George ?</i>
+
+663
+00:35:18,159 --> 00:35:21,370
+<i>George a attendu quatre ans</i>
+<i>que harry revienne</i>
+
+664
+00:35:21,454 --> 00:35:23,539
+<i>et prenne sa place.</i>
+
+665
+00:35:23,623 --> 00:35:25,958
+Il existe plein d'opportunités
+pour les gens qui aiment voyager.
+
+666
+00:35:26,042 --> 00:35:27,043
+Regarde.
+
+667
+00:35:27,126 --> 00:35:31,464
+Venezuela. "Cherche homme
+avec expérience dans la construction."
+
+668
+00:35:31,547 --> 00:35:33,549
+Yukon.
+
+669
+00:35:33,633 --> 00:35:36,177
+"Cherche homme
+avec expérience d'ingénieur."
+
+670
+00:35:37,136 --> 00:35:38,971
+Voilà le train qui siffle.
+
+671
+00:35:39,055 --> 00:35:41,933
+Tu sais quels sont les trois sons
+les plus excitants ?
+
+672
+00:35:42,016 --> 00:35:44,268
+"Le petit-déjeuner est servi, repas..."
+
+673
+00:35:44,352 --> 00:35:48,064
+Non. La chaîne d'une ancre.
+Un moteur d'avion. Le sifflet du train.
+
+674
+00:35:48,147 --> 00:35:50,316
+- Cacahuète ?
+- Voici le professeur.
+
+675
+00:35:50,399 --> 00:35:52,693
+Professeur Bailey !
+
+676
+00:35:52,777 --> 00:35:54,821
+George Bailey "l'explorateur" !
+Bailey "le professionnel" !
+
+677
+00:35:54,904 --> 00:35:57,490
+Oncle Billy, tu n'as pas changé.
+
+678
+00:35:57,573 --> 00:35:59,116
+Personne ne change ici.
+
+679
+00:35:59,200 --> 00:36:00,868
+Je suis content de te revoir.
+
+680
+00:36:00,952 --> 00:36:03,538
+- Où est maman ?
+- Elle prépare le veau gras.
+
+681
+00:36:03,704 --> 00:36:05,081
+Attendez une minute.
+
+682
+00:36:05,164 --> 00:36:08,125
+George, oncle Billy,
+je voudrais vous présenter Ruth.
+
+683
+00:36:08,209 --> 00:36:09,544
+Bonjour.
+
+684
+00:36:09,627 --> 00:36:10,628
+Ruth Dakin.
+
+685
+00:36:10,711 --> 00:36:12,338
+Ruth Dakin Bailey, si ça ne t'ennuie pas.
+
+686
+00:36:12,421 --> 00:36:14,841
+J'ai envoyé un télégramme
+annonçant une surprise.
+
+687
+00:36:14,924 --> 00:36:16,551
+La voici. Ma femme.
+
+688
+00:36:16,634 --> 00:36:19,470
+Quelle surprise ! Ta femme !
+
+689
+00:36:20,263 --> 00:36:23,349
+Comment allez-vous ? Félicitations.
+
+690
+00:36:23,683 --> 00:36:26,143
+Mais qu'est-ce que je dis ? Bravo !
+
+691
+00:36:26,227 --> 00:36:27,979
+Ils sont mariés, ces deux-là !
+
+692
+00:36:28,062 --> 00:36:30,189
+Pourquoi ne m'as-tu rien dit ?
+
+693
+00:36:30,273 --> 00:36:32,859
+Personne ne me dit jamais rien.
+
+694
+00:36:32,942 --> 00:36:34,360
+- Vous êtes vraiment mariés ?
+- Oui.
+
+695
+00:36:34,443 --> 00:36:36,153
+Comment une fille comme toi
+
+696
+00:36:36,237 --> 00:36:38,197
+a pu épouser mon crétin de frère ?
+
+697
+00:36:38,281 --> 00:36:40,992
+C'est purement intéressé.
+Mon père lui a offert un travail.
+
+698
+00:36:41,075 --> 00:36:45,204
+Il t'a toi et un travail ? Eh bien.
+La malchance de Harry est finie.
+
+699
+00:36:45,955 --> 00:36:50,042
+George, à propos de ce travail. Ruth
+a parlé un peu vite. Je n'ai pas dit oui.
+
+700
+00:36:50,126 --> 00:36:52,795
+Tu tiens le fort depuis quatre ans.
+
+701
+00:36:52,879 --> 00:36:55,673
+Je ne te laisserai pas tomber.
+J'aimerais...
+
+702
+00:36:55,756 --> 00:36:58,926
+Attends. J'ai oublié les bagages.
+Je reviens.
+
+703
+00:37:00,219 --> 00:37:02,221
+Voici la nouvelle madame Bailey,
+la femme de mon neveu.
+
+704
+00:37:02,305 --> 00:37:06,100
+- Comment allez-vous ?
+- Des vieux amis des Bailey.
+
+705
+00:37:06,183 --> 00:37:09,312
+Vraiment ? Comment
+se sont-ils rencontrés ? Voyons voir.
+
+706
+00:37:09,770 --> 00:37:12,315
+Evidemment.
+
+707
+00:37:12,398 --> 00:37:14,775
+Nous allons organiser la plus
+grande fête
+
+708
+00:37:14,859 --> 00:37:16,819
+que cette ville ait jamais vu.
+
+709
+00:37:19,155 --> 00:37:20,823
+Prends du pop-corn.
+
+710
+00:37:22,241 --> 00:37:25,494
+George, c'est tout ce que
+Harry a à la bouche.
+
+711
+00:37:25,661 --> 00:37:27,830
+Ruth,
+
+712
+00:37:27,955 --> 00:37:29,081
+au sujet de ce travail ?
+
+713
+00:37:29,165 --> 00:37:31,584
+Mon père possède
+une fabrique de verre à Buffalo.
+
+714
+00:37:31,667 --> 00:37:34,420
+Il voudrait engager Harry
+dans la recherche.
+
+715
+00:37:34,503 --> 00:37:36,088
+C'est un bon travail ?
+
+716
+00:37:36,756 --> 00:37:39,884
+Ça ne paie pas très bien.
+Mais l'avenir est prometteur, tu sais.
+
+717
+00:37:39,967 --> 00:37:41,844
+Harry est un génie en recherche.
+
+718
+00:37:41,928 --> 00:37:45,348
+- Mon père est tombé amoureux de lui.
+- Et toi aussi ?
+
+719
+00:37:48,184 --> 00:37:49,393
+Attendez !
+
+720
+00:37:59,987 --> 00:38:00,988
+Hé, George.
+
+721
+00:38:01,072 --> 00:38:04,659
+Mon Dieu. Je me sens si bien
+
+722
+00:38:04,742 --> 00:38:09,413
+que je pourrais cracher
+dans l'œil de Potter. Je le ferai.
+
+723
+00:38:10,206 --> 00:38:12,208
+Qu'est-ce que tu en dis ? Hein ?
+
+724
+00:38:12,500 --> 00:38:14,794
+Je ferais peut-être bien de rentrer.
+
+725
+00:38:14,877 --> 00:38:17,213
+Où est mon chapeau ?
+
+726
+00:38:17,546 --> 00:38:21,133
+- Merci, George. Lequel est le mien ?
+- Celui du milieu.
+
+727
+00:38:21,217 --> 00:38:24,303
+Merci, George.
+
+728
+00:38:24,387 --> 00:38:27,723
+Ecoute, peux-tu m'indiquer
+la bonne direction, George ?
+
+729
+00:38:29,058 --> 00:38:31,769
+Bon vieux copain
+de Construction & Prêts.
+
+730
+00:38:31,852 --> 00:38:34,146
+Tourne-toi par ici et c'est tout droit.
+
+731
+00:38:34,230 --> 00:38:35,314
+Par-là ?
+
+732
+00:38:43,197 --> 00:38:46,367
+Tout va bien !
+
+733
+00:39:28,784 --> 00:39:30,119
+Bonsoir, maman.
+
+734
+00:39:32,079 --> 00:39:33,873
+C'est pour rien. Pour rien.
+
+735
+00:39:35,124 --> 00:39:37,668
+- Comment la trouves-tu ?
+- Elle est fantastique.
+
+736
+00:39:37,752 --> 00:39:40,546
+On dirait qu'elle va garder Harry
+sur les charbons ardents.
+
+737
+00:39:40,629 --> 00:39:43,466
+Elle le fera quitter Bedford Falls,
+de toute façon.
+
+738
+00:39:45,092 --> 00:39:47,970
+Sais-tu que Mary Hatch
+est revenue de l'université ?
+
+739
+00:39:48,596 --> 00:39:50,806
+Elle est revenue il y a trois jours.
+
+740
+00:39:51,974 --> 00:39:53,976
+Une gentille fille, cette Mary.
+
+741
+00:39:55,644 --> 00:39:59,065
+Le genre de fille qui t'aidera
+à trouver les réponses, George.
+
+742
+00:39:59,482 --> 00:40:01,025
+Arrête de grogner.
+
+743
+00:40:03,069 --> 00:40:06,489
+Peux-tu me donner une raison
+de ne pas rendre visite à Mary ?
+
+744
+00:40:06,572 --> 00:40:08,032
+Bien sûr. Sam Wainwright.
+
+745
+00:40:08,115 --> 00:40:10,034
+Sam est fou de Mary.
+
+746
+00:40:10,117 --> 00:40:12,411
+Elle n'est pas folle de lui.
+
+747
+00:40:12,495 --> 00:40:14,246
+- Vous en avez discuté ensemble ?
+- Non.
+
+748
+00:40:14,330 --> 00:40:17,083
+- Alors comment le sais-tu ?
+- J'ai des yeux.
+
+749
+00:40:17,166 --> 00:40:20,503
+Elle s'illumine comme une luciole
+dès que tu es là.
+
+750
+00:40:21,754 --> 00:40:24,090
+Par ailleurs, Sam est à New York
+
+751
+00:40:24,173 --> 00:40:25,758
+et toi, tu es à Bedford Falls.
+
+752
+00:40:25,841 --> 00:40:28,344
+Tout est permis à la guerre
+comme en amour.
+
+753
+00:40:28,594 --> 00:40:30,513
+Je ne sais pas pour la guerre.
+
+754
+00:40:33,849 --> 00:40:37,603
+Je te connais par cœur.
+
+755
+00:40:37,686 --> 00:40:39,897
+Tu essaies de te débarrasser de moi.
+
+756
+00:40:42,274 --> 00:40:44,777
+Voici ton chapeau.
+Qu'est-ce qui presse ?
+
+757
+00:40:45,778 --> 00:40:48,739
+D'accord, vieux copain
+de Construction & Prêts,
+
+758
+00:40:48,823 --> 00:40:52,076
+je crois que je vais aller trouver
+une fille et lui faire des mamours.
+
+759
+00:40:53,285 --> 00:40:56,330
+Bon, si tu voulais bien m'indiquer
+la bonne direction.
+
+760
+00:40:57,832 --> 00:40:59,166
+Cette direction.
+
+761
+00:41:06,340 --> 00:41:08,050
+Bonsoir, madame Bailey.
+
+762
+00:41:19,395 --> 00:41:22,106
+- Excusez-moi.
+- Attends une minute.
+
+763
+00:41:22,189 --> 00:41:24,316
+Je crois que j'ai rendez-vous,
+
+764
+00:41:24,400 --> 00:41:27,153
+mais restez là, les gars, au cas où.
+
+765
+00:41:28,487 --> 00:41:30,239
+On t'attend, chérie.
+
+766
+00:41:32,116 --> 00:41:34,535
+- Bonsoir, Georgie-Porgie.
+- Bonsoir, Vi.
+
+767
+00:41:36,078 --> 00:41:38,330
+- Alors, quelles nouvelles ?
+- Aucune.
+
+768
+00:41:38,747 --> 00:41:39,999
+Où vas-tu ?
+
+769
+00:41:40,082 --> 00:41:42,918
+Sans doute à la bibliothèque.
+
+770
+00:41:43,002 --> 00:41:47,381
+Georgie, n'en as-tu pas assez
+de vivre qu'à travers tes lectures ?
+
+771
+00:41:48,507 --> 00:41:49,508
+Oui.
+
+772
+00:41:50,384 --> 00:41:52,845
+- Que fais-tu ce soir ?
+- Rien.
+
+773
+00:41:53,429 --> 00:41:55,222
+Alors sortons toute la nuit.
+
+774
+00:41:55,306 --> 00:41:57,516
+J'aimerais ça. Que ferons-nous ?
+
+775
+00:41:57,683 --> 00:41:59,518
+Nous irons dans les champs
+et nous marcherons pieds nus
+
+776
+00:41:59,602 --> 00:42:00,936
+dans l'herbe.
+
+777
+00:42:02,104 --> 00:42:05,024
+Nous irons voir les chutes.
+Elles sont magnifiques sous la lune.
+
+778
+00:42:05,107 --> 00:42:09,278
+Il y a une piscine naturelle
+où nous pourrons nous baigner.
+
+779
+00:42:09,820 --> 00:42:13,115
+Nous gravirons le Mont Bedford
+pour sentir l'odeur des conifères
+
+780
+00:42:13,199 --> 00:42:14,867
+et nous regarderons le lever du soleil
+
+781
+00:42:14,950 --> 00:42:16,368
+sans dormir de la nuit.
+
+782
+00:42:16,452 --> 00:42:18,704
+Ça fera un scandale terrible.
+
+783
+00:42:18,787 --> 00:42:22,583
+Es-tu devenu fou ?
+Que je marche pieds nus dans l'herbe ?
+
+784
+00:42:23,459 --> 00:42:25,669
+Il y a 15 km jusqu'au Mont Bedford.
+
+785
+00:42:26,086 --> 00:42:30,132
+Très bien, oublie tout
+ce que je viens de dire.
+
+786
+00:42:47,775 --> 00:42:51,195
+- Que fais-tu ? Tu fais la grève ?
+- Bonsoir, Mary.
+
+787
+00:42:52,279 --> 00:42:54,365
+Je ne faisais que passer.
+
+788
+00:42:54,490 --> 00:42:56,283
+Oui, je l'ai remarqué.
+
+789
+00:42:56,992 --> 00:42:59,203
+- As-tu pris une décision ?
+- Comment ça ?
+
+790
+00:42:59,286 --> 00:43:01,914
+- As-tu pris une décision ?
+- A quel sujet ?
+
+791
+00:43:01,997 --> 00:43:03,374
+Vas-tu entrer ?
+
+792
+00:43:03,999 --> 00:43:07,044
+Ta mère m'a appelée
+pour dire que tu étais en chemin.
+
+793
+00:43:07,127 --> 00:43:08,921
+Ma mère t'a appelée ?
+
+794
+00:43:09,004 --> 00:43:10,381
+Comment le savait-elle ?
+
+795
+00:43:10,464 --> 00:43:12,424
+- Tu ne le lui as pas dit ?
+- Non.
+
+796
+00:43:12,508 --> 00:43:15,344
+Je suis sorti me promener.
+Je passais par hasard.
+
+797
+00:43:15,427 --> 00:43:16,971
+Est-ce que tu... ?
+
+798
+00:43:18,806 --> 00:43:20,641
+Je me promène, c'est tout.
+
+799
+00:43:22,017 --> 00:43:24,895
+- Je serai en bas, maman.
+- Très bien, chérie.
+
+800
+00:43:33,737 --> 00:43:37,283
+GEORGE ATTRAPE LA LUNE
+
+801
+00:43:46,750 --> 00:43:49,044
+Alors, tu entres ou tu restes dehors ?
+
+802
+00:43:49,378 --> 00:43:51,630
+J'entre pour une minute.
+
+803
+00:43:53,674 --> 00:43:55,050
+Mais je...
+
+804
+00:44:07,187 --> 00:44:10,232
+Je n'ai dit à personne que je venais ici.
+
+805
+00:44:11,775 --> 00:44:14,528
+- Quand es-tu rentrée ?
+- Mardi.
+
+806
+00:44:15,696 --> 00:44:17,573
+Où as-tu trouvé cette robe ?
+
+807
+00:44:17,656 --> 00:44:20,242
+- Elle te plaît ?
+- Elle est pas mal.
+
+808
+00:44:25,039 --> 00:44:26,498
+Je pensais que tu irais à New York
+
+809
+00:44:26,582 --> 00:44:28,917
+comme Sam et tous les autres.
+
+810
+00:44:30,377 --> 00:44:33,922
+J'y ai travaillé pendant des vacances,
+mais je ne sais pas.
+
+811
+00:44:34,006 --> 00:44:35,382
+Je crois que j'avais le mal du pays.
+
+812
+00:44:35,466 --> 00:44:38,469
+Le mal du pays ? Pour Bedford Falls ?
+
+813
+00:44:38,719 --> 00:44:41,764
+Oui. Ma famille et...
+
+814
+00:44:42,931 --> 00:44:44,141
+tout.
+
+815
+00:44:45,476 --> 00:44:47,186
+Veux-tu t'asseoir ?
+
+816
+00:44:47,269 --> 00:44:49,146
+D'accord, rien qu'une minute.
+
+817
+00:44:50,105 --> 00:44:51,857
+Je ne comprends toujours pas.
+
+818
+00:44:51,940 --> 00:44:54,068
+J'ai dit à personne que je venais ici.
+
+819
+00:44:54,151 --> 00:44:55,527
+Tu préfères partir ?
+
+820
+00:44:55,611 --> 00:44:57,446
+Ça serait impoli de ma part.
+
+821
+00:44:57,529 --> 00:44:59,198
+Très bien, alors assieds-toi.
+
+822
+00:44:59,281 --> 00:45:00,783
+Qu'est-ce que c'est ?
+
+823
+00:45:03,494 --> 00:45:05,037
+Une blague, hein ?
+
+824
+00:45:12,169 --> 00:45:15,589
+Je constate que ça sent encore
+les aiguilles de pin.
+
+825
+00:45:16,298 --> 00:45:17,466
+Merci.
+
+826
+00:45:23,722 --> 00:45:26,475
+<i>Et danser...</i>
+
+827
+00:45:26,934 --> 00:45:28,644
+Qu'est-ce qui t'arrive ?
+
+828
+00:45:29,144 --> 00:45:31,230
+Ah, oui.
+
+829
+00:45:33,982 --> 00:45:35,234
+Eh bien...
+
+830
+00:45:35,317 --> 00:45:37,694
+C'est bien pour Harry et Ruth.
+
+831
+00:45:37,778 --> 00:45:39,863
+Oui, c'est bien.
+
+832
+00:45:40,155 --> 00:45:41,281
+Tu ne l'aimes pas ?
+
+833
+00:45:41,365 --> 00:45:43,826
+Si, je l'aime bien. Elle est extra.
+
+834
+00:45:44,993 --> 00:45:48,914
+C'est le mariage en général
+qui ne te plaît pas ?
+
+835
+00:45:48,997 --> 00:45:53,544
+Non. Le mariage convient à Harry,
+et Marty, et Sam, et toi.
+
+836
+00:45:53,627 --> 00:45:55,337
+Mary.
+
+837
+00:45:55,421 --> 00:45:56,797
+Qui est là avec toi ?
+
+838
+00:45:56,880 --> 00:45:58,757
+C'est George Bailey, maman.
+
+839
+00:45:58,966 --> 00:46:01,552
+George Bailey ! Que veut-il ?
+
+840
+00:46:01,844 --> 00:46:03,178
+Je ne sais pas.
+
+841
+00:46:03,595 --> 00:46:04,972
+Que veux-tu ?
+
+842
+00:46:06,181 --> 00:46:08,475
+Moi ? Rien du tout.
+
+843
+00:46:08,559 --> 00:46:10,686
+Je suis entré pour me réchauffer.
+
+844
+00:46:13,105 --> 00:46:15,732
+Il me courtise avec acharnement,
+maman.
+
+845
+00:46:16,358 --> 00:46:19,528
+Dis-lui de rentrer chez lui et toi,
+ne sors pas de la maison !
+
+846
+00:46:19,611 --> 00:46:22,739
+Sam Wainwright a promis d'appeler.
+
+847
+00:46:22,823 --> 00:46:25,826
+Que veut dire ta mère ?
+Je ne suis pas venu pour...
+
+848
+00:46:25,909 --> 00:46:28,454
+- Pourquoi es-tu venu ?
+- Je ne sais pas.
+
+849
+00:46:28,537 --> 00:46:31,123
+Tu es censée avoir les réponses.
+
+850
+00:46:31,206 --> 00:46:32,291
+Pourquoi ne rentres-tu pas chez toi ?
+
+851
+00:46:32,374 --> 00:46:34,793
+Je ne sais pas pourquoi je suis venu.
+
+852
+00:46:34,877 --> 00:46:36,336
+- Bonsoir.
+- Bonsoir.
+
+853
+00:46:36,420 --> 00:46:39,465
+Mary, le téléphone. C'est Sam.
+
+854
+00:46:39,548 --> 00:46:40,841
+Je vais répondre.
+
+855
+00:46:40,924 --> 00:46:43,635
+Mais qu'attends-tu ?
+
+856
+00:46:52,728 --> 00:46:54,980
+Mary, il t'attend.
+
+857
+00:46:58,400 --> 00:46:59,526
+Allô ?
+
+858
+00:47:01,487 --> 00:47:03,197
+J'ai oublié mon chapeau.
+
+859
+00:47:04,823 --> 00:47:08,035
+Allô, Sam, comment vas-tu ?
+
+860
+00:47:08,118 --> 00:47:11,163
+<i>Je vais bien. C'est agréable</i>
+<i>d'entendre ta voix.</i>
+
+861
+00:47:11,246 --> 00:47:14,082
+C'est très gentil, Sam.
+
+862
+00:47:15,000 --> 00:47:18,295
+Un de tes amis est ici. George Bailey.
+
+863
+00:47:18,378 --> 00:47:20,297
+<i>Ce cul-terreux de George ?</i>
+
+864
+00:47:20,547 --> 00:47:23,008
+Oui, ce cul-terreux de George.
+
+865
+00:47:23,091 --> 00:47:25,010
+<i>Passe-le-moi.</i>
+
+866
+00:47:25,093 --> 00:47:27,387
+Un instant. Je l'appelle. George !
+
+867
+00:47:27,471 --> 00:47:29,681
+Il ne veut pas parler à George.
+
+868
+00:47:29,765 --> 00:47:31,600
+C'est lui qui l'a demandé.
+
+869
+00:47:32,434 --> 00:47:35,145
+George, Sam voudrait te parler.
+
+870
+00:47:39,566 --> 00:47:40,567
+Salut, Sam.
+
+871
+00:47:40,651 --> 00:47:44,488
+Ça alors, George Baileyofski.
+Mon vieux copain.
+
+872
+00:47:44,571 --> 00:47:46,406
+Tu n'essaies pas
+de me voler ma promise ?
+
+873
+00:47:46,490 --> 00:47:47,491
+Comment ça ?
+
+874
+00:47:47,574 --> 00:47:49,368
+Personne n'essaie
+de voler la fille d'un autre.
+
+875
+00:47:49,451 --> 00:47:51,370
+Revoilà Mary.
+
+876
+00:47:51,453 --> 00:47:53,830
+<i>Je voudrais parler à vous deux.</i>
+
+877
+00:47:53,914 --> 00:47:55,374
+<i>Dis à Mary de prendre l'autre téléphone.</i>
+
+878
+00:47:55,457 --> 00:47:58,794
+- Ma mère a l'autre téléphone.
+- Ce n'est pas vrai.
+
+879
+00:47:59,086 --> 00:48:01,463
+Nous pourrons l'entendre tous les deux.
+
+880
+00:48:01,797 --> 00:48:03,715
+Nous t'écoutons, Sam.
+
+881
+00:48:03,799 --> 00:48:07,344
+<i>J'ai un grand projet</i>
+<i>qui nous rendra riches.</i>
+
+882
+00:48:07,427 --> 00:48:10,013
+<i>George, tu te souviens du soir</i>
+
+883
+00:48:10,097 --> 00:48:11,723
+<i>quand tu m'as dit que tu avais lu</i>
+
+884
+00:48:11,807 --> 00:48:13,767
+<i>comment faire du plastique</i>
+<i>à partir de soja ?</i>
+
+885
+00:48:13,850 --> 00:48:16,019
+<i>- Des haricots rouges.</i>
+<i>- Tais-toi.</i>
+
+886
+00:48:16,103 --> 00:48:18,814
+<i>Tu t'en souviens ? A partir de soja ?</i>
+
+887
+00:48:20,649 --> 00:48:23,068
+Oui, du soja.
+
+888
+00:48:23,151 --> 00:48:25,487
+<i>Papa a sauté sur l'idée.</i>
+
+889
+00:48:25,571 --> 00:48:28,073
+<i>Il va construire une usine à Rochester.</i>
+
+890
+00:48:28,156 --> 00:48:29,908
+<i>Qu'est-ce que tu en dis ?</i>
+
+891
+00:48:31,410 --> 00:48:34,621
+Rochester ? Pourquoi Rochester ?
+
+892
+00:48:34,705 --> 00:48:37,457
+<i>Pourquoi pas ?</i>
+<i>Tu aurais une meilleure idée ?</i>
+
+893
+00:48:37,916 --> 00:48:41,169
+Je ne sais pas. Pourquoi pas ici ?
+
+894
+00:48:41,253 --> 00:48:44,965
+Tu te souviens de la vieille fabrique
+de machines-outils ?
+
+895
+00:48:45,048 --> 00:48:47,092
+Dis à ton père qu'il l'aura
+pour une bouchée de pain,
+
+896
+00:48:47,175 --> 00:48:48,427
+et les ouvriers aussi.
+
+897
+00:48:48,510 --> 00:48:50,971
+La moitié de la ville n'a plus d'emploi.
+
+898
+00:48:51,054 --> 00:48:53,348
+<i>Vraiment ? Eh bien, je le lui dirai.</i>
+
+899
+00:48:53,432 --> 00:48:54,766
+<i>Ça paraît fabuleux.</i>
+
+900
+00:48:54,850 --> 00:48:56,727
+<i>Chérie, je savais que tu allais réussir.</i>
+
+901
+00:48:56,810 --> 00:48:59,855
+<i>Voilà l'affaire. Mary,</i>
+<i>tu seras aussi impliquée.</i>
+
+902
+00:48:59,938 --> 00:49:03,025
+<i>Maintenant, écoutez.</i>
+<i>Est-ce que vous avez de l'argent ?</i>
+
+903
+00:49:05,068 --> 00:49:07,070
+De l'argent ? Oui, un peu.
+
+904
+00:49:07,154 --> 00:49:08,113
+<i>Ecoute,</i>
+
+905
+00:49:08,196 --> 00:49:11,408
+<i>je voudrais que tu investisses</i>
+<i>tout ton argent dans nos actions.</i>
+
+906
+00:49:11,491 --> 00:49:14,202
+<i>Et, George, je pourrais avoir</i>
+<i>du travail pour toi.</i>
+
+907
+00:49:14,286 --> 00:49:18,248
+<i>A moins que tu sois toujours marié</i>
+<i>à la vieille Construction & Prêts.</i>
+
+908
+00:49:18,874 --> 00:49:20,542
+<i>La meilleure invention depuis la radio.</i>
+
+909
+00:49:20,626 --> 00:49:22,753
+<i>Je te laisse investir au départ.</i>
+
+910
+00:49:22,836 --> 00:49:24,880
+<i>Mary.</i>
+
+911
+00:49:27,716 --> 00:49:29,301
+Oui, je... Je suis là.
+
+912
+00:49:29,885 --> 00:49:31,136
+<i>Veux-tu dire à ce type</i>
+
+913
+00:49:31,219 --> 00:49:34,848
+<i>que je lui offre la chance de sa vie ?</i>
+
+914
+00:49:38,560 --> 00:49:41,146
+Il dit que c'est la chance de ta vie.
+
+915
+00:49:44,650 --> 00:49:46,193
+Ecoute-moi.
+
+916
+00:49:46,401 --> 00:49:49,404
+Je ne veux pas de plastique
+ni d'investissement de départ
+
+917
+00:49:49,488 --> 00:49:51,448
+et je ne veux pas me marier,
+
+918
+00:49:51,531 --> 00:49:52,949
+tu comprends ?
+
+919
+00:49:53,033 --> 00:49:54,993
+Je veux faire ce dont j'ai envie.
+
+920
+00:49:55,077 --> 00:49:58,121
+Et toi...
+
+921
+00:49:58,205 --> 00:50:01,708
+- Mary.
+- George.
+
+922
+00:50:04,419 --> 00:50:05,712
+Mary.
+
+923
+00:50:07,255 --> 00:50:10,842
+Oh, mon Dieu.
+
+924
+00:50:12,469 --> 00:50:13,679
+Mary.
+
+925
+00:50:14,805 --> 00:50:16,181
+Les voilà !
+
+926
+00:50:41,540 --> 00:50:43,291
+Au revoir, George !
+
+927
+00:50:51,633 --> 00:50:52,926
+JEUNES MARIÉS
+
+928
+00:50:55,387 --> 00:50:57,889
+D'abord Harry, maintenant George.
+
+929
+00:50:57,973 --> 00:51:00,183
+Annie, nous sommes deux vieilles filles.
+
+930
+00:51:00,267 --> 00:51:02,394
+Parlez pour vous, madame B.
+
+931
+00:51:05,021 --> 00:51:08,442
+Si vous voyez un étranger
+dans le coin, ce n'est que moi.
+
+932
+00:51:10,652 --> 00:51:13,071
+Regarde, quelqu'un conduit le taxi.
+
+933
+00:51:13,155 --> 00:51:14,990
+Bert, l'agent de police, vous envoie ceci.
+
+934
+00:51:15,073 --> 00:51:17,451
+Pour nager dans le bonheur.
+
+935
+00:51:17,534 --> 00:51:19,745
+Bon vieux Bert. Du champagne.
+
+936
+00:51:19,828 --> 00:51:22,998
+Où allez-vous en lune de miel ?
+
+937
+00:51:23,081 --> 00:51:25,208
+Où nous allons ? Regarde.
+
+938
+00:51:25,292 --> 00:51:27,669
+C'est la cagnotte. Compte-la, Mary.
+
+939
+00:51:27,753 --> 00:51:29,838
+Je suis la femme d'un contrebandier !
+
+940
+00:51:29,921 --> 00:51:32,299
+On va tout dépenser.
+
+941
+00:51:32,382 --> 00:51:34,634
+Une semaine à New York,
+une semaine aux Bermudes.
+
+942
+00:51:34,718 --> 00:51:37,179
+Les hôtels les plus luxueux,
+le meilleur champagne,
+
+943
+00:51:37,262 --> 00:51:41,767
+le meilleur caviar, la meilleure musique
+et la plus jolie épouse.
+
+944
+00:51:41,850 --> 00:51:44,102
+Parfait. Et après ?
+
+945
+00:51:44,186 --> 00:51:47,189
+- Et après, chérie ?
+- Après ? Peu importe.
+
+946
+00:51:47,689 --> 00:51:49,649
+Ça me convient. Viens ici.
+
+947
+00:51:52,819 --> 00:51:54,362
+Ne regarde pas, mais il se passe
+quelque chose d'étrange
+
+948
+00:51:54,446 --> 00:51:56,656
+à la banque.
+
+949
+00:51:56,740 --> 00:52:00,786
+J'en n'ai jamais vu, mais on dirait bien
+une ruée sur la banque.
+
+950
+00:52:08,293 --> 00:52:11,296
+Si vous avez de l'argent
+à la banque, dépêchez-vous.
+
+951
+00:52:11,379 --> 00:52:13,131
+George, ne nous arrêtons pas.
+
+952
+00:52:13,215 --> 00:52:14,966
+Juste une minute, chérie.
+
+953
+00:52:17,719 --> 00:52:21,306
+- S'il te plaît, allons-y.
+- Je reviens dans une minute.
+
+954
+00:52:37,864 --> 00:52:40,367
+Bonjour, tout le monde.
+Comment ça va ?
+
+955
+00:52:40,450 --> 00:52:43,286
+Que se passe-t-il ?
+Vous ne pouvez pas entrer ?
+
+956
+00:53:00,595 --> 00:53:02,889
+Oncle Billy ? C'est un jour férié ?
+
+957
+00:53:03,139 --> 00:53:04,307
+George.
+
+958
+00:53:05,016 --> 00:53:09,020
+Entrez, tout le monde.
+Il n'y a pas de problème. Entrez.
+
+959
+00:53:09,271 --> 00:53:10,605
+Attention, Jimmy.
+
+960
+00:53:12,732 --> 00:53:14,359
+Prenez un siège.
+
+961
+00:53:14,442 --> 00:53:16,611
+Il y a en beaucoup là-bas.
+
+962
+00:53:17,612 --> 00:53:19,489
+Mettez-vous à l'aise.
+
+963
+00:53:21,074 --> 00:53:23,493
+George, je peux te voir une minute ?
+
+964
+00:53:24,077 --> 00:53:26,329
+- Pourquoi ne m'as-tu pas appelé ?
+- Tu étais déjà parti.
+
+965
+00:53:26,413 --> 00:53:27,998
+On a un souci.
+
+966
+00:53:28,081 --> 00:53:29,624
+Que s'est-il passé ?
+
+967
+00:53:30,375 --> 00:53:32,586
+- Il a fallu rembourser la banque.
+- Quand ?
+
+968
+00:53:32,669 --> 00:53:34,880
+Y a une heure. Ils ont pris le liquide.
+
+969
+00:53:36,381 --> 00:53:38,758
+- C'est moins que ce qu'on leur doit.
+- Bon sang !
+
+970
+00:53:38,842 --> 00:53:40,969
+J'ai pris peur et j'ai fermé la porte.
+
+971
+00:53:44,764 --> 00:53:46,516
+La ville est devenue folle.
+
+972
+00:53:46,600 --> 00:53:47,934
+Allô ?
+
+973
+00:53:48,101 --> 00:53:50,145
+George, c'est Potter.
+
+974
+00:53:53,690 --> 00:53:54,774
+Allô ?
+
+975
+00:53:54,858 --> 00:53:59,237
+Il court une rumeur en ville comme quoi
+vous avez fermé vos portes ?
+
+976
+00:53:59,321 --> 00:54:00,780
+C'est vrai ?
+
+977
+00:54:01,156 --> 00:54:03,408
+Je suis ravi de l'entendre.
+
+978
+00:54:03,491 --> 00:54:06,828
+George, est-ce que ça va ?
+Vous avez besoin de la police ?
+
+979
+00:54:06,912 --> 00:54:08,413
+La police, pourquoi ?
+
+980
+00:54:08,496 --> 00:54:12,334
+Les émeutes peuvent parfois
+mal tourner.
+
+981
+00:54:12,626 --> 00:54:17,130
+George, je vais vous aider
+à passer cette crise.
+
+982
+00:54:17,422 --> 00:54:22,385
+J'ai garanti à la banque des fonds
+suffisants pour couvrir ses besoins.
+
+983
+00:54:22,719 --> 00:54:26,097
+Elle restera fermée une semaine
+avant de rouvrir ses portes.
+
+984
+00:54:26,973 --> 00:54:28,934
+Il vient de reprendre la banque.
+
+985
+00:54:29,017 --> 00:54:30,644
+Je pourrais perdre une fortune,
+
+986
+00:54:30,727 --> 00:54:34,606
+mais je suis prêt à vous garantir aussi.
+
+987
+00:54:34,689 --> 00:54:37,150
+Dites à vos clients
+que je rachète leurs parts
+
+988
+00:54:37,233 --> 00:54:39,819
+50 cents par dollar.
+
+989
+00:54:39,903 --> 00:54:42,030
+Vous ne ratez jamais une occasion,
+
+990
+00:54:42,113 --> 00:54:43,281
+mais celle-ci va vous échapper.
+
+991
+00:54:43,365 --> 00:54:47,077
+Si vous fermez vos portes avant 18h,
+vous ne les rouvrirez plus.
+
+992
+00:54:55,877 --> 00:54:57,337
+George, c'était un beau mariage ?
+
+993
+00:54:57,420 --> 00:54:59,422
+Je voulais vraiment y venir.
+
+994
+00:54:59,839 --> 00:55:00,882
+Oui.
+
+995
+00:55:02,801 --> 00:55:05,011
+Tu peux retirer celle-là maintenant.
+
+996
+00:55:13,561 --> 00:55:18,900
+Le voilà. Rappelez-vous que ce n'est
+pas aussi dramatique que ça paraît.
+
+997
+00:55:28,660 --> 00:55:30,495
+J'ai des informations pour vous.
+
+998
+00:55:30,578 --> 00:55:31,997
+Le vieux Potter
+
+999
+00:55:32,080 --> 00:55:33,707
+a garanti un paiement en liquide
+à la banque.
+
+1000
+00:55:33,790 --> 00:55:35,333
+Elle rouvrira la semaine prochaine.
+
+1001
+00:55:35,417 --> 00:55:37,335
+Mais mon argent est ici.
+
+1002
+00:55:37,419 --> 00:55:39,004
+A-t-il offert une garantie pour ici ?
+
+1003
+00:55:39,087 --> 00:55:42,132
+Je ne lui ai pas demandé.
+Nous n'avons pas besoin de Potter.
+
+1004
+00:55:42,215 --> 00:55:44,092
+Je vais reprendre mon argent.
+
+1005
+00:55:46,761 --> 00:55:48,847
+Vous pensez comme si je gardais
+
+1006
+00:55:48,930 --> 00:55:52,517
+l'argent dans le coffre.
+L'argent n'est pas ici.
+
+1007
+00:55:52,600 --> 00:55:55,145
+Votre argent est dans la maison de Joe.
+Votre voisin.
+
+1008
+00:55:55,228 --> 00:55:57,480
+Et dans la maison des Kennedy,
+et de Mme Maitland
+
+1009
+00:55:57,564 --> 00:55:59,065
+et 100 autres.
+
+1010
+00:55:59,149 --> 00:56:00,734
+Vous leur prêtez de l'argent
+pour construire
+
+1011
+00:56:00,817 --> 00:56:02,861
+et ils le remboursent.
+
+1012
+00:56:02,944 --> 00:56:04,612
+Vous allez saisir leurs biens ?
+
+1013
+00:56:04,696 --> 00:56:10,744
+J'ai 242 $ ici. Et 242 $
+ne vont pas ruiner quiconque.
+
+1014
+00:56:11,619 --> 00:56:14,205
+D'accord, Tom, très bien.
+
+1015
+00:56:14,456 --> 00:56:17,042
+Voilà. Signe ceci
+et tu auras ton argent dans 60 jours.
+
+1016
+00:56:17,125 --> 00:56:18,251
+60 jours ?
+
+1017
+00:56:18,334 --> 00:56:20,378
+Tu as accepté les conditions.
+
+1018
+00:56:20,462 --> 00:56:22,589
+- Tu as eu ton argent ?
+- Non.
+
+1019
+00:56:22,672 --> 00:56:23,715
+Moi oui.
+
+1020
+00:56:23,798 --> 00:56:26,801
+Le vieux Potter rachète les parts
+50 cents par dollar.
+
+1021
+00:56:26,968 --> 00:56:29,095
+Oui, en liquide.
+
+1022
+00:56:29,179 --> 00:56:30,764
+Alors, qu'en dis-tu ?
+
+1023
+00:56:30,847 --> 00:56:33,475
+Il faut respecter ton engagement.
+
+1024
+00:56:33,558 --> 00:56:34,893
+Donne-nous 60 jours.
+
+1025
+00:56:34,976 --> 00:56:37,062
+- Très bien.
+- Vous allez chez Potter ?
+
+1026
+00:56:37,145 --> 00:56:39,230
+Autant en avoir la moitié que rien.
+
+1027
+00:56:39,314 --> 00:56:41,399
+Tom ! Tom !
+
+1028
+00:56:41,816 --> 00:56:43,651
+Randall ! Attendez.
+
+1029
+00:56:44,027 --> 00:56:47,822
+Ecoutez-moi. Je vous supplie
+de ne pas le faire.
+
+1030
+00:56:47,906 --> 00:56:49,991
+Si Potter prend le contrôle,
+
+1031
+00:56:50,075 --> 00:56:52,035
+aucune maison décente
+ne sera construite.
+
+1032
+00:56:52,118 --> 00:56:53,620
+Il possède déjà la banque,
+
+1033
+00:56:53,703 --> 00:56:55,747
+les magasins
+
+1034
+00:56:55,830 --> 00:56:58,583
+et maintenant, il en a après nous.
+Pourquoi ? C'est simple:
+
+1035
+00:56:58,666 --> 00:57:00,919
+nous empiétons sur ses plates-bandes.
+
+1036
+00:57:01,002 --> 00:57:03,088
+Il veut que vous restiez dans ses taudis
+
+1037
+00:57:03,171 --> 00:57:05,090
+et que vous lui payiez le loyer.
+
+1038
+00:57:05,173 --> 00:57:07,092
+Tu vivais dans une maison de Potter.
+
+1039
+00:57:07,175 --> 00:57:08,176
+Tu as oublié
+
+1040
+00:57:08,259 --> 00:57:10,637
+combien il te prenait ?
+
+1041
+00:57:10,720 --> 00:57:13,848
+Ed, tu te rappelles l'année dernière,
+
+1042
+00:57:13,932 --> 00:57:15,100
+quand tu ne pouvais plus rembourser,
+
+1043
+00:57:15,183 --> 00:57:16,643
+tu n'as pas perdu ta maison.
+
+1044
+00:57:16,726 --> 00:57:18,478
+Potter t'aurait laissé la garder ?
+
+1045
+00:57:18,561 --> 00:57:21,272
+Vous ne comprenez pas
+ce qui se passe ?
+
+1046
+00:57:21,356 --> 00:57:22,941
+Vous ne voyez pas ?
+
+1047
+00:57:23,024 --> 00:57:25,735
+Potter ne vend pas. Potter rachète.
+Pourquoi ?
+
+1048
+00:57:25,819 --> 00:57:27,987
+Parce qu'on cède à la panique
+et pas lui.
+
+1049
+00:57:28,071 --> 00:57:29,280
+Il profite de l'occasion.
+
+1050
+00:57:29,364 --> 00:57:31,741
+Nous pourrons nous en sortir.
+
+1051
+00:57:31,825 --> 00:57:33,618
+Nous devons nous serrer les coudes
+
+1052
+00:57:33,701 --> 00:57:35,203
+et rester confiants.
+
+1053
+00:57:35,286 --> 00:57:38,498
+Mon mari ne travaille plus depuis un an.
+J'ai besoin d'argent.
+
+1054
+00:57:38,581 --> 00:57:40,291
+Comment vais-je vivre ?
+
+1055
+00:57:40,375 --> 00:57:42,710
+- Je dois payer le médecin.
+- J'ai besoin de liquide.
+
+1056
+00:57:44,796 --> 00:57:46,464
+De combien avez-vous besoin ?
+
+1057
+00:57:46,548 --> 00:57:50,051
+Hé ! J'ai 2 000 $.
+
+1058
+00:57:50,677 --> 00:57:53,138
+Ça nous permettra de survivre
+jusqu'à la réouverture de la banque.
+
+1059
+00:57:53,221 --> 00:57:56,015
+- Tom, combien veux-tu ?
+- 242 $.
+
+1060
+00:57:56,099 --> 00:57:58,643
+Non, juste assez pour survivre.
+
+1061
+00:57:58,726 --> 00:58:00,895
+Je prendrai 242 $.
+
+1062
+00:58:03,690 --> 00:58:05,483
+- 242 $, les voilà.
+- Je ferme mon compte.
+
+1063
+00:58:05,567 --> 00:58:07,861
+Ton compte reste ouvert. C'est un prêt.
+
+1064
+00:58:07,944 --> 00:58:11,322
+- Très bien. Très bien, Ed.
+- J'ai 300 $ ici, George.
+
+1065
+00:58:11,406 --> 00:58:14,993
+Combien il te faut
+jusqu'à la réouverture de la banque ?
+
+1066
+00:58:15,076 --> 00:58:17,412
+Je suppose que 20 $ feront l'affaire.
+
+1067
+00:58:17,495 --> 00:58:20,331
+Bien dit. Merci, Ed.
+
+1068
+00:58:20,415 --> 00:58:22,000
+Mme Thompson, de combien
+avez-vous besoin ?
+
+1069
+00:58:22,083 --> 00:58:23,376
+Mais c'est votre argent personnel.
+
+1070
+00:58:23,459 --> 00:58:25,170
+Combien voulez-vous ?
+
+1071
+00:58:25,253 --> 00:58:26,963
+Je m'en sortirai avec 20 $
+
+1072
+00:58:27,422 --> 00:58:29,549
+- et je signerai un papier.
+- Vous n'avez rien à signer.
+
+1073
+00:58:29,632 --> 00:58:31,759
+Vous rembourserez
+quand vous le pourrez.
+
+1074
+00:58:31,843 --> 00:58:35,263
+- Bon, mademoiselle Davis.
+- Pourrais-je avoir 17,50 $ ?
+
+1075
+00:58:37,098 --> 00:58:40,476
+Soyez bénie. Bien sûr. Tu as 50 cents ?
+
+1076
+00:58:40,560 --> 00:58:43,521
+- Sept, six...
+- Nous allons y arriver.
+
+1077
+00:58:43,605 --> 00:58:48,109
+Cinq, quatre, trois, deux,
+
+1078
+00:58:48,276 --> 00:58:50,361
+un ! Bingo !
+
+1079
+00:58:50,445 --> 00:58:52,071
+On a réussi ! Ferme la porte.
+On a réussi.
+
+1080
+00:58:52,155 --> 00:58:55,074
+On est encore en activité !
+Il nous reste deux dollars !
+
+1081
+00:58:55,158 --> 00:58:56,993
+Buvons un verre. Fêtons ça.
+
+1082
+00:58:57,076 --> 00:58:58,494
+Va chercher des verres.
+
+1083
+00:58:58,578 --> 00:59:01,831
+- Un duo de génies de la finance.
+- Des Rockefeller.
+
+1084
+00:59:01,915 --> 00:59:04,417
+Un plateau pour ces deux billets
+très importants.
+
+1085
+00:59:04,500 --> 00:59:06,044
+On va les cultiver. Trinquons.
+
+1086
+00:59:06,127 --> 00:59:09,589
+Un toast pour papa et maman dollar.
+
+1087
+00:59:09,672 --> 00:59:11,799
+Si vous ne voulez pas qu'on ferme,
+
+1088
+00:59:11,883 --> 00:59:13,384
+faites des petits.
+
+1089
+00:59:13,468 --> 00:59:15,595
+J'aimerais que ça soit des lapins.
+
+1090
+00:59:16,387 --> 00:59:20,058
+Bon, plaçons-les dans le coffre
+et on verra bien ce qui se passera.
+
+1091
+00:59:28,107 --> 00:59:30,026
+Regardez, des cigares du mariage.
+
+1092
+00:59:30,109 --> 00:59:33,529
+Mariage... Bon sang, je suis marié !
+
+1093
+00:59:33,613 --> 00:59:36,241
+Où est Mary ? Mary !
+
+1094
+00:59:36,324 --> 00:59:38,493
+J'ai un train à prendre...
+Le train est parti.
+
+1095
+00:59:38,576 --> 00:59:40,954
+Ernie est encore là avec son taxi ?
+
+1096
+00:59:41,037 --> 00:59:43,456
+George, téléphone pour toi.
+
+1097
+00:59:43,539 --> 00:59:44,874
+Appelez ma femme.
+
+1098
+00:59:44,958 --> 00:59:46,334
+Elle doit être chez sa mère.
+
+1099
+00:59:46,417 --> 00:59:47,961
+C'est Mme Bailey au téléphone.
+
+1100
+00:59:48,044 --> 00:59:50,088
+Pas Mme Bailey. Je veux...
+
+1101
+00:59:50,171 --> 00:59:53,716
+Madame Bailey ! C'est ma femme.
+Je prends la communication ici.
+
+1102
+00:59:54,092 --> 00:59:57,178
+Mary ? Allô ? Ecoute, chérie,
+je suis désolé.
+
+1103
+00:59:57,595 --> 01:00:01,307
+Comment ? Rentrer à la maison ?
+Quelle maison ?
+
+1104
+01:00:02,058 --> 01:00:05,812
+320 Sycamore.
+Qui habite à cette adresse ?
+
+1105
+01:00:06,646 --> 01:00:08,856
+L'hôtel Waldorf.
+
+1106
+01:00:19,409 --> 01:00:22,453
+Ce sont des affiches publicitaires.
+Ils ne vont pas aimer.
+
+1107
+01:00:22,537 --> 01:00:24,539
+Tu veux une amende ?
+
+1108
+01:00:24,622 --> 01:00:25,957
+N'es-tu pas un peu romantique ?
+
+1109
+01:00:26,040 --> 01:00:28,626
+- Si, mais j'ai oublié.
+- Des cachets pour le foie.
+
+1110
+01:00:28,710 --> 01:00:31,212
+Qui veut voir ça
+pendant sa lune de miel ?
+
+1111
+01:00:31,296 --> 01:00:33,715
+On veut des endroits romantiques,
+
+1112
+01:00:33,798 --> 01:00:35,633
+là où George voudrait aller.
+
+1113
+01:00:36,968 --> 01:00:38,720
+Hé, Bert, le voilà.
+
+1114
+01:00:38,803 --> 01:00:40,054
+Allez. Il arrive.
+
+1115
+01:00:40,138 --> 01:00:42,015
+- Qui ça ?
+- Le marié.
+
+1116
+01:00:42,098 --> 01:00:43,975
+C'est leur lune de miel.
+Va chercher l'échelle.
+
+1117
+01:00:44,058 --> 01:00:45,810
+C'est quoi, des canards ?
+
+1118
+01:00:48,396 --> 01:00:49,772
+Monte l'échelle.
+
+1119
+01:00:50,732 --> 01:00:53,568
+- Dépêche-toi.
+- Je me dépêche.
+
+1120
+01:01:02,618 --> 01:01:05,288
+Salut... Bonsoir, monsieur.
+
+1121
+01:01:07,415 --> 01:01:08,958
+Entrez, monsieur.
+
+1122
+01:01:10,960 --> 01:01:12,295
+Entrez.
+
+1123
+01:02:07,141 --> 01:02:11,604
+FLORIDE LES MERS DU SUD
+CROISIÈRE DE LUXE
+
+1124
+01:02:30,665 --> 01:02:33,209
+Bienvenue à la maison, monsieur Bailey.
+
+1125
+01:02:37,463 --> 01:02:39,757
+Eh bien, que je sois...
+
+1126
+01:02:44,929 --> 01:02:47,640
+Mary, où as-tu... ?
+
+1127
+01:03:08,494 --> 01:03:10,413
+Mary...
+
+1128
+01:03:13,082 --> 01:03:16,794
+Tu te souviens de la nuit où
+on a cassé les vitres de cette maison ?
+
+1129
+01:03:17,753 --> 01:03:19,797
+C'est le vœu que j'avais fait.
+
+1130
+01:03:23,551 --> 01:03:25,720
+Tu es merveilleuse.
+
+1131
+01:03:28,639 --> 01:03:30,641
+Merveilleuse.
+
+1132
+01:03:34,896 --> 01:03:40,610
+<i>Sincèrement, ma chérie.</i>
+
+1133
+01:03:49,702 --> 01:03:53,748
+- Tu as loué une nouvelle maison ?
+- Loué ?
+
+1134
+01:03:54,999 --> 01:03:57,460
+- Vous avez entendu, monsieur Bailey ?
+- Qu'est-ce qu'il a dit ?
+
+1135
+01:03:57,543 --> 01:03:59,253
+La maison m'appartient.
+
+1136
+01:03:59,462 --> 01:04:02,840
+A moi, Giuseppe Martini.
+Je suis propriétaire.
+
+1137
+01:04:02,924 --> 01:04:06,260
+On ne vivra plus comme des porcs
+dans Potter's Field.
+
+1138
+01:04:06,344 --> 01:04:09,430
+- Mary ! Mary.
+- Allez, viens. Apporte le bébé.
+
+1139
+01:04:10,097 --> 01:04:11,891
+C'est comme dans un rêve.
+
+1140
+01:04:11,974 --> 01:04:15,061
+- Les enfants monteront dans la voiture.
+- Merci.
+
+1141
+01:04:15,144 --> 01:04:18,064
+Allez, les enfants, par ici. Montez.
+
+1142
+01:04:18,147 --> 01:04:20,691
+Un à la fois.
+Asseyez-vous sur la banquette.
+
+1143
+01:04:21,859 --> 01:04:25,530
+- Très bien, assieds-toi maintenant.
+- Attendez !
+
+1144
+01:04:32,787 --> 01:04:34,705
+Au revoir.
+
+1145
+01:04:37,375 --> 01:04:38,960
+Tout le monde est là ?
+
+1146
+01:04:43,214 --> 01:04:46,842
+BIENVENUE A BAILEY PARK
+
+1147
+01:04:57,478 --> 01:04:59,939
+M. et Mme Martini, bienvenue chez vous.
+
+1148
+01:05:00,439 --> 01:05:02,984
+George est toujours
+à faire des discours.
+
+1149
+01:05:05,570 --> 01:05:09,198
+- Sam Wainwright.
+- Peu importe.
+
+1150
+01:05:09,740 --> 01:05:12,910
+Du pain. Que cette maison
+ne connaisse jamais la faim.
+
+1151
+01:05:13,661 --> 01:05:16,998
+Du sel, pour que la vie
+ait toujours du goût.
+
+1152
+01:05:17,415 --> 01:05:20,876
+Et du vin. Que la joie et la prospérité
+règnent à tout jamais.
+
+1153
+01:05:20,960 --> 01:05:22,878
+Entrez au château des Martini.
+
+1154
+01:05:24,547 --> 01:05:27,008
+Ça ne me fait ni chaud, ni froid.
+
+1155
+01:05:27,091 --> 01:05:28,926
+Je ne suis que le receveur
+de vos loyers.
+
+1156
+01:05:29,010 --> 01:05:31,804
+Mais vous ne pouvez plus ignorer
+Bailey Park.
+
+1157
+01:05:31,887 --> 01:05:33,014
+Regardez ça.
+
+1158
+01:05:33,889 --> 01:05:35,933
+<i>M. Blatz, membre du Congrès, est ici.</i>
+
+1159
+01:05:36,017 --> 01:05:38,978
+Dites-lui d'attendre. Continuez.
+
+1160
+01:05:39,061 --> 01:05:41,856
+Il y a 15 ans, une demi-douzaine
+de maisons ci et là.
+
+1161
+01:05:41,939 --> 01:05:44,191
+L'ancien cimetière, des boutons d'or,
+des marguerites.
+
+1162
+01:05:44,275 --> 01:05:46,485
+J'y chassais le lapin.
+
+1163
+01:05:47,361 --> 01:05:48,696
+Aujourd'hui,
+
+1164
+01:05:48,821 --> 01:05:51,741
+des dizaines des plus jolies maisons
+que vous ayez jamais vues.
+
+1165
+01:05:51,824 --> 01:05:55,036
+90% sont la propriété de nigauds
+qui vous payaient un loyer.
+
+1166
+01:05:55,119 --> 01:05:58,456
+Votre Potter's Field
+devient le pot de terre.
+
+1167
+01:05:58,539 --> 01:06:01,959
+Tous ces culs-terreux locaux
+qui plaisantent avec David et Goliath.
+
+1168
+01:06:02,043 --> 01:06:03,794
+Vraiment ?
+
+1169
+01:06:03,878 --> 01:06:06,797
+Même s'ils savent que les Bailey
+n'ont jamais gagné d'argent.
+
+1170
+01:06:06,881 --> 01:06:09,383
+Vous savez pourquoi.
+Les Bailey sont tous des crétins.
+
+1171
+01:06:09,467 --> 01:06:11,427
+Chacune de ces maisons vaut
+
+1172
+01:06:11,510 --> 01:06:13,638
+deux fois plus
+que leur coût de construction.
+
+1173
+01:06:13,721 --> 01:06:16,140
+- A votre place...
+- Vous n'êtes pas à ma place.
+
+1174
+01:06:16,223 --> 01:06:19,727
+Comme je le disais,
+ça ne me fait ni chaud, ni froid.
+
+1175
+01:06:22,855 --> 01:06:24,815
+Un de ces jours, ce brillant garçon
+
+1176
+01:06:24,899 --> 01:06:27,526
+va demander du travail à George Bailey.
+
+1177
+01:06:29,904 --> 01:06:33,032
+La famille Bailey me cause des soucis
+depuis trop longtemps.
+
+1178
+01:06:33,115 --> 01:06:35,409
+<i>- Oui, monsieur.</i>
+- Veuillez venir ici.
+
+1179
+01:06:35,576 --> 01:06:37,745
+Nous nous sommes arrêtés
+à la nouvelle usine
+
+1180
+01:06:37,828 --> 01:06:39,830
+avant d'aller en Floride.
+
+1181
+01:06:39,914 --> 01:06:41,540
+Pourquoi tes amis ne viendraient pas ?
+
+1182
+01:06:41,624 --> 01:06:45,044
+Bien sûr. Et si vous descendiez
+en voiture avec nous ?
+
+1183
+01:06:45,419 --> 01:06:48,172
+Je crains ne pas pouvoir partir.
+
+1184
+01:06:48,255 --> 01:06:50,341
+Tu ne te laisses aucun répit, hein ?
+
+1185
+01:06:50,424 --> 01:06:54,011
+J'ai proposé à George
+d'investir dans les plastiques.
+
+1186
+01:06:54,095 --> 01:06:55,262
+Il a refusé tout net.
+
+1187
+01:06:55,346 --> 01:06:56,806
+N'insiste pas, Sam.
+
+1188
+01:06:58,224 --> 01:06:59,850
+Nous ferions bien
+de nous mettre en route.
+
+1189
+01:06:59,934 --> 01:07:01,977
+- Ravie de vous avoir rencontrée.
+- C'était un plaisir.
+
+1190
+01:07:02,311 --> 01:07:04,146
+A bientôt, George.
+
+1191
+01:07:05,064 --> 01:07:07,149
+- A bientôt, Mary.
+- Amusez-vous bien.
+
+1192
+01:07:07,233 --> 01:07:09,276
+- Merci d'être passés.
+- La Floride.
+
+1193
+01:07:40,307 --> 01:07:41,684
+Merci, monsieur.
+
+1194
+01:07:42,184 --> 01:07:44,145
+Quel cigare, monsieur Potter !
+
+1195
+01:07:44,270 --> 01:07:46,188
+Je vous en enverrai une boîte.
+
+1196
+01:07:57,491 --> 01:07:58,993
+Je pense que je vais le savoir
+tôt ou tard,
+
+1197
+01:07:59,076 --> 01:08:01,954
+mais pour quelle raison
+vouliez-vous me rencontrer ?
+
+1198
+01:08:04,039 --> 01:08:07,668
+George, c'est ce que j'apprécie
+chez vous.
+
+1199
+01:08:08,169 --> 01:08:11,797
+George, je suis un vieil homme
+et la plupart des gens me détestent.
+
+1200
+01:08:11,881 --> 01:08:14,884
+Mais je ne les aime pas non plus,
+donc nous sommes quittes.
+
+1201
+01:08:14,967 --> 01:08:17,136
+Vous savez aussi bien que moi
+
+1202
+01:08:17,219 --> 01:08:19,764
+que je gère pratiquement tout
+dans cette ville,
+
+1203
+01:08:19,847 --> 01:08:22,433
+à l'exception de Bailey
+Construction & Prêts.
+
+1204
+01:08:22,892 --> 01:08:26,979
+Vous savez que depuis des années,
+j'essaie d'en obtenir le contrôle,
+
+1205
+01:08:27,062 --> 01:08:29,815
+ou de liquider cette affaire,
+mais je n'ai pas réussi.
+
+1206
+01:08:29,899 --> 01:08:31,859
+Vous m'en avez empêché.
+
+1207
+01:08:32,985 --> 01:08:36,113
+En fait, vous m'avez battu, George,
+
+1208
+01:08:36,197 --> 01:08:40,701
+et comme tous les habitants du comté
+vous diront, il faut du cran pour ça.
+
+1209
+01:08:41,786 --> 01:08:44,497
+Prenez par exemple
+pendant la Grande Dépression.
+
+1210
+01:08:44,580 --> 01:08:47,666
+Vous et moi étions les seuls
+à ne pas perdre la tête.
+
+1211
+01:08:47,750 --> 01:08:51,712
+Vous avez sauvé Construction & Prêts.
+J'ai sauvé le reste.
+
+1212
+01:08:51,796 --> 01:08:54,465
+La plupart des gens diraient
+que vous avez volé le reste.
+
+1213
+01:08:54,548 --> 01:08:57,843
+Ce sont les envieux qui le disent,
+George. Les imbéciles.
+
+1214
+01:08:58,803 --> 01:09:02,890
+J'ai clairement décrit ma position.
+
+1215
+01:09:03,224 --> 01:09:05,392
+Maintenant, regardons la vôtre.
+
+1216
+01:09:06,310 --> 01:09:13,275
+Un jeune homme de 27, 28 ans, marié,
+qui est payé disons 40 $ par semaine.
+
+1217
+01:09:13,359 --> 01:09:15,277
+45.
+
+1218
+01:09:16,862 --> 01:09:20,741
+Après avoir aidé votre mère
+et payé les factures,
+
+1219
+01:09:20,825 --> 01:09:23,953
+vous pouvez économiser dix dollars,
+en faisant attention.
+
+1220
+01:09:35,714 --> 01:09:40,010
+Mais George Bailey
+n'est pas un gars ordinaire.
+
+1221
+01:09:40,094 --> 01:09:43,764
+C'est un jeune homme intelligent,
+malin et ambitieux,
+
+1222
+01:09:43,848 --> 01:09:47,059
+qui déteste son métier,
+qui déteste Construction & Prêts
+
+1223
+01:09:47,142 --> 01:09:48,811
+presque autant que moi.
+
+1224
+01:09:49,520 --> 01:09:54,108
+Un jeune homme qui rêve de voler
+de ses propres ailes depuis qu'il est né.
+
+1225
+01:09:54,525 --> 01:09:57,361
+Le plus malin de tous.
+
+1226
+01:09:57,444 --> 01:09:59,029
+Un jeune homme
+
+1227
+01:09:59,113 --> 01:10:02,575
+qui regarde ses amis voyager,
+car il est piégé,
+
+1228
+01:10:02,658 --> 01:10:06,328
+oui monsieur, obligé de gâcher sa vie
+
+1229
+01:10:06,412 --> 01:10:09,373
+à jouer les nounous
+pour une foule de mangeurs d'ail.
+
+1230
+01:10:10,457 --> 01:10:13,794
+Ai-je bien dépeint la situation
+ou est-ce que j'ai exagéré ?
+
+1231
+01:10:16,255 --> 01:10:18,799
+- Où voulez-vous en venir, M. Potter ?
+- Où je veux en venir ?
+
+1232
+01:10:18,883 --> 01:10:21,468
+- Je voudrais vous engager.
+- M'engager, moi ?
+
+1233
+01:10:21,552 --> 01:10:24,972
+Je voudrais que vous gériez
+mes affaires. Gérez mes propriétés.
+
+1234
+01:10:25,055 --> 01:10:30,144
+George, je vous offre
+un salaire de départ de 20 000 $ par an.
+
+1235
+01:10:33,981 --> 01:10:36,942
+20 000 $ par an ?
+
+1236
+01:10:37,026 --> 01:10:40,404
+Vous pourriez habiter
+la plus jolie maison de la ville.
+
+1237
+01:10:40,487 --> 01:10:43,198
+Acheter de jolis vêtements
+à votre épouse.
+
+1238
+01:10:43,282 --> 01:10:46,076
+Effectuer quelques voyages d'affaires
+à New York.
+
+1239
+01:10:46,160 --> 01:10:47,995
+Peut-être voyager en Europe
+de temps en temps.
+
+1240
+01:10:48,078 --> 01:10:49,413
+Ça vous plairait, n'est-ce pas ?
+
+1241
+01:10:49,496 --> 01:10:50,956
+Si ça me plairait ?
+
+1242
+01:10:53,834 --> 01:10:56,170
+Vous n'êtes pas en train
+de vous adresser à quelqu'un d'autre ?
+
+1243
+01:10:56,253 --> 01:10:57,963
+C'est moi. Vous vous rappelez ?
+
+1244
+01:10:58,047 --> 01:10:59,840
+- George Bailey.
+- George Bailey,
+
+1245
+01:10:59,924 --> 01:11:03,010
+oui. Le George Bailey
+dont le bateau est à quai.
+
+1246
+01:11:04,303 --> 01:11:07,514
+En admettant qu'il ait assez
+de jugeote pour monter à bord.
+
+1247
+01:11:15,856 --> 01:11:17,274
+Bon sang !
+
+1248
+01:11:20,361 --> 01:11:22,905
+Et pour Construction & Prêts ?
+
+1249
+01:11:22,988 --> 01:11:26,408
+Envoyez ça au diable.
+Avez-vous peur de la réussite ?
+
+1250
+01:11:26,533 --> 01:11:31,455
+Je vous offre un contrat de trois ans,
+à 20 000 $ l'an, à partir d'aujourd'hui.
+
+1251
+01:11:31,538 --> 01:11:33,248
+Marché conclu ?
+
+1252
+01:11:34,875 --> 01:11:36,543
+M. Potter,
+
+1253
+01:11:36,752 --> 01:11:40,547
+je sais que je devrais
+profiter de l'occasion, mais je...
+
+1254
+01:11:41,674 --> 01:11:45,719
+Pouvez-vous m'accorder 24 heures
+pour y réfléchir ?
+
+1255
+01:11:45,803 --> 01:11:47,471
+Bien sûr.
+
+1256
+01:11:47,554 --> 01:11:50,140
+Rentrez chez vous
+et discutez-en avec votre épouse.
+
+1257
+01:11:50,224 --> 01:11:51,767
+Oui, j'aimerais en discuter avec elle.
+
+1258
+01:11:51,850 --> 01:11:54,186
+Je vais préparer le contrat.
+
+1259
+01:11:54,269 --> 01:11:56,772
+- Très bien, monsieur.
+- D'accord, George ?
+
+1260
+01:11:57,690 --> 01:11:59,400
+D'accord, monsieur Potter.
+
+1261
+01:12:07,408 --> 01:12:11,704
+Non, attendez une minute.
+
+1262
+01:12:12,579 --> 01:12:15,416
+Je n'ai pas besoin de 24 heures
+ou d'en discuter avec quelqu'un.
+
+1263
+01:12:15,499 --> 01:12:19,253
+Je sais déjà que la réponse est non.
+Bon sang !
+
+1264
+01:12:19,336 --> 01:12:21,797
+Vous restez là à tisser
+vos toiles d'araignée
+
+1265
+01:12:21,880 --> 01:12:24,341
+en pensant que le monde tourne
+autour de vous.
+
+1266
+01:12:24,425 --> 01:12:26,010
+Eh bien, non.
+
+1267
+01:12:26,093 --> 01:12:29,263
+Dans tout l'univers,
+
+1268
+01:12:29,346 --> 01:12:32,141
+je dirai que vous n'êtes
+qu'une araignée cruelle.
+
+1269
+01:12:34,685 --> 01:12:36,937
+Et cela s'applique à vous également !
+
+1270
+01:12:40,899 --> 01:12:42,985
+Et à vous aussi !
+
+1271
+01:12:49,950 --> 01:12:52,995
+<i>Vous pourriez habiter</i>
+<i>la plus jolie maison de la ville.</i>
+
+1272
+01:12:53,454 --> 01:12:56,040
+<i>Acheter de jolis vêtements</i>
+<i>à votre épouse.</i>
+
+1273
+01:12:56,290 --> 01:12:59,793
+<i>Effectuer quelques voyages d'affaires</i>
+<i>à New York.</i>
+
+1274
+01:12:59,877 --> 01:13:02,504
+<i>Peut-être voyager en Europe</i>
+<i>de temps en temps.</i>
+
+1275
+01:13:03,088 --> 01:13:05,215
+<i>Je sais ce que je vais faire demain,</i>
+
+1276
+01:13:05,299 --> 01:13:08,510
+<i>après-demain et l'année prochaine.</i>
+
+1277
+01:13:08,594 --> 01:13:11,722
+<i>Je vais me débarrasser de la poussière</i>
+<i>de cette pauvre ville</i>
+
+1278
+01:13:11,805 --> 01:13:13,640
+<i>et voir le monde.</i>
+
+1279
+01:13:13,724 --> 01:13:16,477
+<i>Je construirai des aéroports,</i>
+
+1280
+01:13:16,560 --> 01:13:19,146
+<i>des gratte-ciel de 100 étages.</i>
+
+1281
+01:13:19,229 --> 01:13:21,648
+<i>Je construirai des ponts</i>
+<i>de 1 km de long.</i>
+
+1282
+01:13:22,900 --> 01:13:26,070
+<i>Qu'est-ce que tu voudrais, Mary ?</i>
+<i>Tu voudrais la lune ?</i>
+
+1283
+01:13:26,653 --> 01:13:29,073
+<i>Dis-le etje l'attraperai au lasso.</i>
+<i>Je décrocherai la lune</i>
+
+1284
+01:13:29,156 --> 01:13:30,908
+<i>pour toi.</i>
+
+1285
+01:13:31,116 --> 01:13:33,619
+<i>Filles de Buffalo</i>
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+1286
+01:13:33,702 --> 01:13:36,580
+<i>Vous ne voulez pas sortir ce soir ?</i>
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+1287
+01:13:36,663 --> 01:13:39,666
+<i>Filles de Buffalo</i>
+<i>Vous ne voulez pas sortir ce soir ?</i>
+
+1288
+01:13:48,175 --> 01:13:49,802
+- Bonjour.
+- Bonjour.
+
+1289
+01:13:55,265 --> 01:13:56,558
+Mary Hatch.
+
+1290
+01:13:59,061 --> 01:14:01,855
+Pourquoi as-tu épousé
+un type comme moi ?
+
+1291
+01:14:03,315 --> 01:14:05,609
+Pour ne pas devenir une vieille fille.
+
+1292
+01:14:05,984 --> 01:14:07,444
+Tu aurais pu épouser Sam Wainwright
+
+1293
+01:14:07,528 --> 01:14:09,404
+ou un autre gars de la ville.
+
+1294
+01:14:09,613 --> 01:14:12,533
+Je ne voulais pas épouser
+un autre gars de la ville.
+
+1295
+01:14:13,367 --> 01:14:15,452
+Je voudrais que mon bébé
+te ressemble.
+
+1296
+01:14:15,536 --> 01:14:17,538
+Nous n'avons même pas eu
+de lune de miel.
+
+1297
+01:14:17,621 --> 01:14:19,123
+Je t'avais promis...
+
+1298
+01:14:19,832 --> 01:14:22,126
+- Ton quoi ?
+- Mon bébé.
+
+1299
+01:14:24,878 --> 01:14:26,380
+Ton...
+
+1300
+01:14:27,256 --> 01:14:29,133
+Mary, tu couves quelque chose ?
+
+1301
+01:14:29,216 --> 01:14:33,137
+- George Bailey a attrapé une cigogne.
+- Attrapé une cigogne ?
+
+1302
+01:14:37,141 --> 01:14:41,061
+Tu veux dire que... ? Qu'est-ce que c'est,
+un garçon ou une fille ?
+
+1303
+01:14:44,690 --> 01:14:49,194
+<i>Vous avez déjà deviné que George</i>
+<i>n'a jamais quitté Bedford Falls.</i>
+
+1304
+01:14:49,278 --> 01:14:53,031
+<i>Mary a eu son bébé, un garçon.</i>
+
+1305
+01:14:53,740 --> 01:14:55,993
+<i>Puis elle en a eu un autre, une fille.</i>
+
+1306
+01:14:56,076 --> 01:14:58,120
+<i>Jour après jour, elle travaillait</i>
+
+1307
+01:14:58,203 --> 01:15:01,123
+<i>à transformer la vieille maison.</i>
+
+1308
+01:15:01,331 --> 01:15:04,918
+<i>Soir après soir,</i>
+<i>George rentrait tard du bureau.</i>
+
+1309
+01:15:08,630 --> 01:15:10,883
+<i>Potter ne lui laissait aucun répit.</i>
+
+1310
+01:15:11,216 --> 01:15:14,595
+CENTRE D'INSCRIPTION
+RECRUTEMENT-RÉCEPTION
+
+1311
+01:15:16,096 --> 01:15:17,806
+<i>Puis il y a eu la guerre.</i>
+
+1312
+01:15:18,515 --> 01:15:22,102
+<i>Mme Bailey et Mme hatch</i>
+<i>ont rejoint la Croix-Rouge.</i>
+
+1313
+01:15:22,561 --> 01:15:26,690
+<i>Mary a encore eu deux enfants,</i>
+<i>mais elle s'occupait aussi des soldats.</i>
+
+1314
+01:15:26,899 --> 01:15:30,652
+<i>Sam Wainwright a fait fortune</i>
+<i>en fabriquant des cockpits en plastique.</i>
+
+1315
+01:15:30,736 --> 01:15:33,488
+<i>Potter est devenu responsable</i>
+<i>du recrutement des soldats.</i>
+
+1316
+01:15:33,572 --> 01:15:34,948
+Apte...
+
+1317
+01:15:36,074 --> 01:15:37,326
+Apte...
+
+1318
+01:15:40,204 --> 01:15:41,330
+Apte...
+
+1319
+01:15:41,622 --> 01:15:44,416
+<i>Gower et oncle Billy vendaient</i>
+<i>des bons de guerre.</i>
+
+1320
+01:15:44,499 --> 01:15:48,587
+<i>Bert le policier, blessé en Afrique</i>
+<i>du Nord, a reçu la médaille du courage.</i>
+
+1321
+01:15:49,129 --> 01:15:52,424
+<i>Ernie le chauffeur de taxi</i>
+<i>a été parachuté en France.</i>
+
+1322
+01:15:52,799 --> 01:15:55,928
+<i>Marty a participé à la prise</i>
+<i>du pont de Remagen.</i>
+
+1323
+01:15:56,303 --> 01:15:57,387
+<i>Mais harry Bailey</i>
+
+1324
+01:15:57,471 --> 01:15:59,806
+<i>les a tous surpassés.</i>
+
+1325
+01:16:00,140 --> 01:16:03,810
+<i>Pilote dans la marine,</i>
+<i>il a abattu 15 avions,</i>
+
+1326
+01:16:03,894 --> 01:16:08,232
+<i>dont deux qui allaient s'écraser</i>
+<i>sur un navire plein de soldats.</i>
+
+1327
+01:16:09,858 --> 01:16:12,236
+<i>- Oui, mais George ?</i>
+<i>- George ?</i>
+
+1328
+01:16:12,486 --> 01:16:14,404
+<i>Réformé à cause de son oreille,</i>
+
+1329
+01:16:14,488 --> 01:16:16,990
+<i>George a combattu à Bedford Falls.</i>
+
+1330
+01:16:17,491 --> 01:16:19,826
+Attendez, attendez !
+
+1331
+01:16:19,910 --> 01:16:21,453
+Vous ne savez pas qu'il y a la guerre ?
+
+1332
+01:16:21,536 --> 01:16:23,580
+<i>Surveillant les raids aériens...</i>
+
+1333
+01:16:32,089 --> 01:16:33,548
+<i>Transportant des journaux,</i>
+
+1334
+01:16:33,632 --> 01:16:34,967
+<i>des déchets,</i>
+
+1335
+01:16:35,050 --> 01:16:36,468
+<i>des pneus.</i>
+
+1336
+01:16:36,551 --> 01:16:41,598
+<i>Comme tout le monde, le jour de</i>
+<i>la victoire en Europe, il a pleuré et prié.</i>
+
+1337
+01:16:42,266 --> 01:16:46,687
+<i>Le jour de la victoire sur le Japon,</i>
+<i>il a pleuré et prié de nouveau.</i>
+
+1338
+01:16:46,770 --> 01:16:48,939
+<i>Joseph, montrez-lui</i>
+<i>ce qui est arrivé aujourd'hui.</i>
+
+1339
+01:16:49,022 --> 01:16:50,023
+<i>Oui, monsieur.</i>
+
+1340
+01:16:50,816 --> 01:16:53,944
+<i>Ce matin, la veille de Noël,</i>
+<i>à environ 10h</i>
+
+1341
+01:16:54,027 --> 01:16:55,612
+<i>à l'heure de Bedford Falls...</i>
+
+1342
+01:16:55,696 --> 01:16:57,990
+Hé, Ernie, regarde ça.
+
+1343
+01:16:58,282 --> 01:17:02,911
+LE PRÉSIDENT DÉCORE
+HARRY BAILEY
+
+1344
+01:17:03,495 --> 01:17:04,496
+Il va encore neiger.
+
+1345
+01:17:04,579 --> 01:17:07,874
+Comment ça ? Regarde le gros titre.
+
+1346
+01:17:07,958 --> 01:17:10,419
+Je sais, George. C'est merveilleux.
+
+1347
+01:17:10,502 --> 01:17:12,004
+Commandant Harry Bailey.
+
+1348
+01:17:12,087 --> 01:17:14,631
+M. Gower, regardez ceci.
+
+1349
+01:17:14,715 --> 01:17:15,966
+Voici pour vous.
+
+1350
+01:17:16,049 --> 01:17:17,467
+Et pour toi. Et pour toi.
+
+1351
+01:17:17,551 --> 01:17:19,386
+A bientôt.
+
+1352
+01:17:19,594 --> 01:17:20,971
+BIENVENUE HARRY BAILEY
+
+1353
+01:17:21,054 --> 01:17:23,557
+Ecrivez bien le nom ! C'est le bon esprit.
+
+1354
+01:17:34,318 --> 01:17:35,819
+Supplément spécial !
+Tout ce que vous voulez savoir !
+
+1355
+01:17:35,902 --> 01:17:38,405
+George, c'est Harry.
+Il appelle de Washington.
+
+1356
+01:17:40,073 --> 01:17:41,575
+Il appelle en PCV. C'est pas grave ?
+
+1357
+01:17:41,658 --> 01:17:43,952
+Evidemment. Pour un héros.
+
+1358
+01:17:44,036 --> 01:17:45,412
+Harry !
+
+1359
+01:17:45,537 --> 01:17:49,583
+Sacré petit frère. Félicitations.
+
+1360
+01:17:49,750 --> 01:17:52,252
+Comment maman supporte tout ça ?
+
+1361
+01:17:52,586 --> 01:17:53,837
+Vraiment ?
+
+1362
+01:17:53,920 --> 01:17:55,630
+Maman a déjeuné
+avec la femme du président.
+
+1363
+01:17:55,714 --> 01:17:56,798
+Attends que Martha l'apprenne.
+
+1364
+01:17:56,882 --> 01:17:59,051
+Qu'ont-elles mangé ?
+
+1365
+01:18:00,218 --> 01:18:03,347
+Tu devrais voir ce qui se prépare
+ici en ville.
+
+1366
+01:18:04,598 --> 01:18:06,475
+La Navy va ramener maman
+en avion cet après-midi.
+
+1367
+01:18:06,558 --> 01:18:07,684
+En avion ?
+
+1368
+01:18:08,060 --> 01:18:10,187
+Comment ?
+
+1369
+01:18:10,270 --> 01:18:12,647
+- Est-ce qu'oncle Billy peut venir ?
+- Il est passé à la banque.
+
+1370
+01:18:12,731 --> 01:18:16,193
+Il n'est pas ici en ce moment, mais...
+
+1371
+01:18:16,276 --> 01:18:17,319
+George,
+
+1372
+01:18:17,402 --> 01:18:18,528
+- cet homme est revenu.
+- Quel homme ?
+
+1373
+01:18:18,612 --> 01:18:20,322
+L'inspecteur des comptes.
+
+1374
+01:18:21,281 --> 01:18:23,408
+Harry, parle donc avec Eustace
+une minute.
+
+1375
+01:18:23,492 --> 01:18:24,701
+Je reviens.
+
+1376
+01:18:24,785 --> 01:18:26,244
+Bien...
+
+1377
+01:18:26,328 --> 01:18:28,830
+- Bonjour, monsieur.
+- Carter, inspecteur des comptes.
+
+1378
+01:18:28,914 --> 01:18:30,540
+M. Carter, joyeux Noël.
+
+1379
+01:18:31,124 --> 01:18:32,876
+Nous sommes surexcités ici.
+
+1380
+01:18:32,959 --> 01:18:36,046
+Mon frère a reçu
+la médaille d'honneur du Congrès.
+
+1381
+01:18:36,129 --> 01:18:37,881
+Oui, ça se fait.
+
+1382
+01:18:37,964 --> 01:18:39,508
+Je crois savoir que vous avez passé
+une bonne année.
+
+1383
+01:18:39,591 --> 01:18:40,926
+Une bonne année ?
+
+1384
+01:18:41,009 --> 01:18:44,137
+De vous à moi, M. Carter,
+nous sommes fauchés.
+
+1385
+01:18:44,346 --> 01:18:46,014
+Oui, très amusant.
+
+1386
+01:18:48,183 --> 01:18:50,977
+Bien, veuillez entrer, monsieur Carter.
+
+1387
+01:18:51,061 --> 01:18:53,313
+Ça ne devrait pas m'étonner
+si vous acceptez
+
+1388
+01:18:53,397 --> 01:18:55,148
+les appels PCV.
+
+1389
+01:18:55,232 --> 01:18:56,817
+- Doit-on raccrocher ?
+- Non.
+
+1390
+01:18:56,900 --> 01:18:58,568
+Il veut parler à oncle Billy.
+
+1391
+01:18:58,652 --> 01:19:01,405
+Si vous coopérez,
+j'aimerais avoir terminé ce soir.
+
+1392
+01:19:01,488 --> 01:19:04,366
+Je voudrais passer Noël en famille.
+
+1393
+01:19:04,449 --> 01:19:05,700
+Je vous comprends.
+
+1394
+01:19:05,784 --> 01:19:07,077
+Veuillez entrer.
+
+1395
+01:19:08,120 --> 01:19:11,164
+24 décembre.
+
+1396
+01:19:16,753 --> 01:19:19,339
+8 000.
+
+1397
+01:19:20,465 --> 01:19:23,051
+Joyeux Noël, monsieur Potter.
+
+1398
+01:19:23,135 --> 01:19:26,555
+Eh bien bonjour, monsieur Potter.
+Quelles sont les nouvelles ?
+
+1399
+01:19:26,638 --> 01:19:30,392
+Oh, "Harry Bailey reçoit
+la médaille du Congrès."
+
+1400
+01:19:30,475 --> 01:19:32,561
+Est-ce bien un des petits Bailey ?
+
+1401
+01:19:32,644 --> 01:19:36,231
+Ces Bailey ne s'arrêtent jamais.
+
+1402
+01:19:36,314 --> 01:19:38,733
+Qu'est-ce que ce feignant de George
+en pense ?
+
+1403
+01:19:38,817 --> 01:19:40,068
+Il est très jaloux.
+
+1404
+01:19:40,152 --> 01:19:42,362
+Il n'a perdu que trois boutons
+à son veston.
+
+1405
+01:19:42,446 --> 01:19:44,489
+Evidemment, George aurait reçu
+
+1406
+01:19:44,573 --> 01:19:46,450
+deux médailles s'il y était allé.
+
+1407
+01:19:46,533 --> 01:19:48,160
+- Mauvaise ouïe.
+- Oui.
+
+1408
+01:19:48,243 --> 01:19:51,705
+Après tout, certaines personnes
+sont ravies que George soit resté.
+
+1409
+01:19:51,788 --> 01:19:55,834
+Tout le monde n'était pas
+en Allemagne ou au Japon.
+
+1410
+01:20:03,133 --> 01:20:06,845
+- Bonjour, monsieur Bailey.
+- Bonjour.
+
+1411
+01:20:07,888 --> 01:20:09,473
+Je crois que vous avez oublié
+quelque chose.
+
+1412
+01:20:09,556 --> 01:20:10,640
+Hein ?
+
+1413
+01:20:10,724 --> 01:20:12,559
+- Vous avez oublié quelque chose.
+- Quoi ?
+
+1414
+01:20:12,642 --> 01:20:14,144
+Vous faites bien un dépôt ?
+
+1415
+01:20:14,227 --> 01:20:15,228
+Bien sûr.
+
+1416
+01:20:15,312 --> 01:20:18,732
+D'habitude, on apporte de l'argent.
+
+1417
+01:20:19,274 --> 01:20:23,487
+Oh, zut !
+
+1418
+01:20:25,322 --> 01:20:27,407
+Et dans cette main ?
+
+1419
+01:20:29,451 --> 01:20:30,660
+Bailey.
+
+1420
+01:20:37,167 --> 01:20:39,586
+Ramène-moi là-bas. En vitesse.
+
+1421
+01:20:41,671 --> 01:20:43,924
+Allez. Secoue-toi.
+
+1422
+01:21:01,608 --> 01:21:03,193
+Ramène-moi à ma place.
+
+1423
+01:21:12,953 --> 01:21:16,289
+Mettez-vous à l'aise.
+Je vous apporte les comptes.
+
+1424
+01:21:16,373 --> 01:21:17,791
+Bonjour, Vi.
+
+1425
+01:21:17,874 --> 01:21:19,459
+Je peux te voir une seconde ?
+
+1426
+01:21:19,543 --> 01:21:22,420
+Evidemment. Dans le bureau.
+
+1427
+01:21:22,587 --> 01:21:25,423
+Oncle Billy, Harry est au téléphone.
+
+1428
+01:21:26,216 --> 01:21:29,010
+Dépêche-toi, oncle Billy.
+Un appel longue distance. Washington.
+
+1429
+01:21:29,094 --> 01:21:30,220
+Harry est au téléphone.
+
+1430
+01:21:30,303 --> 01:21:32,055
+Votre neveu, vous vous rappelez ?
+
+1431
+01:21:32,138 --> 01:21:33,390
+Dépêchez-vous.
+
+1432
+01:21:33,890 --> 01:21:37,644
+Allô ? Oui, Harry. Oui. Tout va bien.
+
+1433
+01:21:40,438 --> 01:21:43,316
+Ces 8 000 $, ils doivent bien
+être quelque part.
+
+1434
+01:21:45,694 --> 01:21:46,987
+Parfait.
+
+1435
+01:21:49,489 --> 01:21:50,740
+Tiens, voilà.
+
+1436
+01:21:51,324 --> 01:21:52,492
+Du courage ?
+
+1437
+01:21:53,034 --> 01:21:54,327
+Si j'en avais...
+
+1438
+01:21:54,411 --> 01:21:57,831
+Il faut du courage pour quitter
+sa ville natale et tout recommencer.
+
+1439
+01:21:57,914 --> 01:21:59,416
+Non, George.
+
+1440
+01:21:59,499 --> 01:22:01,501
+Tiens. Tu es fauchée, n'est-ce pas ?
+
+1441
+01:22:01,585 --> 01:22:03,211
+- Ne m'en parle pas.
+- Tu veux mettre
+
+1442
+01:22:03,295 --> 01:22:05,088
+tes fourrures au clou ?
+
+1443
+01:22:06,464 --> 01:22:07,924
+Tu veux marcher à pied à New York ?
+
+1444
+01:22:08,008 --> 01:22:11,303
+Les repas et les loyers coûtent cher.
+
+1445
+01:22:11,386 --> 01:22:13,388
+- Oui, bien sûr.
+- C'est un prêt.
+
+1446
+01:22:13,471 --> 01:22:15,849
+C'est mon affaire, Construction & Prêts.
+
+1447
+01:22:15,932 --> 01:22:18,977
+Par ailleurs, tu trouveras du travail.
+Bonne chance.
+
+1448
+01:22:19,060 --> 01:22:21,813
+Je suis contente de te connaître,
+George Bailey.
+
+1449
+01:22:26,443 --> 01:22:28,570
+Dis bonjour à New York de ma part.
+
+1450
+01:22:29,279 --> 01:22:31,406
+Et donne parfois de tes nouvelles.
+
+1451
+01:22:35,160 --> 01:22:38,455
+- Joyeux Noël, Vi.
+- Joyeux Noël, George.
+
+1452
+01:22:39,372 --> 01:22:41,833
+- Monsieur Bailey...
+- Je suis désolé.
+
+1453
+01:22:41,916 --> 01:22:43,418
+J'arrive. Est-ce qu'oncle Billy est là ?
+
+1454
+01:22:43,501 --> 01:22:45,003
+Il est dans le bureau.
+
+1455
+01:22:45,086 --> 01:22:47,297
+Que se passe-t-il ?
+
+1456
+01:22:47,505 --> 01:22:49,507
+L'inspecteur des comptes est là.
+
+1457
+01:22:50,300 --> 01:22:53,219
+- Il est ici ?
+- Oui. Il veut voir les comptes...
+
+1458
+01:22:53,345 --> 01:22:54,929
+Qu'est-ce que tu as ?
+
+1459
+01:22:55,013 --> 01:22:56,431
+Viens par ici.
+
+1460
+01:23:16,701 --> 01:23:17,702
+Eustace,
+
+1461
+01:23:17,786 --> 01:23:19,537
+viens par ici une minute.
+
+1462
+01:23:21,247 --> 01:23:23,500
+Est-ce que tu as vu oncle Billy
+avec du liquide hier soir ?
+
+1463
+01:23:23,583 --> 01:23:26,086
+Il en avait sur son bureau
+avant la fermeture.
+
+1464
+01:23:27,253 --> 01:23:28,838
+As-tu acheté quelque chose ?
+
+1465
+01:23:28,922 --> 01:23:30,590
+Pas même un chewing-gum.
+
+1466
+01:23:31,299 --> 01:23:33,927
+Nous allons retracer tes pas
+depuis ton départ.
+
+1467
+01:23:34,010 --> 01:23:35,011
+Par ici.
+
+1468
+01:23:44,938 --> 01:23:46,940
+As-tu mis l'enveloppe dans ta poche ?
+
+1469
+01:23:47,023 --> 01:23:50,151
+Peut-être.
+
+1470
+01:23:50,235 --> 01:23:53,071
+Je ne veux pas entendre peut-être.
+Nous devons retrouver cet argent.
+
+1471
+01:23:54,739 --> 01:23:57,325
+Tu sais ce qui va arriver
+si nous ne le retrouvons pas ?
+
+1472
+01:23:58,535 --> 01:24:00,328
+As-tu une cachette secrète,
+
+1473
+01:24:00,412 --> 01:24:02,455
+un endroit où tu cacherais de l'argent ?
+
+1474
+01:24:02,539 --> 01:24:04,165
+J'ai fouillé toute la maison,
+
+1475
+01:24:04,249 --> 01:24:08,169
+même les pièces qui ont été...
+
+1476
+01:24:08,253 --> 01:24:11,381
+Ecoute-moi. Réfléchis.
+
+1477
+01:24:11,464 --> 01:24:15,552
+Je ne peux plus réfléchir, George.
+
+1478
+01:24:15,635 --> 01:24:18,555
+Où est l'argent,
+espèce de vieil imbécile ?
+
+1479
+01:24:18,638 --> 01:24:21,391
+Où est cet argent ?
+Tu sais ce que ça signifie ?
+
+1480
+01:24:21,474 --> 01:24:24,477
+Ça signifie la banqueroute,
+le scandale et la prison.
+
+1481
+01:24:25,603 --> 01:24:26,896
+C'est ce que ça signifie.
+
+1482
+01:24:26,980 --> 01:24:30,233
+L'un de nous ira en prison
+et ça ne sera pas moi.
+
+1483
+01:24:53,006 --> 01:24:54,090
+Bonjour, chéri.
+
+1484
+01:24:54,174 --> 01:24:55,967
+Bonjour, papa.
+
+1485
+01:24:56,050 --> 01:24:57,927
+Comment tu le trouves ?
+
+1486
+01:24:58,011 --> 01:24:59,679
+A tes souhaits.
+
+1487
+01:25:01,431 --> 01:25:02,640
+As-tu apporté la couronne ?
+
+1488
+01:25:04,601 --> 01:25:05,602
+Quelle couronne ?
+
+1489
+01:25:05,685 --> 01:25:08,146
+La couronne de Noël
+à accrocher à la fenêtre.
+
+1490
+01:25:08,229 --> 01:25:09,564
+Je l'ai laissée au bureau.
+
+1491
+01:25:09,647 --> 01:25:11,608
+- Il neige ?
+- Oui.
+
+1492
+01:25:11,691 --> 01:25:14,861
+- Où est ton manteau et ton chapeau ?
+- Je les ai laissés au bureau.
+
+1493
+01:25:14,944 --> 01:25:16,029
+Que se passe-t-il ?
+
+1494
+01:25:16,112 --> 01:25:18,698
+Rien. Tout va bien.
+
+1495
+01:25:26,372 --> 01:25:29,667
+Allez. Tu peux accrocher l'étoile
+en haut du sapin.
+
+1496
+01:25:29,751 --> 01:25:32,754
+Tout en haut. Tiens, voilà.
+
+1497
+01:25:33,379 --> 01:25:37,175
+Très bien, et remplis ce petit trou
+juste ici.
+
+1498
+01:25:39,385 --> 01:25:42,889
+N'est-ce pas merveilleux pour Harry ?
+On est célèbres, George.
+
+1499
+01:25:42,972 --> 01:25:46,726
+J'ai eu 50 appels pour la parade,
+le banquet.
+
+1500
+01:25:46,893 --> 01:25:48,978
+Ta mère est surexcitée. Elle...
+
+1501
+01:26:09,582 --> 01:26:12,085
+Doit-elle jouer ça sans arrêt ?
+
+1502
+01:26:12,168 --> 01:26:15,004
+Je dois répéter
+pour la fête de ce soir, papa.
+
+1503
+01:26:15,088 --> 01:26:18,174
+Maman a dit qu'on pouvait rester
+jusqu'à minuit et chanter des chants.
+
+1504
+01:26:18,258 --> 01:26:19,884
+Tu sais chanter, papa ?
+
+1505
+01:26:20,134 --> 01:26:21,719
+Tu ferais mieux d'aller te raser.
+
+1506
+01:26:21,803 --> 01:26:24,764
+- Les familles seront bientôt là.
+- Les familles !
+
+1507
+01:26:24,848 --> 01:26:27,475
+Je ne veux pas
+que les familles viennent ici !
+
+1508
+01:26:29,102 --> 01:26:32,146
+Va te préparer pendant
+que je finis le dîner. Allez.
+
+1509
+01:26:32,230 --> 01:26:35,316
+Excusez-moi. Excusez-moi !
+
+1510
+01:26:35,441 --> 01:26:37,068
+Une journée difficile ?
+
+1511
+01:26:37,652 --> 01:26:40,572
+Une belle journée pour les Bailey.
+
+1512
+01:26:41,030 --> 01:26:43,867
+Papa, les Brown ont
+une nouvelle voiture. Tu devrais la voir.
+
+1513
+01:26:43,950 --> 01:26:46,202
+Notre voiture n'est pas assez bien ?
+
+1514
+01:26:46,286 --> 01:26:47,370
+Si, papa.
+
+1515
+01:26:47,620 --> 01:26:50,039
+Excusez-moi.
+
+1516
+01:26:50,123 --> 01:26:52,375
+- T'excuser pour quoi ?
+- J'ai roté.
+
+1517
+01:26:53,459 --> 01:26:54,878
+Tu es excusé.
+
+1518
+01:26:54,961 --> 01:26:57,714
+Monte voir si Zuzu
+a besoin de quelque chose.
+
+1519
+01:26:58,256 --> 01:27:02,552
+- Zuzu ? Qu'est-ce qu'elle a, Zuzu ?
+- Elle a pris froid
+
+1520
+01:27:02,635 --> 01:27:04,095
+en rentrant de l'école.
+
+1521
+01:27:04,178 --> 01:27:06,723
+Elle ne voulait pas écraser sa fleur,
+
+1522
+01:27:06,806 --> 01:27:08,057
+elle n'a pas boutonné son manteau.
+
+1523
+01:27:08,141 --> 01:27:10,310
+- Elle a mal à la gorge ?
+- C'est un rhume.
+
+1524
+01:27:10,393 --> 01:27:12,645
+- Le médecin...
+- Le médecin est venu ?
+
+1525
+01:27:12,729 --> 01:27:14,856
+Oui. Ne t'inquiète pas.
+
+1526
+01:27:14,939 --> 01:27:16,232
+A-t-elle de la fièvre ?
+
+1527
+01:27:16,316 --> 01:27:18,401
+Un peu. Elle ira vite mieux.
+
+1528
+01:27:18,484 --> 01:27:19,944
+C'est cette vieille maison.
+
+1529
+01:27:20,028 --> 01:27:22,238
+Je m'étonne qu'on n'ait pas tous
+une pneumonie.
+
+1530
+01:27:22,322 --> 01:27:26,659
+Pleine de courants d'air.
+Autant vivre dans un réfrigérateur.
+
+1531
+01:27:26,868 --> 01:27:28,620
+Pourquoi devons-nous vivre ici
+
+1532
+01:27:28,703 --> 01:27:31,831
+et rester dans cette sale ville ?
+
+1533
+01:27:32,624 --> 01:27:35,209
+- Qu'est-ce qui ne va pas ?
+- Tout.
+
+1534
+01:27:35,293 --> 01:27:38,588
+Tu appelles ça une famille heureuse ?
+Pourquoi avons-nous eu des enfants ?
+
+1535
+01:27:38,671 --> 01:27:42,342
+- Comment écrit-on "encens" ?
+- Demande à ta mère.
+
+1536
+01:27:42,425 --> 01:27:44,177
+- Où vas-tu ?
+- Voir Zuzu.
+
+1537
+01:27:44,260 --> 01:27:46,721
+Il m'a dit d'écrire une pièce
+pour demain.
+
+1538
+01:27:57,523 --> 01:28:01,277
+E-N-C... E-N-S...
+
+1539
+01:28:01,486 --> 01:28:02,862
+Bonjour, papa.
+
+1540
+01:28:03,988 --> 01:28:07,200
+- Qu'est-ce qu'il t'arrive ?
+- J'ai gagné une fleur.
+
+1541
+01:28:07,492 --> 01:28:09,327
+Attends. Où crois-tu aller ?
+
+1542
+01:28:09,410 --> 01:28:11,079
+Je veux donner à boire à ma fleur.
+
+1543
+01:28:11,162 --> 01:28:13,373
+Donne-la à papa.
+
+1544
+01:28:13,456 --> 01:28:14,791
+Je vais le faire.
+
+1545
+01:28:14,874 --> 01:28:16,209
+Tiens.
+
+1546
+01:28:17,710 --> 01:28:19,796
+Regarde, papa.
+
+1547
+01:28:19,879 --> 01:28:21,297
+Recolle-la.
+
+1548
+01:28:21,381 --> 01:28:23,925
+Très bien. Donne-la-moi.
+
+1549
+01:28:26,386 --> 01:28:28,930
+Je vais la recoller.
+
+1550
+01:28:32,141 --> 01:28:35,311
+Tiens. Comme neuve.
+
+1551
+01:28:35,395 --> 01:28:37,480
+On va donner de l'eau à boire
+à cette fleur.
+
+1552
+01:28:37,563 --> 01:28:39,023
+Tu ferais quelque chose pour moi ?
+
+1553
+01:28:39,107 --> 01:28:41,859
+- Quoi ?
+- Essaie de dormir.
+
+1554
+01:28:42,068 --> 01:28:44,988
+Je n'ai pas sommeil.
+Je veux admirer ma fleur.
+
+1555
+01:28:45,071 --> 01:28:49,492
+Je sais, mais tu dois dormir.
+Et tu pourras y rêver.
+
+1556
+01:28:49,784 --> 01:28:51,953
+Il y aura un jardin entier plein de fleurs.
+
+1557
+01:28:52,036 --> 01:28:53,287
+Vraiment ?
+
+1558
+01:29:01,713 --> 01:29:03,506
+Téléphone !
+
+1559
+01:29:03,589 --> 01:29:05,008
+Je vais répondre.
+
+1560
+01:29:06,926 --> 01:29:08,094
+Allô ?
+
+1561
+01:29:09,012 --> 01:29:11,055
+Oui, c'est Mme Bailey.
+
+1562
+01:29:11,431 --> 01:29:14,308
+Merci. Je suis sûre qu'elle ira bien.
+
+1563
+01:29:14,392 --> 01:29:16,019
+Le médecin a dit qu'elle irait bien
+
+1564
+01:29:16,102 --> 01:29:17,311
+pour le soir de Noël.
+
+1565
+01:29:17,395 --> 01:29:18,938
+C'est la maîtresse de Zuzu ?
+
+1566
+01:29:19,022 --> 01:29:20,356
+Laisse-moi lui parler.
+
+1567
+01:29:20,440 --> 01:29:22,900
+Allô ? Mme Welsh ?
+
+1568
+01:29:23,192 --> 01:29:25,737
+Ici George Bailey.
+Je suis le père de Zuzu.
+
+1569
+01:29:25,820 --> 01:29:27,530
+Quel genre de maîtresse êtes-vous,
+
+1570
+01:29:27,613 --> 01:29:29,907
+à la laisser rentrer à demi-nue ?
+
+1571
+01:29:29,991 --> 01:29:32,535
+Elle finira par attraper une pneumonie
+par votre faute.
+
+1572
+01:29:32,618 --> 01:29:34,579
+On paie des impôts
+
+1573
+01:29:34,662 --> 01:29:36,789
+pour avoir des enseignants
+comme vous ?
+
+1574
+01:29:36,873 --> 01:29:40,126
+Des gens stupides et négligents
+qui renvoient les enfants tout nus.
+
+1575
+01:29:40,209 --> 01:29:43,880
+Mes enfants ne sont peut-être
+pas les mieux habillés...
+
+1576
+01:29:43,963 --> 01:29:45,757
+Cette stupide...
+
+1577
+01:29:46,466 --> 01:29:49,385
+Allô, madame Welsh,
+je voudrais m'excuser...
+
+1578
+01:29:49,469 --> 01:29:51,596
+Allô ?
+
+1579
+01:29:53,347 --> 01:29:55,767
+- Elle a raccroché.
+- Je vais lui tordre le cou !
+
+1580
+01:29:55,850 --> 01:29:59,062
+<i>- Je vais te casser la figure.</i>
+- Qu'est-ce que c'est que ça ?
+
+1581
+01:29:59,145 --> 01:30:00,938
+Allô, qui est là ?
+
+1582
+01:30:01,022 --> 01:30:02,565
+Monsieur Welsh.
+
+1583
+01:30:02,940 --> 01:30:04,400
+Parfait.
+
+1584
+01:30:04,484 --> 01:30:06,569
+Je vais vous dire ce que je pense
+de votre femme.
+
+1585
+01:30:07,779 --> 01:30:09,489
+Va-t'en et laisse-moi m'occuper de ça.
+
+1586
+01:30:09,572 --> 01:30:12,116
+Allô ? Quoi ?
+
+1587
+01:30:13,826 --> 01:30:15,411
+Oh, vraiment, hein ?
+
+1588
+01:30:15,495 --> 01:30:18,414
+Dès que vous vous sentirez
+assez fort pour...
+
+1589
+01:30:18,498 --> 01:30:19,999
+Allô ?
+
+1590
+01:30:24,170 --> 01:30:25,129
+Comment écrit-on "alléluia" ?
+
+1591
+01:30:25,213 --> 01:30:27,256
+Je ne suis pas un dictionnaire.
+
+1592
+01:30:27,340 --> 01:30:28,591
+Tommy, arrête !
+
+1593
+01:30:28,674 --> 01:30:30,551
+Janie, tu ne connais pas encore
+cet air ?
+
+1594
+01:30:30,635 --> 01:30:34,347
+Tu le joues sans arrêt. Ça suffit !
+
+1595
+01:31:01,457 --> 01:31:03,084
+Je suis désolé, Mary.
+
+1596
+01:31:06,379 --> 01:31:08,256
+Janie, je suis désolé.
+
+1597
+01:31:08,923 --> 01:31:13,094
+Je ne le pensais pas.
+Allez, continue à t'entraîner.
+
+1598
+01:31:18,641 --> 01:31:21,018
+Pete, je te dois des excuses aussi.
+
+1599
+01:31:22,270 --> 01:31:23,646
+Je suis désolé.
+
+1600
+01:31:25,064 --> 01:31:27,900
+- Que voulais-tu savoir ?
+- Rien, papa.
+
+1601
+01:31:34,866 --> 01:31:36,659
+Qu'est-ce que vous avez tous ?
+
+1602
+01:31:36,742 --> 01:31:39,287
+Janie, je t'ai dit de t'entraîner.
+Allez, joue !
+
+1603
+01:31:39,370 --> 01:31:40,705
+Oh, papa !
+
+1604
+01:31:46,085 --> 01:31:49,547
+George, pourquoi torturer les enfants ?
+Pourquoi ne... ?
+
+1605
+01:31:50,298 --> 01:31:51,549
+Mary...
+
+1606
+01:32:05,605 --> 01:32:07,523
+Bedford 247, s'il vous plaît.
+
+1607
+01:32:07,607 --> 01:32:09,650
+- Papa a des ennuis ?
+- Oui, Pete.
+
+1608
+01:32:09,734 --> 01:32:12,820
+- Dois-je dire une prière pour lui ?
+- Oui, prie du fond du cœur.
+
+1609
+01:32:12,904 --> 01:32:14,947
+- Moi aussi ?
+- Toi aussi, Tommy.
+
+1610
+01:32:15,948 --> 01:32:17,909
+Allô ? Oncle Billy ?
+
+1611
+01:32:19,202 --> 01:32:20,578
+J'ai des ennuis, monsieur Potter.
+
+1612
+01:32:20,786 --> 01:32:22,288
+J'ai besoin d'aide.
+
+1613
+01:32:23,289 --> 01:32:26,167
+Par accident, nos comptes
+ne sont pas justes.
+
+1614
+01:32:26,250 --> 01:32:28,044
+L'inspecteur des comptes
+est venu aujourd'hui.
+
+1615
+01:32:28,127 --> 01:32:30,379
+Je dois trouver 8 000 $.
+
+1616
+01:32:30,463 --> 01:32:32,965
+C'est ce dont les journalistes
+voulaient vous parler.
+
+1617
+01:32:34,008 --> 01:32:37,803
+Ils m'ont appelé.
+Ils étaient à Construction & Prêts.
+
+1618
+01:32:38,095 --> 01:32:41,474
+Quelqu'un du bureau du procureur
+
+1619
+01:32:41,557 --> 01:32:42,767
+vous cherche aussi.
+
+1620
+01:32:42,850 --> 01:32:46,479
+S'il vous plaît, aidez-moi, M. Potter.
+Vous m'aiderez, n'est-ce pas ?
+
+1621
+01:32:46,562 --> 01:32:48,397
+Vous ne voyez pas
+ce que ça signifie pour ma famille ?
+
+1622
+01:32:48,481 --> 01:32:51,317
+Je payerai des intérêts.
+
+1623
+01:32:51,400 --> 01:32:52,985
+Si vous voulez toujours
+Construction & Prêts...
+
+1624
+01:32:53,069 --> 01:32:56,572
+George, comment se fait-il
+que les comptes ne soient pas justes ?
+
+1625
+01:32:56,656 --> 01:32:58,199
+Les comptes ne sont pas truqués.
+
+1626
+01:32:58,282 --> 01:33:01,285
+J'ai égaré 8 000 $.
+
+1627
+01:33:01,369 --> 01:33:05,331
+- Vous avez égaré 8 000 $ ?
+- Oui, monsieur.
+
+1628
+01:33:08,501 --> 01:33:12,046
+- L'avez-vous signalé à la police ?
+- Je ne veux pas que ça se sache.
+
+1629
+01:33:12,129 --> 01:33:16,217
+- Harry revient à la maison demain.
+- Ils vont avaler ça.
+
+1630
+01:33:16,300 --> 01:33:20,388
+Avez-vous joué
+l'argent de la société en Bourse ?
+
+1631
+01:33:20,471 --> 01:33:21,597
+Non, monsieur.
+
+1632
+01:33:21,681 --> 01:33:23,683
+C'est pour une femme, alors ?
+
+1633
+01:33:23,766 --> 01:33:27,353
+Tout le monde en ville sait
+que vous donnez de l'argent à Violet.
+
+1634
+01:33:27,436 --> 01:33:28,479
+Comment ?
+
+1635
+01:33:28,562 --> 01:33:31,274
+Ça ne me regarde pas.
+Pourquoi êtes-vous venu me voir ?
+
+1636
+01:33:31,357 --> 01:33:34,110
+Pourquoi pas Sam Wainwright ?
+
+1637
+01:33:34,193 --> 01:33:35,778
+Il est en Europe.
+
+1638
+01:33:35,861 --> 01:33:37,280
+Et vos autres amis ?
+
+1639
+01:33:37,363 --> 01:33:39,699
+Ils n'ont pas cette somme.
+
+1640
+01:33:39,782 --> 01:33:41,951
+Vous êtes le seul à pouvoir m'aider.
+
+1641
+01:33:42,034 --> 01:33:46,205
+Le héros. Je deviens soudain
+quelqu'un d'assez important.
+
+1642
+01:33:47,039 --> 01:33:49,709
+Quel genre de garanties aurais-je ?
+
+1643
+01:33:49,792 --> 01:33:53,129
+- Avez-vous des actions ?
+- Non, monsieur.
+
+1644
+01:33:53,212 --> 01:33:56,048
+Des obligations ? Des immeubles ?
+
+1645
+01:33:56,549 --> 01:34:00,761
+J'ai une assurance vie.
+Une police de 15 000 $.
+
+1646
+01:34:00,845 --> 01:34:04,557
+- Et quel capital possédez-vous ?
+- 500 $.
+
+1647
+01:34:04,724 --> 01:34:06,559
+500 $ ?
+
+1648
+01:34:06,976 --> 01:34:09,603
+Et vous me demandez
+de vous prêter 8 000 $.
+
+1649
+01:34:11,188 --> 01:34:14,275
+Mais regardez-vous !
+Vous étiez si sûr de vous.
+
+1650
+01:34:14,608 --> 01:34:17,695
+Vous alliez voyager
+et conquérir le monde.
+
+1651
+01:34:18,237 --> 01:34:23,034
+Vous m'avez traité un jour
+de "vieillard pervers et frustré".
+
+1652
+01:34:23,743 --> 01:34:27,079
+Qu'êtes-vous, à part
+un jeune homme pervers et frustré ?
+
+1653
+01:34:27,663 --> 01:34:29,248
+Un misérable employé de bureau
+
+1654
+01:34:29,332 --> 01:34:31,208
+qui se traîne à genoux devant moi.
+
+1655
+01:34:33,169 --> 01:34:35,087
+Pas de garanties, pas d'actions,
+pas d'obligations.
+
+1656
+01:34:35,171 --> 01:34:38,841
+Rien à part un misérable capital
+de 500 $
+
+1657
+01:34:38,924 --> 01:34:41,093
+dans une assurance vie.
+
+1658
+01:34:41,927 --> 01:34:44,347
+Vous valez plus cher mort que vif.
+
+1659
+01:34:44,805 --> 01:34:47,808
+Pourquoi ne pas demander 8 000 $
+
+1660
+01:34:47,892 --> 01:34:50,436
+à la racaille que vous aimez tant ?
+
+1661
+01:34:50,853 --> 01:34:52,063
+Vous savez pourquoi ?
+
+1662
+01:34:52,146 --> 01:34:54,857
+Parce qu'ils vous chasseraient
+de la ville.
+
+1663
+01:34:54,940 --> 01:34:58,152
+Je vais vous dire
+ce que je vais faire pour vous, George.
+
+1664
+01:34:58,235 --> 01:35:01,405
+Puisque l'inspecteur est encore là,
+
+1665
+01:35:01,489 --> 01:35:04,033
+et en tant qu'actionnaire
+de Construction & Prêts,
+
+1666
+01:35:04,116 --> 01:35:07,078
+je vais demander qu'on délivre
+un mandat contre vous.
+
+1667
+01:35:07,453 --> 01:35:11,499
+Pour détournement de fonds,
+manipulation, escroquerie.
+
+1668
+01:35:13,125 --> 01:35:15,503
+Très bien, George, allez-y.
+
+1669
+01:35:15,586 --> 01:35:18,631
+Vous ne pourrez pas vous cacher
+dans cette petite ville.
+
+1670
+01:35:18,714 --> 01:35:20,925
+Bill ? Ici Potter.
+
+1671
+01:35:32,144 --> 01:35:33,979
+CHEZ MARTINI
+
+1672
+01:35:34,688 --> 01:35:37,983
+Joyeux Noël. Je suis content
+que tu sois venu.
+
+1673
+01:35:38,526 --> 01:35:40,194
+Que dirais-tu
+de ces excellents spaghettis ?
+
+1674
+01:35:53,082 --> 01:35:54,333
+Seigneur...
+
+1675
+01:35:57,670 --> 01:35:58,921
+Seigneur...
+
+1676
+01:36:03,968 --> 01:36:06,011
+Notre Père qui êtes aux cieux...
+
+1677
+01:36:09,014 --> 01:36:10,975
+Je ne prie pas souvent,
+
+1678
+01:36:12,143 --> 01:36:15,062
+mais si de là-haut Vous m'entendez...
+
+1679
+01:36:16,689 --> 01:36:18,315
+montrez-moi le chemin.
+
+1680
+01:36:18,774 --> 01:36:21,110
+Je suis au bout du rouleau.
+
+1681
+01:36:23,028 --> 01:36:25,030
+Montrez-moi le chemin, Seigneur.
+
+1682
+01:36:29,869 --> 01:36:33,539
+Ça va, George ? Tu veux que quelqu'un
+te raccompagne chez toi ?
+
+1683
+01:36:36,208 --> 01:36:38,586
+Pourquoi boire autant, mon ami ?
+
+1684
+01:36:38,669 --> 01:36:42,465
+S'il vous plaît, rentrez chez vous,
+M. Bailey. C'est le soir du réveillon.
+
+1685
+01:36:42,548 --> 01:36:45,050
+Bailey ? Quel Bailey ?
+
+1686
+01:36:45,676 --> 01:36:47,720
+C'est monsieur George Bailey.
+
+1687
+01:36:51,932 --> 01:36:54,810
+Si jamais tu reparles comme ça
+à ma femme, ça sera pire.
+
+1688
+01:36:54,894 --> 01:36:56,228
+Elle en a pleuré.
+
+1689
+01:36:56,312 --> 01:36:59,482
+Elle s'use à apprendre
+à lire et à écrire à tes sales gamins.
+
+1690
+01:36:59,565 --> 01:37:02,109
+- Il fallait en plus que tu l'injuries.
+- Sortez !
+
+1691
+01:37:02,193 --> 01:37:03,652
+Attendez. Je veux payer ma boisson.
+
+1692
+01:37:03,736 --> 01:37:05,404
+Sortez d'ici.
+
+1693
+01:37:05,488 --> 01:37:08,449
+- Très bien.
+- C'est mon meilleur ami. Sortez !
+
+1694
+01:37:13,787 --> 01:37:16,415
+- Ça va, George ?
+- Qui c'était ?
+
+1695
+01:37:16,832 --> 01:37:19,919
+Il est parti. Un minable.
+Il s'appelle Welsh.
+
+1696
+01:37:20,002 --> 01:37:22,379
+Il ne remettra plus les pieds chez moi.
+
+1697
+01:37:22,880 --> 01:37:24,798
+C'est la réponse à mes prières.
+
+1698
+01:37:24,882 --> 01:37:26,926
+C'est la dernière fois qu'il vient ici.
+Tu entends, Nick ?
+
+1699
+01:37:28,219 --> 01:37:31,639
+Où est ma police d'assurance ?
+La voilà.
+
+1700
+01:37:31,722 --> 01:37:33,432
+Non, pas par-là, monsieur Bailey.
+
+1701
+01:37:33,516 --> 01:37:35,184
+Vous ne vous sentez pas bien.
+
+1702
+01:37:35,267 --> 01:37:36,644
+Asseyez-vous et reposez-vous.
+
+1703
+01:37:36,727 --> 01:37:39,522
+S'il vous plaît, ne partez pas.
+S'il vous plaît !
+
+1704
+01:37:57,289 --> 01:37:59,625
+Qu'est-ce que vous faites ?
+
+1705
+01:38:01,710 --> 01:38:05,714
+Regardez ce que vous avez fait. Mon
+arrière-grand-père a planté cet arbre.
+
+1706
+01:38:06,465 --> 01:38:08,467
+Hé, vous !
+
+1707
+01:38:09,218 --> 01:38:12,972
+Revenez, crétin d'ivrogne !
+Sortez votre voiture de là !
+
+1708
+01:38:20,896 --> 01:38:24,483
+Qu'est-ce qui vous prend ?
+Regardez où vous allez.
+
+1709
+01:39:11,322 --> 01:39:12,448
+Au secours !
+
+1710
+01:39:58,535 --> 01:40:00,829
+Je n'ai pas eu le temps d'acheter
+un sous-vêtement à la mode.
+
+1711
+01:40:00,913 --> 01:40:03,749
+Ma femme me l'a offert
+à mon dernier anniversaire.
+
+1712
+01:40:04,375 --> 01:40:06,126
+Je suis mort dedans.
+
+1713
+01:40:09,713 --> 01:40:12,591
+<i>Tom Sawyer</i> est en train de sécher.
+
+1714
+01:40:15,761 --> 01:40:19,223
+Vous devriez lire le nouveau livre
+qu'écrit Mark Twain.
+
+1715
+01:40:19,890 --> 01:40:21,767
+Comment êtes-vous tombé ?
+
+1716
+01:40:21,850 --> 01:40:25,020
+Je ne suis pas tombé.
+J'ai sauté pour sauver George.
+
+1717
+01:40:25,312 --> 01:40:28,232
+Quoi ? Pour me sauver ?
+
+1718
+01:40:28,440 --> 01:40:31,527
+Oui, c'est vrai.
+Vous n'êtes pas passé à l'acte.
+
+1719
+01:40:31,610 --> 01:40:33,737
+- Quel acte ?
+- Le suicide.
+
+1720
+01:40:33,821 --> 01:40:36,907
+C'est contre la loi de se suicider par ici.
+
+1721
+01:40:36,990 --> 01:40:39,827
+C'est aussi illégal là d'où je viens.
+
+1722
+01:40:39,910 --> 01:40:42,287
+- D'où venez-vous ?
+- Du paradis.
+
+1723
+01:40:47,418 --> 01:40:50,421
+Je devais agir rapidement.
+C'est pour ça que j'ai sauté.
+
+1724
+01:40:50,504 --> 01:40:52,923
+Je savais que si je me noyais,
+tu essaierais de me sauver.
+
+1725
+01:40:53,006 --> 01:40:55,968
+Et c'est comme ça que je t'ai sauvé.
+
+1726
+01:40:56,677 --> 01:40:58,095
+Très amusant.
+
+1727
+01:40:58,303 --> 01:41:00,389
+Ta lèvre saigne, George.
+
+1728
+01:41:00,472 --> 01:41:04,560
+Oui, j'ai reçu un coup dans la mâchoire
+en réponse à mes prières.
+
+1729
+01:41:04,643 --> 01:41:08,480
+Non, George. Je suis la réponse
+à tes prières.
+
+1730
+01:41:08,564 --> 01:41:10,899
+C'est pour ça qu'on m'a envoyé en bas.
+
+1731
+01:41:11,483 --> 01:41:14,653
+- Comment sais-tu mon nom ?
+- Je sais tout de toi.
+
+1732
+01:41:14,737 --> 01:41:16,572
+Je t'ai vu grandir.
+
+1733
+01:41:16,655 --> 01:41:18,073
+Es-tu médium ?
+
+1734
+01:41:18,157 --> 01:41:19,283
+Non.
+
+1735
+01:41:19,366 --> 01:41:23,328
+- Alors, qui es-tu alors ?
+- Clarence Oddbody, AS2.
+
+1736
+01:41:23,996 --> 01:41:25,330
+Oddbody.
+
+1737
+01:41:26,373 --> 01:41:28,667
+AS2. Qu'est-ce que ça veut dire, AS2 ?
+
+1738
+01:41:28,751 --> 01:41:30,836
+- Ange de Seconde Classe.
+- Quoi ?
+
+1739
+01:41:40,888 --> 01:41:42,681
+A la tienne, mon brave.
+
+1740
+01:41:46,852 --> 01:41:48,270
+Oh, bon sang !
+
+1741
+01:41:50,564 --> 01:41:51,857
+Oh, mince.
+
+1742
+01:41:52,858 --> 01:41:55,694
+Je me demande
+ce que Martini met dans ses verres.
+
+1743
+01:41:57,738 --> 01:42:02,284
+Hé, qu'est-ce que tu as dit,
+il y a à peine une minute ?
+
+1744
+01:42:02,576 --> 01:42:04,203
+Pourquoi voulais-tu me sauver ?
+
+1745
+01:42:04,286 --> 01:42:07,873
+On m'a envoyé en bas pour ça.
+Je suis ton ange gardien.
+
+1746
+01:42:08,290 --> 01:42:10,417
+Ça ne m'étonne pas.
+
+1747
+01:42:10,501 --> 01:42:14,838
+C'est ridicule de vouloir se tuer
+à cause de l'argent. Pour 8 000 $.
+
+1748
+01:42:14,922 --> 01:42:17,966
+Ces choses-là...
+Comment es-tu au courant ?
+
+1749
+01:42:18,050 --> 01:42:22,095
+Je te l'ai dit. Je suis ton ange gardien.
+Je sais tout à ton sujet.
+
+1750
+01:42:23,096 --> 01:42:26,225
+Tu es bien le genre d'ange
+qui me serait attribué.
+
+1751
+01:42:26,308 --> 01:42:29,269
+Un ange déchu, n'est-ce pas ?
+Où sont tes ailes ?
+
+1752
+01:42:29,353 --> 01:42:33,398
+Je ne les ai pas encore gagnées.
+C'est pour ça que je suis un ange AS2.
+
+1753
+01:42:37,694 --> 01:42:39,238
+Je ne sais pas si j'aimerais
+
+1754
+01:42:39,321 --> 01:42:41,281
+être vu en compagnie
+d'un ange sans ailes.
+
+1755
+01:42:41,365 --> 01:42:44,993
+Je dois les mériter et tu vas m'aider,
+n'est-ce pas ?
+
+1756
+01:42:45,077 --> 01:42:46,453
+Bien sûr.
+
+1757
+01:42:46,954 --> 01:42:49,581
+- Comment ?
+- En me laissant t'aider.
+
+1758
+01:42:49,790 --> 01:42:52,584
+Oui. Il n'y a qu'un seul moyen
+de m'aider.
+
+1759
+01:42:52,668 --> 01:42:54,628
+Tu n'aurais pas 8 000 $ sur toi ?
+
+1760
+01:42:54,711 --> 01:42:57,172
+Non, on n'utilise pas d'argent au ciel.
+
+1761
+01:42:57,256 --> 01:42:59,800
+Oui, j'oubliais.
+
+1762
+01:43:00,509 --> 01:43:02,594
+Mais ça s'avère pratique ici-bas.
+
+1763
+01:43:05,180 --> 01:43:07,432
+Je l'ai découvert un peu tard.
+
+1764
+01:43:07,808 --> 01:43:09,852
+Je vaux plus cher mort que vif.
+
+1765
+01:43:09,935 --> 01:43:14,106
+Ne parle pas ainsi. Je ne gagnerai pas
+mes ailes avec un tel comportement.
+
+1766
+01:43:14,189 --> 01:43:17,860
+Tu ne sais pas tout ce que tu as fait.
+Si tu n'avais pas été là...
+
+1767
+01:43:17,943 --> 01:43:20,654
+Si je n'avais pas été là,
+tout le monde irait mieux.
+
+1768
+01:43:20,737 --> 01:43:22,948
+Ma femme, mes enfants. Mes amis.
+
+1769
+01:43:23,031 --> 01:43:26,285
+Ecoute, bonhomme,
+va hanter quelqu'un d'autre.
+
+1770
+01:43:26,368 --> 01:43:29,037
+Non. Tu ne comprends pas.
+J'ai une tâche à accomplir.
+
+1771
+01:43:29,121 --> 01:43:30,956
+Tais-toi, veux-tu ?
+
+1772
+01:43:34,835 --> 01:43:37,546
+Ça ne va pas être facile.
+
+1773
+01:43:42,467 --> 01:43:46,972
+Tu crois que sans toi,
+tout le monde serait plus heureux ?
+
+1774
+01:43:48,765 --> 01:43:51,560
+Je ne sais pas. Tu as peut-être raison.
+
+1775
+01:43:52,853 --> 01:43:55,731
+Ça aurait été mieux
+si je n'étais jamais né.
+
+1776
+01:43:55,814 --> 01:43:59,151
+- Qu'est-ce que tu as dit ?
+- J'aimerais n'être jamais né.
+
+1777
+01:43:59,234 --> 01:44:01,862
+Tu ne dois pas dire des choses
+comme ça.
+
+1778
+01:44:02,321 --> 01:44:06,909
+Attends un peu. C'est peut-être
+une bonne idée.
+
+1779
+01:44:07,868 --> 01:44:09,828
+Qu'est-ce que vous en pensez ?
+
+1780
+01:44:10,162 --> 01:44:11,955
+Oui, ça devrait le faire.
+
+1781
+01:44:12,623 --> 01:44:13,957
+Très bien.
+
+1782
+01:44:16,668 --> 01:44:19,880
+Ton vœu est exaucé. Tu n'es jamais né.
+
+1783
+01:44:25,469 --> 01:44:28,513
+Inutile d'en faire tout un foin.
+
+1784
+01:44:29,389 --> 01:44:30,807
+Qu'est-ce que tu as dit ?
+
+1785
+01:44:30,891 --> 01:44:34,770
+Tu n'es jamais né.
+Tu n'as aucun souci dans ce monde.
+
+1786
+01:44:34,853 --> 01:44:38,106
+Pas de 8 000 $ à obtenir.
+
+1787
+01:44:38,190 --> 01:44:40,067
+Pas de Potter qui te recherche.
+
+1788
+01:44:40,150 --> 01:44:43,612
+- Parle-moi dans cette oreille.
+- Tu peux entendre de cette oreille.
+
+1789
+01:44:43,695 --> 01:44:45,822
+C'est incroyable.
+
+1790
+01:44:45,906 --> 01:44:48,450
+Je n'entendais rien
+depuis que j'étais tout petit.
+
+1791
+01:44:48,533 --> 01:44:50,702
+Ça a dû être le plongeon
+dans cette eau froide.
+
+1792
+01:44:50,786 --> 01:44:53,538
+Ta lèvre ne saigne plus non plus,
+George.
+
+1793
+01:44:58,210 --> 01:45:01,922
+Ça alors ! Qu'est-ce qui se passe ?
+
+1794
+01:45:03,382 --> 01:45:05,676
+Il s'est arrêté de neiger.
+
+1795
+01:45:05,759 --> 01:45:07,552
+Que s'est-il passé ici ?
+
+1796
+01:45:08,261 --> 01:45:10,180
+J'ai besoin d'un remontant.
+
+1797
+01:45:10,263 --> 01:45:12,641
+Et toi, Ange ? Tu veux boire un verre ?
+
+1798
+01:45:14,059 --> 01:45:16,311
+Dès que vos vêtements seront secs...
+
+1799
+01:45:16,395 --> 01:45:18,355
+Les vêtements sont secs.
+
+1800
+01:45:18,438 --> 01:45:21,608
+Ça alors ! Le poêle
+fonctionne mieux que je ne le croyais.
+
+1801
+01:45:21,692 --> 01:45:25,821
+Allez, habille-toi. Nous marcherons
+jusqu'à ma voiture et...
+
+1802
+01:45:25,904 --> 01:45:28,073
+Désolé, je marcherai et tu voleras.
+
+1803
+01:45:28,156 --> 01:45:29,700
+Je ne peux pas voler sans ailes.
+
+1804
+01:45:29,783 --> 01:45:32,494
+Oui, c'est vrai.
+
+1805
+01:45:38,125 --> 01:45:39,501
+Qu'est-ce qu'il y a ?
+
+1806
+01:45:39,584 --> 01:45:42,295
+C'est là que j'avais laissé ma voiture.
+Elle n'y est plus.
+
+1807
+01:45:42,379 --> 01:45:45,674
+- Tu n'as pas de voiture.
+- J'avais une voiture, juste ici.
+
+1808
+01:45:45,757 --> 01:45:47,300
+Quelqu'un a dû la déplacer.
+
+1809
+01:45:47,384 --> 01:45:51,471
+- Bonsoir.
+- Dites-moi, où est ma voiture ?
+
+1810
+01:45:51,722 --> 01:45:53,098
+Pardon ? Comment ?
+
+1811
+01:45:53,932 --> 01:45:56,184
+Je suis le propriétaire de la voiture
+qui a heurté votre arbre.
+
+1812
+01:45:56,268 --> 01:45:58,311
+- Quel arbre ?
+- Comment ça ?
+
+1813
+01:45:58,395 --> 01:46:00,480
+Cet arbre. Je suis rentré dedans,
+
+1814
+01:46:00,564 --> 01:46:03,775
+j'ai fait une grosse entaille... sur le côté.
+
+1815
+01:46:08,113 --> 01:46:11,575
+Vous devez parler de deux autres
+arbres. Vous m'avez inquiété.
+
+1816
+01:46:11,658 --> 01:46:13,869
+L'un des plus vieux arbres
+de Pottersville.
+
+1817
+01:46:13,952 --> 01:46:15,120
+Pottersville ?
+
+1818
+01:46:15,203 --> 01:46:16,830
+Vous voulez dire Bedford Falls.
+
+1819
+01:46:16,913 --> 01:46:20,459
+Je voulais dire Pottersville.
+Je sais où j'habite.
+
+1820
+01:46:20,625 --> 01:46:22,711
+Qu'est-ce qui vous arrive ?
+
+1821
+01:46:22,794 --> 01:46:26,006
+Qu'est-ce qui m'arrive ? Je ne sais pas.
+
+1822
+01:46:28,592 --> 01:46:32,888
+Soit je suis fou, soit c'est lui qui l'est.
+Ou c'est toi.
+
+1823
+01:46:33,889 --> 01:46:35,223
+Ce n'est pas moi.
+
+1824
+01:46:35,307 --> 01:46:37,350
+J'ai peut-être laissé ma voiture
+chez Martini.
+
+1825
+01:46:37,434 --> 01:46:39,811
+- Viens, Gabriel.
+- Clarence.
+
+1826
+01:46:47,110 --> 01:46:50,947
+Vas-y, entre.
+Martini est un de mes amis.
+
+1827
+01:46:51,323 --> 01:46:53,992
+Voici un endroit où s'asseoir.
+
+1828
+01:47:00,332 --> 01:47:03,877
+- Salut, Nick. Où est Martini ?
+- Vous voulez un martini ?
+
+1829
+01:47:03,960 --> 01:47:06,004
+Non, Martini, ton patron.
+
+1830
+01:47:06,088 --> 01:47:08,507
+Je suis le patron.
+Vous voulez un verre ou pas ?
+
+1831
+01:47:08,590 --> 01:47:10,801
+D'accord, un double bourbon. Vite.
+
+1832
+01:47:10,884 --> 01:47:12,135
+D'accord.
+
+1833
+01:47:15,263 --> 01:47:18,350
+- Et vous ?
+- Je pensais...
+
+1834
+01:47:19,518 --> 01:47:21,937
+Ça fait si longtemps que je...
+
+1835
+01:47:22,020 --> 01:47:25,690
+Ecoutez, monsieur, j'attends
+que vous vous décidiez.
+
+1836
+01:47:25,774 --> 01:47:27,400
+Quel brave gars.
+
+1837
+01:47:27,484 --> 01:47:29,653
+Je pensais...
+
+1838
+01:47:30,529 --> 01:47:33,698
+à un rhum flambé.
+
+1839
+01:47:34,032 --> 01:47:36,576
+Non, il ne fait pas assez froid pour ça.
+
+1840
+01:47:36,660 --> 01:47:39,621
+Attendez une minute. Je sais.
+
+1841
+01:47:39,704 --> 01:47:43,291
+Du vin chaud. Avec beaucoup
+de cannelle et peu de clous de girofle.
+
+1842
+01:47:43,375 --> 01:47:45,293
+Et que ça saute.
+
+1843
+01:47:45,377 --> 01:47:48,421
+Hé, on sert de l'alcool fort,
+
+1844
+01:47:48,505 --> 01:47:50,298
+pour ceux qui veulent s'enivrer vite
+
+1845
+01:47:50,382 --> 01:47:53,927
+et on n'a pas besoin d'énergumènes
+pour créer l'ambiance au bar.
+
+1846
+01:47:54,010 --> 01:47:57,639
+C'est vu ? Je dois user du gauche
+pour vous convaincre ?
+
+1847
+01:47:57,722 --> 01:47:59,099
+Mais de quoi parle-t-il ?
+
+1848
+01:47:59,182 --> 01:48:03,061
+Hé, Nick.
+Sers-lui la même chose que moi.
+
+1849
+01:48:03,145 --> 01:48:05,480
+- C'est un brave gars.
+- D'accord.
+
+1850
+01:48:06,898 --> 01:48:10,485
+Qu'est-ce qui lui arrive ?
+Je n'ai jamais vu Nick agir ainsi.
+
+1851
+01:48:10,569 --> 01:48:13,697
+Tu verras beaucoup
+de choses étranges désormais.
+
+1852
+01:48:13,947 --> 01:48:15,740
+Oui.
+
+1853
+01:48:18,910 --> 01:48:22,539
+Hé. Mon brave, tu m'inquiètes.
+
+1854
+01:48:22,622 --> 01:48:25,584
+- As-tu un endroit où dormir ?
+- Non.
+
+1855
+01:48:25,667 --> 01:48:27,210
+Tu n'en as pas.
+
+1856
+01:48:27,294 --> 01:48:29,921
+- Tu as de l'argent ?
+- Non plus.
+
+1857
+01:48:30,881 --> 01:48:32,507
+Pas étonnant que tu aies sauté.
+
+1858
+01:48:32,591 --> 01:48:36,261
+J'ai sauté pour te sauver.
+Pour obtenir mes ailes.
+
+1859
+01:48:40,098 --> 01:48:42,225
+- Ah, quelqu'un a réussi.
+- Réussi quoi ?
+
+1860
+01:48:42,309 --> 01:48:47,105
+Chaque fois qu'on entend une cloche
+sonner, un ange a gagné ses ailes.
+
+1861
+01:48:54,988 --> 01:48:57,741
+Ecoute, mieux vaut
+
+1862
+01:48:57,824 --> 01:48:59,201
+ne pas parler d'ailes par ici.
+
+1863
+01:48:59,284 --> 01:49:01,703
+Pourquoi ? Ils ne croient pas
+aux anges ?
+
+1864
+01:49:04,289 --> 01:49:06,124
+Si, ils croient aux anges.
+
+1865
+01:49:06,208 --> 01:49:09,502
+Alors pourquoi s'étonner
+quand ils en voient un ?
+
+1866
+01:49:11,296 --> 01:49:14,549
+Il n'a jamais grandi.
+
+1867
+01:49:14,966 --> 01:49:18,970
+- Quel âge as-tu, Clarence ?
+- 293...
+
+1868
+01:49:21,181 --> 01:49:22,557
+en mai prochain.
+
+1869
+01:49:23,058 --> 01:49:25,685
+Ça suffit comme ça.
+Dehors les deux lutins.
+
+1870
+01:49:25,769 --> 01:49:27,729
+Par la porte ou la fenêtre.
+
+1871
+01:49:27,812 --> 01:49:29,022
+Nick, qu'est-ce qui ne va pas ?
+
+1872
+01:49:29,105 --> 01:49:31,942
+Pourquoi m'appelez-vous Nick ?
+
+1873
+01:49:32,025 --> 01:49:33,526
+C'est ton nom.
+
+1874
+01:49:33,610 --> 01:49:37,739
+Comment ça ? Je vous connais
+ni d'Eve, ni d'Adam.
+
+1875
+01:49:37,822 --> 01:49:40,700
+Hé, toi, viens par ici.
+
+1876
+01:49:44,162 --> 01:49:47,749
+Je ne t'ai pas déjà dit
+de ne pas venir quêter ici ?
+
+1877
+01:49:54,839 --> 01:49:56,174
+Monsieur Gower ?
+
+1878
+01:50:00,387 --> 01:50:02,138
+Qu'est-ce... ?
+
+1879
+01:50:02,514 --> 01:50:04,933
+Monsieur Gower, c'est George Bailey.
+
+1880
+01:50:06,309 --> 01:50:08,561
+- Vous ne me reconnaissez pas ?
+- Non.
+
+1881
+01:50:10,021 --> 01:50:11,231
+Non.
+
+1882
+01:50:11,314 --> 01:50:12,774
+Jetez-le dehors.
+
+1883
+01:50:12,857 --> 01:50:15,527
+Monsieur Gower !
+Hé, qu'est-ce qui vous prend ?
+
+1884
+01:50:16,027 --> 01:50:18,280
+Nick, ce n'est pas M. Gower,
+l'apothicaire ?
+
+1885
+01:50:18,363 --> 01:50:20,615
+Une autre raison
+pour ne pas vous apprécier.
+
+1886
+01:50:20,699 --> 01:50:24,119
+Ce poivrot a passé 20 ans en prison
+pour avoir empoisonné un gamin.
+
+1887
+01:50:24,202 --> 01:50:27,080
+Si vous le connaissez,
+vous devez être un taulard.
+
+1888
+01:50:27,163 --> 01:50:29,207
+Veuillez montrer la porte
+à ces messieurs.
+
+1889
+01:50:29,291 --> 01:50:31,334
+Bien sûr. Par ici, messieurs.
+
+1890
+01:50:36,756 --> 01:50:38,216
+Et ne revenez plus.
+
+1891
+01:50:39,217 --> 01:50:41,803
+Ecoutez. Je distribue des ailes !
+
+1892
+01:50:44,472 --> 01:50:46,975
+Tu n'étais pas là pour empêcher Gower
+
+1893
+01:50:47,058 --> 01:50:48,768
+de mettre du poison dans les cachets.
+
+1894
+01:50:48,852 --> 01:50:52,522
+Comment ça, je n'étais pas là ?
+Je m'en souviens très bien.
+
+1895
+01:50:53,273 --> 01:50:54,649
+CHEZ NICK
+
+1896
+01:50:54,733 --> 01:50:57,152
+Hé, que se passe-t-il ici ?
+
+1897
+01:50:59,904 --> 01:51:02,574
+Ça devrait être le bar de Martini.
+
+1898
+01:51:08,455 --> 01:51:10,123
+Ecoute, qui es-tu ?
+
+1899
+01:51:10,373 --> 01:51:12,917
+Je te l'ai dit. Ton ange gardien.
+
+1900
+01:51:13,001 --> 01:51:15,253
+Je sais. Tu me l'as déjà dit.
+
+1901
+01:51:20,842 --> 01:51:24,095
+Mais quoi d'autre ? Tu es hypnotiseur ?
+
+1902
+01:51:24,179 --> 01:51:25,347
+Non, bien sûr que non.
+
+1903
+01:51:25,430 --> 01:51:28,016
+Pourquoi tant de choses étranges ?
+
+1904
+01:51:28,099 --> 01:51:32,520
+Tu ne comprends pas, George ?
+C'est parce que tu n'es jamais né.
+
+1905
+01:51:32,604 --> 01:51:36,900
+- Si je ne suis pas né, qui suis-je ?
+- Personne. Tu n'as pas d'identité.
+
+1906
+01:51:36,983 --> 01:51:39,652
+Comment ça, pas d'identité ?
+Je m'appelle George Bailey.
+
+1907
+01:51:39,736 --> 01:51:41,780
+Il n'y a pas de George Bailey.
+
+1908
+01:51:42,906 --> 01:51:47,243
+Tu n'as pas de papiers, pas de carte
+de visite, de permis de conduire,
+
+1909
+01:51:47,660 --> 01:51:50,413
+de carte de réformé
+ni de police d'assurance.
+
+1910
+01:51:51,414 --> 01:51:53,416
+Ils ne sont pas là non plus.
+
+1911
+01:51:54,626 --> 01:51:56,961
+- Quoi ?
+- Les pétales de Zuzu.
+
+1912
+01:52:02,467 --> 01:52:05,178
+On t'a donné un fabuleux cadeau,
+George.
+
+1913
+01:52:05,345 --> 01:52:08,973
+Une chance de voir
+comment serait le monde sans toi.
+
+1914
+01:52:11,309 --> 01:52:13,937
+Attends une minute.
+
+1915
+01:52:15,814 --> 01:52:19,150
+Je suis en train
+de faire un rêve étrange.
+
+1916
+01:52:19,317 --> 01:52:21,111
+Adieu. Je rentre à la maison.
+
+1917
+01:52:21,194 --> 01:52:24,072
+- Quelle maison ?
+- Tais-toi ! Arrête !
+
+1918
+01:52:24,572 --> 01:52:28,618
+Tu es fou, à mon humble avis !
+Tu es dingue !
+
+1919
+01:52:29,035 --> 01:52:31,746
+Tu me rends dingue aussi.
+J'ai des hallucinations.
+
+1920
+01:52:31,830 --> 01:52:33,748
+Je rentre voir ma femme et ma famille
+
+1921
+01:52:33,832 --> 01:52:37,001
+et je rentre seul !
+
+1922
+01:52:39,379 --> 01:52:41,297
+Je m'en sors bien, Joseph ?
+
+1923
+01:52:42,006 --> 01:52:43,216
+Merci.
+
+1924
+01:52:43,550 --> 01:52:45,635
+Non, je n'ai rien bu !
+
+1925
+01:53:01,484 --> 01:53:04,863
+COMBATS LE MERCREDI SOIR
+
+1926
+01:53:10,618 --> 01:53:13,788
+PRÊT SUR GAGE
+
+1927
+01:53:13,872 --> 01:53:16,499
+20 MAGNIFIQUES FILLES
+
+1928
+01:53:36,853 --> 01:53:39,397
+Hé, où a déménagé
+Construction & Prêts ?
+
+1929
+01:53:39,481 --> 01:53:40,482
+Construction et quoi ?
+
+1930
+01:53:40,565 --> 01:53:42,317
+L'immeuble des Bailey.
+
+1931
+01:53:42,400 --> 01:53:44,277
+Ils ont fait faillite il y a des années.
+
+1932
+01:53:44,360 --> 01:53:45,737
+C'est un menteur !
+
+1933
+01:53:45,820 --> 01:53:48,114
+Je connais tous les gens
+haut placés en ville !
+
+1934
+01:53:48,198 --> 01:53:50,742
+Je connais Potter et je vous ferai...
+
+1935
+01:53:50,825 --> 01:53:52,285
+Hé, Violet !
+
+1936
+01:53:53,495 --> 01:53:56,080
+Hé, c'est Violet !
+
+1937
+01:53:56,164 --> 01:53:58,291
+- Je sais !
+- Je connais cette fille !
+
+1938
+01:53:58,374 --> 01:54:00,251
+Allez faire un tour. Dégagez.
+
+1939
+01:54:02,170 --> 01:54:04,422
+- Hé, Ernie.
+- Dis-le au juge !
+
+1940
+01:54:06,090 --> 01:54:08,009
+Ernie, ramène-moi à la maison.
+Je deviens fou.
+
+1941
+01:54:08,092 --> 01:54:09,093
+Où habitez-vous ?
+
+1942
+01:54:09,177 --> 01:54:11,262
+Tu le sais.
+
+1943
+01:54:11,346 --> 01:54:13,848
+320 Sycamore.
+
+1944
+01:54:13,932 --> 01:54:17,393
+- Très bien... 320 Sycamore ?
+- Oui, dépêche-toi.
+
+1945
+01:54:17,477 --> 01:54:19,312
+Très bien.
+
+1946
+01:54:19,938 --> 01:54:21,981
+Ernie, explique-moi.
+
+1947
+01:54:22,065 --> 01:54:25,068
+J'ai dû boire de l'alcool frelaté
+ou quelque chose.
+
+1948
+01:54:25,151 --> 01:54:26,361
+Tu es Ernie Bishop
+
+1949
+01:54:26,444 --> 01:54:28,905
+et tu habites à Bailey Park,
+avec femme et enfant.
+
+1950
+01:54:28,988 --> 01:54:30,323
+Vous avez vu ma femme ?
+
+1951
+01:54:30,406 --> 01:54:33,660
+J'ai été chez toi une centaine de fois.
+
+1952
+01:54:33,743 --> 01:54:36,538
+Comment ça ? Je vis dans un taudis
+à Potter's Field.
+
+1953
+01:54:36,621 --> 01:54:38,665
+Ma femme m'a quitté
+en emmenant le gamin
+
+1954
+01:54:38,748 --> 01:54:41,209
+et je ne vous ai jamais vu.
+
+1955
+01:54:41,292 --> 01:54:44,087
+Bon, accélère et ramène-moi
+à la maison.
+
+1956
+01:55:01,604 --> 01:55:03,898
+- C'est la bonne adresse ?
+- Evidemment.
+
+1957
+01:55:03,982 --> 01:55:07,193
+Cette maison est inhabitée
+depuis 20 ans.
+
+1958
+01:55:13,241 --> 01:55:15,243
+- Que se passe-t-il ?
+- J'en sais rien,
+
+1959
+01:55:15,326 --> 01:55:18,496
+mais surveille-le. Il est toqué.
+
+1960
+01:55:35,972 --> 01:55:38,182
+Mary ? Mary !
+
+1961
+01:55:41,144 --> 01:55:44,022
+Tommy ? Pete ? Janie ? Zuzu ?
+Où êtes-vous ?
+
+1962
+01:55:44,480 --> 01:55:47,108
+Ils ne sont pas là. Tu n'as pas d'enfants.
+
+1963
+01:55:47,191 --> 01:55:48,610
+Qu'as-tu fait d'eux ?
+
+1964
+01:55:48,693 --> 01:55:50,862
+Les mains en l'air !
+
+1965
+01:55:50,945 --> 01:55:52,530
+Sortez de là, tous les deux.
+
+1966
+01:55:52,614 --> 01:55:54,407
+Bert, Dieu merci, tu es là.
+
+1967
+01:55:55,033 --> 01:55:58,286
+Bert, qu'est-il arrivé à cette maison ?
+Où est Mary ?
+
+1968
+01:55:58,369 --> 01:55:59,871
+Surveille-le, Bert.
+
+1969
+01:56:00,121 --> 01:56:02,165
+Qu'est-ce qui vous prend, vous deux ?
+
+1970
+01:56:02,248 --> 01:56:03,750
+Vous étiez là, à mon mariage.
+
+1971
+01:56:03,833 --> 01:56:06,544
+Vous nous avez chanté des chansons.
+
+1972
+01:56:06,628 --> 01:56:07,837
+Je ferais bien d'y aller.
+
+1973
+01:56:07,920 --> 01:56:10,465
+On va aller voir un médecin.
+
+1974
+01:56:10,548 --> 01:56:12,216
+Tout va bien se passer.
+
+1975
+01:56:12,592 --> 01:56:14,469
+Emmenez-moi chez ma mère !
+
+1976
+01:56:14,552 --> 01:56:17,055
+Ce gars, il dit qu'il est un ange.
+
+1977
+01:56:18,014 --> 01:56:20,558
+Je regrette d'avoir à le faire, mais...
+
+1978
+01:56:21,893 --> 01:56:24,604
+Cours, George !
+
+1979
+01:56:26,314 --> 01:56:29,108
+- Joseph !
+- La ferme !
+
+1980
+01:56:29,233 --> 01:56:32,070
+Joseph !
+
+1981
+01:56:37,867 --> 01:56:41,162
+Où est-il passé ? Je le tenais.
+
+1982
+01:56:43,915 --> 01:56:45,708
+J'ai besoin d'un remontant.
+
+1983
+01:56:45,917 --> 01:56:48,586
+Par où est-il parti ?
+Aide-moi à le retrouver.
+
+1984
+01:56:56,052 --> 01:56:58,346
+CHEZ MA BAILEY
+PENSION
+
+1985
+01:56:58,471 --> 01:56:59,597
+Alors ?
+
+1986
+01:57:02,850 --> 01:57:04,060
+Maman...
+
+1987
+01:57:06,062 --> 01:57:08,106
+Maman ? Que voulez-vous ?
+
+1988
+01:57:09,273 --> 01:57:11,943
+Maman, c'est George.
+
+1989
+01:57:12,276 --> 01:57:14,070
+J'étais sûr que tu te souviendrais
+de moi.
+
+1990
+01:57:14,153 --> 01:57:15,571
+George qui ?
+
+1991
+01:57:15,655 --> 01:57:17,532
+Si vous cherchez une chambre,
+j'en ai pas de libre.
+
+1992
+01:57:17,615 --> 01:57:20,952
+S'il te plaît, aide-moi.
+Quelque chose de terrible m'est arrivé.
+
+1993
+01:57:21,035 --> 01:57:23,454
+Comme à tout le monde.
+
+1994
+01:57:23,538 --> 01:57:26,499
+Laisse-moi entrer.
+Jusqu'à ce que je me remette.
+
+1995
+01:57:26,582 --> 01:57:28,918
+Que tu te remettes de quoi ?
+Je n'accueille pas d'étrangers
+
+1996
+01:57:29,001 --> 01:57:31,546
+à moins qu'on me les ait recommandés.
+
+1997
+01:57:31,879 --> 01:57:36,884
+Je connais toutes les personnes que
+tu connais. Ton beau-frère, oncle Billy.
+
+1998
+01:57:36,968 --> 01:57:38,678
+- Vous le connaissez ?
+- Evidemment.
+
+1999
+01:57:38,761 --> 01:57:40,888
+- Quand l'avez-vous vu ?
+- Aujourd'hui.
+
+2000
+01:57:40,972 --> 01:57:42,098
+C'est faux.
+
+2001
+01:57:42,181 --> 01:57:45,059
+Il est à l'asile de fous.
+
+2002
+01:57:45,143 --> 01:57:48,020
+C'est là que vous devriez être aussi.
+
+2003
+01:57:59,949 --> 01:58:01,826
+C'est étrange, n'est-ce pas ?
+
+2004
+01:58:02,076 --> 01:58:04,996
+La vie de chacun touche celle de l'autre.
+
+2005
+01:58:05,455 --> 01:58:08,416
+Quand quelqu'un n'est pas là,
+il laisse un vide terrible.
+
+2006
+01:58:08,499 --> 01:58:11,502
+Tu m'as jeté une sorte de sort.
+
+2007
+01:58:11,586 --> 01:58:13,671
+Je vais m'en défaire.
+
+2008
+01:58:13,755 --> 01:58:15,548
+Je sais comment.
+
+2009
+01:58:15,965 --> 01:58:17,091
+Le dernier à qui j'ai parlé
+
+2010
+01:58:17,175 --> 01:58:19,343
+avant tout ça était Martini.
+
+2011
+01:58:19,427 --> 01:58:20,636
+Tu sais où il habite ?
+
+2012
+01:58:20,720 --> 01:58:23,639
+Evidemment. Il vit à Bailey Park.
+
+2013
+01:58:27,226 --> 01:58:31,689
+- Tu es sûr que c'est bien Bailey Park ?
+- Je ne suis plus sûr de rien.
+
+2014
+01:58:32,565 --> 01:58:35,860
+Tout ce que je sais,
+c'est que ça devrait être Bailey Park.
+
+2015
+01:58:36,194 --> 01:58:39,947
+- Mais où sont les maisons ?
+- Tu n'étais pas là pour les construire.
+
+2016
+01:58:44,535 --> 01:58:47,538
+Ton frère Harry est passé
+à travers la glace
+
+2017
+01:58:47,622 --> 01:58:49,499
+et il s'est noyé à 9 ans.
+
+2018
+01:58:49,582 --> 01:58:51,667
+C'est un mensonge !
+Harry Bailey est allé à la guerre !
+
+2019
+01:58:51,751 --> 01:58:53,211
+Il a reçu une médaille.
+
+2020
+01:58:53,294 --> 01:58:55,254
+Il a sauvé tous les hommes du bateau.
+
+2021
+01:58:55,338 --> 01:58:57,381
+Tous les hommes du bateau sont morts.
+
+2022
+01:58:57,465 --> 01:58:58,800
+Harry ne les a pas sauvés
+
+2023
+01:58:58,883 --> 01:59:01,594
+parce que tu n'as pas sauvé Harry.
+
+2024
+01:59:12,772 --> 01:59:16,317
+Tu vois, George, tu as vécu
+une vie formidable.
+
+2025
+01:59:16,776 --> 01:59:20,863
+Ne vois-tu pas quelle erreur
+ça serait de la gâcher ?
+
+2026
+01:59:21,531 --> 01:59:23,449
+- Clarence ?
+- Oui, George.
+
+2027
+01:59:24,450 --> 01:59:27,662
+- Où est Mary ?
+- Je ne peux...
+
+2028
+01:59:27,745 --> 01:59:30,289
+Je ne sais pas comment tu fais
+pour le savoir,
+
+2029
+01:59:30,373 --> 01:59:32,333
+mais où est ma femme ?
+
+2030
+01:59:32,416 --> 01:59:35,419
+- Je ne suis pas censé te le dire.
+- Dis-le-moi.
+
+2031
+01:59:35,503 --> 01:59:37,839
+- Ça ne va pas te plaire.
+- Où est-elle ?
+
+2032
+01:59:37,922 --> 01:59:40,258
+C'est une vieille fille.
+Elle ne s'est jamais mariée.
+
+2033
+01:59:40,341 --> 01:59:42,677
+Où est Mary ? Où est-elle ?
+
+2034
+01:59:42,760 --> 01:59:45,680
+Elle s'apprête à fermer la bibliothèque.
+
+2035
+01:59:49,559 --> 01:59:52,937
+Il doit y avoir un moyen plus facile
+de gagner mes ailes.
+
+2036
+01:59:54,063 --> 01:59:56,274
+BIBLIOTHEQUE PUBLIQUE
+DE POTTERSVILLE
+
+2037
+02:00:04,448 --> 02:00:05,575
+Mary.
+
+2038
+02:00:11,205 --> 02:00:12,290
+Mary !
+
+2039
+02:00:14,709 --> 02:00:15,835
+Mary !
+
+2040
+02:00:18,963 --> 02:00:21,716
+C'est George ! Tu ne me reconnais
+pas ? Qu'est-il arrivé ?
+
+2041
+02:00:21,799 --> 02:00:23,134
+Je ne vous connais pas. Lâchez-moi !
+
+2042
+02:00:23,217 --> 02:00:26,262
+Mary, s'il te plaît ! Arrête ! Aide-moi !
+
+2043
+02:00:26,345 --> 02:00:29,098
+Où sont nos enfants ?
+J'ai besoin de toi, Mary !
+
+2044
+02:00:29,181 --> 02:00:30,975
+Aide-moi ! Mary !
+
+2045
+02:00:31,225 --> 02:00:32,852
+Lâchez-moi !
+
+2046
+02:00:33,144 --> 02:00:34,854
+Au secours !
+
+2047
+02:00:36,105 --> 02:00:38,774
+Arrêtez-le !
+
+2048
+02:00:38,858 --> 02:00:41,444
+Tom ! Ed ! Charlie !
+
+2049
+02:00:42,153 --> 02:00:43,487
+C'est ma femme !
+
+2050
+02:00:46,032 --> 02:00:47,116
+Mary !
+
+2051
+02:00:47,658 --> 02:00:48,743
+Que quelqu'un appelle la police.
+
+2052
+02:00:48,826 --> 02:00:50,453
+Que quelqu'un le frappe
+sur le crâne avec une bouteille !
+
+2053
+02:00:53,497 --> 02:00:54,790
+Clarence !
+
+2054
+02:01:01,047 --> 02:01:02,340
+C'est vous !
+
+2055
+02:01:05,468 --> 02:01:06,844
+Reculez !
+
+2056
+02:01:10,556 --> 02:01:11,849
+Clarence !
+
+2057
+02:01:21,025 --> 02:01:22,318
+Clarence !
+
+2058
+02:01:31,118 --> 02:01:32,828
+Aide-moi, Clarence !
+
+2059
+02:01:33,955 --> 02:01:35,373
+Fais-moi revenir !
+
+2060
+02:01:36,207 --> 02:01:39,377
+Fais-moi revenir ! Je me fiche
+de ce qui peut m'arriver.
+
+2061
+02:01:39,543 --> 02:01:41,963
+Fais-moi retrouver
+ma femme et mes enfants !
+
+2062
+02:01:42,046 --> 02:01:44,215
+Aide-moi, Clarence, s'il te plaît !
+
+2063
+02:01:44,632 --> 02:01:49,261
+S'il te plaît ! Je veux vivre de nouveau.
+Je veux vivre de nouveau.
+
+2064
+02:01:51,013 --> 02:01:55,017
+Je veux vivre de nouveau. S'il vous plaît,
+Seigneur, laissez-moi revivre.
+
+2065
+02:02:04,068 --> 02:02:05,486
+Hé, George !
+
+2066
+02:02:09,115 --> 02:02:11,158
+Tu vas bien ? Que t'arrive-t-il ?
+
+2067
+02:02:11,242 --> 02:02:13,661
+Pars ou je vais encore te frapper !
+
+2068
+02:02:13,744 --> 02:02:15,496
+Pourquoi cries-tu, George ? George ?
+
+2069
+02:02:18,416 --> 02:02:21,293
+Bert, tu me reconnais ?
+
+2070
+02:02:21,627 --> 02:02:23,629
+Tu plaisantes ?
+
+2071
+02:02:23,713 --> 02:02:25,840
+J'ai parcouru toute la ville
+à ta recherche.
+
+2072
+02:02:25,923 --> 02:02:28,884
+J'ai vu ta voiture encastrée
+dans un arbre...
+
+2073
+02:02:28,968 --> 02:02:31,262
+Hé, ta lèvre saigne.
+Tu es sûr que tu vas bien ?
+
+2074
+02:02:36,684 --> 02:02:39,854
+Ma lèvre saigne, Bert !
+Ma lèvre saigne...
+
+2075
+02:02:40,104 --> 02:02:43,190
+Les pétales de Zuzu. Je les ai !
+
+2076
+02:02:43,274 --> 02:02:46,193
+Bert, qu'est-ce que tu comprends
+à tout ça ?
+
+2077
+02:02:46,277 --> 02:02:50,031
+- Joyeux Noël !
+- Joyeux Noël !
+
+2078
+02:02:50,448 --> 02:02:53,576
+Mary !
+
+2079
+02:02:59,040 --> 02:03:01,167
+BIENVENUE A BEDFORD FALLS
+
+2080
+02:03:02,209 --> 02:03:04,211
+Bonjour, Bedford Falls !
+
+2081
+02:03:07,214 --> 02:03:08,591
+Joyeux Noël !
+
+2082
+02:03:08,674 --> 02:03:11,969
+Joyeux Noël, George.
+
+2083
+02:03:12,553 --> 02:03:14,972
+Joyeux Noël, cinéma !
+
+2084
+02:03:15,514 --> 02:03:17,808
+Joyeux Noël, Emporium !
+
+2085
+02:03:19,060 --> 02:03:22,772
+Joyeux Noël, merveilleux
+Construction & Prêts !
+
+2086
+02:03:26,984 --> 02:03:30,571
+Hé ! Joyeux Noël, monsieur Potter !
+
+2087
+02:03:30,654 --> 02:03:33,365
+Et bonne année... en prison.
+
+2088
+02:03:33,449 --> 02:03:35,493
+Rentrez chez vous, on vous y attend.
+
+2089
+02:03:37,078 --> 02:03:40,081
+Mary !
+
+2090
+02:03:41,791 --> 02:03:42,875
+Mary !
+
+2091
+02:03:43,793 --> 02:03:46,629
+Bonjour, monsieur l'inspecteur
+des comptes. Commet allez-vous ?
+
+2092
+02:03:46,712 --> 02:03:48,923
+- M. Bailey, il y a un déficit.
+- De 8 000 $.
+
+2093
+02:03:49,006 --> 02:03:50,466
+J'ai un papier officiel.
+
+2094
+02:03:50,549 --> 02:03:51,842
+Un mandat !
+
+2095
+02:03:51,926 --> 02:03:53,594
+Fabuleux, je vais aller en prison !
+
+2096
+02:03:53,677 --> 02:03:56,055
+Joyeux Noël ! Où est Mary ?
+
+2097
+02:03:56,138 --> 02:03:58,933
+Mary ! Quelle merveilleuse maison
+pleine de courants d'air !
+
+2098
+02:03:59,016 --> 02:04:01,310
+Mary !
+
+2099
+02:04:04,438 --> 02:04:06,107
+Avez-vous vu mon épouse ?
+
+2100
+02:04:06,190 --> 02:04:09,068
+Joyeux Noël, papa !
+
+2101
+02:04:09,151 --> 02:04:11,195
+Les enfants ! Pete !
+
+2102
+02:04:15,866 --> 02:04:17,118
+Les enfants !
+
+2103
+02:04:17,201 --> 02:04:18,702
+Janie ! Tommy !
+
+2104
+02:04:20,830 --> 02:04:23,707
+Laissez-moi vous regarder.
+Je pourrais vous dévorer.
+
+2105
+02:04:24,458 --> 02:04:25,543
+Où est votre mère ?
+
+2106
+02:04:25,626 --> 02:04:27,419
+Elle est partie te chercher.
+
+2107
+02:04:27,503 --> 02:04:29,213
+- Papa !
+- Zuzu !
+
+2108
+02:04:29,296 --> 02:04:31,841
+Comment te sens-tu ?
+
+2109
+02:04:31,924 --> 02:04:34,093
+Très bien. Plus du tout de fièvre.
+
+2110
+02:04:35,886 --> 02:04:37,888
+- Alléluia !
+- Bonjour.
+
+2111
+02:04:38,597 --> 02:04:41,767
+- George, chéri, où étais-tu ?
+- Mary !
+
+2112
+02:04:41,851 --> 02:04:44,061
+George, chéri, où étais-tu ?
+
+2113
+02:04:44,145 --> 02:04:47,481
+George !
+
+2114
+02:04:47,565 --> 02:04:50,776
+Laisse-moi te toucher.
+Tu es bien réelle ?
+
+2115
+02:04:52,236 --> 02:04:54,363
+George.
+
+2116
+02:04:54,446 --> 02:04:56,365
+Tu ne sais pas ce qui s'est passé.
+
+2117
+02:04:56,448 --> 02:04:58,909
+Je n'ai aucune idée
+de ce qui s'est passé.
+
+2118
+02:04:59,326 --> 02:05:01,453
+Allez, George. Viens en bas, vite.
+
+2119
+02:05:01,537 --> 02:05:02,746
+Ils arrivent.
+
+2120
+02:05:02,955 --> 02:05:04,206
+Allez.
+
+2121
+02:05:06,584 --> 02:05:08,377
+Viens par ici.
+
+2122
+02:05:09,545 --> 02:05:11,172
+Mets-toi devant le sapin.
+
+2123
+02:05:11,255 --> 02:05:13,507
+Juste là, ne bouge pas.
+
+2124
+02:05:13,591 --> 02:05:15,176
+Que se passe-t-il ?
+
+2125
+02:05:15,593 --> 02:05:16,927
+Ils arrivent.
+
+2126
+02:05:17,011 --> 02:05:19,430
+George, c'est un miracle.
+
+2127
+02:05:19,513 --> 02:05:21,724
+Que se passe-t-il ?
+
+2128
+02:05:21,807 --> 02:05:23,809
+Qui va arriver, papa ?
+
+2129
+02:05:23,893 --> 02:05:26,687
+- Entre, oncle Billy.
+- Où est-ce que je mets ça ?
+
+2130
+02:05:27,605 --> 02:05:28,856
+- Par ici.
+- George !
+
+2131
+02:05:30,316 --> 02:05:32,568
+Regarde ! Je n'ai jamais vu ça.
+
+2132
+02:05:33,861 --> 02:05:37,489
+N'est-ce pas merveilleux ? C'est Mary.
+
+2133
+02:05:37,573 --> 02:05:39,158
+Elle a dit à certains
+que tu avais des soucis.
+
+2134
+02:05:39,241 --> 02:05:41,202
+Ils se sont dispersés
+pour récolter de l'argent
+
+2135
+02:05:41,285 --> 02:05:42,953
+sans se poser de questions.
+
+2136
+02:05:44,246 --> 02:05:45,956
+Qu'est-ce que c'est ?
+
+2137
+02:05:46,040 --> 02:05:48,167
+Une autre ruée sur la banque ?
+
+2138
+02:05:48,250 --> 02:05:50,711
+Tiens, George. Joyeux Noël.
+
+2139
+02:05:50,794 --> 02:05:52,796
+Tenez, voilà.
+
+2140
+02:05:52,880 --> 02:05:55,049
+Formez une ligne sur la droite.
+
+2141
+02:06:00,721 --> 02:06:02,306
+Joyeux Noël.
+
+2142
+02:06:02,640 --> 02:06:04,683
+Monsieur Martini !
+
+2143
+02:06:05,142 --> 02:06:07,645
+Monsieur Martini ! Allez-y, avancez !
+
+2144
+02:06:08,354 --> 02:06:10,814
+J'ai dévalisé le juke-box aussi.
+
+2145
+02:06:13,984 --> 02:06:15,486
+Monsieur Gower !
+
+2146
+02:06:17,738 --> 02:06:20,491
+J'ai arrondi mes comptes
+de crédit d'achats.
+
+2147
+02:06:28,332 --> 02:06:31,377
+Je ne pars plus, George.
+J'ai changé d'avis.
+
+2148
+02:06:36,799 --> 02:06:39,093
+J'avais économisé
+pour me payer un divorce,
+
+2149
+02:06:39,176 --> 02:06:41,178
+si un jour j'avais un mari.
+
+2150
+02:06:45,849 --> 02:06:49,186
+Très bien, George.
+J'ai réveillé toute la faculté.
+
+2151
+02:06:53,065 --> 02:06:56,235
+Je n'aurais pas un toit
+sur ma tête sans toi, George.
+
+2152
+02:06:56,318 --> 02:06:59,822
+Silence.
+
+2153
+02:06:59,905 --> 02:07:02,116
+Ecoutez ceci. Ça vient de Londres.
+
+2154
+02:07:03,033 --> 02:07:05,744
+"Monsieur Gower a télégraphié
+que tu avais besoin de liquide.
+
+2155
+02:07:05,828 --> 02:07:10,124
+"Mon bureau t'avance 25 000 $.
+
+2156
+02:07:10,207 --> 02:07:13,210
+Hi-han et joyeux Noël.
+Sam Wainwright."
+
+2157
+02:07:23,429 --> 02:07:26,265
+Monsieur Martini,
+et si vous nous serviez du vin ?
+
+2158
+02:08:05,095 --> 02:08:06,597
+Harry Bailey !
+
+2159
+02:08:12,102 --> 02:08:14,355
+George !
+
+2160
+02:08:14,605 --> 02:08:16,857
+Harry !
+
+2161
+02:08:17,107 --> 02:08:18,275
+J'espèrais arriver à temps.
+
+2162
+02:08:18,359 --> 02:08:20,986
+Je l'ai vite ramené de l'aéroport.
+
+2163
+02:08:21,070 --> 02:08:22,863
+Son avion a été pris dans un blizzard.
+
+2164
+02:08:22,946 --> 02:08:24,698
+Et New York ?
+
+2165
+02:08:24,782 --> 02:08:27,409
+Je suis parti dès que j'ai eu
+le télégramme de Mary.
+
+2166
+02:08:27,493 --> 02:08:29,495
+Bonne idée. Trinquons
+
+2167
+02:08:29,578 --> 02:08:32,873
+à mon grand frère George,
+l'homme le plus riche de la ville.
+
+2168
+02:08:47,304 --> 02:08:48,472
+LES AVENTURES
+DE TOM SAWYER
+
+2169
+02:08:48,555 --> 02:08:52,726
+UN HOMME NE CONNAÎT PAS
+L'ÉCHEC S'IL A DES AMIS.
+
+2170
+02:08:52,810 --> 02:08:56,063
+MERCI POUR LES AILES !
+AFFECTUEUSEMENT, CLARENCE
+
+2171
+02:08:56,480 --> 02:08:57,898
+Qui est-ce ?
+
+2172
+02:08:58,982 --> 02:09:02,611
+C'est un cadeau de Noël
+d'un ami très cher.
+
+2173
+02:09:04,655 --> 02:09:10,035
+La maîtresse dit qu'à chaque fois qu'une
+cloche sonne, un ange reçoit ses ailes.
+
+2174
+02:09:10,828 --> 02:09:12,329
+C'est vrai.
+
+2175
+02:09:15,833 --> 02:09:17,000
+Bien joué, Clarence.
+

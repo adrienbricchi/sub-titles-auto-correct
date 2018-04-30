@@ -298,6 +298,13 @@ def launch_libreoffice_6_writer_spell_check(path, language):
 
     command_line += ' "' + path + '"'
 
+    if language == "fr":
+        command_line += ' "macro:///Standard.Module1.SrtFrSpellCheck"'
+    elif language == "eng":
+        command_line += ' "macro:///Standard.Module1.SrtEngSpellCheck"'
+    else:
+        command_line += ' "macro:///Standard.Module1.SrtFrSpellCheck"'
+
     print(command_line)
     subprocess.call(command_line)
     return
