@@ -37,7 +37,7 @@ SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
 SENTENCE_REGEX = r"^((?:<i>|-\s*)*)(.*?)((?:</i>|\s)*)$"
 START_WITH_QUOTES = r"^((?:<i>|-\s*)*)\"(.*?)"
 ENDS_WITH_QUOTES = r"(.*?)\"((?:</i>|\s)*)$"
-SDH_CHARS = r"[A-Z0-9\s,()\.!\?\[\]\/-]{2,}"
+SDH_CHARS = r"[\w\s,()\.!\?\[\]\/-]{2,}"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -824,7 +824,19 @@ def fix_sdh_tags(strings):
     for i in range(0, len(strings)):
         strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog or i > 0 else r"\1\2\3", strings[i])
 
+    # Music tags
+
+    for i in range(0, len(strings)):
+        if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[i]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[i]):
+            strings[i] = ""
+
+    if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[0]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[len(strings) - 1]):
+        strings = [""]
+
     # Sound tags
+
+    for i in range(0, len(strings)):
+        strings[i] = re.sub(r"\[" + SDH_CHARS + r"\] *", "", strings[i])
 
     test_string = ""
     for i in range(0, len(strings)):

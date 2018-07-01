@@ -150,6 +150,10 @@ def populate_multi_line_test_dict():
     RESULT_LINES["fix_sdh_tags_3"] = ["- <i>test line 1</i>\n", "- test line 2\n"]
     TEST_LINES["fix_sdh_tags_4"] = ["[PLOP]\n"]
     RESULT_LINES["fix_sdh_tags_4"] = [""]
+    TEST_LINES["fix_sdh_tags_5"] = ["[plop] truc\n"]
+    RESULT_LINES["fix_sdh_tags_5"] = ["truc\n"]
+    TEST_LINES["fix_sdh_tags_6"] = [" ? ploplop ? \n"]
+    RESULT_LINES["fix_sdh_tags_6"] = [""]
 
 
 populate_single_line_test_dict()

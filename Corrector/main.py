@@ -150,13 +150,18 @@ for file in files:
             # Save file
 
             new_lines = []
+            previous = "-1"
 
             for subtitle in subtitles:
                 if len(subtitle.lines) == 1 and re.match(r"^\s*\n*$", subtitle.lines[0]):
                     print("Empty subtitle found")
+                elif previous == subtitle.get_time_code():
+                    print("Duplicate found")
                 elif len(subtitle.lines) > 0:
                     new_lines += subtitle.to_lines()
                     new_lines.append("\n")
+
+                previous = subtitle.get_time_code()
 
             write_file(file, new_lines)
 
