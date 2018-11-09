@@ -1,9 +1,9 @@
-sub-title-auto-correct
-======================
+sub-titles-auto-correct
+=======================
 
 [![Build Status](https://travis-ci.org/adrienbricchi/sub-titles-auto-correct.svg?branch=master)](https://travis-ci.org/adrienbricchi/sub-titles-auto-correct) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/adrienbricchi/sub-titles-auto-correct?svg=true&branch=master)](https://ci.appveyor.com/project/adrienbricchi/sub-titles-auto-correct?branch=master) [![Coverage Status](https://coveralls.io/repos/github/adrienbricchi/sub-titles-auto-correct/badge.svg?branch=master)](https://coveralls.io/github/adrienbricchi/sub-titles-auto-correct?branch=master)
 
-Python script to fix OCR errors
+Python script fixing OCR errors
 
 ## Installation
 
