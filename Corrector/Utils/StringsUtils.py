@@ -814,7 +814,7 @@ def fix_sdh_tags(strings):
     """
     # Character dialogs
 
-    dialog_character_regex = r"^((?:<i>\s*|\"\s*)*)((?:-(?!\s*-)\s*)?)((?:<i>)?)(" + SDH_CHARS + r":\s*)"
+    dialog_character_regex = r"^((?:<i>\s*|\"\s*)*)((?:-(?!\s*-)\s*)?)((?:<i>)?)(" + SDH_CHARS + r"(?:(?<!\d):|:(?!\d\d\b))\s*)"
 
     is_dialog = len(strings) > 1
     for i in range(0, len(strings)):
@@ -828,10 +828,11 @@ def fix_sdh_tags(strings):
 
     for i in range(0, len(strings)):
         if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[i]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[i]):
-            strings[i] = ""
+            strings[i] = "\n"
 
-    if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[0]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[len(strings) - 1]):
-        strings = [""]
+    if len(strings) > 0:
+        if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[0]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[len(strings) - 1]):
+            strings = ["\n"]
 
     # Sound tags
 
