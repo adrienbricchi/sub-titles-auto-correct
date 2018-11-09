@@ -2,7 +2,7 @@
 # -*-coding:utf8 -*
 
 # sub-titles-auto-correct
-# Copyright (C) 2014-2017
+# Copyright (C) 2014-2018
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
 SENTENCE_REGEX = r"^((?:<i>|-\s*)*)(.*?)((?:</i>|\s)*)$"
 START_WITH_QUOTES = r"^((?:<i>|-\s*)*)\"(.*?)"
 ENDS_WITH_QUOTES = r"(.*?)\"((?:</i>|\s)*)$"
-SDH_CHARS = r"[A-Z0-9\s,()\.!\?\[\]\/-]{2,}"
+SDH_CHARS = r"[\w\s,()\.!\?\[\]\/-]{2,}"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -265,10 +265,8 @@ def ask_for_correction(string, array, trusted_file_path, language):
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
-    # noinspection SpellCheckingInspection
-    office2010_location = 'C:\Program Files\Microsoft Office\Office14\Winword.exe'
-    if os.path.isfile(office2010_location):
-        command_line += office2010_location
+    if os.path.isfile(Consts.ms_word_2010_location):
+        command_line += Consts.ms_word_2010_location
 
     if command_line == "":
         print("MSOffice is missing, or no known MSOffice found")
@@ -282,6 +280,30 @@ def launch_ms_word_spell_check(path, language):
         command_line += ' /mSrtEngSpellCheck'
     else:
         command_line += ' /mSrtSpellCheck'
+
+    print(command_line)
+    subprocess.call(command_line)
+    return
+
+
+def launch_libreoffice_6_writer_spell_check(path, language):
+    command_line = ""
+
+    if os.path.isfile(Consts.libreoffice6_writer_location):
+        command_line += Consts.libreoffice6_writer_location
+
+    if command_line == "":
+        print("LibreOffice is missing, or no known LibreOffice found")
+        return
+
+    command_line += ' "' + path + '"'
+
+    if language == "fr":
+        command_line += ' "macro:///Standard.Module1.SrtFrSpellCheck"'
+    elif language == "eng":
+        command_line += ' "macro:///Standard.Module1.SrtEngSpellCheck"'
+    else:
+        command_line += ' "macro:///Standard.Module1.SrtFrSpellCheck"'
 
     print(command_line)
     subprocess.call(command_line)
@@ -340,6 +362,9 @@ def fix_common_errors(string):
     """
     string = string.replace("- \\", "- ")
     string = string.replace("’", "'")
+    string = string.replace("”", "\"")
+    string = string.replace("”", "\"")
+    string = string.replace("“", "\"")
     string = string.replace("–", "-")
     string = string.replace(" )", ")")
     string = string.replace("( ", "(")
@@ -789,7 +814,7 @@ def fix_sdh_tags(strings):
     """
     # Character dialogs
 
-    dialog_character_regex = r"^((?:<i>\s*|\"\s*)*)((?:-(?!\s*-)\s*)?)((?:<i>)?)(" + SDH_CHARS + r":\s*)"
+    dialog_character_regex = r"^((?:<i>\s*|\"\s*)*)((?:-(?!\s*-)\s*)?)((?:<i>)?)(" + SDH_CHARS + r"(?:(?<!\d):|:(?!\d\d\b))\s*)"
 
     is_dialog = len(strings) > 1
     for i in range(0, len(strings)):
@@ -799,7 +824,20 @@ def fix_sdh_tags(strings):
     for i in range(0, len(strings)):
         strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog or i > 0 else r"\1\2\3", strings[i])
 
+    # Music tags
+
+    for i in range(0, len(strings)):
+        if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[i]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[i]):
+            strings[i] = "\n"
+
+    if len(strings) > 0:
+        if re.match(r"^(?:<i>)?\s*-?(?:<i>)?\s*\?", strings[0]) and re.match(r".*?\?\s*(?:</i>)?\s*$", strings[len(strings) - 1]):
+            strings = ["\n"]
+
     # Sound tags
+
+    for i in range(0, len(strings)):
+        strings[i] = re.sub(r"\[" + SDH_CHARS + r"\] *", "", strings[i])
 
     test_string = ""
     for i in range(0, len(strings)):

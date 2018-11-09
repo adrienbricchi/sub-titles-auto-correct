@@ -5,10 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.2.0] - 2018-11-09
+### Added
+- LibreOffice grammar support supported
+- Music & SDH tags removal
+- More tests and coverage
+
+
 ## [0.1.3] - 2017-02-06
-### Changed
-- Improved code coverage.
-- Bugfixes.
+### Added
+- AppVeyor Windows CI
+- This changelog
+- More tests and coverage
+
 
 ## [0.1.2] - 2017-01-18
 ### Added
@@ -20,9 +29,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Resources location.
 - Workspace name.
 
+
 ## [0.1.1] - 2017-01-13
 ### Added
 - Code coverage, through Travis CI and Coveralls.
+
 
 ## [0.1.0] - 2017-01-12
 ### Added
@@ -39,8 +50,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Travis CI continuous integration.
 - Licence and Readme
 
+
 [Unreleased]: https://github.com/adrienbricchi/sub-titles-auto-correct/tree/develop
-[0.1.3]: https://github.com/adrienbricchi/sub-titles-auto-correct/releases/tag/0.1.3
-[0.1.2]: https://github.com/adrienbricchi/sub-titles-auto-correct/releases/tag/0.1.2
 [0.1.1]: https://github.com/adrienbricchi/sub-titles-auto-correct/releases/tag/0.1.1
 [0.1.0]: https://github.com/adrienbricchi/sub-titles-auto-correct/releases/tag/0.1.0

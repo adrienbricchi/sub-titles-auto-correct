@@ -2,7 +2,7 @@
 # -*-coding:utf8 -*
 
 # sub-titles-auto-correct
-# Copyright (C) 2014-2017
+# Copyright (C) 2014-2018
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,6 +19,9 @@
 
 import unittest
 from unittest.mock import patch
+from io import StringIO
+import sys
+
 from Corrector.Utils import StringsUtils
 from Corrector.Utils import Consts
 
@@ -146,7 +149,13 @@ def populate_multi_line_test_dict():
     TEST_LINES["fix_sdh_tags_3"] = ["- <i>MAN 1 : test line 1</i>\n", "- test line 2\n"]
     RESULT_LINES["fix_sdh_tags_3"] = ["- <i>test line 1</i>\n", "- test line 2\n"]
     TEST_LINES["fix_sdh_tags_4"] = ["[PLOP]\n"]
-    RESULT_LINES["fix_sdh_tags_4"] = [""]
+    RESULT_LINES["fix_sdh_tags_4"] = ["\n"]
+    TEST_LINES["fix_sdh_tags_5"] = ["[plop] truc\n"]
+    RESULT_LINES["fix_sdh_tags_5"] = ["truc\n"]
+    TEST_LINES["fix_sdh_tags_6"] = [" ? ploplop ? \n"]
+    RESULT_LINES["fix_sdh_tags_6"] = ["\n"]
+    TEST_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
+    RESULT_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
 
 
 populate_single_line_test_dict()
@@ -163,6 +172,21 @@ class TestStringsUtils(unittest.TestCase):
         result = StringsUtils.remove_all_uppercase_words(line)
 
         self.assertEquals(result, ["II", "Hey", "Moarf"])
+
+    # def test_print_single_letters(self):
+    #
+    #     lines = ["TEST\n", "II\n", "H", "J\nPLOP\n", "Test B.\n", "test n test\n"]
+    #     results = [False, False, True, True, True, True]
+    #
+    #     for i in range(0, len(lines)):
+    #         StringsUtils.print_single_letters(lines[i])
+    #         output = sys.stdout.getvalue().strip()
+    #         lines[i] = len(output) > 0
+    #         print("== " + str(output))
+    #
+    #     print("lines   : " + str(lines))
+    #     print("results : " + str(results))
+    #     self.assertEquals(lines, results)
 
     # endregion Utils
 
@@ -303,37 +327,37 @@ class TestStringsUtils(unittest.TestCase):
     # region Multi-line
 
     def test_fix_empty_lines(self):
-        self.assertEquals(StringsUtils.fix_empty_lines([]), [])
+        self.assertEqual(StringsUtils.fix_empty_lines([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_empty_lines(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_empty_lines")
 
     def test_fix_redundant_italic_tag(self):
-        self.assertEquals(StringsUtils.fix_redundant_italic_tag([]), [])
+        self.assertEqual(StringsUtils.fix_redundant_italic_tag([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_redundant_italic_tag(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_redundant_italic_tag")
 
     def test_fix_useless_dialog_hyphen(self):
-        self.assertEquals(StringsUtils.fix_useless_dialog_hyphen([]), [])
+        self.assertEqual(StringsUtils.fix_useless_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_useless_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_useless_dialog_hyphen")
 
     def test_fix_missing_dialog_hyphen(self):
-        self.assertEquals(StringsUtils.fix_missing_dialog_hyphen([]), [])
+        self.assertEqual(StringsUtils.fix_missing_dialog_hyphen([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_missing_dialog_hyphen(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_missing_dialog_hyphen")
 
     def test_fix_double_quotes_errors(self):
-        self.assertEquals(StringsUtils.fix_double_quotes_errors([]), [])
+        self.assertEqual(StringsUtils.fix_double_quotes_errors([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_double_quotes_errors(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_double_quotes_errors")
 
     def test_fix_sdh_tags(self):
-        self.assertEquals(StringsUtils.fix_sdh_tags([]), [])
+        self.assertEqual(StringsUtils.fix_sdh_tags([]), [])
         for key in TEST_LINES:
             corrected_lines = StringsUtils.fix_sdh_tags(TEST_LINES[key])
             self.assert_list_equals(corrected_lines, key, "fix_sdh_tags")
@@ -344,6 +368,7 @@ class TestStringsUtils(unittest.TestCase):
 
         # We have to cleanup dictionary tests cases, to check only relevant lines.
         # Those dictionaries will be restored at the end of this test.
+        Consts.fix_sdh_tags = True
         TEST_LINES.clear()
         RESULT_LINES.clear()
         populate_multi_line_test_dict()

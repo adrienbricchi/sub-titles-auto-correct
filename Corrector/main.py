@@ -2,7 +2,7 @@
 # -*-coding:utf8 -*
 
 # sub-titles-auto-correct
-# Copyright (C) 2014-2017
+# Copyright (C) 2014-2018
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -95,13 +95,12 @@ def translate(string):
 
 
 start = datetime.datetime.now()
-# 11-20
 
 files = get_files_with_type(get_all_files(Consts.root_path, 0), "srt")
 for file in files:
     clean_space_in_filename(file)
 
-prompt = input("script ou word ? : ")
+prompt = input("script ou libre ? ")
 
 # TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms ; multi line deaf
 
@@ -153,13 +152,18 @@ for file in files:
             # Save file
 
             new_lines = []
+            previous = "-1"
 
             for subtitle in subtitles:
                 if len(subtitle.lines) == 1 and re.match(r"^\s*\n*$", subtitle.lines[0]):
                     print("Empty subtitle found")
+                elif previous == subtitle.get_time_code():
+                    print("Duplicate found")
                 elif len(subtitle.lines) > 0:
                     new_lines += subtitle.to_lines()
                     new_lines.append("\n")
+
+                previous = subtitle.get_time_code()
 
             write_file(file, new_lines)
 
@@ -168,6 +172,8 @@ for file in files:
 
     elif prompt.startswith("wor"):
         launch_ms_word_spell_check(file, current_language)
+    elif prompt.startswith("lib"):
+        launch_libreoffice_6_writer_spell_check(file, current_language)
 
 end = datetime.datetime.now()
 print(end - start)
