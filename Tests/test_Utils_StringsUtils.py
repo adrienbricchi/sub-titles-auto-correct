@@ -153,7 +153,9 @@ def populate_multi_line_test_dict():
     TEST_LINES["fix_sdh_tags_5"] = ["[plop] truc\n"]
     RESULT_LINES["fix_sdh_tags_5"] = ["truc\n"]
     TEST_LINES["fix_sdh_tags_6"] = [" ? ploplop ? \n"]
-    RESULT_LINES["fix_sdh_tags_6"] = [""]
+    RESULT_LINES["fix_sdh_tags_6"] = ["\n"]
+    TEST_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
+    RESULT_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
 
 
 populate_single_line_test_dict()
