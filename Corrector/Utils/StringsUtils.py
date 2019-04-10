@@ -860,6 +860,16 @@ def fix_multi_line_errors(lines):
     :return: string
     """
 
+    if Consts.fix_3d_doubles:
+        if len(lines) > 0 and (len(lines) % 2) == 0:
+            half_size = len(lines) // 2
+            is_3d_double = True
+            for i in range(0, half_size):
+                if lines[i] != lines[half_size + i]:
+                    is_3d_double = False
+            if is_3d_double:
+                lines = lines[0:half_size]
+
     lines = fix_double_quotes_errors(lines)
 
     if Consts.fix_sdh_tags:
