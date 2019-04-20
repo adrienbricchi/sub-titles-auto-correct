@@ -238,16 +238,20 @@ def ask_for_correction(string, array, trusted_file_path, language):
         print(warns_list_words(string.replace("\n", ""), array))
 
     for word in array:
-        prompt = input("Found " + SHELL_COLOR_WARNING + word + SHELL_COLOR_END + " : ")
 
-        if prompt == ":x":
+        if Consts.auto_skip_everything:
+            prompt = ":q"
+        else:
+            prompt = input("Found " + SHELL_COLOR_WARNING + word + SHELL_COLOR_END + " : ")
+
+        if prompt == ":q":
+            print("Skipped...")
+        elif prompt == ":x":
             trusted_file_path = LETTERS_MAPS_DIRECTORY + re.sub(r"\.csv$", "." + language + ".csv", trusted_file_path)
             put_csv_word(trusted_file_path, word, None)
         elif prompt == ":x!":
             trusted_file_path = LETTERS_MAPS_DIRECTORY + trusted_file_path
             put_csv_word(trusted_file_path, word, None)
-        elif prompt == ":q":
-            print("Skipped...")
         else:
             string = string.replace(word, prompt)
             prompt_should_register = input("    Register? : ")
@@ -347,7 +351,12 @@ def fix_accentuated_capital_a(string):
     for i in range(0, len(matches)):
         match = matches[i]
         colour_string = string[:match.start()] + SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END + string[match.end():]
-        prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
+
+        if Consts.auto_skip_everything:
+            prompt = ":q"
+        else:
+            prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
+
         if prompt == ":x":
             string = colour_string.replace(SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END, "À")
 
@@ -572,9 +581,14 @@ def fix_numbers(string):
 
         for i in range(0, len(matches)):
             result = matches[i]
-            prompt = input("Found number space in : " + string[:result.start() - 1] +
-                           SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
-                           string[result.end() + 1:].replace("\n", "") + " : ")
+
+            if Consts.auto_skip_everything:
+                prompt = ":q"
+            else:
+                prompt = input("Found number space in : " + string[:result.start() - 1] +
+                               SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
+                               string[result.end() + 1:].replace("\n", "") + " : ")
+
             prompt_results.append(prompt == ":x")
 
         # Fix matches
