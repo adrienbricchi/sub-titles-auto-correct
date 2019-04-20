@@ -932,4 +932,7 @@ def fix_single_line_errors(string, language):
     string = fix_degree_symbol(string)
     string = fix_dialog_hyphen(string)
 
+    if re.search("[^a-zA-Z0-9.,:\" </>'!?-]", string[:-1]):
+        print(SHELL_COLOR_WARNING + "Weird char in : " + string[:-1] + SHELL_COLOR_END)
+
     return string
