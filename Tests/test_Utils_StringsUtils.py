@@ -123,6 +123,8 @@ def populate_multi_line_test_dict():
     RESULT_LINES["fix_missing_dialog_hyphen_2"] = ["- <i>test line 1</i>\n", "- test line 2\n", "- test line 3\n"]
     TEST_LINES["fix_missing_dialog_hyphen_3"] = ["<i>test line 1</i>\n", "test line 2\n", "- test line 3\n"]
     RESULT_LINES["fix_missing_dialog_hyphen_3"] = ["- <i>test line 1</i>\n", "test line 2\n", "- test line 3\n"]
+    TEST_LINES["fix_missing_dialog_hyphen_4"] = [" - Aye, sir.\n", "- Incoming message, sir.\n"]
+    RESULT_LINES["fix_missing_dialog_hyphen_4"] = [" - Aye, sir.\n", "- Incoming message, sir.\n"]
 
     TEST_LINES["fix_double_quotes_errors_1"] = ["test line 1\n", "test line\"\n"]
     RESULT_LINES["fix_double_quotes_errors_1"] = ["\"test line 1\n", "test line\"\n"]
@@ -171,7 +173,7 @@ class TestStringsUtils(unittest.TestCase):
         line = ["TEST", "II", "Hey", "PLOP", "Moarf"]
         result = StringsUtils.remove_all_uppercase_words(line)
 
-        self.assertEquals(result, ["II", "Hey", "Moarf"])
+        self.assertEqual(result, ["II", "Hey", "Moarf"])
 
     # def test_print_single_letters(self):
     #
@@ -186,7 +188,7 @@ class TestStringsUtils(unittest.TestCase):
     #
     #     print("lines   : " + str(lines))
     #     print("results : " + str(results))
-    #     self.assertEquals(lines, results)
+    #     self.assertEqual(lines, results)
 
     # endregion Utils
 
@@ -381,7 +383,7 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_lines[key] = StringsUtils.fix_multi_line_errors(TEST_LINES[key])
 
         for key in corrected_lines:
-            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+            self.assertEqual(corrected_lines[key], RESULT_LINES[key])
 
         TEST_LINES.clear()
         RESULT_LINES.clear()
@@ -409,7 +411,7 @@ class TestStringsUtils(unittest.TestCase):
                     corrected_lines[key].append(StringsUtils.fix_single_line_errors(TEST_LINES[key][line_index], language))
 
         for key in corrected_lines:
-            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+            self.assertEqual(corrected_lines[key], RESULT_LINES[key])
 
         TEST_LINES.clear()
         RESULT_LINES.clear()

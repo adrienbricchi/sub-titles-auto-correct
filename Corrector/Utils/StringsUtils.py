@@ -32,7 +32,7 @@ LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
 UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 # noinspection SpellCheckingInspection
 LOWER_CASE_CONSONNANT = r"[bcdfghjklmnpqrstvwxz]"
-START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
+START_WITH_HYPHEN_REGEX = r"^((?:<i>|\"|\s*)*)-\s*(.*)"
 SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
 SENTENCE_REGEX = r"^((?:<i>|-\s*)*)(.*?)((?:</i>|\s)*)$"
 START_WITH_QUOTES = r"^((?:<i>|-\s*)*)\"(.*?)"
@@ -745,7 +745,9 @@ def fix_missing_dialog_hyphen(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
+
     last_dialog_subtitle_index = -1
+
     for i in reversed(range(0, len(strings))):
         if re.match(START_WITH_HYPHEN_REGEX, strings[i]):
             last_dialog_subtitle_index = i
