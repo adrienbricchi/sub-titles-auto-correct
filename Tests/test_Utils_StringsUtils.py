@@ -159,6 +159,13 @@ def populate_multi_line_test_dict():
     TEST_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
     RESULT_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
 
+    TEST_LINES["fix_3d_doubles_1"] = ["A\n", "A\n"]
+    RESULT_LINES["fix_3d_doubles_1"] = ["A\n"]
+    TEST_LINES["fix_3d_doubles_2"] = ["A\n", "B\n", "C\n", "A\n", "B\n", "C\n"]
+    RESULT_LINES["fix_3d_doubles_2"] = ["A\n", "B\n", "C\n"]
+    TEST_LINES["fix_3d_doubles_3"] = ["A\n", "B\n", "C\n", "D\n", "A\n", "B\n", "C\n"]
+    RESULT_LINES["fix_3d_doubles_3"] = ["A\n", "B\n", "C\n", "D\n", "A\n", "B\n", "C\n"]
+
 
 populate_single_line_test_dict()
 populate_multi_line_test_dict()
@@ -328,6 +335,12 @@ class TestStringsUtils(unittest.TestCase):
 
     # region Multi-line
 
+    def test_fix_3d_doubles(self):
+        self.assertEqual(StringsUtils.fix_3d_doubles([]), [])
+        for key in TEST_LINES:
+            corrected_lines = StringsUtils.fix_3d_doubles(TEST_LINES[key])
+            self.assert_list_equals(corrected_lines, key, "fix_3d_doubles")
+
     def test_fix_empty_lines(self):
         self.assertEqual(StringsUtils.fix_empty_lines([]), [])
         for key in TEST_LINES:
@@ -371,6 +384,7 @@ class TestStringsUtils(unittest.TestCase):
         # We have to cleanup dictionary tests cases, to check only relevant lines.
         # Those dictionaries will be restored at the end of this test.
         Consts.fix_sdh_tags = True
+        Consts.fix_3d_doubles = True
         TEST_LINES.clear()
         RESULT_LINES.clear()
         populate_multi_line_test_dict()
