@@ -683,7 +683,7 @@ def fix_l_to_capital_i(string):
 
 def warn_weird_char(string):
     if not Consts.is_unittest_exec:
-        if re.search("[^a-zA-Z0-9.,:\" </>'!?-]", string[:-1]):
+        if re.search("[^a-zA-Z0-9éèÉàùçÇêâÊÀÂîÎôÔûœÛ.,:\" </>'!?-]", string[:-1]):
             print(SHELL_COLOR_WARNING + "Weird char in : " + string[:-1] + SHELL_COLOR_END)
 
 
