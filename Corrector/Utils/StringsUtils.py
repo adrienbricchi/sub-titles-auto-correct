@@ -347,7 +347,7 @@ def fix_accentuated_capital_a(string):
     :param string: the string to check.
     :return: string
     """
-    matches = list(re.finditer(r"\bA\b", string))
+    matches = list(re.finditer(r"\bA\b(?!-t-)", string))
     for i in range(0, len(matches)):
         match = matches[i]
         colour_string = string[:match.start()] + SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END + string[match.end():]

@@ -40,6 +40,8 @@ def populate_single_line_test_dict():
     RESULT_LINES["fix_accentuated_capital_a_:x"] = ["À toi a\n", "Plop Abcdc. À.\n"]
     TEST_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
     RESULT_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+    TEST_LINES["fix_accentuated_capital_a_3"] = ["A-t-on toi a\n", "Plop Abcdc. A.\n"]
+    RESULT_LINES["fix_accentuated_capital_a_3"] = ["A-t-on toi a\n", "Plop Abcdc. A.\n"]
 
     TEST_LINES["fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
     RESULT_LINES["fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
