@@ -120,6 +120,13 @@ for file in files:
         #     lines = get_file_text(file, True)
         #     subtitles = Subtitle.subtitles_from_lines(lines)
 
+            forced_subtitles = []
+            if "[fre]" in file:
+                forced_file = file.replace("[fre]", "[mis]")
+                if os.path.exists(forced_file):
+                    forced_lines = get_file_text(forced_file, True)
+                    forced_subtitles = Subtitle.subtitles_from_lines(forced_lines)
+
             for subtitle in subtitles:
 
                 corrected_lines = fix_multi_line_errors(subtitle.lines)
@@ -144,6 +151,13 @@ for file in files:
                         print(SHELL_COLOR_FAIL + "Found £ at " + pretty_number + SHELL_COLOR_END + " : " + pretty_line)
 
                     corrected_lines.append(line)
+
+                for forced_subtitle in forced_subtitles:
+                    if subtitle.time_code == forced_subtitle.time_code:
+                        if len(forced_subtitle.lines) > 0 and len(corrected_lines) > 0:
+                            if forced_subtitle.lines[0].startswith("{\\an8}"):
+                                if not corrected_lines[0].startswith("{\\an8}"):
+                                    corrected_lines[0] = "{\\an8}" + corrected_lines[0]
 
                 subtitle.set_lines(corrected_lines)
 
