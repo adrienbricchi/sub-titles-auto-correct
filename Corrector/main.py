@@ -139,7 +139,6 @@ for file in files:
                 for line in subtitle.get_lines():
 
                     line = fix_single_line_errors(line, current_language)
-
                     array = find_words_with_char(line, "I", current_language)
                     array = remove_all_uppercase_words(array)
                     line = ask_for_correction(line, array, "I_trusted.csv", current_language)

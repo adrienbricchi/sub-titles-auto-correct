@@ -41,7 +41,7 @@ def get_file_text(path, mode_lines):
     :param mode_lines: bool, mode lines or not
     :return: string
     """
-    srt_file = open(path, 'r', encoding='cp1252')
+    srt_file = open(path, 'r', encoding='utf-8-sig')
     
     if mode_lines:
         srt_content = srt_file.readlines()
@@ -120,7 +120,7 @@ def write_file(path, lines):
     :param lines: list of string, file content
     :return:
     """
-    srt_file = open(path, 'w', encoding='cp1252')
+    srt_file = open(path, 'w', encoding='utf-8-sig')
     
     for line in lines:
         srt_file.write(line)
@@ -151,7 +151,7 @@ def utf8_to_ansi(source_path, destination_path):
     :param: string, the target file path.
     """
     with io.open(source_path, encoding='utf-8', errors='ignore') as source:
-        with io.open(destination_path, mode='w', encoding='cp1252') as target:
+        with io.open(destination_path, mode='w', encoding='utf-8') as target:
             shutil.copyfileobj(source, target)
 
     return
