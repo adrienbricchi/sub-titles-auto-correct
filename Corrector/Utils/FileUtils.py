@@ -72,7 +72,7 @@ def get_files_with_type(file_list, file_type):
     
     for file in fnmatch.filter(file_list, '*.' + file_type):
         srt_list.append(file)
-        
+
     srt_list = [file for file in srt_list if (file[-17:-4] != "(before STAC)")]
     srt_list = [file for file in srt_list if (file[-20:-4] != "(Avant SRAH 2.3)")]
     return srt_list
@@ -144,15 +144,20 @@ def get_md5(file):
     return md5.digest()
 
 
-def utf8_to_ansi(source_path, destination_path):
+def ansi_to_utf8(source_path):
     """Changes data encoding.
 
     :param: string, the source file path.
     :param: string, the target file path.
     """
-    with io.open(source_path, encoding='utf-8', errors='ignore') as source:
-        with io.open(destination_path, mode='w', encoding='utf-8') as target:
+    temp_file_name = source_path + "_utf8.temp"
+
+    with io.open(source_path, encoding='cp1252', errors='ignore') as source:
+        with io.open(temp_file_name, mode='w', encoding='utf-8-sig') as target:
             shutil.copyfileobj(source, target)
+
+    os.remove(source_path)
+    os.rename(temp_file_name, source_path)
 
     return
 

@@ -22,7 +22,7 @@ import csv
 import subprocess
 import os
 from Corrector.Utils import Consts
-
+from Corrector.Utils.FileUtils import ansi_to_utf8
 
 STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/../../Resources/StringsMaps/'
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
@@ -311,6 +311,7 @@ def launch_libreoffice_6_writer_spell_check(path, language):
 
     print(command_line)
     subprocess.call(command_line)
+    ansi_to_utf8(path)
     return
 
 
@@ -950,12 +951,10 @@ def fix_single_line_errors(string, language):
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)
     string = fix_common_misspells(string, language)
-    string = fix_letter_followed_by_space(string, "f", language)
-    string = fix_letter_followed_by_space(string, "W", language)
-    string = fix_letter_followed_by_space(string, "C", language)
-    string = fix_letter_followed_by_space(string, "G", language)
-    string = fix_letter_followed_by_space(string, "Z", language)
-    string = fix_letter_followed_by_space(string, "V", language)
+
+    for letter in ["f", "A", "C", "G", "W", "Z", "V", "W", "Y", "Z"]:
+        string = fix_letter_followed_by_space(string, letter, language)
+
     string = fix_quotes(string, language)
     string = fix_punctuation_spaces(string)
     string = fix_degree_symbol(string)
