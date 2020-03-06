@@ -728,7 +728,7 @@ def fix_empty_lines(strings):
     filtered_strings = []
 
     for string in strings:
-        if not re.match(r"^\s*$", string):
+        if not re.match(r"^(?:\s|<i>)*-?(?:\s|</i>)*$", string):
             filtered_strings.append(string)
 
     return filtered_strings
@@ -874,6 +874,8 @@ def fix_sdh_tags(strings):
 
     for i in range(0, len(strings)):
         strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog or i > 0 else r"\1\2\3", strings[i])
+        strings[i] = re.sub(r"^((?:<i>|\"|\s))*(-?\s*)[\[(][A-ZÉÈÀÙÇÊÂÛÎÏÜ\s'\"-]+[\])] *(.*?)$", r"\1\2\3", strings[i])
+        strings[i] = re.sub(r"^(.*?)[\[(][A-ZÉÈÀÙÇÊÂÛÎÏÜ\s'\"-]+[\])](\s*$)", r"\1\2", strings[i])
 
     # Music tags
 
@@ -919,14 +921,14 @@ def fix_multi_line_errors(lines):
     if Consts.fix_sdh_tags:
         lines = fix_sdh_tags(lines)
 
-    if len(lines) == 1:
-        lines = fix_useless_dialog_hyphen(lines)
-    else:
+    if len(lines) > 1:
         lines = fix_empty_lines(lines)
         lines = fix_redundant_italic_tag(lines)
         lines = fix_missing_dialog_hyphen(lines)
         lines = fix_useless_dialog_hyphen(lines)
         lines = fix_double_quotes_errors(lines)
+
+    lines = fix_useless_dialog_hyphen(lines)
 
     return lines
 

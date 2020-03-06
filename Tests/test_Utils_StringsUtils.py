@@ -160,6 +160,8 @@ def populate_multi_line_test_dict():
     RESULT_LINES["fix_sdh_tags_6"] = ["\n"]
     TEST_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
     RESULT_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
+    TEST_LINES["fix_sdh_tags_8"] = ["- (SHRIEKS) Oh.\n", "- (SCOFFS)\n", "<i>-(WHEE HERE) Test"]
+    RESULT_LINES["fix_sdh_tags_8"] = ["- Oh.\n", "- \n", "<i>-Test"]
 
     TEST_LINES["fix_3d_doubles_1"] = ["A\n", "A\n"]
     RESULT_LINES["fix_3d_doubles_1"] = ["A\n"]
