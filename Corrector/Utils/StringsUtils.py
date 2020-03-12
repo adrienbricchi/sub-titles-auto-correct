@@ -527,14 +527,20 @@ def fix_quotes(line, language):
     return line
 
 
-def fix_punctuation_spaces(string):
+def fix_punctuation_spaces(string, language):
     """ Add needed spaces around "?" and "!"
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     if "?" in string or "!" in string:
-        string = re.sub(r"(?<![?!\s])([?!])", r" \1", string)  # Space before
+
+        if language == "fr":
+            string = re.sub(r"(?<![?!\s])([?!])", r" \1", string)  # Space before
+        elif language == "eng":
+            string = re.sub(r"\s*([?!])", r"\1", string)  # Space before
+
         string = re.sub(r"([?!])(?=[\w('-])", r"\1 ", string)  # Space after
         string = re.sub(r"(?<=[?!])\s+(?=[!?])", "", string)  # Space between
 
@@ -958,7 +964,7 @@ def fix_single_line_errors(string, language):
         string = fix_letter_followed_by_space(string, letter, language)
 
     string = fix_quotes(string, language)
-    string = fix_punctuation_spaces(string)
+    string = fix_punctuation_spaces(string, language)
     string = fix_degree_symbol(string)
     string = fix_dialog_hyphen(string)
 
