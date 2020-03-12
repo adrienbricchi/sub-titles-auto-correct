@@ -746,6 +746,21 @@ def fix_redundant_italic_tag(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
+    if len(strings) == 0:
+        return strings
+
+    if strings[0].startswith("<i>"):
+        is_closed = False
+        for i in range(0, len(strings)):
+            if "</i>" in strings[i]:
+                is_closed = True
+        if not is_closed:
+            strings[len(strings) - 1] = strings[len(strings) - 1] + "</i>"
+
+    for i in range(0, len(strings) - 1):
+        if strings[i].startswith("<i>") and "</i>" not in strings[i] and strings[i + 1].startswith("<i>"):
+            strings[i] = strings[i] + "</i>"
+
     for i in range(0, len(strings)):
         strings[i] = re.sub(r"<i>(\s*)</i>", r"\1", strings[i])
         strings[i] = re.sub(r"</i>(\s*)<i>", r"\1", strings[i])
