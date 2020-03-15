@@ -278,7 +278,7 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i]))
+                corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i], "fre"))
 
             self.assert_list_equals(corrected_line, key, "fix_colon")
 

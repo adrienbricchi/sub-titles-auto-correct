@@ -401,14 +401,18 @@ def fix_capital_i_to_l(string):
     return string
 
 
-def fix_colon(string):
+def fix_colon(string, language):
     """Fixes spaces around colon.
 
     :param string: the string to fix.
     :return: string
     """
-    string = re.sub(r"(?<=\w):(?=\w)", " : ", string)
-    string = re.sub(r"(?<=\w):", " :", string)
+    if language == "fr":
+        string = re.sub(r"(?<=\w):(?=\w)", " : ", string)
+        string = re.sub(r"(?<=\w):", " :", string)
+    elif language == "eng":
+        string = string.replace(" :", ":")
+
     string = re.sub(r":(?=\w)", ": ", string)
     string = re.sub(r"(?<=\d)\s*:\s*(?=\d)", ":", string)
 
@@ -969,7 +973,7 @@ def fix_single_line_errors(string, language):
     string = fix_punctuation_errors(string)
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
-    string = fix_colon(string)
+    string = fix_colon(string, language)
     string = fix_capital_i_to_l(string)
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)
