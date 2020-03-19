@@ -406,11 +406,12 @@ def fix_zero_to_o(string):
     return string
 
 
-def fix_capital_i_to_l(string):
+def fix_capital_i_to_l(string, language):
     # noinspection SpellCheckingInspection
     """Checks for wrong capital I and switch them with l
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     while re.search(r"" + LOWER_CASE + "I", string):
@@ -419,11 +420,44 @@ def fix_capital_i_to_l(string):
     while re.search(r"" + UPPER_CASE + "I" + LOWER_CASE, string):
         string = re.sub(r"(?<=" + UPPER_CASE + r")I(?=" + LOWER_CASE + r")", "l", string)
 
-    while re.search(r"" + LOWER_CASE + r"\sI" + LOWER_CASE, string):
-        string = re.sub(r"(?<=" + LOWER_CASE + r"\s)I(?=" + LOWER_CASE + r")", "l", string)
+    # Prompt if comma or dot
 
-    while re.search(r",\sI" + LOWER_CASE, string):
-        string = re.sub(r"(?<=,\s)I(?=" + LOWER_CASE + r")", "l", string)
+    matches = list(re.finditer(r"\bI.*?\b", string))
+    prompt_results = []
+
+    if len(matches) > 0:
+
+        # Get fixable matches
+
+        for i in range(0, len(matches)):
+            result = matches[i]
+
+            if Consts.auto_skip_everything:
+                prompt = ":q"
+            else:
+                trusted_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "I_trusted.csv", language)
+
+                if string[result.start():result.end()] in trusted_words:
+                    prompt_results.append(False)
+                else:
+                    prompt = input("Found _I in : " + string[:result.start()] +
+                                   SHELL_COLOR_WARNING + string[result.start():result.start() + 1] + SHELL_COLOR_END +
+                                   string[result.start() + 1:].replace("\n", "") + " : ")
+
+                    if prompt == ":x!":
+                        put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted.csv",
+                                     string[result.start():result.end()], None)
+                    if prompt == ":x":
+                        put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted." + language + ".csv",
+                                     string[result.start():result.end()], None)
+
+                    prompt_results.append(prompt == ":q")
+
+        # Fix matches
+
+        for i in reversed(range(0, len(prompt_results))):
+            if prompt_results[i]:
+                string = string[:matches[i].start()] + "l" + string[matches[i].start() + 1:]
 
     return string
 
@@ -432,6 +466,7 @@ def fix_colon(string, language):
     """Fixes spaces around colon.
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     if language == "fr":
@@ -1001,7 +1036,7 @@ def fix_single_line_errors(string, language):
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
     string = fix_colon(string, language)
-    string = fix_capital_i_to_l(string)
+    string = fix_capital_i_to_l(string, language)
     string = fix_zero_to_o(string)
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)
