@@ -378,6 +378,33 @@ def fix_acronyms(string):
 
     return string
 
+def fix_zero_to_o(string):
+    # noinspection SpellCheckingInspection
+    """Checks for wrong 0 and switch them with o
+
+    :param string: the string to fix.
+    :return: string
+    """
+    while re.search(r"" + LOWER_CASE + "0", string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r")0", "o", string)
+
+    while re.search(r"" + UPPER_CASE + "0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + UPPER_CASE + r")0(?=" + LOWER_CASE + r")", "o", string)
+
+    while re.search(r"" + LOWER_CASE + r"\s0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r"\s)0(?=" + LOWER_CASE + r")", "o", string)
+
+    while re.search(r",\s0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=,\s)0(?=" + LOWER_CASE + r")", "o", string)
+
+    while re.search(r"'0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=')0(?=" + LOWER_CASE + r")", "o", string)
+
+    if "0" in string:
+        print(SHELL_COLOR_WARNING + "Zero in : " + string[:-1] + SHELL_COLOR_END)
+
+    return string
+
 
 def fix_capital_i_to_l(string):
     # noinspection SpellCheckingInspection
@@ -975,6 +1002,7 @@ def fix_single_line_errors(string, language):
     string = fix_italic_tag_errors(string)
     string = fix_colon(string, language)
     string = fix_capital_i_to_l(string)
+    string = fix_zero_to_o(string)
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)
     string = fix_common_misspells(string, language)
