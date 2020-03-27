@@ -432,26 +432,38 @@ def fix_capital_i_to_l(string, language):
         for i in range(0, len(matches)):
             result = matches[i]
 
-            if Consts.auto_skip_everything:
-                prompt = ":q"
+            trusted_capital_i_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "I_trusted.csv", language)
+            trusted_l_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "l_trusted.csv", language)
+
+            if string[result.start():result.end()] in trusted_capital_i_words:
+                prompt_results.append(False)
+            elif "l" + string[result.start() + 1:result.end()] in trusted_l_words:
+                prompt_results.append(True)
+            elif Consts.auto_skip_everything:
+                prompt_results.append(False)
             else:
-                trusted_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "I_trusted.csv", language)
+                prompt = input("Found _I in : " + string[:result.start()] +
+                               SHELL_COLOR_WARNING + string[result.start():result.start() + 1] + SHELL_COLOR_END +
+                               string[result.start() + 1:].replace("\n", "") + " : ")
 
-                if string[result.start():result.end()] in trusted_words:
+                if prompt == ":x!":
                     prompt_results.append(False)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted.csv",
+                                 string[result.start():result.end()], None)
+                elif prompt == ":x":
+                    prompt_results.append(False)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted." + language + ".csv",
+                                 string[result.start():result.end()], None)
+                elif prompt == ":q!":
+                    prompt_results.append(True)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "l_trusted.csv",
+                                 "l" + string[result.start() + 1:result.end()], None)
+                elif prompt == ":q":
+                    prompt_results.append(True)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "l_trusted." + language + ".csv",
+                                 "l" + string[result.start() + 1:result.end()], None)
                 else:
-                    prompt = input("Found _I in : " + string[:result.start()] +
-                                   SHELL_COLOR_WARNING + string[result.start():result.start() + 1] + SHELL_COLOR_END +
-                                   string[result.start() + 1:].replace("\n", "") + " : ")
-
-                    if prompt == ":x!":
-                        put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted.csv",
-                                     string[result.start():result.end()], None)
-                    if prompt == ":x":
-                        put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted." + language + ".csv",
-                                     string[result.start():result.end()], None)
-
-                    prompt_results.append(prompt == ":q")
+                    prompt_results.append(False)
 
         # Fix matches
 
