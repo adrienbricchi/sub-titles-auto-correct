@@ -26,6 +26,12 @@ from Corrector.Utils.FileUtils import *
 from Corrector.Utils.StringsUtils import *
 
 
+config = configparser.ConfigParser()
+config.read('config.ini', encoding='utf-8')
+
+conf_root_path = config["PARAMETERS"]['root_path']
+
+
 def build_menus(root):
     main_menu = Menu(root, tearoff=0)
     file_menu = Menu(main_menu, tearoff=0)
@@ -94,15 +100,13 @@ def translate(string):
 
 start = datetime.datetime.now()
 
-files = get_files_with_type(get_all_files(Consts.root_path, 0), "srt")
+files = get_files_with_type(get_all_files(conf_root_path, 0), "srt")
 for file in files:
     clean_space_in_filename(file)
 
 prompt = input("script ou libre ? ")
 
-# TODO : met- ; vince; ; ARl/LORl ; *_) ; Ibs ; l'chaim ; crappy ' ; lower case acronyms ; multi line deaf
-
-files = get_files_with_type(get_all_files(Consts.root_path, 0), "srt")
+files = get_files_with_type(get_all_files(conf_root_path, 0), "srt")
 for file in files:
     # backup_file(file)
     lines = get_file_text(file, True)

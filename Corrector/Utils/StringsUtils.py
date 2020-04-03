@@ -17,12 +17,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import configparser
 import re
 import csv
 import subprocess
 import os
-from Corrector.Utils import Consts
 from Corrector.Utils.FileUtils import ansi_to_utf8
+
+config = configparser.ConfigParser()
+config.read('config.ini', encoding='utf-8')
+
+conf_ms_word_2010_path = config["DEPENDENCIES"]['ms_word_2010_path']
+conf_libreoffice6_writer_path = config["DEPENDENCIES"]['libreoffice6_writer_path']
+conf_fix_sdh_tags = config["PARAMETERS"]['fix_sdh_tags'] == "true"
+conf_is_unittest_exec = config["PARAMETERS"]['is_unittest_exec'] == "true"
+conf_fix_3d_doubles = config["PARAMETERS"]['fix_3d_doubles'] == "true"
+conf_auto_skip_everything = config["PARAMETERS"]['auto_skip_everything'] == "true"
+
 
 STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/../../Resources/StringsMaps/'
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
@@ -239,7 +250,7 @@ def ask_for_correction(string, array, trusted_file_path, language):
 
     for word in array:
 
-        if Consts.auto_skip_everything:
+        if conf_auto_skip_everything:
             prompt = ":q"
         else:
             prompt = input("Found " + SHELL_COLOR_WARNING + word + SHELL_COLOR_END + " : ")
@@ -269,8 +280,8 @@ def ask_for_correction(string, array, trusted_file_path, language):
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
-    if os.path.isfile(Consts.ms_word_2010_location):
-        command_line += Consts.ms_word_2010_location
+    if os.path.isfile(conf_ms_word_2010_path):
+        command_line += conf_ms_word_2010_path
 
     if command_line == "":
         print("MSOffice is missing, or no known MSOffice found")
@@ -293,8 +304,8 @@ def launch_ms_word_spell_check(path, language):
 def launch_libreoffice_6_writer_spell_check(path, language):
     command_line = ""
 
-    if os.path.isfile(Consts.libreoffice6_writer_location):
-        command_line += Consts.libreoffice6_writer_location
+    if os.path.isfile(conf_libreoffice6_writer_path):
+        command_line += conf_libreoffice6_writer_path
 
     if command_line == "":
         print("LibreOffice is missing, or no known LibreOffice found")
@@ -353,7 +364,7 @@ def fix_accentuated_capital_a(string):
         match = matches[i]
         colour_string = string[:match.start()] + SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END + string[match.end():]
 
-        if Consts.auto_skip_everything:
+        if conf_auto_skip_everything:
             prompt = ":q"
         else:
             prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
@@ -372,7 +383,7 @@ def fix_acronyms(string):
     """
     string = re.sub(r"(?<=\b" + UPPER_CASE + r"\.)(\s*)(?=\w\.)", "", string)
 
-    if not Consts.is_unittest_exec:
+    if not conf_is_unittest_exec:
         if re.search(r"\w\.\w\.", string):
             print("Found acronym : " + string.replace("\n", ""))
 
@@ -439,7 +450,7 @@ def fix_capital_i_to_l(string, language):
                 prompt_results.append(False)
             elif "l" + string[result.start() + 1:result.end()] in trusted_l_words:
                 prompt_results.append(True)
-            elif Consts.auto_skip_everything:
+            elif conf_auto_skip_everything:
                 prompt_results.append(False)
             else:
                 prompt = input("Found _I in : " + string[:result.start()] +
@@ -655,7 +666,7 @@ def fix_letter_followed_by_space(line, letter, language):
             to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
 
         # Print colored char
-        if not Consts.is_unittest_exec:
+        if not conf_is_unittest_exec:
             if letter + " " in to_check:
                 line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)",
                                        SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
@@ -702,7 +713,7 @@ def fix_numbers(string):
 
     string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
 
-    if not Consts.is_unittest_exec:
+    if not conf_is_unittest_exec:
         if re.search(r"\d\d\d\d\d", string):
             print("Big number : " + string.replace("\n", ""))
 
@@ -721,7 +732,7 @@ def fix_numbers(string):
         for i in range(0, len(matches)):
             result = matches[i]
 
-            if Consts.auto_skip_everything:
+            if conf_auto_skip_everything:
                 prompt = ":q"
             else:
                 prompt = input("Found number space in : " + string[:result.start() - 1] +
@@ -767,7 +778,7 @@ def fix_l_to_capital_i(string):
 
 
 def warn_weird_char(string):
-    if not Consts.is_unittest_exec:
+    if not conf_is_unittest_exec:
         if re.search("[^a-zA-Z0-9éèàùçÇêâÊÉÈÀÂîïÎôÔûœÛ.,:\" </>'!?-]", string[:-1]):
             print(SHELL_COLOR_WARNING + "Weird char in : " + string[:-1] + SHELL_COLOR_END)
 
@@ -1012,12 +1023,12 @@ def fix_multi_line_errors(lines):
     :return: string
     """
 
-    if Consts.fix_3d_doubles:
+    if conf_fix_3d_doubles:
         lines = fix_3d_doubles(lines)
 
     lines = fix_double_quotes_errors(lines)
 
-    if Consts.fix_sdh_tags:
+    if conf_fix_sdh_tags:
         lines = fix_sdh_tags(lines)
 
     if len(lines) > 1:

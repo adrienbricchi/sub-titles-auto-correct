@@ -19,14 +19,8 @@
 
 import unittest
 from unittest.mock import patch
-from io import StringIO
-import sys
 
 from Corrector.Utils import StringsUtils
-from Corrector.Utils import Consts
-
-
-Consts.is_unittest_exec = True
 
 TEST_LINES = {}
 RESULT_LINES = {}
@@ -387,8 +381,8 @@ class TestStringsUtils(unittest.TestCase):
 
         # We have to cleanup dictionary tests cases, to check only relevant lines.
         # Those dictionaries will be restored at the end of this test.
-        Consts.fix_sdh_tags = True
-        Consts.fix_3d_doubles = True
+        fix_sdh_tags = True
+        fix_3d_doubles = True
         TEST_LINES.clear()
         RESULT_LINES.clear()
         populate_multi_line_test_dict()
