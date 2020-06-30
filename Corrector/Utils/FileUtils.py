@@ -170,9 +170,17 @@ def get_file_language(path):
     """
     language = "undefined"
 
-    if path.endswith("fre.srt") or path.endswith("fr.srt") or path.endswith("[fre].srt") or path.endswith("[mis].srt"):
+    if path.endswith("ger.srt") \
+            or path.endswith("[ger].srt"):
+        language = "ger"
+    elif path.endswith("fre.srt") \
+            or path.endswith("fr.srt") \
+            or path.endswith("[fre].srt") \
+            or path.endswith("[mis].srt"):
         language = "fr"
-    elif path.endswith("en.srt") or path.endswith("eng.srt") or path.endswith("[eng].srt"):
+    elif path.endswith("en.srt") \
+            or path.endswith("eng.srt") \
+            or path.endswith("[eng].srt"):
         language = "eng"
 
     return language
