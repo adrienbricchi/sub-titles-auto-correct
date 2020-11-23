@@ -1041,9 +1041,9 @@ def fix_multi_line_errors(lines):
     lines = fix_useless_dialog_hyphen(lines)
 
     is_closed = False
-    if lines[0].startswith("<i>"):
+    if len(lines) > 0 and lines[0].startswith("<i>"):
         for line in lines:
-            is_closed = is_closed or (line.__contains__("</i>"))
+            is_closed = is_closed or "</i>" in line
         if not is_closed:
             lines[len(lines) - 1] += "</i>"
 
