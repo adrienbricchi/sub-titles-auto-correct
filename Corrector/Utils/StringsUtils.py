@@ -17,11 +17,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import configparser
 import re
 import csv
 import subprocess
 import os
-from Corrector.Utils import Consts
+from Corrector.Utils.FileUtils import ansi_to_utf8
+
+config = configparser.ConfigParser()
+config.read('config.ini', encoding='utf-8')
+
+conf_ms_word_2010_path = config["DEPENDENCIES"]['ms_word_2010_path']
+conf_libreoffice6_writer_path = config["DEPENDENCIES"]['libreoffice6_writer_path']
+conf_fix_sdh_tags = config["PARAMETERS"]['fix_sdh_tags'] == "true"
+conf_is_unittest_exec = config["PARAMETERS"]['is_unittest_exec'] == "true"
+conf_fix_3d_doubles = config["PARAMETERS"]['fix_3d_doubles'] == "true"
+conf_auto_skip_everything = config["PARAMETERS"]['auto_skip_everything'] == "true"
 
 
 STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/../../Resources/StringsMaps/'
@@ -32,12 +43,12 @@ LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
 UPPER_CASE = r"[A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜ]"
 # noinspection SpellCheckingInspection
 LOWER_CASE_CONSONNANT = r"[bcdfghjklmnpqrstvwxz]"
-START_WITH_HYPHEN_REGEX = r"^((?:<i>\s*|\"\s*)*)-(?!\s*-)\s*(.*)"
+START_WITH_HYPHEN_REGEX = r"^((?:<i>|\"|\s*)*)-\s*(.*)"
 SENTENCE_START_REGEX = r"^((?:<i>|-\s*)*)(.*)"
 SENTENCE_REGEX = r"^((?:<i>|-\s*)*)(.*?)((?:</i>|\s)*)$"
 START_WITH_QUOTES = r"^((?:<i>|-\s*)*)\"(.*?)"
 ENDS_WITH_QUOTES = r"(.*?)\"((?:</i>|\s)*)$"
-SDH_CHARS = r"[\w\s,()\.!\?\[\]\/-]{2,}"
+SDH_CHARS = r"[\w\s,'()\.!\?\[\]\/-]{2,}"
 ENDS_WITHOUT_ENDING_SENTENCE_REGEX = r".*[a-zA-Z]$"
 FILE_CACHE = {}
 
@@ -158,7 +169,7 @@ def get_csv_words(csv_file_path):
         return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
-        with open(csv_file_path, encoding='utf-8', newline='') as csv_file:
+        with open(csv_file_path, encoding='utf-8-sig', newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for word in csv_file_reader:
                 result_list.append(word[0])
@@ -195,7 +206,7 @@ def get_csv_words_map(csv_file_path):
         return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
-        with open(csv_file_path, encoding="utf-8", newline='') as csv_file:
+        with open(csv_file_path, encoding="utf-8-sig", newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for words in csv_file_reader:
                 result_list.append(words)
@@ -213,7 +224,7 @@ def put_csv_word(csv_file_path, key, value):
     """
     FILE_CACHE.pop(csv_file_path, None)
 
-    with open(csv_file_path, 'a', encoding='utf-8', newline='') as csv_file:
+    with open(csv_file_path, 'a', encoding='utf-8-sig', newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=':', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         if not value:
             writer.writerow([key])
@@ -238,16 +249,20 @@ def ask_for_correction(string, array, trusted_file_path, language):
         print(warns_list_words(string.replace("\n", ""), array))
 
     for word in array:
-        prompt = input("Found " + SHELL_COLOR_WARNING + word + SHELL_COLOR_END + " : ")
 
-        if prompt == ":x":
+        if conf_auto_skip_everything:
+            prompt = ":q"
+        else:
+            prompt = input("Found " + SHELL_COLOR_WARNING + word + SHELL_COLOR_END + " : ")
+
+        if prompt == ":q":
+            print("Skipped...")
+        elif prompt == ":x":
             trusted_file_path = LETTERS_MAPS_DIRECTORY + re.sub(r"\.csv$", "." + language + ".csv", trusted_file_path)
             put_csv_word(trusted_file_path, word, None)
         elif prompt == ":x!":
             trusted_file_path = LETTERS_MAPS_DIRECTORY + trusted_file_path
             put_csv_word(trusted_file_path, word, None)
-        elif prompt == ":q":
-            print("Skipped...")
         else:
             string = string.replace(word, prompt)
             prompt_should_register = input("    Register? : ")
@@ -265,8 +280,8 @@ def ask_for_correction(string, array, trusted_file_path, language):
 def launch_ms_word_spell_check(path, language):
     command_line = ""
 
-    if os.path.isfile(Consts.ms_word_2010_location):
-        command_line += Consts.ms_word_2010_location
+    if os.path.isfile(conf_ms_word_2010_path):
+        command_line += conf_ms_word_2010_path
 
     if command_line == "":
         print("MSOffice is missing, or no known MSOffice found")
@@ -289,8 +304,8 @@ def launch_ms_word_spell_check(path, language):
 def launch_libreoffice_6_writer_spell_check(path, language):
     command_line = ""
 
-    if os.path.isfile(Consts.libreoffice6_writer_location):
-        command_line += Consts.libreoffice6_writer_location
+    if os.path.isfile(conf_libreoffice6_writer_path):
+        command_line += conf_libreoffice6_writer_path
 
     if command_line == "":
         print("LibreOffice is missing, or no known LibreOffice found")
@@ -307,6 +322,7 @@ def launch_libreoffice_6_writer_spell_check(path, language):
 
     print(command_line)
     subprocess.call(command_line)
+    ansi_to_utf8(path)
     return
 
 
@@ -343,13 +359,147 @@ def fix_accentuated_capital_a(string):
     :param string: the string to check.
     :return: string
     """
-    matches = list(re.finditer(r"\bA\b", string))
+    matches = list(re.finditer(r"\bA\b(?!-t-)", string))
     for i in range(0, len(matches)):
         match = matches[i]
         colour_string = string[:match.start()] + SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END + string[match.end():]
-        prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
+
+        if conf_auto_skip_everything:
+            prompt = ":q"
+        else:
+            prompt = input("Found A in \"" + colour_string.replace("\n", "") + "\" : ")
+
         if prompt == ":x":
             string = colour_string.replace(SHELL_COLOR_WARNING + "A" + SHELL_COLOR_END, "À")
+
+    return string
+
+
+def fix_acronyms(string):
+    """fixes spaces after dots on acronyms.
+
+    :param string: the string to fix.
+    :return: string
+    """
+    string = re.sub(r"(?<=\b" + UPPER_CASE + r"\.)(\s*)(?=\w\.)", "", string)
+
+    if not conf_is_unittest_exec:
+        if re.search(r"\w\.\w\.", string):
+            print("Found acronym : " + string.replace("\n", ""))
+
+    return string
+
+def fix_zero_to_o(string):
+    # noinspection SpellCheckingInspection
+    """Checks for wrong 0 and switch them with o
+
+    :param string: the string to fix.
+    :return: string
+    """
+    while re.search(r"" + LOWER_CASE + "0", string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r")0", "o", string)
+
+    while re.search(r"" + UPPER_CASE + "0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + UPPER_CASE + r")0(?=" + LOWER_CASE + r")", "o", string)
+
+    while re.search(r"" + LOWER_CASE + r"\s0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r"\s)0(?=" + LOWER_CASE + r")", "o", string)
+
+    while re.search(r",\s0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=,\s)0(?=" + LOWER_CASE + r")", "o", string)
+
+    while re.search(r"'0" + LOWER_CASE, string):
+        string = re.sub(r"(?<=')0(?=" + LOWER_CASE + r")", "o", string)
+
+    if "0" in string:
+        print(SHELL_COLOR_WARNING + "Zero in : " + string[:-1] + SHELL_COLOR_END)
+
+    return string
+
+
+def fix_capital_i_to_l(string, language):
+    # noinspection SpellCheckingInspection
+    """Checks for wrong capital I and switch them with l
+
+    :param string: the string to fix.
+    :param language: current language correction
+    :return: string
+    """
+    while re.search(r"" + LOWER_CASE + "I", string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r")I", "l", string)
+
+    while re.search(r"" + UPPER_CASE + "I" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + UPPER_CASE + r")I(?=" + LOWER_CASE + r")", "l", string)
+
+    # Prompt if comma or dot
+
+    matches = list(re.finditer(r"\bI.*?\b", string))
+    prompt_results = []
+
+    if len(matches) > 0:
+
+        # Get fixable matches
+
+        for i in range(0, len(matches)):
+            result = matches[i]
+
+            trusted_capital_i_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "I_trusted.csv", language)
+            trusted_l_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "l_trusted.csv", language)
+
+            if string[result.start():result.end()] in trusted_capital_i_words:
+                prompt_results.append(False)
+            elif "l" + string[result.start() + 1:result.end()] in trusted_l_words:
+                prompt_results.append(True)
+            elif conf_auto_skip_everything:
+                prompt_results.append(False)
+            else:
+                prompt = input("Found _I in : " + string[:result.start()] +
+                               SHELL_COLOR_WARNING + string[result.start():result.start() + 1] + SHELL_COLOR_END +
+                               string[result.start() + 1:].replace("\n", "") + " : ")
+
+                if prompt == ":x!":
+                    prompt_results.append(False)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted.csv",
+                                 string[result.start():result.end()], None)
+                elif prompt == ":x":
+                    prompt_results.append(False)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "I_trusted." + language + ".csv",
+                                 string[result.start():result.end()], None)
+                elif prompt == ":q!":
+                    prompt_results.append(True)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "l_trusted.csv",
+                                 "l" + string[result.start() + 1:result.end()], None)
+                elif prompt == ":q":
+                    prompt_results.append(True)
+                    put_csv_word(LETTERS_MAPS_DIRECTORY + "l_trusted." + language + ".csv",
+                                 "l" + string[result.start() + 1:result.end()], None)
+                else:
+                    prompt_results.append(False)
+
+        # Fix matches
+
+        for i in reversed(range(0, len(prompt_results))):
+            if prompt_results[i]:
+                string = string[:matches[i].start()] + "l" + string[matches[i].start() + 1:]
+
+    return string
+
+
+def fix_colon(string, language):
+    """Fixes spaces around colon.
+
+    :param string: the string to fix.
+    :param language: current language correction
+    :return: string
+    """
+    if language == "fr":
+        string = re.sub(r"(?<=\w):(?=\w)", " : ", string)
+        string = re.sub(r"(?<=\w):", " :", string)
+    elif language == "eng":
+        string = string.replace(" :", ":")
+
+    string = re.sub(r":(?=\w)", ": ", string)
+    string = re.sub(r"(?<=\d)\s*:\s*(?=\d)", ":", string)
 
     return string
 
@@ -372,6 +522,54 @@ def fix_common_errors(string):
     string = string.replace("[ ", "[")
 
     return string
+
+
+def fix_common_misspells(string, language):
+    """Hardcoded fixes of many errors
+
+    :param string: the string to fix.
+    :param language: current language correction
+    :return: string
+    """
+    for error in get_csv_words_map_with_language(STRINGS_MAPS_DIRECTORY + 'common_misspells.csv', language):
+        regex = r"\b" + error[0] + r"\b"
+        string = re.sub(r"" + regex, error[1], string)
+
+    return string
+
+
+def fix_degree_symbol(string):
+    """Fix "°" symbol followed by space
+
+    :param string: the string to fix.
+    :return: string
+    """
+
+    if "°" in string:
+        string = re.sub(r"(?<=\d)\s*°", "°", string)
+        string = re.sub(r"(?<=\d)\s*°\s*(?=[FCK]\b)", "°", string)
+        string = re.sub(r"(?<=\b[nN])\s*°\s*(?=\d)", "°", string)
+
+    return string
+
+
+def fix_dialog_hyphen(string):
+    """Add a space after the hyphen at the beginning of a line.
+
+    Will fix :
+       *  -text       :   - text
+       *  -"text      :   - "text
+       *  <i>-text    :   <i>- text
+       *  -<i>text    :   - <i>text
+       *  "-text      :   "- text
+       *  "-... text  :   "- ... text
+       *  "--text     :   "--text
+
+    :param string: the string to fix.
+    :return: string
+    """
+    res = re.sub(r"^(\s*|\"|<i>)-(?!\s|-)", r"\1- ", string)
+    return res
 
 
 def fix_punctuation_errors(string):
@@ -418,37 +616,24 @@ def fix_quotes(line, language):
     return line
 
 
-def fix_punctuation_spaces(string):
+def fix_punctuation_spaces(string, language):
     """ Add needed spaces around "?" and "!"
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     if "?" in string or "!" in string:
-        string = re.sub(r"(?<![?!\s])([?!])", r" \1", string)  # Space before
+
+        if language == "fr":
+            string = re.sub(r"(?<![?!\s])([?!])", r" \1", string)  # Space before
+        elif language == "eng":
+            string = re.sub(r"\s*([?!])", r"\1", string)  # Space before
+
         string = re.sub(r"([?!])(?=[\w('-])", r"\1 ", string)  # Space after
         string = re.sub(r"(?<=[?!])\s+(?=[!?])", "", string)  # Space between
 
     return string
-
-
-def fix_dialog_hyphen(string):
-    """Add a space after the hyphen at the beginning of a line.
-
-    Will fix :
-       *  -text       :   - text
-       *  -"text      :   - "text
-       *  <i>-text    :   <i>- text
-       *  -<i>text    :   - <i>text
-       *  "-text      :   "- text
-       *  "-... text  :   "- ... text
-       *  "--text     :   "--text
-
-    :param string: the string to fix.
-    :return: string
-    """
-    res = re.sub(r"^(\s*|\"|<i>)-(?!\s|-)", r"\1- ", string)
-    return res
 
 
 def fix_letter_followed_by_space(line, letter, language):
@@ -481,11 +666,12 @@ def fix_letter_followed_by_space(line, letter, language):
             to_check = re.sub(r"\b([" + word[:1] + word[:1].upper() + r"]" + word[1:] + r")\b", "", to_check)
 
         # Print colored char
-        if letter + " " in to_check:
-            line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)",
-                                   SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
-                                   line_to_print)
-            print("Unknown " + letter + "_ : " + line_to_print)
+        if not conf_is_unittest_exec:
+            if letter + " " in to_check:
+                line_to_print = re.sub(r"(\w*" + letter + r")(?=\s)",
+                                       SHELL_COLOR_WARNING + r"\1" + SHELL_COLOR_END,
+                                       line_to_print)
+                print("Unknown " + letter + "_ : " + line_to_print)
 
     return line
 
@@ -510,34 +696,6 @@ def fix_italic_tag_errors(string):
     return string
 
 
-def fix_colon(string):
-    """Fixes spaces around colon.
-
-    :param string: the string to fix.
-    :return: string
-    """
-    string = re.sub(r"(?<=\w):(?=\w)", " : ", string)
-    string = re.sub(r"(?<=\w):", " :", string)
-    string = re.sub(r":(?=\w)", ": ", string)
-    string = re.sub(r"(?<=\d)\s*:\s*(?=\d)", ":", string)
-
-    return string
-
-
-def fix_common_misspells(string, language):
-    """Hardcoded fixes of many errors
-
-    :param string: the string to fix.
-    :param language: current language correction
-    :return: string
-    """
-    for error in get_csv_words_map_with_language(STRINGS_MAPS_DIRECTORY + 'common_misspells.csv', language):
-        regex = r"\b" + error[0] + r"\b"
-        string = re.sub(r"" + regex, error[1], string)
-
-    return string
-
-
 def fix_numbers(string):
     """Fix spaces in numbers
 
@@ -555,8 +713,9 @@ def fix_numbers(string):
 
     string = re.sub(r"(?<=\d)\s*([hH])\s*(?=\d)", r"\1", string)
 
-    if re.search(r"\d\d\d\d\d", string):
-        print("Big number : " + string.replace("\n", ""))
+    if not conf_is_unittest_exec:
+        if re.search(r"\d\d\d\d\d", string):
+            print("Big number : " + string.replace("\n", ""))
 
     while re.search(r"\b\d+\d\d\d\d\b", string):
         string = re.sub(r"\b(\d+\d)(\d\d\d)\b", r"\1 \2", string)
@@ -572,9 +731,14 @@ def fix_numbers(string):
 
         for i in range(0, len(matches)):
             result = matches[i]
-            prompt = input("Found number space in : " + string[:result.start() - 1] +
-                           SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
-                           string[result.end() + 1:].replace("\n", "") + " : ")
+
+            if conf_auto_skip_everything:
+                prompt = ":q"
+            else:
+                prompt = input("Found number space in : " + string[:result.start() - 1] +
+                               SHELL_COLOR_WARNING + string[result.start() - 1:result.end() + 1] + SHELL_COLOR_END +
+                               string[result.end() + 1:].replace("\n", "") + " : ")
+
             prompt_results.append(prompt == ":x")
 
         # Fix matches
@@ -582,43 +746,6 @@ def fix_numbers(string):
         for i in reversed(range(0, len(prompt_results))):
             if prompt_results[i]:
                 string = string[:matches[i].start() + 1] + string[matches[i].end():]
-
-    return string
-
-
-def fix_degree_symbol(string):
-    """Fix "°" symbol followed by space
-
-    :param string: the string to fix.
-    :return: string
-    """
-
-    if "°" in string:
-        string = re.sub(r"(?<=\d)\s*°", "°", string)
-        string = re.sub(r"(?<=\d)\s*°\s*(?=[FCK]\b)", "°", string)
-        string = re.sub(r"(?<=\b[nN])\s*°\s*(?=\d)", "°", string)
-
-    return string
-
-
-def fix_capital_i_to_l(string):
-    # noinspection SpellCheckingInspection
-    """Checks for wrong capital I and switch them with l
-
-    :param string: the string to fix.
-    :return: string
-    """
-    while re.search(r"" + LOWER_CASE + "I", string):
-        string = re.sub(r"(?<=" + LOWER_CASE + r")I", "l", string)
-
-    while re.search(r"" + UPPER_CASE + "I" + LOWER_CASE, string):
-        string = re.sub(r"(?<=" + UPPER_CASE + r")I(?=" + LOWER_CASE + r")", "l", string)
-
-    while re.search(r"" + LOWER_CASE + r"\sI" + LOWER_CASE, string):
-        string = re.sub(r"(?<=" + LOWER_CASE + r"\s)I(?=" + LOWER_CASE + r")", "l", string)
-
-    while re.search(r",\sI" + LOWER_CASE, string):
-        string = re.sub(r"(?<=,\s)I(?=" + LOWER_CASE + r")", "l", string)
 
     return string
 
@@ -643,31 +770,48 @@ def fix_l_to_capital_i(string):
 
     string = re.sub(r"\bl(?=" + LOWER_CASE_CONSONNANT + r"{2}|n|m)", "I", string)
 
-    roman_numbers_matches = [(m.start(0), m.end(0)) for m in re.finditer(r"\b(?:M|L|D|C|V|X|I|l){3,}\b", string)]
+    roman_numbers_matches = [(m.start(0), m.end(0)) for m in re.finditer(r"\b[MLDCVXIl]{3,}\b", string)]
     for match in roman_numbers_matches:
         string = string[:match[0]] + string[match[0]:match[1]].replace("l", "I") + string[match[1]:]
 
     return string
 
 
-def fix_acronyms(string):
-    """fixes spaces after dots on acronyms.
-
-    :param string: the string to fix.
-    :return: string
-    """
-    string = re.sub(r"(?<=\b" + UPPER_CASE + r"\.)(\s*)(?=\w\.)", "", string)
-
-    if re.search(r"\w\.\w\.", string):
-        print("Found acronym : " + string.replace("\n", ""))
-
-    return string
+def warn_weird_char(string):
+    if not conf_is_unittest_exec:
+        if re.search("[^a-zA-Z0-9éèàùçÇêâÊÉÈÀÂîïÎôÔûœÛ.,:\" </>'!?-]", string[:-1]):
+            print(SHELL_COLOR_WARNING + "Weird char in : " + string[:-1] + SHELL_COLOR_END)
 
 
 # endregion Single line
 
 
 # region Multi-lines
+
+
+def fix_3d_doubles(lines):
+    """3D subtitles are displayed twice, every frame : Once for each eye.
+    Parsing a 3D subtitle means deleting repeating lines. If there is so.
+
+    If the input is not a double, we skip it :
+
+    - A/A returns A
+    - A/B/C/A/B/C returns A/B/C
+    - A/B/C/D/A/B/C returns A/B/C/D/A/B/C
+
+    :param lines: an array of strings to fix.
+    :return: string array
+    """
+    if len(lines) > 0 and (len(lines) % 2) == 0:
+        half_size = len(lines) // 2
+        is_3d_double = True
+        for i in range(0, half_size):
+            if lines[i] != lines[half_size + i]:
+                is_3d_double = False
+        if is_3d_double:
+            lines = lines[0:half_size]
+
+    return lines
 
 
 def fix_empty_lines(strings):
@@ -679,7 +823,7 @@ def fix_empty_lines(strings):
     filtered_strings = []
 
     for string in strings:
-        if not re.match(r"^\s*$", string):
+        if not re.match(r"^(?:\s|<i>)*-?(?:\s|</i>)*$", string):
             filtered_strings.append(string)
 
     return filtered_strings
@@ -691,6 +835,21 @@ def fix_redundant_italic_tag(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
+    if len(strings) == 0:
+        return strings
+
+    if strings[0].startswith("<i>"):
+        is_closed = False
+        for i in range(0, len(strings)):
+            if "</i>" in strings[i]:
+                is_closed = True
+        if not is_closed:
+            strings[len(strings) - 1] = strings[len(strings) - 1] + "</i>"
+
+    for i in range(0, len(strings) - 1):
+        if strings[i].startswith("<i>") and "</i>" not in strings[i] and strings[i + 1].startswith("<i>"):
+            strings[i] = strings[i] + "</i>"
+
     for i in range(0, len(strings)):
         strings[i] = re.sub(r"<i>(\s*)</i>", r"\1", strings[i])
         strings[i] = re.sub(r"</i>(\s*)<i>", r"\1", strings[i])
@@ -731,7 +890,9 @@ def fix_missing_dialog_hyphen(strings):
     :param strings: an array of strings to fix.
     :return: string array
     """
+
     last_dialog_subtitle_index = -1
+
     for i in reversed(range(0, len(strings))):
         if re.match(START_WITH_HYPHEN_REGEX, strings[i]):
             last_dialog_subtitle_index = i
@@ -823,6 +984,8 @@ def fix_sdh_tags(strings):
 
     for i in range(0, len(strings)):
         strings[i] = re.sub(dialog_character_regex, r"\1- \3" if is_dialog or i > 0 else r"\1\2\3", strings[i])
+        strings[i] = re.sub(r"^((?:<i>|\"|\s))*(-?\s*)[\[(][A-ZÉÈÀÙÇÊÂÛÎÏÜ\s'\"-]+[\])] *(.*?)$", r"\1\2\3", strings[i])
+        strings[i] = re.sub(r"^(.*?)[\[(][A-ZÉÈÀÙÇÊÂÛÎÏÜ\s'\"-]+[\])](\s*$)", r"\1\2", strings[i])
 
     # Music tags
 
@@ -860,19 +1023,29 @@ def fix_multi_line_errors(lines):
     :return: string
     """
 
+    if conf_fix_3d_doubles:
+        lines = fix_3d_doubles(lines)
+
     lines = fix_double_quotes_errors(lines)
 
-    if Consts.fix_sdh_tags:
+    if conf_fix_sdh_tags:
         lines = fix_sdh_tags(lines)
 
-    if len(lines) == 1:
-        lines = fix_useless_dialog_hyphen(lines)
-    else:
+    if len(lines) > 1:
         lines = fix_empty_lines(lines)
         lines = fix_redundant_italic_tag(lines)
         lines = fix_missing_dialog_hyphen(lines)
         lines = fix_useless_dialog_hyphen(lines)
         lines = fix_double_quotes_errors(lines)
+
+    lines = fix_useless_dialog_hyphen(lines)
+
+    is_closed = False
+    if len(lines) > 0 and lines[0].startswith("<i>"):
+        for line in lines:
+            is_closed = is_closed or "</i>" in line
+        if not is_closed:
+            lines[len(lines) - 1] += "</i>"
 
     return lines
 
@@ -892,20 +1065,20 @@ def fix_single_line_errors(string, language):
     string = fix_punctuation_errors(string)
     string = fix_numbers(string)
     string = fix_italic_tag_errors(string)
-    string = fix_colon(string)
-    string = fix_capital_i_to_l(string)
+    string = fix_colon(string, language)
+    string = fix_capital_i_to_l(string, language)
+    string = fix_zero_to_o(string)
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)
     string = fix_common_misspells(string, language)
-    string = fix_letter_followed_by_space(string, "f", language)
-    string = fix_letter_followed_by_space(string, "W", language)
-    string = fix_letter_followed_by_space(string, "C", language)
-    string = fix_letter_followed_by_space(string, "G", language)
-    string = fix_letter_followed_by_space(string, "Z", language)
-    string = fix_letter_followed_by_space(string, "V", language)
+
+    for letter in ["f", "A", "C", "G", "W", "Z", "V", "W", "Y", "Z"]:
+        string = fix_letter_followed_by_space(string, letter, language)
+
     string = fix_quotes(string, language)
-    string = fix_punctuation_spaces(string)
+    string = fix_punctuation_spaces(string, language)
     string = fix_degree_symbol(string)
     string = fix_dialog_hyphen(string)
 
+    warn_weird_char(string)
     return string

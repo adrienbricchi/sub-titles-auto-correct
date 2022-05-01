@@ -19,14 +19,8 @@
 
 import unittest
 from unittest.mock import patch
-from io import StringIO
-import sys
 
 from Corrector.Utils import StringsUtils
-from Corrector.Utils import Consts
-
-
-Consts.is_unittest_exec = True
 
 TEST_LINES = {}
 RESULT_LINES = {}
@@ -40,6 +34,8 @@ def populate_single_line_test_dict():
     RESULT_LINES["fix_accentuated_capital_a_:x"] = ["À toi a\n", "Plop Abcdc. À.\n"]
     TEST_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
     RESULT_LINES["fix_accentuated_capital_a_2"] = ["A toi a\n", "Plop Abcdc. A.\n"]
+    TEST_LINES["fix_accentuated_capital_a_3"] = ["A-t-on toi a\n", "Plop Abcdc. A.\n"]
+    RESULT_LINES["fix_accentuated_capital_a_3"] = ["A-t-on toi a\n", "Plop Abcdc. A.\n"]
 
     TEST_LINES["fix_common_errors"] = ["( Test )\n", "– [ Plop ]\n"]
     RESULT_LINES["fix_common_errors"] = ["(Test)\n", "- [Plop]\n"]
@@ -123,6 +119,8 @@ def populate_multi_line_test_dict():
     RESULT_LINES["fix_missing_dialog_hyphen_2"] = ["- <i>test line 1</i>\n", "- test line 2\n", "- test line 3\n"]
     TEST_LINES["fix_missing_dialog_hyphen_3"] = ["<i>test line 1</i>\n", "test line 2\n", "- test line 3\n"]
     RESULT_LINES["fix_missing_dialog_hyphen_3"] = ["- <i>test line 1</i>\n", "test line 2\n", "- test line 3\n"]
+    TEST_LINES["fix_missing_dialog_hyphen_4"] = [" - Aye, sir.\n", "- Incoming message, sir.\n"]
+    RESULT_LINES["fix_missing_dialog_hyphen_4"] = [" - Aye, sir.\n", "- Incoming message, sir.\n"]
 
     TEST_LINES["fix_double_quotes_errors_1"] = ["test line 1\n", "test line\"\n"]
     RESULT_LINES["fix_double_quotes_errors_1"] = ["\"test line 1\n", "test line\"\n"]
@@ -156,6 +154,15 @@ def populate_multi_line_test_dict():
     RESULT_LINES["fix_sdh_tags_6"] = ["\n"]
     TEST_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
     RESULT_LINES["fix_sdh_tags_7"] = ["tonight at 1:15.\n"]
+    TEST_LINES["fix_sdh_tags_8"] = ["- (SHRIEKS) Oh.\n", "- (SCOFFS)\n", "<i>-(WHEE HERE) Test"]
+    RESULT_LINES["fix_sdh_tags_8"] = ["- Oh.\n", "- \n", "<i>-Test"]
+
+    TEST_LINES["fix_3d_doubles_1"] = ["A\n", "A\n"]
+    RESULT_LINES["fix_3d_doubles_1"] = ["A\n"]
+    TEST_LINES["fix_3d_doubles_2"] = ["A\n", "B\n", "C\n", "A\n", "B\n", "C\n"]
+    RESULT_LINES["fix_3d_doubles_2"] = ["A\n", "B\n", "C\n"]
+    TEST_LINES["fix_3d_doubles_3"] = ["A\n", "B\n", "C\n", "D\n", "A\n", "B\n", "C\n"]
+    RESULT_LINES["fix_3d_doubles_3"] = ["A\n", "B\n", "C\n", "D\n", "A\n", "B\n", "C\n"]
 
 
 populate_single_line_test_dict()
@@ -171,7 +178,7 @@ class TestStringsUtils(unittest.TestCase):
         line = ["TEST", "II", "Hey", "PLOP", "Moarf"]
         result = StringsUtils.remove_all_uppercase_words(line)
 
-        self.assertEquals(result, ["II", "Hey", "Moarf"])
+        self.assertEqual(result, ["II", "Hey", "Moarf"])
 
     # def test_print_single_letters(self):
     #
@@ -186,7 +193,7 @@ class TestStringsUtils(unittest.TestCase):
     #
     #     print("lines   : " + str(lines))
     #     print("results : " + str(results))
-    #     self.assertEquals(lines, results)
+    #     self.assertEqual(lines, results)
 
     # endregion Utils
 
@@ -231,7 +238,7 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i]))
+                corrected_line.append(StringsUtils.fix_punctuation_spaces(TEST_LINES[key][i], "fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_punctuation_spaces")
 
@@ -265,7 +272,7 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i]))
+                corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i], "fre"))
 
             self.assert_list_equals(corrected_line, key, "fix_colon")
 
@@ -302,7 +309,7 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i]))
+                corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i], "fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_capital_i_to_l")
 
@@ -325,6 +332,12 @@ class TestStringsUtils(unittest.TestCase):
     # endregion Single-line
 
     # region Multi-line
+
+    def test_fix_3d_doubles(self):
+        self.assertEqual(StringsUtils.fix_3d_doubles([]), [])
+        for key in TEST_LINES:
+            corrected_lines = StringsUtils.fix_3d_doubles(TEST_LINES[key])
+            self.assert_list_equals(corrected_lines, key, "fix_3d_doubles")
 
     def test_fix_empty_lines(self):
         self.assertEqual(StringsUtils.fix_empty_lines([]), [])
@@ -368,7 +381,8 @@ class TestStringsUtils(unittest.TestCase):
 
         # We have to cleanup dictionary tests cases, to check only relevant lines.
         # Those dictionaries will be restored at the end of this test.
-        Consts.fix_sdh_tags = True
+        fix_sdh_tags = True
+        fix_3d_doubles = True
         TEST_LINES.clear()
         RESULT_LINES.clear()
         populate_multi_line_test_dict()
@@ -381,7 +395,7 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_lines[key] = StringsUtils.fix_multi_line_errors(TEST_LINES[key])
 
         for key in corrected_lines:
-            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+            self.assertEqual(corrected_lines[key], RESULT_LINES[key])
 
         TEST_LINES.clear()
         RESULT_LINES.clear()
@@ -409,7 +423,7 @@ class TestStringsUtils(unittest.TestCase):
                     corrected_lines[key].append(StringsUtils.fix_single_line_errors(TEST_LINES[key][line_index], language))
 
         for key in corrected_lines:
-            self.assertEquals(corrected_lines[key], RESULT_LINES[key])
+            self.assertEqual(corrected_lines[key], RESULT_LINES[key])
 
         TEST_LINES.clear()
         RESULT_LINES.clear()

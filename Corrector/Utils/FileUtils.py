@@ -41,7 +41,7 @@ def get_file_text(path, mode_lines):
     :param mode_lines: bool, mode lines or not
     :return: string
     """
-    srt_file = open(path, 'r', encoding='cp1252')
+    srt_file = open(path, 'r', encoding='utf-8-sig')
     
     if mode_lines:
         srt_content = srt_file.readlines()
@@ -72,7 +72,7 @@ def get_files_with_type(file_list, file_type):
     
     for file in fnmatch.filter(file_list, '*.' + file_type):
         srt_list.append(file)
-        
+
     srt_list = [file for file in srt_list if (file[-17:-4] != "(before STAC)")]
     srt_list = [file for file in srt_list if (file[-20:-4] != "(Avant SRAH 2.3)")]
     return srt_list
@@ -120,7 +120,7 @@ def write_file(path, lines):
     :param lines: list of string, file content
     :return:
     """
-    srt_file = open(path, 'w', encoding='cp1252')
+    srt_file = open(path, 'w', encoding='utf-8-sig')
     
     for line in lines:
         srt_file.write(line)
@@ -144,15 +144,20 @@ def get_md5(file):
     return md5.digest()
 
 
-def utf8_to_ansi(source_path, destination_path):
+def ansi_to_utf8(source_path):
     """Changes data encoding.
 
     :param: string, the source file path.
     :param: string, the target file path.
     """
-    with io.open(source_path, encoding='utf-8', errors='ignore') as source:
-        with io.open(destination_path, mode='w', encoding='cp1252') as target:
+    temp_file_name = source_path + "_utf8.temp"
+
+    with io.open(source_path, encoding='cp1252', errors='ignore') as source:
+        with io.open(temp_file_name, mode='w', encoding='utf-8-sig') as target:
             shutil.copyfileobj(source, target)
+
+    os.remove(source_path)
+    os.rename(temp_file_name, source_path)
 
     return
 
@@ -165,9 +170,17 @@ def get_file_language(path):
     """
     language = "undefined"
 
-    if path.endswith("fre.srt") or path.endswith("fr.srt"):
+    if path.endswith("ger.srt") \
+            or path.endswith("[ger].srt"):
+        language = "ger"
+    elif path.endswith("fre.srt") \
+            or path.endswith("fr.srt") \
+            or path.endswith("[fre].srt") \
+            or path.endswith("[mis].srt"):
         language = "fr"
-    elif path.endswith("en.srt") or path.endswith("eng.srt") or path.endswith("note.srt") or path.endswith("notes.srt"):
+    elif path.endswith("en.srt") \
+            or path.endswith("eng.srt") \
+            or path.endswith("[eng].srt"):
         language = "eng"
 
     return language
