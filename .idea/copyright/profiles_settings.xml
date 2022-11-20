@@ -1,0 +1,11 @@
+<component name="CopyrightManager">
+  <settings default="sub-titles-auto-correct">
+    <LanguageOptions name="Python">
+      <option name="addBlankBefore" value="true" />
+    </LanguageOptions>
+    <LanguageOptions name="__TEMPLATE__">
+      <option name="addBlankBefore" value="true" />
+      <option name="block" value="false" />
+    </LanguageOptions>
+  </settings>
+</component>
