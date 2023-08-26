@@ -696,16 +696,24 @@ def fix_italic_tag_errors(string):
     return string
 
 
-def fix_numbers(string):
+def fix_numbers(string, language):
     """Fix spaces in numbers
 
     :param string: the string to fix.
+    :param language: current language correction
     :return: string
     """
     if not re.search(r"\d", string):
         return string
 
     string = re.sub(r"(?<=\d)\s(?=[\s\d])", "", string)
+
+    if language is "fr":
+        string = re.sub(r"(?<=\b[02-9])\s*e\b", "ème", string)
+        string = re.sub(r"(?<=\b1)\s*e\b", "er", string)
+        string = re.sub(r"(?<=\d\d)\s*e\b", "ème", string)
+        string = re.sub(r"(?<=\d\d)\s*e\b", "ème", string)
+        string = re.sub(r"(?<=[IVXLCDM]{2})\s*e\b", "ème", string)
 
     for word in get_csv_words(STRINGS_MAPS_DIRECTORY + 'number_succeeded_by_space_trusted.csv'):
         suffix = r"\b)" if re.match(r"\w+", word) else ")"
@@ -1063,7 +1071,7 @@ def fix_single_line_errors(string, language):
 
     string = fix_common_errors(string)
     string = fix_punctuation_errors(string)
-    string = fix_numbers(string)
+    string = fix_numbers(string, language)
     string = fix_italic_tag_errors(string)
     string = fix_colon(string, language)
     string = fix_capital_i_to_l(string, language)

@@ -293,7 +293,7 @@ class TestStringsUtils(unittest.TestCase):
             for i in range(0, len(TEST_LINES[key])):
                 fake_input = ":x" if ":x" in key else ":q"
                 with unittest.mock.patch('builtins.input', return_value=fake_input):
-                    corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i]))
+                    corrected_line.append(StringsUtils.fix_numbers(TEST_LINES[key][i], language="fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_numbers")
 
