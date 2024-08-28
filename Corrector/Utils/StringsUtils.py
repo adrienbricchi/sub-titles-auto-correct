@@ -948,7 +948,7 @@ def fix_double_quotes_errors(strings):
                 strings[i] = re.sub(SENTENCE_REGEX, r'\1\2"\3', strings[i])
                 double_quote_pending = False
 
-    # Preceeded fixes
+    # Preceded fixes
 
     current_quote_count = 0
     double_quote_pending = False
@@ -1025,7 +1025,7 @@ def fix_sdh_tags(strings):
 
 
 def fix_multi_line_errors(lines):
-    """Every fixes defined here.
+    """Every fix defined here.
 
     :param lines: the lines to fix.
     :return: string
@@ -1059,7 +1059,7 @@ def fix_multi_line_errors(lines):
 
 
 def fix_single_line_errors(string, language):
-    """Every fixes defined here.
+    """Every fix defined here.
 
     :param string: the string to fix.
     :param language: current language correction
