@@ -1021,6 +1021,31 @@ def fix_sdh_tags(strings):
     return strings
 
 
+def fix_3_or_more_lines(lines):
+    """Prompt and merge lines, if there is more than 2
+
+    :param lines: the lines to fix.
+    :return: string
+    """
+    prompt = input("Merge the two last lines?\n" + str(lines) + " : ")
+    number_of_lines = len(lines)
+    result = lines
+
+    if prompt == ":q":
+        print("Skipped...")
+    elif prompt == ":x":
+        result = []
+        for i in range(0, number_of_lines - 2):
+            result.append(lines[i])
+        result.append(lines[number_of_lines - 2].replace("\n", " ") + lines[number_of_lines - 1])
+    elif prompt == ":x!":
+        result = [lines[0].replace("\n", " ") + lines[1]]
+        for i in range(2, number_of_lines):
+            result.append(lines[i])
+
+    print(str(result))
+    return result
+
 # endregion Multi-lines
 
 
@@ -1033,6 +1058,9 @@ def fix_multi_line_errors(lines):
 
     if conf_fix_3d_doubles:
         lines = fix_3d_doubles(lines)
+
+    if len(lines) > 2:
+        lines = fix_3_or_more_lines(lines)
 
     lines = fix_double_quotes_errors(lines)
 
