@@ -114,15 +114,38 @@ pytest tests/test_models_subtitle.py
 - Backward compatibility maintained in functionality
 - All Python files pass syntax validation
 
+### CI/CD Updates
+
+Updated CI configurations to work with new structure:
+- **Travis CI**: Updated to use pytest, new Python versions (3.6-3.11), and src/ layout
+- **AppVeyor**: Updated to use pytest, new Python versions, and new directory structure
+- Both configs now install package with `pip install -e .`
+- Tests run with: `pytest tests/ --verbose`
+
+### Test Status
+
+Initial test run after restructuring:
+- ✅ **24/32 tests passing** (75% success rate)
+- ❌ **2 errors**: Interactive `input()` calls need mocking for CI
+- ❌ **6 failures**: Missing CSV resource files or configuration paths
+
+Issues to address:
+1. Add mock/patch decorators for interactive input tests
+2. Verify CSV resource files are accessible from new structure
+3. Update file paths in config.ini if needed
+
 ### Future Recommendations
 
 1. **Type Hints**: Add type hints for better IDE support and type checking
 2. **Dependencies**: Move to pyproject.toml from config.ini for dependencies
-3. **Testing**: Increase test coverage
+3. **Testing**:
+   - Fix failing tests by mocking interactive inputs
+   - Verify resource file paths
+   - Increase test coverage
 4. **Documentation**: Add docstring documentation in Google or NumPy style
-5. **CI/CD**: Update CI configuration to use new structure
-6. **Linting**: Add black, ruff, or pylint configuration
-7. **Pre-commit**: Add pre-commit hooks for code quality
+5. **Linting**: Add black, ruff, or pylint configuration
+6. **Pre-commit**: Add pre-commit hooks for code quality
+7. **GitHub Actions**: Consider migrating from Travis/AppVeyor to GitHub Actions
 
 ---
 
