@@ -6,18 +6,22 @@ notifications:
         on_failure: never
 
 python:
-    - "3.3"
-    - "3.4"
-    - "3.5"
+    - "3.6"
+    - "3.7"
+    - "3.8"
+    - "3.9"
+    - "3.10"
+    - "3.11"
 
 install:
-    - pip install coveralls
+    - pip install -e .
+    - pip install coveralls pytest pytest-cov
 
 before_script:
-    - export PYTHONPATH=$PYTHONPATH:$(pwd)
+    - export PYTHONPATH=$PYTHONPATH:$(pwd)/src
 
 script:
-    - coverage run --source=Corrector -m unittest discover --start-directory ./Tests/ --verbose
+    - coverage run --source=src/subtitles_auto_correct -m pytest tests/ --verbose
 
 after_success:
     - coveralls
