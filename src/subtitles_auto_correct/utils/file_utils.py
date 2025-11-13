@@ -42,7 +42,7 @@ def get_file_text(path, mode_lines):
     :return: string
     """
     srt_file = open(path, 'r', encoding='utf-8-sig')
-    
+
     if mode_lines:
         srt_content = srt_file.readlines()
     else:
@@ -69,7 +69,7 @@ def get_files_with_type(file_list, file_type):
     :return: list of string
     """
     srt_list = []
-    
+
     for file in fnmatch.filter(file_list, '*.' + file_type):
         srt_list.append(file)
 
@@ -86,7 +86,7 @@ def get_all_files(root, depth):
     :return: list of string
     """
     file_list = []
-    
+
     for item in os.listdir(root):
         if os.path.isfile(os.path.join(root, item)):
             file_list.append(os.path.join(root, item))
@@ -109,7 +109,7 @@ def backup_file(path):
     """
     if not os.path.isfile(get_bak_file_name(path)):
         shutil.copy(path, get_bak_file_name(path))
-        
+
     return
 
 
@@ -121,26 +121,26 @@ def write_file(path, lines):
     :return:
     """
     srt_file = open(path, 'w', encoding='utf-8-sig')
-    
+
     for line in lines:
         srt_file.write(line)
-        
+
     srt_file.close()
     return
 
 
 def get_md5(file):
     """Get the MD5 hash of a file
-    
+
     :param: string, the target file path.
     :return: string
     """
     md5 = hashlib.md5()
-    
+
     with open(file, 'rb') as f:
-        for chunk in iter(lambda: f.read(8192), b''): 
+        for chunk in iter(lambda: f.read(8192), b''):
             md5.update(chunk)
-            
+
     return md5.digest()
 
 
