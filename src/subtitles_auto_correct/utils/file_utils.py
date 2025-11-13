@@ -153,7 +153,7 @@ def ansi_to_utf8(source_path):
     temp_file_name = source_path + "_utf8.temp"
 
     with io.open(source_path, encoding='cp1252', errors='ignore') as source:
-        with io.open(temp_file_name, mode='w', encoding='utf-8-sig') as target:
+        with io.open(temp_file_name, mode='w', encoding='utf-8') as target:
             shutil.copyfileobj(source, target)
 
     os.remove(source_path)

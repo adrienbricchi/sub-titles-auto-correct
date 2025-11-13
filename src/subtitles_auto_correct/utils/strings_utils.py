@@ -169,7 +169,7 @@ def get_csv_words(csv_file_path):
         return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
-        with open(csv_file_path, encoding='utf-8-sig', newline='') as csv_file:
+        with open(csv_file_path, encoding='utf-8', newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for word in csv_file_reader:
                 result_list.append(word[0])
@@ -206,7 +206,7 @@ def get_csv_words_map(csv_file_path):
         return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
-        with open(csv_file_path, encoding="utf-8-sig", newline='') as csv_file:
+        with open(csv_file_path, encoding="utf-8", newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for words in csv_file_reader:
                 result_list.append(words)
@@ -224,7 +224,7 @@ def put_csv_word(csv_file_path, key, value):
     """
     FILE_CACHE.pop(csv_file_path, None)
 
-    with open(csv_file_path, 'a', encoding='utf-8-sig', newline='') as csv_file:
+    with open(csv_file_path, 'a', encoding='utf-8', newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=':', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         if not value:
             writer.writerow([key])
@@ -388,6 +388,7 @@ def fix_acronyms(string):
             print("Found acronym : " + string.replace("\n", ""))
 
     return string
+
 
 def fix_zero_to_o(string):
     # noinspection SpellCheckingInspection
