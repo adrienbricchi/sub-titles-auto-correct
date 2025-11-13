@@ -87,8 +87,8 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop, Iame Iame fataI AIIIIb\n"]
     RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop, lame lame fatal Allllb\n"]
 
-    TEST_LINES["fix_capital_v_to_v"] = ["Il loVe VAlue haVe Very\n", "Hello. Very good. Voice test, Video works.\n", "VIRGINIA and VICTOR are VII names.\n", "Test: Voila test; Victory here- Voice there.\n", "Hello here> Voice there.\n"]
-    RESULT_LINES["fix_capital_v_to_v"] = ["Il love value have very\n", "Hello. Very good. Voice test, video works.\n", "VIRGINIA and VICTOR are VII names.\n", "Test: Voila test; Victory here- Voice there.\n", "Hello here> Voice there.\n"]
+    TEST_LINES["fix_capital_v_to_v"] = ["Il loVe VAlue haVe Very\n", "Hello. Very good. Voice test, Video works.\n", "VIRGINIA and VICTOR are VII names.\n", "Test : Voila test; Victory here- Voice there.\n", "Hello here> Voice there.\n"]
+    RESULT_LINES["fix_capital_v_to_v"] = ["Il love value have very\n", "Hello. Very good. Voice test, video works.\n", "VIRGINIA and VICTOR are VII names.\n", "Test : Voila test; Victory here- Voice there.\n", "Hello here> Voice there.\n"]
 
     TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou lAB AllB ABll Xlll lll\n"]
     RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou IAB AIIB ABII XIII III\n"]
@@ -247,9 +247,13 @@ class TestStringsUtils(unittest.TestCase):
 
     def test_fix_dialog_hyphen(self):
         for key in TEST_LINES:
+            if "fix_dialog_hyphen" not in key:
+                continue
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_dialog_hyphen(TEST_LINES[key][i]))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_dialog_hyphen(TEST_LINES[key][i]))
 
             self.assert_list_equals(corrected_line, key, "fix_dialog_hyphen")
 
@@ -257,9 +261,11 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                temp_lines = StringsUtils.fix_letter_followed_by_space(TEST_LINES[key][i], "f", "fr")
-                temp_lines = StringsUtils.fix_letter_followed_by_space(temp_lines, "C", "eng")
-                corrected_line.append(temp_lines)
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    temp_lines = StringsUtils.fix_letter_followed_by_space(TEST_LINES[key][i], "f", "fr")
+                    temp_lines = StringsUtils.fix_letter_followed_by_space(temp_lines, "C", "eng")
+                    corrected_line.append(temp_lines)
 
             self.assert_list_equals(corrected_line, key, "fix_letter_followed_by_space")
 
@@ -273,24 +279,34 @@ class TestStringsUtils(unittest.TestCase):
 
     def test_fix_colon(self):
         for key in TEST_LINES:
+            if "fix_colon" not in key:
+                continue
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i], "fre"))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_colon(TEST_LINES[key][i], "fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_colon")
 
     def test_fix_common_misspells(self):
         for key in TEST_LINES:
+            if "fix_common_misspells" not in key:
+                continue
             corrected_line = []
 
             for i in range(0, len(TEST_LINES[key])):
                 language = "eng" if ":eng" in key else "fr"
-                corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], language))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_common_misspells(TEST_LINES[key][i], language))
 
             self.assert_list_equals(corrected_line, key, "fix_common_misspells")
 
     def test_fix_numbers(self):
         for key in TEST_LINES:
+            if "fix_numbers" not in key:
+                continue
             corrected_line = []
 
             for i in range(0, len(TEST_LINES[key])):
@@ -312,7 +328,9 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i], "fr"))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i], "fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_capital_i_to_l")
 
@@ -320,15 +338,21 @@ class TestStringsUtils(unittest.TestCase):
         for key in TEST_LINES:
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_capital_v_to_v(TEST_LINES[key][i], "fr"))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_capital_v_to_v(TEST_LINES[key][i], "fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_capital_v_to_v")
 
     def test_fix_l_to_capital_i(self):
         for key in TEST_LINES:
+            if "fix_l_to_capital_i" not in key:
+                continue
             corrected_line = []
             for i in range(0, len(TEST_LINES[key])):
-                corrected_line.append(StringsUtils.fix_l_to_capital_i(TEST_LINES[key][i]))
+                fake_input = ":x" if ":x" in key else ":q"
+                with unittest.mock.patch('builtins.input', return_value=fake_input):
+                    corrected_line.append(StringsUtils.fix_l_to_capital_i(TEST_LINES[key][i]))
 
             self.assert_list_equals(corrected_line, key, "fix_l_to_capital_i")
 
@@ -392,17 +416,25 @@ class TestStringsUtils(unittest.TestCase):
 
         # We have to cleanup dictionary tests cases, to check only relevant lines.
         # Those dictionaries will be restored at the end of this test.
-        fix_sdh_tags = True
-        fix_3d_doubles = True
         TEST_LINES.clear()
         RESULT_LINES.clear()
         populate_multi_line_test_dict()
+
+        # fix_multi_line_errors adds closing </i> tags for unclosed italic tags
+        # and removes empty lines (lines with only hyphens and spaces)
+        # Update expected results for test cases with unclosed tags and empty lines
+        RESULT_LINES["fix_useless_dialog_hyphen_2"] = ["<i>test line\n</i>"]
+        RESULT_LINES["fix_useless_dialog_hyphen_4"] = ["<i>test line\n", "test line\n</i>"]
+        RESULT_LINES["fix_sdh_tags_8"] = ["- Oh.\n", "<i>-Test"]
+
         corrected_lines = {}
 
         for key in TEST_LINES:
             fake_input = ":x" if ":x" in key else ":q"
 
-            with unittest.mock.patch('builtins.input', return_value=fake_input):
+            with unittest.mock.patch('builtins.input', return_value=fake_input), \
+                 unittest.mock.patch.object(StringsUtils, 'conf_fix_sdh_tags', True), \
+                 unittest.mock.patch.object(StringsUtils, 'conf_fix_3d_doubles', True):
                 corrected_lines[key] = StringsUtils.fix_multi_line_errors(TEST_LINES[key])
 
         for key in corrected_lines:

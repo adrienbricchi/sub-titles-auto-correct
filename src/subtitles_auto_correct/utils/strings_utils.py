@@ -35,7 +35,7 @@ conf_fix_3d_doubles = config["PARAMETERS"]['fix_3d_doubles'] == "true"
 conf_auto_skip_everything = config["PARAMETERS"]['auto_skip_everything'] == "true"
 
 
-STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/../../Resources/StringsMaps/'
+STRINGS_MAPS_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) + '/../../../Resources/StringsMaps/'
 LETTERS_MAPS_DIRECTORY = STRINGS_MAPS_DIRECTORY + 'LettersMaps/'
 # noinspection SpellCheckingInspection
 LOWER_CASE = r"[a-zàâäçéèêëîïôöùûü]"
@@ -206,7 +206,7 @@ def get_csv_words_map(csv_file_path):
         return FILE_CACHE[csv_file_path]
 
     if os.path.isfile(csv_file_path):
-        with open(csv_file_path, encoding="utf-8", newline='') as csv_file:
+        with open(csv_file_path, encoding="utf-8-sig", newline='') as csv_file:
             csv_file_reader = csv.reader(csv_file, delimiter=':', quotechar='|')
             for words in csv_file_reader:
                 result_list.append(words)
