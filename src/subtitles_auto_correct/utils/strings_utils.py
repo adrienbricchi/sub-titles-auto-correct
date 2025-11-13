@@ -304,10 +304,12 @@ def launch_ms_word_spell_check(path, language):
 def launch_libreoffice_6_writer_spell_check(path, language):
     command_line = ""
 
-    if os.path.isfile(conf_libreoffice6_writer_path):
-        command_line += conf_libreoffice6_writer_path
+    # Remove '--writer' part to check if the binary exists
+    libreoffice_exec = conf_libreoffice6_writer_path.replace(" --writer", "")
 
-    if command_line == "":
+    if os.path.isfile(libreoffice_exec):
+        command_line += conf_libreoffice6_writer_path
+    else:
         print("LibreOffice is missing, or no known LibreOffice found")
         return
 
@@ -321,7 +323,7 @@ def launch_libreoffice_6_writer_spell_check(path, language):
         command_line += ' "macro:///Standard.Module1.SrtFrSpellCheck"'
 
     print(command_line)
-    subprocess.call(command_line)
+    subprocess.call(command_line, shell=True)
     ansi_to_utf8(path)
     return
 
