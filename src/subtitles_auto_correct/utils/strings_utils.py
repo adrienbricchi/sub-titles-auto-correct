@@ -311,7 +311,7 @@ def launch_libreoffice_6_writer_spell_check(path, language):
         print("LibreOffice is missing, or no known LibreOffice found")
         return
 
-    command_line += ' "' + path + '"'
+    command_line += f' "{path}"'
 
     if language == "fr":
         command_line += ' "macro:///Standard.Module1.SrtFrSpellCheck"'
@@ -486,6 +486,66 @@ def fix_capital_i_to_l(string, language):
     return string
 
 
+def fix_capital_v_to_v(string, language):
+    # noinspection SpellCheckingInspection
+    """Checks for wrong capital V and switch them with v
+
+    :param string: the string to fix.
+    :param language: current language correction
+    :return: string
+    """
+    while re.search(r"" + LOWER_CASE + "V", string):
+        string = re.sub(r"(?<=" + LOWER_CASE + r")V", "v", string)
+
+    while re.search(r"" + UPPER_CASE + "V" + LOWER_CASE, string):
+        string = re.sub(r"(?<=" + UPPER_CASE + r")V(?=" + LOWER_CASE + r")", "v", string)
+
+    # Handle remaining V words with sentence-end awareness
+
+    matches = list(re.finditer(r"\bV\w*\b", string))
+    prompt_results = []
+
+    if len(matches) > 0:
+
+        trusted_capital_v_words = get_csv_words_with_language(LETTERS_MAPS_DIRECTORY + "V_trusted.csv", language)
+
+        for i in range(0, len(matches)):
+            result = matches[i]
+            word = string[result.start():result.end()]
+
+            # Always keep capital V if it's a name
+            if word in trusted_capital_v_words:
+                prompt_results.append(False)
+                continue
+
+            # Check if V is at the start of a sentence
+            is_sentence_start = False
+            if result.start() == 0:
+                # Beginning of string
+                is_sentence_start = True
+            else:
+                # Check if preceded by sentence-ending punctuation (.!?;:">-) possibly with spaces
+                prefix = string[:result.start()]
+                is_sentence_start = bool(re.search(r'[.!?;:">-]\s*$', prefix))
+
+            if is_sentence_start:
+                # Keep capital V at sentence start (natural capitalization)
+                prompt_results.append(False)
+            else:
+                # Not at sentence start and not a name -> convert to lowercase
+                prompt_results.append(True)
+
+        # Fix matches
+
+        for i in reversed(range(0, len(prompt_results))):
+            if prompt_results[i]:
+                # Convert entire word to lowercase (not just the V)
+                word = string[matches[i].start():matches[i].end()]
+                string = string[:matches[i].start()] + word.lower() + string[matches[i].end():]
+
+    return string
+
+
 def fix_colon(string, language):
     """Fixes spaces around colon.
 
@@ -606,11 +666,11 @@ def fix_quotes(line, language):
     line = line.replace("‘", "'")
     line = line.replace("’", "'")
 
-    if re.search("\s'", line):
+    if re.search(r"\s'", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'quote_word_trusted.csv', language):
             line = re.sub(r"\s'" + word + r"\b", "'" + word, line)
 
-    if re.search("'\s", line):
+    if re.search(r"'\s", line):
         for word in get_csv_words_with_language(STRINGS_MAPS_DIRECTORY + 'word_quote_trusted.csv', language):
             line = re.sub(r"\b" + word + r"'\s", word + "'", line)
 
@@ -709,7 +769,7 @@ def fix_numbers(string, language):
 
     string = re.sub(r"(?<=\d)\s(?=[\s\d])", "", string)
 
-    if language is "fr":
+    if language == "fr":
         string = re.sub(r"(?<=\b[02-9])\s*e\b", "ème", string)
         string = re.sub(r"(?<=\b1)\s*e\b", "er", string)
         string = re.sub(r"(?<=\d\d)\s*e\b", "ème", string)
@@ -1104,6 +1164,7 @@ def fix_single_line_errors(string, language):
     string = fix_italic_tag_errors(string)
     string = fix_colon(string, language)
     string = fix_capital_i_to_l(string, language)
+    string = fix_capital_v_to_v(string, language)
     string = fix_zero_to_o(string)
     string = fix_l_to_capital_i(string)
     string = fix_acronyms(string)

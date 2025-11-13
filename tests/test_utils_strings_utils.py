@@ -87,6 +87,9 @@ def populate_single_line_test_dict():
     TEST_LINES["fix_capital_i_to_l"] = ["Il AIbert AI pIop, Iame Iame fataI AIIIIb\n"]
     RESULT_LINES["fix_capital_i_to_l"] = ["Il Albert AI plop, lame lame fatal Allllb\n"]
 
+    TEST_LINES["fix_capital_v_to_v"] = ["Il loVe VAlue haVe Very\n", "Hello. Very good. Voice test, Video works.\n", "VIRGINIA and VICTOR are VII names.\n", "Test: Voila test; Victory here- Voice there.\n", "Hello here> Voice there.\n"]
+    RESULT_LINES["fix_capital_v_to_v"] = ["Il love value have very\n", "Hello. Very good. Voice test, video works.\n", "VIRGINIA and VICTOR are VII names.\n", "Test: Voila test; Victory here- Voice there.\n", "Hello here> Voice there.\n"]
+
     TEST_LINES["fix_l_to_capital_i"] = ["lnter la test. ln MlB line\n", "Il lou lAB AllB ABll Xlll lll\n"]
     RESULT_LINES["fix_l_to_capital_i"] = ["Inter la test. In MIB line\n", "Il lou IAB AIIB ABII XIII III\n"]
 
@@ -312,6 +315,14 @@ class TestStringsUtils(unittest.TestCase):
                 corrected_line.append(StringsUtils.fix_capital_i_to_l(TEST_LINES[key][i], "fr"))
 
             self.assert_list_equals(corrected_line, key, "fix_capital_i_to_l")
+
+    def test_fix_capital_v_to_v(self):
+        for key in TEST_LINES:
+            corrected_line = []
+            for i in range(0, len(TEST_LINES[key])):
+                corrected_line.append(StringsUtils.fix_capital_v_to_v(TEST_LINES[key][i], "fr"))
+
+            self.assert_list_equals(corrected_line, key, "fix_capital_v_to_v")
 
     def test_fix_l_to_capital_i(self):
         for key in TEST_LINES:

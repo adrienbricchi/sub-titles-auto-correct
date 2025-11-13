@@ -120,8 +120,8 @@ def write_file(path, lines):
     :param lines: list of string, file content
     :return:
     """
-    srt_file = open(path, 'w', encoding='utf-8-sig')
-
+    srt_file = open(path, 'w', encoding='utf-8')
+    
     for line in lines:
         srt_file.write(line)
 
