@@ -22,7 +22,7 @@ import re
 import csv
 import subprocess
 import os
-from Corrector.Utils.FileUtils import ansi_to_utf8
+from subtitles_auto_correct.utils.file_utils import ansi_to_utf8
 
 config = configparser.ConfigParser()
 config.read('config.ini', encoding='utf-8')

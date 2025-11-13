@@ -20,7 +20,7 @@
 import unittest
 from unittest.mock import patch
 
-from Corrector.Utils import StringsUtils
+from subtitles_auto_correct.utils import strings_utils as StringsUtils
 
 TEST_LINES = {}
 RESULT_LINES = {}

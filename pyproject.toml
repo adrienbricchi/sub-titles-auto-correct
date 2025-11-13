@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitles-auto-correct"
+version = "0.2.0"
+description = "Python script fixing OCR errors in subtitles"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "GPL-3.0-or-later"}
+authors = [
+    {name = "Adrien Bricchi"}
+]
+keywords = ["subtitles", "ocr", "correction", "srt"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Text Processing",
+]
+
+[project.urls]
+Homepage = "https://github.com/adrienbricchi/sub-titles-auto-correct"
+Repository = "https://github.com/adrienbricchi/sub-titles-auto-correct"
+Issues = "https://github.com/adrienbricchi/sub-titles-auto-correct/issues"
+
+[project.scripts]
+subtitles-auto-correct = "subtitles_auto_correct.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["subtitles_auto_correct*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

@@ -18,7 +18,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
-from Corrector.Models.Subtitle import *
+from subtitles_auto_correct.models.subtitle import *
 
 
 SRT_SUBTITLES = ["1\n",

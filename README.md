@@ -7,16 +7,34 @@ Python script fixing OCR errors
 
 ## Installation
 
-PyCharm's Python launch configuration :
+### Using pip (recommended)
+
+```bash
+pip install -e .
 ```
-Script                          : (...)\sub-titles-auto-correct\Corrector\main.py
-Script parameters               : -
-Environment variables           : PYTHONUNBUFFERED=1
-Python interpreter              : Python 3.3+ (currently 3.5)
-Interpreter options             : -
-Working directory               : (...)\sub-titles-auto-correct\Corrector
-Add content roots to PYTHONPATH : Checked
-Add source roots to PYTHONPATH  : Checked
+
+### Running the application
+
+```bash
+# After installation
+python -m subtitles_auto_correct
+
+# Or directly
+subtitles-auto-correct
+```
+
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/adrienbricchi/sub-titles-auto-correct.git
+cd sub-titles-auto-correct
+
+# Install in editable mode with development dependencies
+pip install -e .
+
+# Run tests
+pytest
 ```
 
 ## License

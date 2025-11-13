@@ -17,7 +17,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from Corrector.Utils.StringsUtils import *
+from subtitles_auto_correct.utils.strings_utils import *
 
 
 class Subtitle:
