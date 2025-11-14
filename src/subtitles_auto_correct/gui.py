@@ -437,6 +437,11 @@ class SubtitleCorrectorGUI:
         # Bind selection event
         self.file_listbox.bind("<<ListboxSelect>>", self.on_file_select)
 
+        # Enable drag-and-drop for file list
+        self.setup_drag_drop(self.file_listbox)
+        self.setup_drag_drop(list_container)
+        self.setup_drag_drop(right_side)
+
         # Show placeholder
         self.update_file_list_placeholder()
 
@@ -527,6 +532,55 @@ class SubtitleCorrectorGUI:
             btn.config(command=make_command(command, btn))
             btn.pack(fill=tk.X, pady=2)
 
+    def setup_drag_drop(self, widget):
+        """Setup drag-and-drop for a widget to accept .srt files."""
+        def on_drop(event):
+            # Handle file drops
+            files = self.parse_drop_files(event.data)
+            if files:
+                self.add_files(files)
+            return event.action
+
+        def on_drag_enter(event):
+            # Visual feedback when dragging over
+            widget.config(relief=tk.SUNKEN)
+            return event.action
+
+        def on_drag_leave(event):
+            # Reset visual feedback
+            widget.config(relief=tk.FLAT)
+            return event.action
+
+        # Try to setup drag-and-drop using tkinterdnd2 if available
+        try:
+            # Check if tkinterdnd2 is available
+            from tkinterdnd2 import DND_FILES, TkinterDnD
+            widget.drop_target_register(DND_FILES)
+            widget.dnd_bind('<<Drop>>', on_drop)
+            widget.dnd_bind('<<DragEnter>>', on_drag_enter)
+            widget.dnd_bind('<<DragLeave>>', on_drag_leave)
+        except ImportError:
+            # tkinterdnd2 not available, setup basic file path handling
+            # This won't provide true drag-and-drop but at least won't crash
+            pass
+
+    def parse_drop_files(self, data):
+        """Parse dropped file paths from various formats."""
+        # Handle different file path formats from drag-and-drop
+        if isinstance(data, (list, tuple)):
+            files = list(data)
+        else:
+            # Parse string data which might be space or newline separated
+            data = str(data)
+            # Remove curly braces that some systems add
+            data = data.replace('{', '').replace('}', '')
+            # Split by whitespace or newlines
+            files = [f.strip() for f in data.split() if f.strip()]
+
+        # Filter to only .srt files
+        srt_files = [f for f in files if f.lower().endswith('.srt')]
+        return srt_files
+
     def update_file_list_placeholder(self):
         """Show placeholder text when file list is empty."""
         if len(self.files_data) == 0:
@@ -534,8 +588,8 @@ class SubtitleCorrectorGUI:
             self.file_listbox.insert(0, "")
             self.file_listbox.insert(1, "     📁 No files added yet")
             self.file_listbox.insert(2, "")
-            self.file_listbox.insert(3, "     Click '➕ Add Files' button above")
-            self.file_listbox.insert(4, "     to select .srt subtitle files")
+            self.file_listbox.insert(3, "     • Click '➕ Add Files' button")
+            self.file_listbox.insert(4, "     • Or drag & drop .srt files here")
             self.file_listbox.insert(5, "")
             self.file_listbox.insert(6, "     Multiple files supported!")
             # Disable selection on placeholder
@@ -1032,7 +1086,15 @@ class SubtitleCorrectorGUI:
 
 def launch_gui():
     """Launch the GUI application."""
-    root = tk.Tk()
+    # Try to use TkinterDnD if available for drag-and-drop support
+    try:
+        from tkinterdnd2 import TkinterDnD
+        root = TkinterDnD.Tk()
+    except ImportError:
+        # Fall back to regular Tk (drag-and-drop won't work)
+        root = tk.Tk()
+        print("Note: Install tkinterdnd2 for drag-and-drop support: pip install tkinterdnd2")
+
     app = SubtitleCorrectorGUI(root)
 
     # Set window size and make it resizable

@@ -19,6 +19,9 @@ Python script fixing OCR errors
 
 ### Optional
 
+- **tkinterdnd2**: For drag-and-drop support in GUI mode
+  - Install with: `pip install tkinterdnd2`
+  - Without this, you can still use the "Add Files" button to select files
 - **MS Word 2010+**: For MS Word spell check integration
 - **LibreOffice Writer 6+**: For LibreOffice spell check integration
 
