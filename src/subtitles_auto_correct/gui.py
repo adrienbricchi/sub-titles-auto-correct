@@ -195,8 +195,8 @@ class SubtitleCorrectorGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Subtitle Auto Corrector")
-        self.current_file = None
-        self.current_language = None
+        self.files_data = []  # List of dicts: {'path': str, 'language': str}
+        self.selected_indices = []
 
         # Initialize theme based on OS settings
         self.theme = Theme(is_dark_mode())
@@ -204,28 +204,152 @@ class SubtitleCorrectorGUI:
         # Apply theme to root window
         self.root.configure(bg=self.theme.bg)
 
+        # Language flag emojis
+        self.language_flags = {
+            'fre': '🇫🇷',
+            'fra': '🇫🇷',
+            'french': '🇫🇷',
+            'eng': '🇬🇧',
+            'english': '🇬🇧',
+            'ger': '🇩🇪',
+            'german': '🇩🇪',
+            'deu': '🇩🇪',
+            'spa': '🇪🇸',
+            'spanish': '🇪🇸',
+            'ita': '🇮🇹',
+            'italian': '🇮🇹',
+            'por': '🇵🇹',
+            'portuguese': '🇵🇹',
+            'rus': '🇷🇺',
+            'russian': '🇷🇺',
+            'jpn': '🇯🇵',
+            'japanese': '🇯🇵',
+            'chi': '🇨🇳',
+            'chinese': '🇨🇳',
+            'kor': '🇰🇷',
+            'korean': '🇰🇷',
+            'ara': '🇸🇦',
+            'arabic': '🇸🇦',
+            'default': '🏳️'
+        }
+
         # Create UI
         self.create_ui()
 
     def create_ui(self):
         """Create the minimal GUI interface."""
-        # File selection section
-        file_frame = tk.Frame(self.root, padx=10, pady=10, bg=self.theme.bg)
-        file_frame.pack(fill=tk.X)
 
-        tk.Label(file_frame, text="File:", bg=self.theme.bg, fg=self.theme.fg).pack(side=tk.LEFT)
-        self.file_label = tk.Label(file_frame, text="No file selected", fg="gray", bg=self.theme.bg)
-        self.file_label.pack(side=tk.LEFT, padx=10)
+        # Top section: Drop zone and file list
+        top_section = tk.Frame(self.root, bg=self.theme.bg, padx=10, pady=10)
+        top_section.pack(fill=tk.BOTH, expand=True)
+
+        # Drop zone (large drag-and-drop area)
+        self.drop_zone = tk.Frame(
+            top_section,
+            bg=self.theme.section_bg,
+            relief=tk.RIDGE,
+            borderwidth=2,
+            cursor="hand2"
+        )
+        self.drop_zone.pack(fill=tk.X, pady=(0, 10))
+
+        drop_label = tk.Label(
+            self.drop_zone,
+            text="📁 DROP .SRT FILES HERE\nor click to browse",
+            font=("Arial", 14, "bold"),
+            bg=self.theme.section_bg,
+            fg=self.theme.section_fg,
+            pady=30
+        )
+        drop_label.pack(fill=tk.BOTH, expand=True)
+
+        # Make drop zone clickable
+        self.drop_zone.bind("<Button-1>", lambda e: self.select_files())
+        drop_label.bind("<Button-1>", lambda e: self.select_files())
+
+        # Visual feedback on hover
+        def on_enter(e):
+            self.drop_zone.config(bg=self.theme.button_active_bg)
+            drop_label.config(bg=self.theme.button_active_bg)
+
+        def on_leave(e):
+            self.drop_zone.config(bg=self.theme.section_bg)
+            drop_label.config(bg=self.theme.section_bg)
+
+        self.drop_zone.bind("<Enter>", on_enter)
+        self.drop_zone.bind("<Leave>", on_leave)
+        drop_label.bind("<Enter>", on_enter)
+        drop_label.bind("<Leave>", on_leave)
+
+        # File list with language flags
+        list_frame = tk.Frame(top_section, bg=self.theme.bg)
+        list_frame.pack(fill=tk.BOTH, expand=True)
+
+        tk.Label(
+            list_frame,
+            text="Imported Files:",
+            font=("Arial", 10, "bold"),
+            bg=self.theme.bg,
+            fg=self.theme.fg
+        ).pack(anchor=tk.W, pady=(0, 5))
+
+        # Create frame for listbox and scrollbar
+        list_container = tk.Frame(list_frame, bg=self.theme.bg)
+        list_container.pack(fill=tk.BOTH, expand=True)
+
+        # Scrollbar for file list
+        list_scrollbar = tk.Scrollbar(list_container)
+        list_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        # File listbox with multiple selection
+        self.file_listbox = tk.Listbox(
+            list_container,
+            height=6,
+            selectmode=tk.EXTENDED,
+            bg=self.theme.entry_bg,
+            fg=self.theme.entry_fg,
+            font=("Courier", 10),
+            yscrollcommand=list_scrollbar.set
+        )
+        self.file_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        list_scrollbar.config(command=self.file_listbox.yview)
+
+        # Bind selection event
+        self.file_listbox.bind('<<ListboxSelect>>', self.on_file_select)
+
+        # Buttons for file list management
+        button_frame = tk.Frame(list_frame, bg=self.theme.bg)
+        button_frame.pack(fill=tk.X, pady=(5, 0))
 
         tk.Button(
-            file_frame,
-            text="Select .srt File",
-            command=self.select_file,
+            button_frame,
+            text="➕ Add Files",
+            command=self.select_files,
             bg=self.theme.button_bg,
             fg=self.theme.button_fg,
             activebackground=self.theme.button_active_bg,
             activeforeground=self.theme.button_fg
-        ).pack(side=tk.RIGHT)
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
+        tk.Button(
+            button_frame,
+            text="🗑️ Remove Selected",
+            command=self.remove_selected_files,
+            bg=self.theme.button_bg,
+            fg=self.theme.button_fg,
+            activebackground=self.theme.button_active_bg,
+            activeforeground=self.theme.button_fg
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
+        tk.Button(
+            button_frame,
+            text="🗑️ Clear All",
+            command=self.clear_all_files,
+            bg=self.theme.button_bg,
+            fg=self.theme.button_fg,
+            activebackground=self.theme.button_active_bg,
+            activeforeground=self.theme.button_fg
+        ).pack(side=tk.LEFT)
 
         # Create a scrollable frame for all buttons
         canvas = tk.Canvas(self.root, bg=self.theme.bg, highlightthickness=0)
@@ -366,93 +490,210 @@ class SubtitleCorrectorGUI:
         frame.pack(fill=tk.X, pady=5)
 
         for text, command in buttons:
-            tk.Button(
+            btn = tk.Button(
                 frame,
                 text=text,
-                command=command,
                 width=50,
                 anchor=tk.W,
                 bg=self.theme.button_bg,
                 fg=self.theme.button_fg,
                 activebackground=self.theme.button_active_bg,
                 activeforeground=self.theme.button_fg
-            ).pack(fill=tk.X, pady=2)
+            )
 
-    def select_file(self):
-        """Select a .srt subtitle file."""
-        filename = native_file_dialog(
+            # Wrap command to add visual feedback
+            def make_command(original_cmd, button):
+                def wrapped_cmd():
+                    # Grey out button
+                    button.config(bg="#808080", fg="#a0a0a0")
+                    # Execute original command
+                    original_cmd()
+                return wrapped_cmd
+
+            btn.config(command=make_command(command, btn))
+            btn.pack(fill=tk.X, pady=2)
+
+    def get_language_flag(self, language):
+        """Get the flag emoji for a language."""
+        lang_lower = language.lower()
+        return self.language_flags.get(lang_lower, self.language_flags['default'])
+
+    def select_files(self):
+        """Select one or multiple .srt subtitle files."""
+        # Try to use native file dialog with multiple selection
+        if sys.platform.startswith("linux"):
+            # Use zenity or kdialog with multiple selection
+            try:
+                result = subprocess.run(
+                    ["zenity", "--file-selection", "--multiple", "--separator=|",
+                     "--title=Select Subtitle Files", "--file-filter=SRT files | *.srt"],
+                    capture_output=True,
+                    text=True,
+                    timeout=60
+                )
+                if result.returncode == 0:
+                    filenames = result.stdout.strip().split('|')
+                    self.add_files(filenames)
+                    return
+            except (FileNotFoundError, subprocess.TimeoutExpired):
+                pass
+
+        # Fallback to tkinter (Windows/macOS or if Linux tools not available)
+        filenames = filedialog.askopenfilenames(
             parent=self.root,
-            title="Select Subtitle File",
+            title="Select Subtitle Files",
             filetypes=[("SRT files", "*.srt"), ("All files", "*.*")],
             initialdir=os.path.expanduser("~")
         )
 
-        if filename:
-            self.current_file = filename
-            self.current_language = get_file_language(filename)
-            self.file_label.config(text=os.path.basename(filename), fg=self.theme.fg)
-            self.status_label.config(text=f"Loaded: {filename} (Language: {self.current_language})")
+        if filenames:
+            self.add_files(list(filenames))
+
+    def add_files(self, file_paths):
+        """Add files to the list."""
+        for file_path in file_paths:
+            if not file_path or not os.path.exists(file_path):
+                continue
+
+            # Check if file already exists
+            if any(f['path'] == file_path for f in self.files_data):
+                continue
+
+            # Detect language
+            language = get_file_language(file_path)
+            flag = self.get_language_flag(language)
+
+            # Add to data
+            self.files_data.append({
+                'path': file_path,
+                'language': language
+            })
+
+            # Add to listbox with flag and filename
+            display_text = f"{flag} {os.path.basename(file_path)} ({language})"
+            self.file_listbox.insert(tk.END, display_text)
+
+        self.status_label.config(text=f"Loaded {len(self.files_data)} file(s)")
+
+    def on_file_select(self, event):
+        """Handle file selection in listbox."""
+        self.selected_indices = list(self.file_listbox.curselection())
+        if self.selected_indices:
+            count = len(self.selected_indices)
+            self.status_label.config(text=f"{count} file(s) selected")
+
+    def remove_selected_files(self):
+        """Remove selected files from the list."""
+        if not self.selected_indices:
+            messagebox.showinfo("Info", "No files selected")
+            return
+
+        # Remove in reverse order to maintain indices
+        for index in reversed(self.selected_indices):
+            self.file_listbox.delete(index)
+            del self.files_data[index]
+
+        self.selected_indices = []
+        self.status_label.config(text=f"{len(self.files_data)} file(s) remaining")
+
+    def clear_all_files(self):
+        """Clear all files from the list."""
+        if not self.files_data:
+            return
+
+        if messagebox.askyesno("Confirm", "Clear all files from the list?"):
+            self.file_listbox.delete(0, tk.END)
+            self.files_data = []
+            self.selected_indices = []
+            self.status_label.config(text="All files cleared")
 
     def check_file_selected(self):
-        """Check if a file is selected."""
-        if not self.current_file:
-            messagebox.showerror("Error", "Please select a .srt file first!")
+        """Check if at least one file is in the list."""
+        if not self.files_data:
+            messagebox.showerror("Error", "Please add at least one .srt file first!")
             return False
         return True
 
+    def get_selected_files(self):
+        """Get list of selected files, or all files if none selected."""
+        if self.selected_indices:
+            return [self.files_data[i] for i in self.selected_indices]
+        return self.files_data
+
     def apply_correction(self, correction_name, correction_func, is_multi_line=False, needs_language=False):
-        """Apply a correction function to the current file."""
+        """Apply a correction function to selected or all files."""
         if not self.check_file_selected():
             return
 
+        files_to_process = self.get_selected_files()
+        total_files = len(files_to_process)
+        success_count = 0
+        error_count = 0
+
         try:
-            self.status_label.config(text=f"Applying {correction_name}...")
-            self.root.update()
+            for idx, file_data in enumerate(files_to_process, 1):
+                file_path = file_data['path']
+                language = file_data['language']
 
-            # Read file
-            lines = get_file_text(self.current_file, True)
+                self.status_label.config(text=f"Applying {correction_name}... ({idx}/{total_files})")
+                self.root.update()
 
-            if is_multi_line:
-                # Multi-line correction (works on subtitle blocks)
-                subtitles = Subtitle.subtitles_from_lines(lines)
+                try:
+                    # Read file
+                    lines = get_file_text(file_path, True)
 
-                for subtitle in subtitles:
-                    corrected_lines = correction_func(subtitle.lines)
-                    subtitle.set_lines(corrected_lines)
+                    if is_multi_line:
+                        # Multi-line correction (works on subtitle blocks)
+                        subtitles = Subtitle.subtitles_from_lines(lines)
 
-                # Save file
-                new_lines = []
-                for subtitle in subtitles:
-                    if len(subtitle.lines) > 0:
-                        new_lines += subtitle.to_lines()
-                        new_lines.append("\n")
+                        for subtitle in subtitles:
+                            corrected_lines = correction_func(subtitle.lines)
+                            subtitle.set_lines(corrected_lines)
 
-                write_file(self.current_file, new_lines)
+                        # Save file
+                        new_lines = []
+                        for subtitle in subtitles:
+                            if len(subtitle.lines) > 0:
+                                new_lines += subtitle.to_lines()
+                                new_lines.append("\n")
+
+                        write_file(file_path, new_lines)
+                    else:
+                        # Single-line correction
+                        subtitles = Subtitle.subtitles_from_lines(lines)
+
+                        for subtitle in subtitles:
+                            corrected_lines = []
+                            for line in subtitle.get_lines():
+                                if needs_language:
+                                    line = correction_func(line, language)
+                                else:
+                                    line = correction_func(line)
+                                corrected_lines.append(line)
+                            subtitle.set_lines(corrected_lines)
+
+                        # Save file
+                        new_lines = []
+                        for subtitle in subtitles:
+                            if len(subtitle.lines) > 0:
+                                new_lines += subtitle.to_lines()
+                                new_lines.append("\n")
+
+                        write_file(file_path, new_lines)
+
+                    success_count += 1
+
+                except Exception as e:
+                    error_count += 1
+                    print(f"Error processing {os.path.basename(file_path)}: {str(e)}")
+
+            # Show summary
+            if error_count == 0:
+                self.status_label.config(text=f"✓ {correction_name} applied to {success_count} file(s)!")
             else:
-                # Single-line correction
-                subtitles = Subtitle.subtitles_from_lines(lines)
-
-                for subtitle in subtitles:
-                    corrected_lines = []
-                    for line in subtitle.get_lines():
-                        if needs_language:
-                            line = correction_func(line, self.current_language)
-                        else:
-                            line = correction_func(line)
-                        corrected_lines.append(line)
-                    subtitle.set_lines(corrected_lines)
-
-                # Save file
-                new_lines = []
-                for subtitle in subtitles:
-                    if len(subtitle.lines) > 0:
-                        new_lines += subtitle.to_lines()
-                        new_lines.append("\n")
-
-                write_file(self.current_file, new_lines)
-
-            self.status_label.config(text=f"✓ {correction_name} applied successfully!")
-            messagebox.showinfo("Success", f"{correction_name} has been applied!")
+                self.status_label.config(text=f"⚠ {success_count} succeeded, {error_count} failed")
+                messagebox.showwarning("Partial Success",
+                                     f"{correction_name}:\n{success_count} file(s) succeeded\n{error_count} file(s) failed")
 
         except Exception as e:
             self.status_label.config(text=f"✗ Error: {str(e)}")
@@ -535,31 +776,51 @@ class SubtitleCorrectorGUI:
         if not self.check_file_selected():
             return
 
+        files_to_process = self.get_selected_files()
+        total_files = len(files_to_process)
+        success_count = 0
+        error_count = 0
+
         try:
-            self.status_label.config(text="Applying all single-line corrections...")
-            self.root.update()
+            for idx, file_data in enumerate(files_to_process, 1):
+                file_path = file_data['path']
+                language = file_data['language']
 
-            lines = get_file_text(self.current_file, True)
-            subtitles = Subtitle.subtitles_from_lines(lines)
+                self.status_label.config(text=f"Applying all single-line corrections... ({idx}/{total_files})")
+                self.root.update()
 
-            for subtitle in subtitles:
-                corrected_lines = []
-                for line in subtitle.get_lines():
-                    line = fix_single_line_errors(line, self.current_language)
-                    corrected_lines.append(line)
-                subtitle.set_lines(corrected_lines)
+                try:
+                    lines = get_file_text(file_path, True)
+                    subtitles = Subtitle.subtitles_from_lines(lines)
 
-            # Save file
-            new_lines = []
-            for subtitle in subtitles:
-                if len(subtitle.lines) > 0:
-                    new_lines += subtitle.to_lines()
-                    new_lines.append("\n")
+                    for subtitle in subtitles:
+                        corrected_lines = []
+                        for line in subtitle.get_lines():
+                            line = fix_single_line_errors(line, language)
+                            corrected_lines.append(line)
+                        subtitle.set_lines(corrected_lines)
 
-            write_file(self.current_file, new_lines)
+                    # Save file
+                    new_lines = []
+                    for subtitle in subtitles:
+                        if len(subtitle.lines) > 0:
+                            new_lines += subtitle.to_lines()
+                            new_lines.append("\n")
 
-            self.status_label.config(text="✓ All single-line corrections applied!")
-            messagebox.showinfo("Success", "All single-line corrections have been applied!")
+                    write_file(file_path, new_lines)
+                    success_count += 1
+
+                except Exception as e:
+                    error_count += 1
+                    print(f"Error processing {os.path.basename(file_path)}: {str(e)}")
+
+            # Show summary
+            if error_count == 0:
+                self.status_label.config(text=f"✓ All single-line corrections applied to {success_count} file(s)!")
+            else:
+                self.status_label.config(text=f"⚠ {success_count} succeeded, {error_count} failed")
+                messagebox.showwarning("Partial Success",
+                                     f"Single-line corrections:\n{success_count} file(s) succeeded\n{error_count} file(s) failed")
 
         except Exception as e:
             self.status_label.config(text=f"✗ Error: {str(e)}")
@@ -570,28 +831,47 @@ class SubtitleCorrectorGUI:
         if not self.check_file_selected():
             return
 
+        files_to_process = self.get_selected_files()
+        total_files = len(files_to_process)
+        success_count = 0
+        error_count = 0
+
         try:
-            self.status_label.config(text="Applying all multi-line corrections...")
-            self.root.update()
+            for idx, file_data in enumerate(files_to_process, 1):
+                file_path = file_data['path']
 
-            lines = get_file_text(self.current_file, True)
-            subtitles = Subtitle.subtitles_from_lines(lines)
+                self.status_label.config(text=f"Applying all multi-line corrections... ({idx}/{total_files})")
+                self.root.update()
 
-            for subtitle in subtitles:
-                corrected_lines = fix_multi_line_errors(subtitle.lines)
-                subtitle.set_lines(corrected_lines)
+                try:
+                    lines = get_file_text(file_path, True)
+                    subtitles = Subtitle.subtitles_from_lines(lines)
 
-            # Save file
-            new_lines = []
-            for subtitle in subtitles:
-                if len(subtitle.lines) > 0:
-                    new_lines += subtitle.to_lines()
-                    new_lines.append("\n")
+                    for subtitle in subtitles:
+                        corrected_lines = fix_multi_line_errors(subtitle.lines)
+                        subtitle.set_lines(corrected_lines)
 
-            write_file(self.current_file, new_lines)
+                    # Save file
+                    new_lines = []
+                    for subtitle in subtitles:
+                        if len(subtitle.lines) > 0:
+                            new_lines += subtitle.to_lines()
+                            new_lines.append("\n")
 
-            self.status_label.config(text="✓ All multi-line corrections applied!")
-            messagebox.showinfo("Success", "All multi-line corrections have been applied!")
+                    write_file(file_path, new_lines)
+                    success_count += 1
+
+                except Exception as e:
+                    error_count += 1
+                    print(f"Error processing {os.path.basename(file_path)}: {str(e)}")
+
+            # Show summary
+            if error_count == 0:
+                self.status_label.config(text=f"✓ All multi-line corrections applied to {success_count} file(s)!")
+            else:
+                self.status_label.config(text=f"⚠ {success_count} succeeded, {error_count} failed")
+                messagebox.showwarning("Partial Success",
+                                     f"Multi-line corrections:\n{success_count} file(s) succeeded\n{error_count} file(s) failed")
 
         except Exception as e:
             self.status_label.config(text=f"✗ Error: {str(e)}")
@@ -602,37 +882,57 @@ class SubtitleCorrectorGUI:
         if not self.check_file_selected():
             return
 
+        files_to_process = self.get_selected_files()
+        total_files = len(files_to_process)
+        success_count = 0
+        error_count = 0
+
         try:
-            self.status_label.config(text="Applying all corrections...")
-            self.root.update()
+            for idx, file_data in enumerate(files_to_process, 1):
+                file_path = file_data['path']
+                language = file_data['language']
 
-            lines = get_file_text(self.current_file, True)
-            subtitles = Subtitle.subtitles_from_lines(lines)
+                self.status_label.config(text=f"Applying all corrections... ({idx}/{total_files})")
+                self.root.update()
 
-            # Multi-line corrections first
-            for subtitle in subtitles:
-                corrected_lines = fix_multi_line_errors(subtitle.lines)
-                subtitle.set_lines(corrected_lines)
+                try:
+                    lines = get_file_text(file_path, True)
+                    subtitles = Subtitle.subtitles_from_lines(lines)
 
-            # Then single-line corrections
-            for subtitle in subtitles:
-                corrected_lines = []
-                for line in subtitle.get_lines():
-                    line = fix_single_line_errors(line, self.current_language)
-                    corrected_lines.append(line)
-                subtitle.set_lines(corrected_lines)
+                    # Multi-line corrections first
+                    for subtitle in subtitles:
+                        corrected_lines = fix_multi_line_errors(subtitle.lines)
+                        subtitle.set_lines(corrected_lines)
 
-            # Save file
-            new_lines = []
-            for subtitle in subtitles:
-                if len(subtitle.lines) > 0:
-                    new_lines += subtitle.to_lines()
-                    new_lines.append("\n")
+                    # Then single-line corrections
+                    for subtitle in subtitles:
+                        corrected_lines = []
+                        for line in subtitle.get_lines():
+                            line = fix_single_line_errors(line, language)
+                            corrected_lines.append(line)
+                        subtitle.set_lines(corrected_lines)
 
-            write_file(self.current_file, new_lines)
+                    # Save file
+                    new_lines = []
+                    for subtitle in subtitles:
+                        if len(subtitle.lines) > 0:
+                            new_lines += subtitle.to_lines()
+                            new_lines.append("\n")
 
-            self.status_label.config(text="✓ All corrections applied!")
-            messagebox.showinfo("Success", "All corrections have been applied successfully!")
+                    write_file(file_path, new_lines)
+                    success_count += 1
+
+                except Exception as e:
+                    error_count += 1
+                    print(f"Error processing {os.path.basename(file_path)}: {str(e)}")
+
+            # Show summary
+            if error_count == 0:
+                self.status_label.config(text=f"✓ All corrections applied to {success_count} file(s)!")
+            else:
+                self.status_label.config(text=f"⚠ {success_count} succeeded, {error_count} failed")
+                messagebox.showwarning("Partial Success",
+                                     f"All corrections:\n{success_count} file(s) succeeded\n{error_count} file(s) failed")
 
         except Exception as e:
             self.status_label.config(text=f"✗ Error: {str(e)}")
@@ -640,36 +940,46 @@ class SubtitleCorrectorGUI:
 
     # External spell checkers
     def apply_ms_word_spell_check(self):
-        """Launch MS Word spell check."""
+        """Launch MS Word spell check for selected files."""
         if not self.check_file_selected():
             return
+
+        files_to_process = self.get_selected_files()
 
         try:
             self.status_label.config(text="Launching MS Word spell check...")
             self.root.update()
 
-            launch_ms_word_spell_check(self.current_file, self.current_language)
+            for file_data in files_to_process:
+                file_path = file_data['path']
+                language = file_data['language']
+                launch_ms_word_spell_check(file_path, language)
 
-            self.status_label.config(text="✓ MS Word spell check completed!")
-            messagebox.showinfo("Success", "MS Word spell check has been launched!")
+            count = len(files_to_process)
+            self.status_label.config(text=f"✓ MS Word spell check launched for {count} file(s)!")
 
         except Exception as e:
             self.status_label.config(text=f"✗ Error: {str(e)}")
             messagebox.showerror("Error", f"Failed to launch MS Word:\n{str(e)}")
 
     def apply_libreoffice_spell_check(self):
-        """Launch LibreOffice Writer spell check."""
+        """Launch LibreOffice Writer spell check for selected files."""
         if not self.check_file_selected():
             return
+
+        files_to_process = self.get_selected_files()
 
         try:
             self.status_label.config(text="Launching LibreOffice Writer spell check...")
             self.root.update()
 
-            launch_libreoffice_6_writer_spell_check(self.current_file, self.current_language)
+            for file_data in files_to_process:
+                file_path = file_data['path']
+                language = file_data['language']
+                launch_libreoffice_6_writer_spell_check(file_path, language)
 
-            self.status_label.config(text="✓ LibreOffice Writer spell check completed!")
-            messagebox.showinfo("Success", "LibreOffice Writer spell check has been launched!")
+            count = len(files_to_process)
+            self.status_label.config(text=f"✓ LibreOffice Writer spell check launched for {count} file(s)!")
 
         except Exception as e:
             self.status_label.config(text=f"✗ Error: {str(e)}")
