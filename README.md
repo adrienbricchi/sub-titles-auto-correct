@@ -5,12 +5,88 @@ sub-titles-auto-correct
 
 Python script fixing OCR errors
 
+## Prerequisites
+
+### Required
+
+- **Python 3.6+**: The application requires Python 3.6 or higher
+- **Python Tkinter**: Required for GUI mode
+  - **Ubuntu/Debian**: `sudo apt-get install python3-tk`
+  - **Fedora/RHEL**: `sudo dnf install python3-tkinter`
+  - **Arch Linux**: `sudo pacman -S tk`
+  - **macOS**: Included with Python from python.org
+  - **Windows**: Included with Python installer
+
+### Optional
+
+- **MS Word 2010+**: For MS Word spell check integration
+- **LibreOffice Writer 6+**: For LibreOffice spell check integration
+
+### Configuration
+
+Before running the application, you need to configure the `config.ini` file:
+
+```ini
+[PARAMETERS]
+root_path = /path/to/your/subtitles/directory
+fix_sdh_tags = true
+fix_3d_doubles = true
+is_unittest_exec = false
+auto_skip_everything = false
+
+[DEPENDENCIES]
+ms_word_2010_path = C:/Program Files/Microsoft Office/Office14/WINWORD.EXE
+libreoffice6_writer_path = /usr/bin/libreoffice
+```
+
+**Configuration Options:**
+- `root_path`: Directory containing .srt subtitle files (used in batch/script mode)
+- `fix_sdh_tags`: Remove SDH (Deaf/Hard of Hearing) tags like [SOUND] and ♪
+- `fix_3d_doubles`: Remove duplicate lines in 3D subtitles
+- `is_unittest_exec`: Set to true when running unit tests
+- `auto_skip_everything`: Skip all interactive prompts
+- `ms_word_2010_path`: Path to MS Word executable
+- `libreoffice6_writer_path`: Path to LibreOffice Writer executable
+
 ## Installation
 
-### Using pip (recommended)
+### Using Virtual Environment (Recommended)
+
+Modern Linux distributions use "externally-managed-environment" to protect system Python packages. It's recommended to use a virtual environment:
 
 ```bash
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate  # On Linux/macOS
+# OR
+venv\Scripts\activate     # On Windows
+
+# Install the package in editable mode
 pip install -e .
+```
+
+**Note**: You'll need to activate the virtual environment each time you want to run the application:
+```bash
+source venv/bin/activate
+python -m subtitles_auto_correct
+```
+
+### Alternative: Using pip with --user flag
+
+If you prefer not to use a virtual environment:
+
+```bash
+pip install --user -e .
+```
+
+### Alternative: System-wide installation (Not recommended)
+
+On some systems, you can override the protection (use with caution):
+
+```bash
+pip install -e . --break-system-packages
 ```
 
 ### Running the application
