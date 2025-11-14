@@ -581,6 +581,9 @@ class SubtitleCorrectorGUI:
 
     def add_files(self, file_paths):
         """Add files to the list."""
+        # If adding first files, clear placeholder and enable listbox
+        was_empty = len(self.files_data) == 0
+
         for file_path in file_paths:
             if not file_path or not os.path.exists(file_path):
                 continue
@@ -588,6 +591,11 @@ class SubtitleCorrectorGUI:
             # Check if file already exists
             if any(f['path'] == file_path for f in self.files_data):
                 continue
+
+            # If this is the first file, clear placeholder
+            if was_empty and len(self.files_data) == 0:
+                self.file_listbox.config(state=tk.NORMAL)
+                self.file_listbox.delete(0, tk.END)
 
             # Detect language
             language = get_file_language(file_path)
@@ -624,6 +632,11 @@ class SubtitleCorrectorGUI:
             del self.files_data[index]
 
         self.selected_indices = []
+
+        # Show placeholder if list is now empty
+        if len(self.files_data) == 0:
+            self.update_file_list_placeholder()
+
         self.status_label.config(text=f"{len(self.files_data)} file(s) remaining")
 
     def clear_all_files(self):
@@ -635,6 +648,7 @@ class SubtitleCorrectorGUI:
             self.file_listbox.delete(0, tk.END)
             self.files_data = []
             self.selected_indices = []
+            self.update_file_list_placeholder()
             self.status_label.config(text="All files cleared")
 
     def check_file_selected(self):
