@@ -383,7 +383,7 @@ class SubtitleCorrectorGUI:
         main_frame.pack(fill=tk.BOTH, expand=True)
 
         # AGGREGATE CORRECTIONS at the top (spanning full width)
-        self.create_section(main_frame, "🔧 QUICK CORRECTIONS", [
+        self.create_section(main_frame, "QUICK CORRECTIONS", [
             ("All Single-Line Corrections", self.apply_all_single_line),
             ("All Multi-Line Corrections", self.apply_all_multi_line),
             ("All Corrections (Single + Multi)", self.apply_all_corrections),
@@ -406,7 +406,7 @@ class SubtitleCorrectorGUI:
         ).pack(pady=5)
 
         # Character Fixes
-        self.create_section(left_column, "📝 Character Fixes", [
+        self.create_section(left_column, "Character Fixes", [
             ("Fix À (Accentuated A)", self.apply_accentuated_capital_a),
             ("Fix I → l (capital I to lowercase L)", self.apply_capital_i_to_l),
             ("Fix V → v (capital V to lowercase)", self.apply_capital_v_to_v),
@@ -415,7 +415,7 @@ class SubtitleCorrectorGUI:
         ])
 
         # Punctuation
-        self.create_section(left_column, "🔤 Punctuation Fixes", [
+        self.create_section(left_column, "Punctuation Fixes", [
             ("Fix Punctuation Errors (... dots, dashes)", self.apply_punctuation_errors),
             ("Fix Punctuation Spaces (?, !)", self.apply_punctuation_spaces),
             ("Fix Dialog Hyphens (- spacing)", self.apply_dialog_hyphen),
@@ -425,13 +425,26 @@ class SubtitleCorrectorGUI:
         ])
 
         # Formatting
-        self.create_section(left_column, "🎨 Format Fixes", [
+        self.create_section(left_column, "Format Fixes", [
             ("Fix Italic Tags (<i></i>)", self.apply_italic_tag_errors),
             ("Fix Common Errors (unicode quotes, dashes)", self.apply_common_errors),
             ("Fix Numbers (spacing, formatting)", self.apply_numbers),
             ("Fix Acronyms (U.S. A → U.S.A)", self.apply_acronyms),
             ("Fix Common Misspells (from CSV)", self.apply_common_misspells),
         ])
+
+        # Apply All button for left column
+        tk.Button(
+            left_column,
+            text="▶ Apply All Single-Line Corrections",
+            command=self.apply_all_single_line,
+            bg=self.theme.highlight,
+            fg="#ffffff",
+            font=("Arial", 10, "bold"),
+            activebackground=self.theme.button_active_bg,
+            activeforeground="#ffffff",
+            pady=10
+        ).pack(fill=tk.X, pady=10)
 
         # RIGHT COLUMN - Multi-line corrections
         right_column = tk.Frame(columns_frame, padx=5, bg=self.theme.bg)
@@ -446,7 +459,7 @@ class SubtitleCorrectorGUI:
         ).pack(pady=5)
 
         # Multi-line fixes
-        self.create_section(right_column, "📋 Multi-Line Fixes", [
+        self.create_section(right_column, "Multi-Line Fixes", [
             ("Remove 3D Duplicates", self.apply_3d_doubles),
             ("Remove Empty Lines", self.apply_empty_lines),
             ("Remove Redundant Italic Tags", self.apply_redundant_italic_tag),
@@ -457,10 +470,23 @@ class SubtitleCorrectorGUI:
         ])
 
         # External spell checkers
-        self.create_section(right_column, "🔍 External Spell Checkers", [
+        self.create_section(right_column, "External Spell Checkers", [
             ("MS Word Spell Check", self.apply_ms_word_spell_check),
             ("LibreOffice Writer Spell Check", self.apply_libreoffice_spell_check),
         ])
+
+        # Apply All button for right column
+        tk.Button(
+            right_column,
+            text="▶ Apply All Multi-Line Corrections",
+            command=self.apply_all_multi_line,
+            bg=self.theme.highlight,
+            fg="#ffffff",
+            font=("Arial", 10, "bold"),
+            activebackground=self.theme.button_active_bg,
+            activeforeground="#ffffff",
+            pady=10
+        ).pack(fill=tk.X, pady=10)
 
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
