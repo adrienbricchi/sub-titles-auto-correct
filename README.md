@@ -73,6 +73,12 @@ source venv/bin/activate
 python -m subtitles_auto_correct
 ```
 
+**Quick Start**: For convenience, use the provided launcher script:
+```bash
+./run.sh
+```
+This script automatically activates the virtual environment and runs the application.
+
 ### Alternative: Using pip with --user flag
 
 If you prefer not to use a virtual environment:
