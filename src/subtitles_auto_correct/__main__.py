@@ -26,6 +26,7 @@ import datetime
 from subtitles_auto_correct.models.subtitle import *
 from subtitles_auto_correct.utils.file_utils import *
 from subtitles_auto_correct.utils.strings_utils import *
+from subtitles_auto_correct.gui import launch_gui
 
 
 config = configparser.ConfigParser()
@@ -108,7 +109,11 @@ def main():
     for file in files:
         clean_space_in_filename(file)
 
-    prompt = input("script ou libre ? ")
+    prompt = input("script, word, libreoffice, ou gui ? ")
+
+    if prompt.startswith("gui"):
+        launch_gui()
+        return
 
     files = get_files_with_type(get_all_files(conf_root_path, 0), "srt")
     for file in files:
