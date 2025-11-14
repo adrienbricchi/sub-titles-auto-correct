@@ -239,121 +239,17 @@ class SubtitleCorrectorGUI:
     def create_ui(self):
         """Create the minimal GUI interface."""
 
-        # Top section: Drop zone and file list
-        top_section = tk.Frame(self.root, bg=self.theme.bg, padx=10, pady=10)
-        top_section.pack(fill=tk.BOTH, expand=True)
+        # Main horizontal layout: corrections on left, file list on right
+        main_horizontal = tk.Frame(self.root, bg=self.theme.bg)
+        main_horizontal.pack(fill=tk.BOTH, expand=True)
 
-        # Drop zone (large drag-and-drop area)
-        self.drop_zone = tk.Frame(
-            top_section,
-            bg=self.theme.section_bg,
-            relief=tk.RIDGE,
-            borderwidth=2,
-            cursor="hand2"
-        )
-        self.drop_zone.pack(fill=tk.X, pady=(0, 10))
+        # LEFT SIDE: Corrections (scrollable)
+        left_side = tk.Frame(main_horizontal, bg=self.theme.bg)
+        left_side.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-        drop_label = tk.Label(
-            self.drop_zone,
-            text="📁 DROP .SRT FILES HERE\nor click to browse",
-            font=("Arial", 14, "bold"),
-            bg=self.theme.section_bg,
-            fg=self.theme.section_fg,
-            pady=30
-        )
-        drop_label.pack(fill=tk.BOTH, expand=True)
-
-        # Make drop zone clickable
-        self.drop_zone.bind("<Button-1>", lambda e: self.select_files())
-        drop_label.bind("<Button-1>", lambda e: self.select_files())
-
-        # Visual feedback on hover
-        def on_enter(e):
-            self.drop_zone.config(bg=self.theme.button_active_bg)
-            drop_label.config(bg=self.theme.button_active_bg)
-
-        def on_leave(e):
-            self.drop_zone.config(bg=self.theme.section_bg)
-            drop_label.config(bg=self.theme.section_bg)
-
-        self.drop_zone.bind("<Enter>", on_enter)
-        self.drop_zone.bind("<Leave>", on_leave)
-        drop_label.bind("<Enter>", on_enter)
-        drop_label.bind("<Leave>", on_leave)
-
-        # File list with language flags
-        list_frame = tk.Frame(top_section, bg=self.theme.bg)
-        list_frame.pack(fill=tk.BOTH, expand=True)
-
-        tk.Label(
-            list_frame,
-            text="Imported Files:",
-            font=("Arial", 10, "bold"),
-            bg=self.theme.bg,
-            fg=self.theme.fg
-        ).pack(anchor=tk.W, pady=(0, 5))
-
-        # Create frame for listbox and scrollbar
-        list_container = tk.Frame(list_frame, bg=self.theme.bg)
-        list_container.pack(fill=tk.BOTH, expand=True)
-
-        # Scrollbar for file list
-        list_scrollbar = tk.Scrollbar(list_container)
-        list_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
-        # File listbox with multiple selection
-        self.file_listbox = tk.Listbox(
-            list_container,
-            height=6,
-            selectmode=tk.EXTENDED,
-            bg=self.theme.entry_bg,
-            fg=self.theme.entry_fg,
-            font=("Courier", 10),
-            yscrollcommand=list_scrollbar.set
-        )
-        self.file_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        list_scrollbar.config(command=self.file_listbox.yview)
-
-        # Bind selection event
-        self.file_listbox.bind('<<ListboxSelect>>', self.on_file_select)
-
-        # Buttons for file list management
-        button_frame = tk.Frame(list_frame, bg=self.theme.bg)
-        button_frame.pack(fill=tk.X, pady=(5, 0))
-
-        tk.Button(
-            button_frame,
-            text="➕ Add Files",
-            command=self.select_files,
-            bg=self.theme.button_bg,
-            fg=self.theme.button_fg,
-            activebackground=self.theme.button_active_bg,
-            activeforeground=self.theme.button_fg
-        ).pack(side=tk.LEFT, padx=(0, 5))
-
-        tk.Button(
-            button_frame,
-            text="🗑️ Remove Selected",
-            command=self.remove_selected_files,
-            bg=self.theme.button_bg,
-            fg=self.theme.button_fg,
-            activebackground=self.theme.button_active_bg,
-            activeforeground=self.theme.button_fg
-        ).pack(side=tk.LEFT, padx=(0, 5))
-
-        tk.Button(
-            button_frame,
-            text="🗑️ Clear All",
-            command=self.clear_all_files,
-            bg=self.theme.button_bg,
-            fg=self.theme.button_fg,
-            activebackground=self.theme.button_active_bg,
-            activeforeground=self.theme.button_fg
-        ).pack(side=tk.LEFT)
-
-        # Create a scrollable frame for all buttons
-        canvas = tk.Canvas(self.root, bg=self.theme.bg, highlightthickness=0)
-        scrollbar = tk.Scrollbar(self.root, orient="vertical", command=canvas.yview)
+        # Create a scrollable frame for all correction buttons
+        canvas = tk.Canvas(left_side, bg=self.theme.bg, highlightthickness=0)
+        scrollbar = tk.Scrollbar(left_side, orient="vertical", command=canvas.yview)
         scrollable_frame = tk.Frame(canvas, bg=self.theme.bg)
 
         scrollable_frame.bind(
@@ -491,6 +387,98 @@ class SubtitleCorrectorGUI:
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
+        # RIGHT SIDE: File list
+        right_side = tk.Frame(main_horizontal, bg=self.theme.bg, padx=10, pady=10)
+        right_side.pack(side=tk.RIGHT, fill=tk.BOTH, expand=False)
+
+        # File list header
+        file_header = tk.Label(
+            right_side,
+            text="IMPORTED FILES",
+            font=("Arial", 10, "bold"),
+            bg=self.theme.bg,
+            fg=self.theme.fg
+        )
+        file_header.pack(pady=(0, 5))
+
+        # Add files button
+        add_btn = tk.Button(
+            right_side,
+            text="➕ Add Files",
+            command=self.select_files,
+            bg=self.theme.highlight,
+            fg="#ffffff",
+            font=("Arial", 9, "bold"),
+            activebackground=self.theme.button_active_bg,
+            activeforeground="#ffffff",
+            pady=5
+        )
+        add_btn.pack(fill=tk.X, pady=5)
+
+        # File list with scrollbar
+        list_container = tk.Frame(right_side, bg=self.theme.bg)
+        list_container.pack(fill=tk.BOTH, expand=True, pady=5)
+
+        list_scrollbar = tk.Scrollbar(list_container)
+        list_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.file_listbox = tk.Listbox(
+            list_container,
+            selectmode=tk.EXTENDED,
+            font=("DejaVu Sans", 9),
+            width=35,
+            yscrollcommand=list_scrollbar.set,
+            bg=self.theme.entry_bg,
+            fg=self.theme.entry_fg
+        )
+        self.file_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        list_scrollbar.config(command=self.file_listbox.yview)
+
+        # Bind selection event
+        self.file_listbox.bind("<<ListboxSelect>>", self.on_file_select)
+
+        # Show placeholder
+        self.update_file_list_placeholder()
+
+        # File management buttons
+        btn_frame = tk.Frame(right_side, bg=self.theme.bg)
+        btn_frame.pack(fill=tk.X, pady=5)
+
+        remove_btn = tk.Button(
+            btn_frame,
+            text="Remove Selected",
+            command=self.remove_selected_files,
+            bg=self.theme.button_bg,
+            fg=self.theme.button_fg,
+            activebackground=self.theme.button_active_bg,
+            activeforeground=self.theme.button_fg,
+            font=("Arial", 8)
+        )
+        remove_btn.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 2))
+
+        clear_btn = tk.Button(
+            btn_frame,
+            text="Clear All",
+            command=self.clear_all_files,
+            bg=self.theme.button_bg,
+            fg=self.theme.button_fg,
+            activebackground=self.theme.button_active_bg,
+            activeforeground=self.theme.button_fg,
+            font=("Arial", 8)
+        )
+        clear_btn.pack(side=tk.RIGHT, fill=tk.X, expand=True, padx=(2, 0))
+
+        # File count info
+        file_count_label = tk.Label(
+            right_side,
+            text="💡 Tip: Select specific files\nor apply to all if none selected",
+            font=("Arial", 8),
+            bg=self.theme.bg,
+            fg=self.theme.fg,
+            justify=tk.LEFT
+        )
+        file_count_label.pack(pady=(10, 0))
+
         # Status bar
         self.status_label = tk.Label(
             self.root,
@@ -538,6 +526,22 @@ class SubtitleCorrectorGUI:
 
             btn.config(command=make_command(command, btn))
             btn.pack(fill=tk.X, pady=2)
+
+    def update_file_list_placeholder(self):
+        """Show placeholder text when file list is empty."""
+        if len(self.files_data) == 0:
+            self.file_listbox.delete(0, tk.END)
+            self.file_listbox.insert(0, "")
+            self.file_listbox.insert(1, "     📁 No files added yet")
+            self.file_listbox.insert(2, "")
+            self.file_listbox.insert(3, "     Click '➕ Add Files' button above")
+            self.file_listbox.insert(4, "     to select .srt subtitle files")
+            self.file_listbox.insert(5, "")
+            self.file_listbox.insert(6, "     Multiple files supported!")
+            # Disable selection on placeholder
+            self.file_listbox.config(state=tk.DISABLED)
+        else:
+            self.file_listbox.config(state=tk.NORMAL)
 
     def get_language_flag(self, language):
         """Get the flag emoji for a language."""
@@ -1018,8 +1022,8 @@ def launch_gui():
     app = SubtitleCorrectorGUI(root)
 
     # Set window size and make it resizable
-    root.geometry("1000x700")
-    root.minsize(800, 600)
+    root.geometry("1400x700")
+    root.minsize(1200, 600)
 
     root.mainloop()
 
