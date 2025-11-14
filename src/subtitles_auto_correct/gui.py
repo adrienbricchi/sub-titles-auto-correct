@@ -49,6 +49,50 @@ from subtitles_auto_correct.utils.strings_utils import (
 )
 
 
+def native_file_dialog(parent, title="Select File", filetypes=None, initialdir=None):
+    """
+    Use OS-native file dialog when available.
+    Falls back to tkinter dialog if native dialog is not available.
+    """
+    # Try zenity (GNOME/GTK)
+    if sys.platform.startswith("linux"):
+        try:
+            # Try zenity first (most common on Linux)
+            cmd = ["zenity", "--file-selection", f"--title={title}"]
+            if filetypes and filetypes[0][1] != "*.*":
+                # Add file filter for .srt files
+                cmd.append(f"--file-filter={filetypes[0][0]} | {filetypes[0][1]}")
+            if initialdir:
+                cmd.append(f"--filename={initialdir}/")
+
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+            if result.returncode == 0:
+                return result.stdout.strip()
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            pass
+
+        # Try kdialog (KDE)
+        try:
+            cmd = ["kdialog", "--getopenfilename", initialdir or os.path.expanduser("~")]
+            if filetypes and filetypes[0][1] != "*.*":
+                cmd.append(filetypes[0][1])
+            cmd.append(f"--title={title}")
+
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+            if result.returncode == 0:
+                return result.stdout.strip()
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            pass
+
+    # Fallback to tkinter dialog (works on all platforms)
+    return filedialog.askopenfilename(
+        parent=parent,
+        title=title,
+        filetypes=filetypes or [("All files", "*.*")],
+        initialdir=initialdir or os.path.expanduser("~")
+    )
+
+
 def is_dark_mode():
     """Detect if the OS is using dark mode."""
     try:
@@ -336,9 +380,11 @@ class SubtitleCorrectorGUI:
 
     def select_file(self):
         """Select a .srt subtitle file."""
-        filename = filedialog.askopenfilename(
+        filename = native_file_dialog(
+            parent=self.root,
             title="Select Subtitle File",
-            filetypes=[("SRT files", "*.srt"), ("All files", "*.*")]
+            filetypes=[("SRT files", "*.srt"), ("All files", "*.*")],
+            initialdir=os.path.expanduser("~")
         )
 
         if filename:
