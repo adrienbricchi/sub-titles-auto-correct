@@ -9,6 +9,8 @@ Provides buttons for each type of correction that can be applied.
 import tkinter as tk
 from tkinter import filedialog, scrolledtext, messagebox
 import os
+import sys
+import subprocess
 
 from subtitles_auto_correct.models.subtitle import Subtitle
 from subtitles_auto_correct.utils.file_utils import get_file_text, write_file, get_file_language
@@ -47,6 +49,104 @@ from subtitles_auto_correct.utils.strings_utils import (
 )
 
 
+def is_dark_mode():
+    """Detect if the OS is using dark mode."""
+    try:
+        if sys.platform == "darwin":  # macOS
+            result = subprocess.run(
+                ["defaults", "read", "-g", "AppleInterfaceStyle"],
+                capture_output=True,
+                text=True
+            )
+            return result.returncode == 0 and "Dark" in result.stdout
+
+        elif sys.platform == "win32":  # Windows
+            try:
+                import winreg
+                key = winreg.OpenKey(
+                    winreg.HKEY_CURRENT_USER,
+                    r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"
+                )
+                value, _ = winreg.QueryValueEx(key, "AppsUseLightTheme")
+                return value == 0
+            except:
+                return False
+
+        else:  # Linux/Unix
+            # Check GTK theme
+            gtk_theme = os.environ.get("GTK_THEME", "")
+            if "dark" in gtk_theme.lower():
+                return True
+
+            # Check gsettings for GNOME
+            try:
+                result = subprocess.run(
+                    ["gsettings", "get", "org.gnome.desktop.interface", "gtk-theme"],
+                    capture_output=True,
+                    text=True,
+                    timeout=1
+                )
+                theme = result.stdout.strip().strip("'\"").lower()
+                return "dark" in theme or "adwaita-dark" in theme
+            except:
+                pass
+
+            # Check KDE plasma theme
+            try:
+                kde_config = os.path.expanduser("~/.config/kdeglobals")
+                if os.path.exists(kde_config):
+                    with open(kde_config, 'r') as f:
+                        content = f.read().lower()
+                        if "colorscheme=breezedark" in content or "dark" in content:
+                            return True
+            except:
+                pass
+
+    except Exception:
+        pass
+
+    return False
+
+
+class Theme:
+    """Color theme definitions for light and dark modes."""
+    def __init__(self, is_dark):
+        if is_dark:
+            # Dark theme colors
+            self.bg = "#2b2b2b"
+            self.fg = "#e0e0e0"
+            self.button_bg = "#3c3f41"
+            self.button_fg = "#e0e0e0"
+            self.button_active_bg = "#4b4d4f"
+            self.entry_bg = "#3c3f41"
+            self.entry_fg = "#e0e0e0"
+            self.label_bg = "#2b2b2b"
+            self.label_fg = "#e0e0e0"
+            self.frame_bg = "#2b2b2b"
+            self.section_bg = "#3c3f41"
+            self.section_fg = "#e0e0e0"
+            self.status_bg = "#1e1e1e"
+            self.status_fg = "#e0e0e0"
+            self.highlight = "#4a90e2"
+        else:
+            # Light theme colors (default)
+            self.bg = "#f0f0f0"
+            self.fg = "#000000"
+            self.button_bg = "#e0e0e0"
+            self.button_fg = "#000000"
+            self.button_active_bg = "#d0d0d0"
+            self.entry_bg = "#ffffff"
+            self.entry_fg = "#000000"
+            self.label_bg = "#f0f0f0"
+            self.label_fg = "#000000"
+            self.frame_bg = "#f0f0f0"
+            self.section_bg = "#f0f0f0"
+            self.section_fg = "#000000"
+            self.status_bg = "#e0e0e0"
+            self.status_fg = "#000000"
+            self.highlight = "#0078d7"
+
+
 class SubtitleCorrectorGUI:
     def __init__(self, root):
         self.root = root
@@ -54,25 +154,39 @@ class SubtitleCorrectorGUI:
         self.current_file = None
         self.current_language = None
 
+        # Initialize theme based on OS settings
+        self.theme = Theme(is_dark_mode())
+
+        # Apply theme to root window
+        self.root.configure(bg=self.theme.bg)
+
         # Create UI
         self.create_ui()
 
     def create_ui(self):
         """Create the minimal GUI interface."""
         # File selection section
-        file_frame = tk.Frame(self.root, padx=10, pady=10)
+        file_frame = tk.Frame(self.root, padx=10, pady=10, bg=self.theme.bg)
         file_frame.pack(fill=tk.X)
 
-        tk.Label(file_frame, text="File:").pack(side=tk.LEFT)
-        self.file_label = tk.Label(file_frame, text="No file selected", fg="gray")
+        tk.Label(file_frame, text="File:", bg=self.theme.bg, fg=self.theme.fg).pack(side=tk.LEFT)
+        self.file_label = tk.Label(file_frame, text="No file selected", fg="gray", bg=self.theme.bg)
         self.file_label.pack(side=tk.LEFT, padx=10)
 
-        tk.Button(file_frame, text="Select .srt File", command=self.select_file).pack(side=tk.RIGHT)
+        tk.Button(
+            file_frame,
+            text="Select .srt File",
+            command=self.select_file,
+            bg=self.theme.button_bg,
+            fg=self.theme.button_fg,
+            activebackground=self.theme.button_active_bg,
+            activeforeground=self.theme.button_fg
+        ).pack(side=tk.RIGHT)
 
         # Create a scrollable frame for all buttons
-        canvas = tk.Canvas(self.root)
+        canvas = tk.Canvas(self.root, bg=self.theme.bg, highlightthickness=0)
         scrollbar = tk.Scrollbar(self.root, orient="vertical", command=canvas.yview)
-        scrollable_frame = tk.Frame(canvas)
+        scrollable_frame = tk.Frame(canvas, bg=self.theme.bg)
 
         scrollable_frame.bind(
             "<Configure>",
@@ -82,19 +196,49 @@ class SubtitleCorrectorGUI:
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
 
+        # Enable mouse wheel scrolling
+        def on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+
+        def on_mousewheel_linux(event):
+            if event.num == 4:
+                canvas.yview_scroll(-1, "units")
+            elif event.num == 5:
+                canvas.yview_scroll(1, "units")
+
+        canvas.bind_all("<MouseWheel>", on_mousewheel)  # Windows/MacOS
+        canvas.bind_all("<Button-4>", on_mousewheel_linux)  # Linux scroll up
+        canvas.bind_all("<Button-5>", on_mousewheel_linux)  # Linux scroll down
+
         # Main corrections frame
-        main_frame = tk.Frame(scrollable_frame, padx=10, pady=10)
+        main_frame = tk.Frame(scrollable_frame, padx=10, pady=10, bg=self.theme.bg)
         main_frame.pack(fill=tk.BOTH, expand=True)
 
-        # AGGREGATE CORRECTIONS (most commonly used)
+        # AGGREGATE CORRECTIONS at the top (spanning full width)
         self.create_section(main_frame, "🔧 QUICK CORRECTIONS", [
             ("All Single-Line Corrections", self.apply_all_single_line),
             ("All Multi-Line Corrections", self.apply_all_multi_line),
             ("All Corrections (Single + Multi)", self.apply_all_corrections),
         ])
 
-        # SINGLE-LINE CORRECTIONS - Character Fixes
-        self.create_section(main_frame, "📝 Character Fixes", [
+        # Create 2-column layout
+        columns_frame = tk.Frame(main_frame, bg=self.theme.bg)
+        columns_frame.pack(fill=tk.BOTH, expand=True, pady=10)
+
+        # LEFT COLUMN - Single-line corrections
+        left_column = tk.Frame(columns_frame, padx=5, bg=self.theme.bg)
+        left_column.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        tk.Label(
+            left_column,
+            text="SINGLE-LINE CORRECTIONS",
+            font=("Arial", 10, "bold"),
+            bg=self.theme.bg,
+            fg=self.theme.fg
+        ).pack(pady=5)
+
+        # Character Fixes
+        self.create_section(left_column, "📝 Character Fixes", [
             ("Fix À (Accentuated A)", self.apply_accentuated_capital_a),
             ("Fix I → l (capital I to lowercase L)", self.apply_capital_i_to_l),
             ("Fix V → v (capital V to lowercase)", self.apply_capital_v_to_v),
@@ -102,8 +246,8 @@ class SubtitleCorrectorGUI:
             ("Fix l → I (lowercase L to capital I)", self.apply_l_to_capital_i),
         ])
 
-        # SINGLE-LINE CORRECTIONS - Punctuation
-        self.create_section(main_frame, "🔤 Punctuation Fixes", [
+        # Punctuation
+        self.create_section(left_column, "🔤 Punctuation Fixes", [
             ("Fix Punctuation Errors (... dots, dashes)", self.apply_punctuation_errors),
             ("Fix Punctuation Spaces (?, !)", self.apply_punctuation_spaces),
             ("Fix Dialog Hyphens (- spacing)", self.apply_dialog_hyphen),
@@ -112,8 +256,8 @@ class SubtitleCorrectorGUI:
             ("Fix Quotes (\" and ')", self.apply_quotes),
         ])
 
-        # SINGLE-LINE CORRECTIONS - Formatting
-        self.create_section(main_frame, "🎨 Format Fixes", [
+        # Formatting
+        self.create_section(left_column, "🎨 Format Fixes", [
             ("Fix Italic Tags (<i></i>)", self.apply_italic_tag_errors),
             ("Fix Common Errors (unicode quotes, dashes)", self.apply_common_errors),
             ("Fix Numbers (spacing, formatting)", self.apply_numbers),
@@ -121,8 +265,20 @@ class SubtitleCorrectorGUI:
             ("Fix Common Misspells (from CSV)", self.apply_common_misspells),
         ])
 
-        # MULTI-LINE CORRECTIONS
-        self.create_section(main_frame, "📋 Multi-Line Fixes", [
+        # RIGHT COLUMN - Multi-line corrections
+        right_column = tk.Frame(columns_frame, padx=5, bg=self.theme.bg)
+        right_column.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+
+        tk.Label(
+            right_column,
+            text="MULTI-LINE CORRECTIONS",
+            font=("Arial", 10, "bold"),
+            bg=self.theme.bg,
+            fg=self.theme.fg
+        ).pack(pady=5)
+
+        # Multi-line fixes
+        self.create_section(right_column, "📋 Multi-Line Fixes", [
             ("Remove 3D Duplicates", self.apply_3d_doubles),
             ("Remove Empty Lines", self.apply_empty_lines),
             ("Remove Redundant Italic Tags", self.apply_redundant_italic_tag),
@@ -132,8 +288,8 @@ class SubtitleCorrectorGUI:
             ("Remove SDH Tags ([SOUND], ♪, etc.)", self.apply_sdh_tags),
         ])
 
-        # EXTERNAL SPELL CHECKERS
-        self.create_section(main_frame, "🔍 External Spell Checkers", [
+        # External spell checkers
+        self.create_section(right_column, "🔍 External Spell Checkers", [
             ("MS Word Spell Check", self.apply_ms_word_spell_check),
             ("LibreOffice Writer Spell Check", self.apply_libreoffice_spell_check),
         ])
@@ -142,16 +298,41 @@ class SubtitleCorrectorGUI:
         scrollbar.pack(side="right", fill="y")
 
         # Status bar
-        self.status_label = tk.Label(self.root, text="Ready", bd=1, relief=tk.SUNKEN, anchor=tk.W)
+        self.status_label = tk.Label(
+            self.root,
+            text="Ready",
+            bd=1,
+            relief=tk.SUNKEN,
+            anchor=tk.W,
+            bg=self.theme.status_bg,
+            fg=self.theme.status_fg
+        )
         self.status_label.pack(side=tk.BOTTOM, fill=tk.X)
 
     def create_section(self, parent, title, buttons):
         """Create a section with a title and buttons."""
-        frame = tk.LabelFrame(parent, text=title, padx=10, pady=5)
+        frame = tk.LabelFrame(
+            parent,
+            text=title,
+            padx=10,
+            pady=5,
+            bg=self.theme.section_bg,
+            fg=self.theme.section_fg
+        )
         frame.pack(fill=tk.X, pady=5)
 
         for text, command in buttons:
-            tk.Button(frame, text=text, command=command, width=50, anchor=tk.W).pack(fill=tk.X, pady=2)
+            tk.Button(
+                frame,
+                text=text,
+                command=command,
+                width=50,
+                anchor=tk.W,
+                bg=self.theme.button_bg,
+                fg=self.theme.button_fg,
+                activebackground=self.theme.button_active_bg,
+                activeforeground=self.theme.button_fg
+            ).pack(fill=tk.X, pady=2)
 
     def select_file(self):
         """Select a .srt subtitle file."""
@@ -163,7 +344,7 @@ class SubtitleCorrectorGUI:
         if filename:
             self.current_file = filename
             self.current_language = get_file_language(filename)
-            self.file_label.config(text=os.path.basename(filename), fg="black")
+            self.file_label.config(text=os.path.basename(filename), fg=self.theme.fg)
             self.status_label.config(text=f"Loaded: {filename} (Language: {self.current_language})")
 
     def check_file_selected(self):
@@ -453,7 +634,11 @@ def launch_gui():
     """Launch the GUI application."""
     root = tk.Tk()
     app = SubtitleCorrectorGUI(root)
-    root.geometry("700x600")
+
+    # Set window size and make it resizable
+    root.geometry("1000x700")
+    root.minsize(800, 600)
+
     root.mainloop()
 
 
