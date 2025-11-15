@@ -23,6 +23,7 @@ import fnmatch               # recursive research in folders
 import os                    # system calls (open directories)
 import io                    # file encoding
 import re                    # regex
+import chardet               # detect file encoding
 
 
 def clean_space_in_filename(file_path):
@@ -184,3 +185,94 @@ def get_file_language(path):
         language = "eng"
 
     return language
+
+
+def detect_file_encoding(file_path, sample_size=8192):
+    """Detect the character encoding of a file.
+
+    Uses the chardet library to analyze file content and determine its encoding.
+    Reads a sample of the file to improve performance for large files.
+
+    :param file_path: string, path to the file to analyze
+    :param sample_size: int, number of bytes to read for analysis (default: 8192)
+    :return: dict with 'encoding' (str), 'confidence' (float), and 'language' (str or None)
+             Returns None if file cannot be read or encoding cannot be detected
+    """
+    try:
+        with open(file_path, 'rb') as f:
+            raw_data = f.read(sample_size)
+
+        if not raw_data:
+            return None
+
+        result = chardet.detect(raw_data)
+        return result
+
+    except (IOError, OSError) as e:
+        print(f"Error reading file '{file_path}': {e}")
+        return None
+
+
+def convert_to_utf8(file_path, in_place=True, backup=True):
+    """Convert a file to UTF-8 encoding automatically.
+
+    Detects the current encoding and converts the file to UTF-8.
+    Can create a backup before conversion and either modify in-place or create a new file.
+
+    :param file_path: string, path to the file to convert
+    :param in_place: bool, if True modifies the file in-place, if False creates .utf8 copy
+    :param backup: bool, if True creates a backup before in-place conversion
+    :return: dict with 'success' (bool), 'original_encoding' (str), 'confidence' (float),
+             'new_file' (str or None) or None if conversion failed
+    """
+    # Detect current encoding
+    encoding_info = detect_file_encoding(file_path)
+
+    if not encoding_info or not encoding_info.get('encoding'):
+        print(f"Could not detect encoding for '{file_path}'")
+        return None
+
+    detected_encoding = encoding_info['encoding']
+    confidence = encoding_info.get('confidence', 0)
+
+    # If already UTF-8, no conversion needed
+    if detected_encoding.lower() in ['utf-8', 'utf8', 'ascii']:
+        print(f"File '{file_path}' is already in {detected_encoding}")
+        return {
+            'success': True,
+            'original_encoding': detected_encoding,
+            'confidence': confidence,
+            'new_file': None
+        }
+
+    try:
+        # Read file with detected encoding
+        with io.open(file_path, mode='r', encoding=detected_encoding, errors='ignore') as source:
+            content = source.read()
+
+        # Determine output file path
+        if in_place:
+            if backup:
+                backup_file(file_path)
+            output_path = file_path
+        else:
+            # Create a new file with .utf8 extension
+            base, ext = os.path.splitext(file_path)
+            output_path = f"{base}.utf8{ext}"
+
+        # Write as UTF-8
+        with io.open(output_path, mode='w', encoding='utf-8') as target:
+            target.write(content)
+
+        print(f"Converted '{file_path}' from {detected_encoding} to UTF-8 (confidence: {confidence:.2%})")
+
+        return {
+            'success': True,
+            'original_encoding': detected_encoding,
+            'confidence': confidence,
+            'new_file': output_path if not in_place else None
+        }
+
+    except (IOError, OSError, UnicodeDecodeError) as e:
+        print(f"Error converting file '{file_path}': {e}")
+        return None

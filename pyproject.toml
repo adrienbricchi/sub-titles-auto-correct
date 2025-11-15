@@ -27,6 +27,9 @@ classifiers = [
     "Topic :: Multimedia :: Video",
     "Topic :: Text Processing",
 ]
+dependencies = [
+    "chardet>=3.0.4",
+]
 
 [project.urls]
 Homepage = "https://github.com/adrienbricchi/sub-titles-auto-correct"
