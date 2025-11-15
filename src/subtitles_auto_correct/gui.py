@@ -197,6 +197,7 @@ class SubtitleCorrectorGUI:
         self.root.title("Subtitle Auto Corrector")
         self.files_data = []  # List of dicts: {'path': str, 'language': str}
         self.selected_indices = []
+        self.correction_buttons = {}  # Maps correction name to button widget
 
         # Initialize theme based on OS settings
         self.theme = Theme(is_dark_mode())
@@ -308,6 +309,12 @@ class SubtitleCorrectorGUI:
             ("Fix V → v (capital V to lowercase)", self.apply_capital_v_to_v),
             ("Fix 0 → o (zero to letter O)", self.apply_zero_to_o),
             ("Fix l → I (lowercase L to capital I)", self.apply_l_to_capital_i),
+        ], correction_names=[
+            "accentuated_capital_a",
+            "capital_i_to_l",
+            "capital_v_to_v",
+            "zero_to_o",
+            "l_to_capital_i",
         ])
 
         # Punctuation
@@ -318,6 +325,13 @@ class SubtitleCorrectorGUI:
             ("Fix Degree Symbol (°)", self.apply_degree_symbol),
             ("Fix Colons (:)", self.apply_colon),
             ("Fix Quotes (\" and ')", self.apply_quotes),
+        ], correction_names=[
+            "punctuation_errors",
+            "punctuation_spaces",
+            "dialog_hyphen",
+            "degree_symbol",
+            "colon",
+            "quotes",
         ])
 
         # Formatting
@@ -327,6 +341,12 @@ class SubtitleCorrectorGUI:
             ("Fix Numbers (spacing, formatting)", self.apply_numbers),
             ("Fix Acronyms (U.S. A → U.S.A)", self.apply_acronyms),
             ("Fix Common Misspells (from CSV)", self.apply_common_misspells),
+        ], correction_names=[
+            "italic_tag_errors",
+            "common_errors",
+            "numbers",
+            "acronyms",
+            "common_misspells",
         ])
 
         # Apply All button for left column
@@ -363,9 +383,17 @@ class SubtitleCorrectorGUI:
             ("Add Missing Dialog Hyphens", self.apply_missing_dialog_hyphen),
             ("Fix Double Quote Balance", self.apply_double_quotes_errors),
             ("Remove SDH Tags ([SOUND], ♪, etc.)", self.apply_sdh_tags),
+        ], correction_names=[
+            "3d_doubles",
+            "empty_lines",
+            "redundant_italic_tag",
+            "useless_dialog_hyphen",
+            "missing_dialog_hyphen",
+            "double_quotes_errors",
+            "sdh_tags",
         ])
 
-        # External spell checkers
+        # External spell checkers (no dry-run for external tools)
         self.create_section(right_column, "External Spell Checkers", [
             ("MS Word Spell Check", self.apply_ms_word_spell_check),
             ("LibreOffice Writer Spell Check", self.apply_libreoffice_spell_check),
@@ -496,7 +524,7 @@ class SubtitleCorrectorGUI:
         )
         self.status_label.pack(side=tk.BOTTOM, fill=tk.X)
 
-    def create_section(self, parent, title, buttons):
+    def create_section(self, parent, title, buttons, correction_names=None):
         """Create a section with a title and buttons."""
         frame = tk.LabelFrame(
             parent,
@@ -508,7 +536,7 @@ class SubtitleCorrectorGUI:
         )
         frame.pack(fill=tk.X, pady=5)
 
-        for text, command in buttons:
+        for idx, (text, command) in enumerate(buttons):
             btn = tk.Button(
                 frame,
                 text=text,
@@ -520,11 +548,15 @@ class SubtitleCorrectorGUI:
                 activeforeground=self.theme.button_fg
             )
 
+            # Store button reference if correction name provided
+            if correction_names and idx < len(correction_names):
+                self.correction_buttons[correction_names[idx]] = btn
+
             # Wrap command to add visual feedback
             def make_command(original_cmd, button):
                 def wrapped_cmd():
-                    # Grey out button
-                    button.config(bg="#808080", fg="#a0a0a0")
+                    # Grey out button (darker grey for "clicked")
+                    button.config(bg="#707070", fg="#999999")
                     # Execute original command
                     original_cmd()
                 return wrapped_cmd
@@ -602,6 +634,127 @@ class SubtitleCorrectorGUI:
         lang_lower = language.lower()
         return self.language_flags.get(lang_lower, self.language_flags['default'])
 
+    def update_button_states(self):
+        """Update button states based on dry-run tests."""
+        if not self.files_data:
+            return
+
+        self.status_label.config(text="Testing corrections...")
+        self.root.update()
+
+        # Mapping of correction names to their test functions
+        correction_tests = {
+            # Single-line corrections
+            "accentuated_capital_a": (fix_accentuated_capital_a, False, False),
+            "capital_i_to_l": (fix_capital_i_to_l, False, True),
+            "capital_v_to_v": (fix_capital_v_to_v, False, True),
+            "zero_to_o": (fix_zero_to_o, False, False),
+            "l_to_capital_i": (fix_l_to_capital_i, False, False),
+            "punctuation_errors": (fix_punctuation_errors, False, False),
+            "punctuation_spaces": (fix_punctuation_spaces, False, True),
+            "dialog_hyphen": (fix_dialog_hyphen, False, False),
+            "degree_symbol": (fix_degree_symbol, False, False),
+            "colon": (fix_colon, False, True),
+            "quotes": (fix_quotes, False, True),
+            "italic_tag_errors": (fix_italic_tag_errors, False, False),
+            "common_errors": (fix_common_errors, False, False),
+            "numbers": (fix_numbers, False, True),
+            "acronyms": (fix_acronyms, False, False),
+            "common_misspells": (fix_common_misspells, False, True),
+            # Multi-line corrections
+            "3d_doubles": (fix_3d_doubles, True, False),
+            "empty_lines": (fix_empty_lines, True, False),
+            "redundant_italic_tag": (fix_redundant_italic_tag, True, False),
+            "useless_dialog_hyphen": (fix_useless_dialog_hyphen, True, False),
+            "missing_dialog_hyphen": (fix_missing_dialog_hyphen, True, False),
+            "double_quotes_errors": (fix_double_quotes_errors, True, False),
+            "sdh_tags": (fix_sdh_tags, True, False),
+        }
+
+        # Test each correction
+        for correction_name, (correction_func, is_multi_line, needs_language) in correction_tests.items():
+            if correction_name not in self.correction_buttons:
+                continue
+
+            button = self.correction_buttons[correction_name]
+            has_changes = self.test_correction(correction_func, is_multi_line, needs_language)
+
+            if not has_changes:
+                # Grey out button (lighter grey for "no changes")
+                button.config(bg="#a0a0a0", fg="#c0c0c0")
+            else:
+                # Reset to normal theme color
+                button.config(bg=self.theme.button_bg, fg=self.theme.button_fg)
+
+        self.status_label.config(text=f"{len(self.files_data)} file(s) loaded")
+
+    def test_correction(self, correction_func, is_multi_line, needs_language):
+        """Test if a correction would make any changes to any selected/all files."""
+        import tempfile
+
+        files_to_test = self.get_selected_files() if self.selected_indices else self.files_data
+
+        for file_data in files_to_test:
+            file_path = file_data['path']
+            language = file_data['language']
+
+            try:
+                # Read original file
+                original_lines = get_file_text(file_path, True)
+
+                # Create temp file for dry run
+                with tempfile.NamedTemporaryFile(mode='w', suffix='.srt', delete=False, encoding='utf-8') as tmp:
+                    tmp_path = tmp.name
+
+                try:
+                    # Apply correction to temp file
+                    subtitles = Subtitle.subtitles_from_lines(original_lines)
+
+                    if is_multi_line:
+                        # Multi-line correction
+                        for subtitle in subtitles:
+                            corrected_lines = correction_func(subtitle.lines)
+                            subtitle.set_lines(corrected_lines)
+                    else:
+                        # Single-line correction
+                        for subtitle in subtitles:
+                            corrected_lines = []
+                            for line in subtitle.get_lines():
+                                if needs_language:
+                                    line = correction_func(line, language)
+                                else:
+                                    line = correction_func(line)
+                                corrected_lines.append(line)
+                            subtitle.set_lines(corrected_lines)
+
+                    # Write to temp file
+                    new_lines = []
+                    for subtitle in subtitles:
+                        if len(subtitle.lines) > 0:
+                            new_lines += subtitle.to_lines()
+                            new_lines.append("\n")
+
+                    write_file(tmp_path, new_lines)
+
+                    # Compare files
+                    corrected_lines = get_file_text(tmp_path, True)
+
+                    # Check if content changed
+                    if original_lines != corrected_lines:
+                        return True  # Has changes
+
+                finally:
+                    # Clean up temp file
+                    if os.path.exists(tmp_path):
+                        os.remove(tmp_path)
+
+            except Exception as e:
+                # If error, assume correction might be needed
+                print(f"Error testing correction on {file_path}: {e}")
+                continue
+
+        return False  # No changes in any file
+
     def select_files(self):
         """Select one or multiple .srt subtitle files."""
         # Try to use native file dialog with multiple selection
@@ -667,12 +820,20 @@ class SubtitleCorrectorGUI:
 
         self.status_label.config(text=f"Loaded {len(self.files_data)} file(s)")
 
+        # Run dry-run tests on all corrections to update button states
+        self.update_button_states()
+
     def on_file_select(self, event):
         """Handle file selection in listbox."""
         self.selected_indices = list(self.file_listbox.curselection())
         if self.selected_indices:
             count = len(self.selected_indices)
             self.status_label.config(text=f"{count} file(s) selected")
+            # Update button states based on new selection
+            self.update_button_states()
+        else:
+            # No selection - update for all files
+            self.update_button_states()
 
     def remove_selected_files(self):
         """Remove selected files from the list."""
@@ -690,6 +851,9 @@ class SubtitleCorrectorGUI:
         # Show placeholder if list is now empty
         if len(self.files_data) == 0:
             self.update_file_list_placeholder()
+        else:
+            # Update button states for remaining files
+            self.update_button_states()
 
         self.status_label.config(text=f"{len(self.files_data)} file(s) remaining")
 
